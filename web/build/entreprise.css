@@ -1,0 +1,18 @@
+p {
+  text-align: justify;
+}
+
+.entreprise {
+  width: 90%;
+}
+
+.entreprise h1 {
+  text-align: center;
+  margin-bottom: 5vw;
+}
+
+.article {
+  padding: 0 1vw 0 1vw;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2NvcmFsaWUvQnVyZWF1L2NhbGRleC9hc3NldHMvc2Nzcy9lbnRyZXByaXNlLnNjc3MiXSwic291cmNlc0NvbnRlbnQiOlsicHtcbiAgdGV4dC1hbGlnbjoganVzdGlmeTtcbn1cbi5lbnRyZXByaXNle1xuICB3aWR0aDogOTAlO1xuICBoMXtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgbWFyZ2luLWJvdHRvbTogNXZ3O1xuICB9XG59XG5cbi5hcnRpY2xle1xuICBwYWRkaW5nOiAwIDF2dyAwIDF2dztcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxBQUFBLENBQUMsQ0FBQTtFQUNDLFVBQVUsRUFBRSxPQUFPLEdBQ3BCOztBQUNELEFBQUEsV0FBVyxDQUFBO0VBQ1QsS0FBSyxFQUFFLEdBQUcsR0FLWDtFQU5ELEFBRUUsV0FGUyxDQUVULEVBQUUsQ0FBQTtJQUNBLFVBQVUsRUFBRSxNQUFNO0lBQ2xCLGFBQWEsRUFBRSxHQUFHLEdBQ25COztBQUdILEFBQUEsUUFBUSxDQUFBO0VBQ04sT0FBTyxFQUFFLFdBQVcsR0FDckIifQ== */
