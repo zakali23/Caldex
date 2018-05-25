@@ -1,10 +1,129 @@
 
+{# add this at the beginning of your template #}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{# this alternative theme is also available #}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+<div class="container">
+    <h1>Demande de Devis</h1></br>
+    <div class="row">
+
+        {{ form_start(form) }}
 
 
-    <h1>Demande de Devis</h1>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Vous êtes</label>
+            </div>
+        {{ form_widget(form.vousEtes, { 'attr': {'class': 'custom-select'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Vous souhaitez *</label>
+            </div>
+            {{ form_widget(form.vousSouhaitez, { 'attr': {'class': 'custom-select'} }) }}
+        </div>
+        <h1>Contact</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Civilité *</label>
+            </div>
+            {{ form_widget(form.civilitecontact, { 'attr': {'class': 'custom-select'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Nom</label>
+            </div>
+            {{ form_widget(form.nomContact, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Prenom</label>
+            </div>
+            {{ form_widget(form.prenomContact, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Email</label>
+            </div>
+            {{ form_widget(form.emailContact, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Téléphone</label>
+            </div>
+            {{ form_widget(form.phoneContact, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Adresse</label>
+            </div>
+            {{ form_widget(form.adresseContact, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <h1>Syndic</h1>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Nom *</label>
+            </div>
+            {{ form_widget(form.nomSyndic, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Adresse *</label>
+            </div>
+            {{ form_widget(form.adresseSyndic, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Téléphone *</label>
+            </div>
+            {{ form_widget(form.phoneSyndic, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Email *</label>
+            </div>
+            {{ form_widget(form.emailSyndic, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <h1>La résidence</h1>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Nom de la résidence *</label>
+            </div>
+            {{ form_widget(form.nomResidence, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Adresse de résidence *</label>
+            </div>
+            {{ form_widget(form.adresseResidence, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Date de l’Assemblée Générale *</label>
+            </div>
+            {{ form_widget(form.dateAG, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Nombre de logements *</label>
+            </div>
+            {{ form_widget(form.nblogement, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Immeuble *</label>
+            </div>
+            {{ form_widget(form.immeuble, { 'attr': {'class': 'custom-select'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Message *</label>
+            </div>
+            {{ form_widget(form.message, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <button class="btn btn-labeled btn-success" type="submit">Envoyer</button>
+        {{ form_end(form) }}
+    </div>
+</div>
