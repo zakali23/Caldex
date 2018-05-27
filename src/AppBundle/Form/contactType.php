@@ -18,21 +18,21 @@ class contactType extends AbstractType
         $builder
             ->add('vousEtes', ChoiceType::class, array(
                 'choices'  => [
-                    'choisissez' => 'null',
+                    'Choisissez' => 'null',
                     'Syndic' => 'Syndic',
                     'Locataire' => 'locataire',
                     'Autre' => 'Autre'
                 ]))
             ->add('vousSouhaitez', ChoiceType::class, array(
                 'choices'  => [
-                    'choisissez' => 'null',
+                    'Choisissez' => 'null',
                     'maîtriser les consommations d’énergie' => 'maitriser les consommations d’energie',
                     "maîtriser les consommations d'eau" => 'maitriser les consommations d’energie'
 
                 ]))
             ->add('civilitecontact', ChoiceType::class, array(
                 'choices'  => [
-                    'choisissez' => 'null',
+                    'Choisissez' => 'null',
                     'Madame' => 'Madame',
                     'Monsieur' => 'Monsieur'
 
@@ -52,7 +52,7 @@ class contactType extends AbstractType
             ->add('nblogement')
             ->add('immeuble', ChoiceType::class, array(
                 'choices'  => [
-                    'choisissez' => 'null',
+                    'Choisissez' => 'null',
                     'Ancien' => 'Ancien',
                     'Neuf' => 'Neuf',
                     'Recent' => 'Recent'
