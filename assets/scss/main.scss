@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $brand-primary: darken(#428bca, 20%);
 h6{
   color: $brand-primary;
@@ -35,3 +36,7 @@ h6{
 .residence{
   display: none;
 }
+=======
+// the ~ allows you to reference things in node_modules
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+>>>>>>> 92f5139ddf17bbf506d0e57cf166193b8ff3e91d

@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 console.log('Bienvenue sur WebPack!');
+=======
+>>>>>>> 92f5139ddf17bbf506d0e57cf166193b8ff3e91d
 import $ from "jquery"
 
 $(document).ready(function () {
     console.log("ok, JQuery fonctionne !");
 });
 
+<<<<<<< HEAD
 console.log('Bienvenue sur WebPack!');
 
 $(document).ready(function()
@@ -49,3 +53,6 @@ $(document).ready(function () {
     });
 });
 
+=======
+console.log('Bienvenue sur WebPack!');
+>>>>>>> 92f5139ddf17bbf506d0e57cf166193b8ff3e91d
