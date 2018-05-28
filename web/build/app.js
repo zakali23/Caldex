@@ -77,6 +77,10 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+<<<<<<< HEAD
+=======
+console.log('Bienvenue sur WebPack!');
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
 
 
 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
@@ -85,6 +89,48 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
 
 console.log('Bienvenue sur WebPack!');
 
+<<<<<<< HEAD
+=======
+__WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
+    __WEBPACK_IMPORTED_MODULE_0_jquery___default()("#appbundle_contact_vousEtes").change(function () {
+        if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).val() === "Syndic") {
+            // language=JQuery-CSS
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact").css({ "display": "none" });
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".syndic").css({ "display": "contents" });
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".residence").css({ "display": "contents" });
+        } else {
+            if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).val() === "null") {
+                // language=JQuery-CSS
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact").css({ "display": "none" });
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".syndic").css({ "display": "none" });
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".residence").css({ "display": "none" });
+            } else {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact").css({ "display": "contents" });
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".syndic").css({ "display": "contents" });
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".residence").css({ "display": "contents" });
+            }
+        }
+    });
+});
+__WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
+
+    //Check to see if the window is top if not then display button
+    __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).scroll(function () {
+        if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).scrollTop() > 20) {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#myBtn').fadeIn();
+        } else {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#myBtn').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#myBtn').click(function () {
+        __WEBPACK_IMPORTED_MODULE_0_jquery___default()('html, body').animate({ scrollTop: 0 }, 800);
+        return false;
+    });
+});
+
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
 /***/ }),
 
 /***/ "./node_modules/jquery/dist/jquery.js":

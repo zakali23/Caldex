@@ -17,7 +17,7 @@
 /web/bundles/
 *.DS_Store
 .DS_Store
-**.idea/
 
-\.idea/
 /composer.lock
+/.idea/
+.idea/workspace.xml

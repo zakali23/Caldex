@@ -4,8 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "b86e60c4995c1325ed52a4071697523e",
     "content-hash": "f9d49fcd25ce947d0dc1ca13f949fd9f",
+=======
+    "content-hash": "ef94d8cde3f72516add463b6dbcdd055",
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -129,8 +133,12 @@
                 "docblock",
                 "parser"
             ],
+<<<<<<< HEAD
             "time": "2017-02-24 16:22:25"
 
+=======
+            "time": "2017-12-06T07:11:42+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         },
         {
             "name": "doctrine/cache",
@@ -204,8 +212,12 @@
                 "cache",
                 "caching"
             ],
+<<<<<<< HEAD
             "time": "2017-07-22 12:49:21"
 
+=======
+            "time": "2017-08-25T07:02:50+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         },
         {
             "name": "doctrine/collections",
@@ -272,7 +284,11 @@
                 "collections",
                 "iterator"
             ],
+<<<<<<< HEAD
             "time": "2017-01-03 10:49:41"
+=======
+            "time": "2017-07-22T10:37:32+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         },
         {
             "name": "doctrine/common",
@@ -345,7 +361,11 @@
                 "persistence",
                 "spl"
             ],
+<<<<<<< HEAD
             "time": "2017-07-22 08:35:12"
+=======
+            "time": "2017-08-31T08:43:38+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         },
         {
             "name": "doctrine/dbal",
@@ -420,7 +440,11 @@
                 "persistence",
                 "queryobject"
             ],
+<<<<<<< HEAD
             "time": "2017-07-22 20:44:48"
+=======
+            "time": "2018-04-07T18:44:18+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -660,7 +684,11 @@
                 "singularize",
                 "string"
             ],
+<<<<<<< HEAD
             "time": "2017-07-22 12:18:28"
+=======
+            "time": "2018-01-09T20:05:19+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         },
         {
             "name": "doctrine/instantiator",
@@ -714,7 +742,11 @@
                 "constructor",
                 "instantiate"
             ],
+<<<<<<< HEAD
             "time": "2015-06-14 21:17:01"
+=======
+            "time": "2017-07-22T11:58:36+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         },
         {
             "name": "doctrine/lexer",
@@ -850,7 +882,11 @@
                 "database",
                 "orm"
             ],
+<<<<<<< HEAD
             "time": "2017-12-17 02:57:51"
+=======
+            "time": "2018-02-27T07:30:56+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         },
         {
             "name": "fig/link-util",
@@ -1132,6 +1168,72 @@
                 "random"
             ],
             "time": "2018-04-04 21:24:14"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v6.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/cb3ea134d4d3729e7857737d5f320cce9caf4d32",
+                "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-filter": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "doctrine/annotations": "1.2.*",
+                "friendsofphp/php-cs-fixer": "^2.2",
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phpunit/phpunit": "^4.8 || ^5.7",
+                "zendframework/zend-eventmanager": "3.0.*",
+                "zendframework/zend-i18n": "2.7.3",
+                "zendframework/zend-serializer": "2.7.*"
+            },
+            "suggest": {
+                "ext-mbstring": "Needed to send email in multibyte encoding charset",
+                "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
+                "psr/log": "For optional PSR-3 debug logging",
+                "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
+                "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPMailer\\PHPMailer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2018-03-27T13:49:45+00:00"
         },
         {
             "name": "psr/cache",
@@ -2328,7 +2430,11 @@
             "keywords": [
                 "templating"
             ],
+<<<<<<< HEAD
             "time": "2018-04-02 09:24:19"
+=======
+            "time": "2018-04-02T09:24:19+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         }
     ],
     "packages-dev": [
@@ -2450,7 +2556,11 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2018-05-16 12:49:49"
+=======
+            "time": "2018-05-16T12:49:49+00:00"
+>>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
         }
     ],
     "aliases": [],
