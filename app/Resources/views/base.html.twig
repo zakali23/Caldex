@@ -3,16 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-<<<<<<< HEAD
-=======
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset('build/style.css') }}">
         {% block stylesheets %}{% endblock %}
->>>>>>> 92f5139ddf17bbf506d0e57cf166193b8ff3e91d
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-        {% block stylesheets %}{% endblock %}
-        <link rel="stylesheet" href="{{ asset('build/style.css') }}">
     </head>
     <body>
         {% block body %}{% endblock %}
