@@ -15,15 +15,17 @@
                 Vous souhaitez une offre de prestation Caldex ou plus d'informations sur nos services ? Merci de nous contacter via ce formulaire et nous vous répondrons dans les plus brefs délais.
 
             </p>
-            <i data-feather="alert-triangle"></i>* Champs obligatoires.
+            <i data-feather="alert-triangle"></i> * Champs obligatoires.
 
         </div>
     </section>
     {% include 'contact/new.html.twig' %}
 
+
     <button onclick="topFunction()" id="myBtn" title="haut de page">
         <i data-feather="chevron-up"></i>
     </button>
+    {% include 'contact/info.html.twig' %}
 {% endblock %}
 {% block javascripts %}
     <script>
