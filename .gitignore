@@ -14,11 +14,8 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
-/web/bundles/
-*.DS_Store
-.DS_Store
 
 /composer.lock
-/.idea/
 /package-lock.json
+**.idea/
 /node_modules/
