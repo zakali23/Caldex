@@ -7,23 +7,23 @@ $(document).ready(function()
     $("#appbundle_contact_vousEtes").change(function() {
         if ($(this).val() === "Syndic") {
             // language=JQuery-CSS
-            $(".contact").css({"display": "none"});
+            $(".contact-form").css({"display": "none"});
             $(".syndic").css({"display": "contents"});
             $(".residence").css({"display": "contents"});
         }
-        else {
-            if ($(this).val() === "null") {
+
+        else if ($(this).val() === "null") {
                 // language=JQuery-CSS
-                $(".contact").css({"display": "none"});
+                $(".contact-form").css({"display": "none"});
                 $(".syndic").css({"display": "none"});
                 $(".residence").css({"display": "none"});
-            }
-            else {
-                $(".contact").css({"display": "contents"});
+        }
+        else {
+                $(".contact-form").css({"display": "contents"});
                 $(".syndic").css({"display": "contents"});
                 $(".residence").css({"display": "contents"});
-            }
         }
+
     });
 });
 
@@ -46,3 +46,29 @@ $(document).ready(function () {
 });
 
 
+var autocomplete = new google.maps.places.Autocomplete($("#appbundle_contact_adresseContact")[0], {});
+
+google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    var place = autocomplete.getPlace();
+    console.log(place.address_components);
+});
+var autocomplete = new google.maps.places.Autocomplete($("#appbundle_contact_adresseSyndic")[0], {});
+
+google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    var place = autocomplete.getPlace();
+    console.log(place.address_components);
+});
+// language=JQuery-CSS
+var autocomplete = new google.maps.places.Autocomplete($("#appbundle_contact_adresseResidence")[0], {});
+
+google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    var place = autocomplete.getPlace();
+    console.log(place.address_components);
+});
+// contact form google map
+var autocomplete = new google.maps.places.Autocomplete($("#form-contact-company")[0], {});
+
+google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    var place = autocomplete.getPlace();
+    console.log(place.address_components);
+});

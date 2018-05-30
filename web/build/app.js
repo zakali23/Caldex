@@ -83,20 +83,18 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
     __WEBPACK_IMPORTED_MODULE_0_jquery___default()("#appbundle_contact_vousEtes").change(function () {
         if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).val() === "Syndic") {
             // language=JQuery-CSS
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact").css({ "display": "none" });
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact-form").css({ "display": "none" });
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".syndic").css({ "display": "contents" });
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".residence").css({ "display": "contents" });
+        } else if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).val() === "null") {
+            // language=JQuery-CSS
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact-form").css({ "display": "none" });
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".syndic").css({ "display": "none" });
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".residence").css({ "display": "none" });
         } else {
-            if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).val() === "null") {
-                // language=JQuery-CSS
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact").css({ "display": "none" });
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".syndic").css({ "display": "none" });
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".residence").css({ "display": "none" });
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact").css({ "display": "contents" });
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".syndic").css({ "display": "contents" });
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".residence").css({ "display": "contents" });
-            }
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contact-form").css({ "display": "contents" });
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".syndic").css({ "display": "contents" });
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".residence").css({ "display": "contents" });
         }
     });
 });
@@ -116,6 +114,33 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
         __WEBPACK_IMPORTED_MODULE_0_jquery___default()('html, body').animate({ scrollTop: 0 }, 800);
         return false;
     });
+});
+
+var autocomplete = new google.maps.places.Autocomplete(__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#appbundle_contact_adresseContact")[0], {});
+
+google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    var place = autocomplete.getPlace();
+    console.log(place.address_components);
+});
+var autocomplete = new google.maps.places.Autocomplete(__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#appbundle_contact_adresseSyndic")[0], {});
+
+google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    var place = autocomplete.getPlace();
+    console.log(place.address_components);
+});
+// language=JQuery-CSS
+var autocomplete = new google.maps.places.Autocomplete(__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#appbundle_contact_adresseResidence")[0], {});
+
+google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    var place = autocomplete.getPlace();
+    console.log(place.address_components);
+});
+// contact form google map
+var autocomplete = new google.maps.places.Autocomplete(__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#form-contact-company")[0], {});
+
+google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    var place = autocomplete.getPlace();
+    console.log(place.address_components);
 });
 
 /***/ }),
