@@ -21,3 +21,4 @@
 /composer.lock
 /.idea/
 .idea/workspace.xml
+/package-lock.json

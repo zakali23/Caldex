@@ -1,17 +1,6 @@
-<<<<<<< HEAD
-=======
-console.log('Bienvenue sur WebPack!');
->>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
 import $ from "jquery"
 
-$(document).ready(function () {
-    console.log("ok, JQuery fonctionne !");
-});
 
-<<<<<<< HEAD
-console.log('Bienvenue sur WebPack!');
-=======
-console.log('Bienvenue sur WebPack!');
 
 $(document).ready(function()
 {
@@ -37,6 +26,7 @@ $(document).ready(function()
         }
     });
 });
+
 $(document).ready(function () {
 
     //Check to see if the window is top if not then display button
@@ -55,4 +45,3 @@ $(document).ready(function () {
     });
 });
 
->>>>>>> 9da07c216803001c4c339cc69516a34494fac26b

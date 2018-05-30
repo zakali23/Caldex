@@ -19,7 +19,9 @@ class EntrepriseController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $activeEntreprise = true;
+
         // replace this example code with whatever you need
-        return $this->render('entreprise/index.html.twig');
+        return $this->render('entreprise/index.html.twig', ['activeEntreprise' => $activeEntreprise]);
     }
 }

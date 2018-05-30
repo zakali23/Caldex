@@ -77,20 +77,8 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-<<<<<<< HEAD
-=======
-console.log('Bienvenue sur WebPack!');
->>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
 
 
-__WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
-    console.log("ok, JQuery fonctionne !");
-});
-
-console.log('Bienvenue sur WebPack!');
-
-<<<<<<< HEAD
-=======
 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
     __WEBPACK_IMPORTED_MODULE_0_jquery___default()("#appbundle_contact_vousEtes").change(function () {
         if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).val() === "Syndic") {
@@ -130,7 +118,6 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
     });
 });
 
->>>>>>> 9da07c216803001c4c339cc69516a34494fac26b
 /***/ }),
 
 /***/ "./node_modules/jquery/dist/jquery.js":

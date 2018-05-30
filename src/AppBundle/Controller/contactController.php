@@ -42,18 +42,23 @@ class contactController extends Controller
         $contact = new Contact();
         $form = $this->createForm('AppBundle\Form\contactType', $contact);
         $form->handleRequest($request);
+        $activeContact = true;
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
             $em->flush();
+            $activeContact = true;
 
-            return $this->redirectToRoute('contact_show', array('id' => $contact->getId()));
+            return $this->redirectToRoute('contact_show',
+                array('id' => $contact->getId(),
+                'activeContact' => $activeContact));
         }
 
         return $this->render('contact/contact.html.twig', array(
             'contact' => $contact,
             'form' => $form->createView(),
+            'activeContact' => $activeContact,
         ));
     }
 
