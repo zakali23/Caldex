@@ -4,9 +4,9 @@
 
     {# this alternative theme is also available #}
     {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
-    <div class="container">
+    <div class="col-md-8 offset-md-2 text-center">
         <h1>Demande de Devis</h1></br>
-        <div class="col-lg-12">
+        <div class="col-lg-12 text-center">
 
             {{ form_start(form) }}
 
@@ -24,7 +24,7 @@
                 </div>
                 {{ form_widget(form.vousSouhaitez, { 'attr': {'class': 'custom-select'} }) }}
             </div>
-            <div class="contact">
+            <div class="contact-form">
             <h1>Contact</h1>
 
             <div class="input-group mb-3">
@@ -61,7 +61,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Adresse</label>
                 </div>
-                {{ form_widget(form.adresseContact, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_widget(form.adresseContact, { 'attr': {'class': 'form-control', 'placeholder': ""} }) }}
             </div>
             </div>
             <div class="syndic">
@@ -69,6 +69,7 @@
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Nom *</label>
+
                 </div>
                 {{ form_widget(form.nomSyndic, { 'attr': {'class': 'form-control'} }) }}
             </div>
@@ -76,7 +77,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Adresse *</label>
                 </div>
-                {{ form_widget(form.adresseSyndic, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_widget(form.adresseSyndic, { 'attr': {'class': 'form-control', 'placeholder': ""} }) }}
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -103,7 +104,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Adresse de résidence *</label>
                 </div>
-                {{ form_widget(form.adresseResidence, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_widget(form.adresseResidence, { 'attr': {'class': 'form-control', 'placeholder': ""} }) }}
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
