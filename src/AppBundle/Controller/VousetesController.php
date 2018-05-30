@@ -12,8 +12,11 @@ class VousetesController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $activeVousEtes = true;
+
         // replace this example code with whatever you need
         return $this->render('vousetes/index.html.twig', [
+            'activeVousEtes' => $activeVousEtes,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
