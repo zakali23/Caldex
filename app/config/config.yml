@@ -65,3 +65,11 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+twig:
+    form_themes: ['bootstrap_4_layout.html.twig']
+
+    # this alternative theme is also available
+    # form_themes: ['bootstrap_4_horizontal_layout.html.twig']
+
+
