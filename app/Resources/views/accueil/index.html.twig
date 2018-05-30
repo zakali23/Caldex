@@ -6,13 +6,17 @@
 
 
     <section>
-        <div class="container-fluid entreprise">
-            <img src="http://via.placeholder.com/300x300" alt="" align="left" class="article">
-            <h2>Prestation 1</h2>
-            <hr>
-            <p class="article">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut ultrices metus. Vivamus et nunc nulla. Pellentesque vehicula ex ac pretium molestie. Etiam tempor imperdiet velit, a finibus mauris cursus ut. Integer volutpat mauris vel leo cursus tempus. Fusce condimentum mollis tellus eget dapibus. Donec arcu ante, imperdiet sit amet pretium dignissim, venenatis sed lectus. Phasellus sed suscipit ante. Donec pretium lacus faucibus, pretium urna non, gravida arcu. Vestibulum egestas urna ac tortor mollis, quis sodales est vulputate. Duis ac arcu felis. Vestibulum varius non odio ac tempor. Donec mattis, urna non egestas rutrum, velit sapien sollicitudin dolor, non commodo lorem neque ac odio. Integer aliquet nibh enim, consequat finibus mi mattis ac.</p>
 
-        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="container-fluid entreprise">
+                <img src="http://via.placeholder.com/300x300" alt="" align="left" class="article">
+                <h2>Prestation 1</h2>
+                <hr>
+                <p class="article">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut ultrices metus. Vivamus et nunc nulla. Pellentesque vehicula ex ac pretium molestie. Etiam tempor imperdiet velit, a finibus mauris cursus ut. Integer volutpat mauris vel leo cursus tempus. Fusce condimentum mollis tellus eget dapibus. Donec arcu ante, imperdiet sit amet pretium dignissim, venenatis sed lectus. Phasellus sed suscipit ante. Donec pretium lacus faucibus, pretium urna non, gravida arcu. Vestibulum egestas urna ac tortor mollis, quis sodales est vulputate. Duis ac arcu felis. Vestibulum varius non odio ac tempor. Donec mattis, urna non egestas rutrum, velit sapien sollicitudin dolor, non commodo lorem neque ac odio. Integer aliquet nibh enim, consequat finibus mi mattis ac.</p>
+
+            </div>
+        {% endif %}
+
         <div class="container-fluid entreprise">
             <img src="http://via.placeholder.com/300x300" alt="" align="right" class="article">
             <h2>Prestation 2</h2>
