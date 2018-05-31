@@ -4,7 +4,10 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -37,15 +40,15 @@ class contactType extends AbstractType
                     'Monsieur' => 'Monsieur'
 
                 ]))
-            ->add('nomContact')
+            ->add('nomContact', TextType::class)
             ->add('prenomContact')
-            ->add('emailContact')
-            ->add('phoneContact')
+            ->add('emailContact', EmailType::class)
+            ->add('phoneContact',TelType::class)
             ->add('adresseContact')
             ->add('nomSyndic')
             ->add('adresseSyndic')
-            ->add('phoneSyndic')
-            ->add('emailSyndic')
+            ->add('phoneSyndic',TelType::class)
+            ->add('emailSyndic',EmailType::class)
             ->add('nomResidence')
             ->add('adresseResidence')
             ->add('dateAG')

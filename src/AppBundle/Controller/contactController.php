@@ -50,9 +50,7 @@ class contactController extends Controller
             $em->flush();
             $activeContact = true;
 
-            return $this->redirectToRoute('contact_new',
-                array('id' => $contact->getId(),
-                'activeContact' => $activeContact));
+            return $this->redirectToRoute('contact_new');
         }
 
         return $this->render('contact/contact.html.twig', array(
