@@ -19,6 +19,14 @@
 
         </div>
     </section>
+
+    {% if valids|length>0 %}
+        <div class="alert alert-success"><br>
+            {% for valid in valids %}
+                <strong>{{ valid }}</strong>
+            {% endfor %}
+        </div>
+    {% endif %}
     {% include 'contact/new.html.twig' %}
 
 

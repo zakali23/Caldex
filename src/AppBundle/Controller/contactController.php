@@ -36,6 +36,8 @@ class contactController extends Controller
      *
      * @Route("/", name="contact_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -43,22 +45,40 @@ class contactController extends Controller
         $form = $this->createForm('AppBundle\Form\contactType', $contact);
         $form->handleRequest($request);
         $activeContact = true;
+        $errors=[];
+        $valids=[];
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
             $em->flush();
             $activeContact = true;
+            if ($form->isSubmitted() && $form->isValid()) {
+                //[...]
+                $em->flush();
+                if (!$em){
+                    $errors[]="Votre demande n'est pas validé, veuillez remplir les champs ";
+                }
+                else {
+                    $valids[]="votre demande à été envoyé avec succès";
+                }
 
-            return $this->redirectToRoute('contact_new',
+
+
+            }
+
+                return $this->redirectToRoute('contact_new',
                 array('id' => $contact->getId(),
                 'activeContact' => $activeContact));
         }
+
 
         return $this->render('contact/contact.html.twig', array(
             'contact' => $contact,
             'form' => $form->createView(),
             'activeContact' => $activeContact,
+            'valids' => $valids
+
         ));
     }
 
@@ -67,6 +87,8 @@ class contactController extends Controller
      *
      * @Route("/{id}", name="contact_show")
      * @Method("GET")
+     * @param contact $contact
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(contact $contact)
     {
