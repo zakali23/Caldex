@@ -40,19 +40,26 @@ class contactType extends AbstractType
                     'Monsieur' => 'Monsieur'
 
                 ]))
-            ->add('nomContact', TextType::class)
-            ->add('prenomContact')
-            ->add('emailContact', EmailType::class)
-            ->add('phoneContact',TelType::class)
+    ->add('nomContact',TextType::class,array())
+            ->add('prenomContact',TextType::class,array())
+            ->add('emailContact',EmailType::class,array())
+            ->add('phoneContact',TelType::class,array())
+
             ->add('adresseContact')
-            ->add('nomSyndic')
+            ->add('nomSyndic',TextType::class,array())
             ->add('adresseSyndic')
+
             ->add('phoneSyndic',TelType::class)
             ->add('emailSyndic',EmailType::class)
             ->add('nomResidence')
+
+            ->add('phoneSyndic',TelType::class,array())
+            ->add('emailSyndic',EmailType::class,array())
+            ->add('nomResidence',TextType::class,array())
+
             ->add('adresseResidence')
             ->add('dateAG')
-            ->add('nblogement')
+            ->add('nblogement',TextType::class,array())
             ->add('immeuble', ChoiceType::class, array(
                 'choices'  => [
                     'Choisissez' => 'null',
