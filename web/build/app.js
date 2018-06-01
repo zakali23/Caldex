@@ -98,6 +98,7 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
         }
     });
 });
+
 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function () {
 
     //Check to see if the window is top if not then display button
