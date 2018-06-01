@@ -25,7 +25,10 @@ class contactType extends AbstractType
                     'Syndic' => 'Syndic',
                     'Locataire' => 'locataire',
                     'Autre' => 'Autre'
-                ]))
+                ],
+                'preferred_choices'=>array(1)
+                )
+            )
             ->add('vousSouhaitez', ChoiceType::class, array(
                 'choices'  => [
                     'Choisissez' => 'null',
@@ -40,10 +43,10 @@ class contactType extends AbstractType
                     'Monsieur' => 'Monsieur'
 
                 ]))
-            ->add('nomContact', TextType::class)
+            ->add('nomContact')
             ->add('prenomContact')
-            ->add('emailContact', EmailType::class)
-            ->add('phoneContact',TelType::class)
+            ->add('emailContact')
+            ->add('phoneContact')
             ->add('adresseContact')
             ->add('nomSyndic')
             ->add('adresseSyndic')
