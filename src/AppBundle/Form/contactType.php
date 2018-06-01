@@ -26,7 +26,7 @@ class contactType extends AbstractType
                     'Locataire' => 'locataire',
                     'Autre' => 'Autre'
                 ],
-                'preferred_choices'=>array(1)
+                'preferred_choices'=>array(1),
                 )
             )
             ->add('vousSouhaitez', ChoiceType::class, array(

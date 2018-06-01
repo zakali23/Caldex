@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\contact;
-use AppBundle\Entity\info;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -73,18 +72,13 @@ class contactController extends Controller
 
             return $this->redirectToRoute('contact_new');
         }
-        $info = new info();
-        $formInfo = $this->createForm('AppBundle\Form\infoType', $info);
-        $formInfo->handleRequest($request);
-        $activeInfo = true;
+
 
         return $this->render('contact/contact.html.twig', array(
             'contact' => $contact,
             'form' => $form->createView(),
             'activeContact' => $activeContact,
-            'info'=>$info,
-            'formInfo'=>$formInfo,
-            'activeInfo'=>$activeInfo
+
         ));
     }
 
