@@ -1,7 +1,6 @@
 import $ from "jquery"
 
 
-
 $(document).ready(function()
 {
     $("#appbundle_contact_vousEtes").change(function() {
