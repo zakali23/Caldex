@@ -21,16 +21,17 @@ h4 {
   font-weight: 400;
   margin-bottom: 30px;
 }
-
+.light{
+  color:white;
+}
 .container-fluid {
   padding: 60px 50px;
 }
 .bg-grey {
-  background-color: #cfd3c3;
+  background-image: url("/images/abstract-21851_1920.jpg");
 }
 
-
-.img-responsive {
+.img-thumbnail {
   margin-top: 9vw;
 }
 
@@ -41,8 +42,6 @@ h4 {
   font-style: italic;
   margin: 70px 0;
 }
-
-
 
 .slide {
   animation-name: slide;
@@ -61,16 +60,8 @@ h4 {
     transform: translateY(0%);
   }
 }
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(70%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-  }
-}
+
+
 
 
 
