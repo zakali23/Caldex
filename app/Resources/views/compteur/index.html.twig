@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compteurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Serialnumber</th>
+                <th>Photo</th>
+                <th>Dateinstallation</th>
+                <th>Dateachat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compteur in compteurs %}
+            <tr>
+                <td><a href="{{ path('compteur_show', { 'id': compteur.id }) }}">{{ compteur.id }}</a></td>
+                <td>{{ compteur.serialNumber }}</td>
+                <td>{{ compteur.photo }}</td>
+                <td>{% if compteur.dateInstallation %}{{ compteur.dateInstallation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if compteur.dateAchat %}{{ compteur.dateAchat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('compteur_show', { 'id': compteur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('compteur_edit', { 'id': compteur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compteur_new') }}">Create a new compteur</a>
+        </li>
+    </ul>
+{% endblock %}

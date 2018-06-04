@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Copros list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for coPro in coPros %}
+            <tr>
+                <td><a href="{{ path('copro_show', { 'id': coPro.id }) }}">{{ coPro.id }}</a></td>
+                <td>{{ coPro.name }}</td>
+                <td>{{ coPro.adresse }}</td>
+                <td>{{ coPro.codePostal }}</td>
+                <td>{{ coPro.ville }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('copro_show', { 'id': coPro.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('copro_edit', { 'id': coPro.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('copro_new') }}">Create a new coPro</a>
+        </li>
+    </ul>
+{% endblock %}
