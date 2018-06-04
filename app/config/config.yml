@@ -72,4 +72,18 @@ twig:
     # this alternative theme is also available
     # form_themes: ['bootstrap_4_horizontal_layout.html.twig']
 
+# app/config/config.yml
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltopdf
+        options:
+#            - { name: 'viewport-size', value: ‘1024x768’ }
+#            - { name: 'page-size', value: 'A4' }
+#            tempory-folder: %kernel.cache_dir%/snappy
+             no-outline: true
+             page-size: LETTER
+             encoding: UTF-8
+
+    process_timeout: 20 # In seconds
 
