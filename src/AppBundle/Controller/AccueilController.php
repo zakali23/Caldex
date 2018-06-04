@@ -1,22 +1,31 @@
 <?php
+
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class VousetesController extends Controller
+
+/**
+ * Accueil controller.
+ *
+ * @Route("accueil")
+ */
+class AccueilController extends Controller
 {
+
     /**
-     * @Route("/vousetes", name="vousetes")
+     * @Route("/", name="homepage")
+     * @Method("GET")
      */
     public function indexAction(Request $request)
     {
-        $activeVousEtes = true;
+        $activeAccueil = true;
 
         // replace this example code with whatever you need
-        return $this->render('vousetes/index.html.twig', [
-            'activeVousEtes' => $activeVousEtes,
+        return $this->render('accueil/index.html.twig', ['activeAccueil' => $activeAccueil,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }

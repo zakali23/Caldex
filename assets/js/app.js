@@ -1,7 +1,5 @@
-
-console.log('Bienvenue sur WebPack!');
-
 import $ from "jquery"
+
 
 
 $(document).ready(function()
@@ -28,6 +26,7 @@ $(document).ready(function()
 
     });
 });
+
 $(document).ready(function () {
 
     //Check to see if the window is top if not then display button
