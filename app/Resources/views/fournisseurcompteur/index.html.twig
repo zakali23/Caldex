@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fournisseurcompteurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fournisseurCompteur in fournisseurCompteurs %}
+            <tr>
+                <td><a href="{{ path('fournisseurcompteur_show', { 'id': fournisseurCompteur.id }) }}">{{ fournisseurCompteur.id }}</a></td>
+                <td>{{ fournisseurCompteur.nom }}</td>
+                <td>{{ fournisseurCompteur.adresse }}</td>
+                <td>{{ fournisseurCompteur.codePostal }}</td>
+                <td>{{ fournisseurCompteur.ville }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fournisseurcompteur_show', { 'id': fournisseurCompteur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fournisseurcompteur_edit', { 'id': fournisseurCompteur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fournisseurcompteur_new') }}">Create a new fournisseurCompteur</a>
+        </li>
+    </ul>
+{% endblock %}
