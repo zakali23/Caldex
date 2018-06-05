@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\contact;
 use AppBundle\Entity\infoContact;
+use AppBundle\Service\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -41,7 +42,7 @@ class contactController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,Mailer $mailer)
     {
         $contact = new Contact();
         $form = $this->createForm('AppBundle\Form\contactType', $contact);
@@ -87,13 +88,14 @@ class contactController extends Controller
             if(!$em1){
 
             }else {
-                $message = (new \Swift_Message('infoContact'))
+                $mailer->sendEmail($infoContact->getNomInfo(),$infoContact->setPrenomInfo(),$infoContact->getTelephoneInfo(),$infoContact->getEmailInfo(),$infoContact->getMessageInfo(),$infoContact->getAdresseInfo());
+               /* $message = (new \Swift_Message('infoContact'))
                     ->setFrom($infoContact->getEmailInfo())
                     ->setTo('caldex67@gmail.com')
                     ->setBody($infoContact->getMessageInfo());
                 $this->get('mailer')->send($message);
 
-                return $this->redirectToRoute('contact_new');
+                return $this->redirectToRoute('contact_new');*/
             }
         }
         return $this->render('contact/contact.html.twig', array(
