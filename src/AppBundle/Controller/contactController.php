@@ -88,7 +88,7 @@ class contactController extends Controller
             if(!$em1){
 
             }else {
-                $mailer->sendEmail($infoContact->getNomInfo(),$infoContact->setPrenomInfo(),$infoContact->getTelephoneInfo(),$infoContact->getEmailInfo(),$infoContact->getMessageInfo(),$infoContact->getAdresseInfo());
+                $mailer->sendEmail($infoContact->getNomInfo(),$infoContact->getPrenomInfo(),$infoContact->getTelephoneInfo(),$infoContact->getEmailInfo(),$infoContact->getAdresseInfo(),$infoContact->getMessageInfo());
                /* $message = (new \Swift_Message('infoContact'))
                     ->setFrom($infoContact->getEmailInfo())
                     ->setTo('caldex67@gmail.com')
