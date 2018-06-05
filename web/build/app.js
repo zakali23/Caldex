@@ -137,7 +137,7 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
     console.log(place.address_components);
 });
 // contact form google map
-var autocomplete = new google.maps.places.Autocomplete(__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#form-contact-company")[0], {});
+var autocomplete = new google.maps.places.Autocomplete(__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#appbundle_infocontact_adresseInfo")[0], {});
 
 google.maps.event.addListener(autocomplete, 'place_changed', function () {
     var place = autocomplete.getPlace();

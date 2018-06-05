@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\contact;
+use AppBundle\Entity\infoContact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -74,10 +75,33 @@ class contactController extends Controller
         }
 
 
+        $infoContact = new Infocontact();
+        $formInfo = $this->createForm('AppBundle\Form\infoContactType', $infoContact);
+        $formInfo->handleRequest($request);
+
+
+        if ($formInfo->isSubmitted() && $formInfo->isValid()) {
+            $em1 = $this->getDoctrine()->getManager();
+            $em1->persist($infoContact);
+            $em1->flush();
+            if(!$em1){
+
+            }else {
+                $message = (new \Swift_Message('infoContact'))
+                    ->setFrom($infoContact->getEmailInfo())
+                    ->setTo('caldex67@gmail.com')
+                    ->setBody($infoContact->getMessageInfo());
+                $this->get('mailer')->send($message);
+
+                return $this->redirectToRoute('contact_new');
+            }
+        }
         return $this->render('contact/contact.html.twig', array(
             'contact' => $contact,
             'form' => $form->createView(),
             'activeContact' => $activeContact,
+            'infoContact'=>$infoContact,
+            'formInfo'=>$formInfo->createView()
 
         ));
     }

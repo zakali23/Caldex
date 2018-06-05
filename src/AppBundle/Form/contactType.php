@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -19,16 +20,17 @@ class contactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('vousEtes', ChoiceType::class, array(
+            ->add('vousEtes', ChoiceType::class, [
                 'choices'  => [
-                    'Choisissez' => 'null',
+                    'Choisissez ' => 'null',
                     'Syndic' => 'Syndic',
                     'Locataire' => 'locataire',
                     'Autre' => 'Autre'
                 ],
-                'preferred_choices'=>array(1),
+                'data'=> 'null'
 
-                )
+
+                ]
             )
             ->add('vousSouhaitez', ChoiceType::class, array(
                 'choices'  => [
