@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\contact;
+use AppBundle\Entity\infoContact;
+use AppBundle\Service\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -40,7 +42,7 @@ class contactController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,Mailer $mailer)
     {
         $contact = new Contact();
         $form = $this->createForm('AppBundle\Form\contactType', $contact);
@@ -74,10 +76,36 @@ class contactController extends Controller
         }
 
 
+        $infoContact = new Infocontact();
+        $formInfo = $this->createForm('AppBundle\Form\infoContactType', $infoContact);
+        $formInfo->handleRequest($request);
+
+
+        if ($formInfo->isSubmitted() && $formInfo->isValid()) {
+            $em1 = $this->getDoctrine()->getManager();
+            $em1->persist($infoContact);
+            $em1->flush();
+
+            if(!$em1){
+            }else {
+                $mailer->sendEmail($infoContact->getNomInfo(),$infoContact->getPrenomInfo(),$infoContact->getTelephoneInfo(),$infoContact->getEmailInfo(),$infoContact->getAdresseInfo(),$infoContact->getMessageInfo());
+
+                $request->getSession()->getFlashBag()->add('success', 'Votre message à été bien envoyer')
+                ;
+
+                $url = $this->generateUrl('contact_new');
+
+                return $this->redirect($url);
+            }
+
+
+        }
         return $this->render('contact/contact.html.twig', array(
             'contact' => $contact,
             'form' => $form->createView(),
             'activeContact' => $activeContact,
+            'infoContact'=>$infoContact,
+            'formInfo'=>$formInfo->createView()
 
         ));
     }

@@ -10,6 +10,17 @@
 
         </div>
     </section>
+
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+<!-- Section: Contact v.3 -->
+
     <section class="contact-section col-md-12">
 
     <!-- Form with header -->
@@ -20,27 +31,34 @@
 
             <!-- Grid column -->
             <div class="col-lg-8">
-                <form action="" method="post">
+                {{ form_start(formInfo, { 'attr': {'id': 'info'} } ) }}
                 <div class="card-body form">
 
                     <!-- Header -->
-                    <h3 class="mt-4"><i class="fa fa-envelope pr-2"></i>Contactez-nous:</h3>
+                    <h3 id="test" class="mt-4"><i class="fa fa-envelope pr-2"></i>Contactez-nous:</h3>
 
                     <!-- Grid row -->
                     <div class="row">
 
+
                         <!-- Grid column -->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <input type="text" id="form-contact-name" class="form-control">
-                                <label for="form-contact-name" class="">Votre nom</label>
+
+                                {{ form_widget(formInfo.nomInfo, { 'attr': {'class': 'form-control text-uppercase'} }) }}
+                                <label for="form-contact-name" class="nom">Votre nom</label>
+                                <p id="nom_id" class="text-left red-text animated bounce">Veuillez saisir votre nom s'il vous plaît</p>
+                                <p id="nom_valid" class="text-left red-text animated bounce">Veuillez saisir un nom valide s'il vous plaît</p>
                             </div>
                         </div>
                         <!-- Grid column -->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <input type="text" id="form-contact-name" class="form-control">
+                                {{ form_widget(formInfo.prenomInfo, { 'attr': {'class': 'form-control text-capitalize'} }) }}
                                 <label for="form-contact-name" class="">Votre prenom</label>
+                                <p id="prenom_id" class="text-left red-text animated bounce">Veuillez saisir votre prenom s'il vous plaîts.</p>
+                                <p id="prenom_valid" class="text-left red-text animated bounce">Veuillez saisir un prenom valide s'il vous plaît</p>
+
                             </div>
                         </div>
                         <!-- Grid column -->
@@ -49,15 +67,21 @@
                         <!-- Grid column -->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <input type="text" id="form-contact-email" class="form-control">
+                                {{ form_widget(formInfo.emailInfo, { 'attr': {'class': 'form-control'} }) }}
                                 <label for="form-contact-email" class="">Votre email</label>
+                                <p id="email_id" class="text-left red-text animated bounce">Veuillez saisir une adresse mail correcte s'il vous plaîts.</p>
+                                <p id="email_valid" class="text-left red-text animated bounce">Veuillez saisir une adresse email valide s'il vous plaît</p>
+
                             </div>
                         </div>
                         <!-- Grid column -->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <input type="text" id="form-contact-phone" class="form-control">
+                                {{ form_widget(formInfo.telephoneInfo, { 'attr': {'class': 'form-control'} }) }}
                                 <label for="form-contact-phone" class="">Votre téléphone</label>
+                                <p id="telephone_id" class="text-left red-text animated bounce">Veuillez saisir votre téléphone s'il vous plaîts.</p>
+                                <p id="telephone_valid" class="text-left red-text animated bounce">Veuillez saisir un numero de téléphone valide s'il vous plaît</p>
+
                             </div>
                         </div>
                     </div>
@@ -69,8 +93,10 @@
                         <!-- Grid column -->
                         <div class="col-md-12">
                             <div class="md-form mb-0">
-                                <input type="text" id="form-contact-company" class="form-control" placeholder="">
+                                {{ form_widget(formInfo.adresseInfo, { 'attr': {'class': 'form-control', 'placeholder': ""} }) }}
                                 <label for="form-contact-company" class="">Votre adresse</label>
+                                <p id="adresse_id" class="text-left red-text animated bounce">Veuillez saisir votre adresse s'il vous plaîts.</p>
+
                             </div>
                         </div>
                         <!-- Grid column -->
@@ -84,9 +110,10 @@
                         <!-- Grid column -->
                         <div class="col-md-12">
                             <div class="md-form mb-0">
-                                <textarea type="text" id="form-contact-message" class="form-control md-textarea" rows="3"></textarea>
-                                <label for="form-contact-message">Your message</label>
-                                <button type="submit" class="btn btn-default">Envoyer</button>
+                                {{ form_widget(formInfo.messageInfo, { 'attr': {'class': 'form-control md-textarea'} }) }}
+                                <label for="form-contact-message">Votre message</label>
+                                {{ form_row(formInfo._token) }}
+                                <button type="submit" class="btn btn-default" id="Envoyer">Envoyer</button>
 
                             </div>
                         </div>
@@ -96,8 +123,6 @@
                     <!-- Grid row -->
 
                 </div>
-                </form>
-
             </div>
             <!-- Grid column -->
 
@@ -120,6 +145,7 @@
                         <li>
                            <p class="contact-adresse text-center"><i data-feather="map-pin"></i> Adresse :</p>
                             <p class="contact-adresse text-center">Strasbourg, 67000, FRANCE</p>
+
                         </li>
 
                     </ul>
@@ -138,4 +164,6 @@
 
 </section>
 <!-- Section: Contact v.3 -->
-            
+
+
+
