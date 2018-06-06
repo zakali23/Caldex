@@ -143,6 +143,53 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
     var place = autocomplete.getPlace();
     console.log(place.address_components);
 });
+__WEBPACK_IMPORTED_MODULE_0_jquery___default()(function () {
+    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#Envoyer').click(function () {
+        var valid = true;
+
+        if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_nomInfo').val() === '') {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#nom_id').show();
+            valid = false;
+        } else if (!__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_nomInfo').val().match(/^[a-zA-Z]+$/i)) {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#nom_valid').show();
+        } else {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#nom_id').hide();
+        }
+        if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_prenomInfo').val() === '') {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#prenom_id').show();
+            valid = false;
+        } else if (!__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_nomInfo').val().match(/^[a-zA-Z]+$/i)) {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#prenom_valid').show();
+        } else {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#prenom_id').hide();
+        }
+        if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_emailInfo').val() === '') {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#email_id').show();
+            valid = false;
+        } else if (!__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_emailInfo').val().match(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i)) {
+
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#email_valid').show();
+        } else {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#email_id').hide();
+        }
+        if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_telephoneInfo').val() === '') {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#telephone_id').show();
+            valid = false;
+        } else if (!__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_telephoneInfo').val().match(/^(0[1-68])(?:[ _.-]?(\d{2})){4}$/)) {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#telephone_valid').show();
+        } else {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#telephone_id').hide();
+        }
+        if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()('#appbundle_infocontact_adresseInfo').val() === '') {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#adresse_id').show();
+            valid = false;
+        } else {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#adresse_id').hide();
+        }
+
+        return valid;
+    });
+});
 
 /***/ }),
 

@@ -85,18 +85,20 @@ class contactController extends Controller
             $em1 = $this->getDoctrine()->getManager();
             $em1->persist($infoContact);
             $em1->flush();
-            if(!$em1){
 
+            if(!$em1){
             }else {
                 $mailer->sendEmail($infoContact->getNomInfo(),$infoContact->getPrenomInfo(),$infoContact->getTelephoneInfo(),$infoContact->getEmailInfo(),$infoContact->getAdresseInfo(),$infoContact->getMessageInfo());
-               /* $message = (new \Swift_Message('infoContact'))
-                    ->setFrom($infoContact->getEmailInfo())
-                    ->setTo('caldex67@gmail.com')
-                    ->setBody($infoContact->getMessageInfo());
-                $this->get('mailer')->send($message);
 
-                return $this->redirectToRoute('contact_new');*/
+                $request->getSession()->getFlashBag()->add('success', 'Votre message à été bien envoyer')
+                ;
+
+                $url = $this->generateUrl('contact_new');
+
+                return $this->redirect($url);
             }
+
+
         }
         return $this->render('contact/contact.html.twig', array(
             'contact' => $contact,
