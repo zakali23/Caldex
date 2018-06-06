@@ -2,12 +2,12 @@ $color-foncer: #006633;
 $color-claire: #93c01f;
 
 footer, footer>a, footer>h6, footer>hr{
-  background-color: #ADFF2F;
-  color: #7c3900;
+  background-color: #28ff06;
 }
 
-.navbar{
-  background-color: #ADFF2F;
+.linkFooter, .linkFooter:hover {
+  text-decoration: none;
+  font-size: 20px;
 }
 
 li>a, li>a:hover, a, a:hover{
@@ -25,7 +25,6 @@ form > a, form > a:hover{
   border-bottom: 2px solid #973900;
   padding-bottom: 3px;
 }
-
 
 h1, h2, h3,h4,h5,h6{
   color: $color-foncer;
