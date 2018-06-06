@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role", inversedBy="statuts")
@@ -41,7 +42,7 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -83,7 +84,7 @@ class User
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string|null
