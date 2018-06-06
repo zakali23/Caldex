@@ -1,10 +1,13 @@
+$color-foncer: #006633;
+$color-claire: #93c01f;
+
 footer, footer>a, footer>h6, footer>hr{
-  background-color: #ADFF2F;
-  color: #7c3900;
+  background-color: #28ff06;
 }
 
-.navbar{
-  background-color: #ADFF2F;
+.linkFooter, .linkFooter:hover {
+  text-decoration: none;
+  font-size: 20px;
 }
 
 li>a, li>a:hover, a, a:hover{
@@ -23,10 +26,11 @@ form > a, form > a:hover{
   padding-bottom: 3px;
 }
 
-p{
+p {
 
-$color-foncer: #006633;
-$color-claire: #93c01f;
+  $color-foncer: #006633;
+  $color-claire: #93c01f;
+}
 
 body {
   font: 400 15px Lato, sans-serif;
