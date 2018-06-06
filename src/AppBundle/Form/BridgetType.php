@@ -13,7 +13,7 @@ class BridgetType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('serialNumber')->add('dateInstallation')->add('dateAchat');
+        $builder->add('serialNumber')->add('dateInstallation')->add('dateAchat')->add('borne');
     }/**
      * {@inheritdoc}
      */

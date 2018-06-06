@@ -13,7 +13,7 @@ class ImmeubleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse')->add('codePostal')->add('ville')->add('plan');
+        $builder->add('adresse')->add('codePostal')->add('ville')->add('plan')->add('batiment');
     }/**
      * {@inheritdoc}
      */

@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nombre</th>
+                <th>Numero</th>
                 <th>Surface</th>
                 <th>Etage</th>
                 <th>Photo</th>
@@ -18,7 +18,7 @@
         {% for lot in lots %}
             <tr>
                 <td><a href="{{ path('lot_show', { 'id': lot.id }) }}">{{ lot.id }}</a></td>
-                <td>{{ lot.nombre }}</td>
+                <td>{{ lot.numero }}</td>
                 <td>{{ lot.surface }}</td>
                 <td>{{ lot.etage }}</td>
                 <td>{{ lot.photo }}</td>

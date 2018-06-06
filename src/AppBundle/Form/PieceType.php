@@ -13,7 +13,7 @@ class PieceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('surface')->add('photo');
+        $builder->add('nom')->add('surface')->add('photo')->add('room');
     }/**
      * {@inheritdoc}
      */
