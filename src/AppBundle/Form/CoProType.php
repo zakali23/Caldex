@@ -13,7 +13,7 @@ class CoProType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('adresse')->add('codePostal')->add('ville');
+        $builder->add('name')->add('adresse')->add('codePostal')->add('ville')->add('gestionnaire');
     }/**
      * {@inheritdoc}
      */
