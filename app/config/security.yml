@@ -29,7 +29,7 @@ security:
             form_login:
                 provider: fos_userbundle
             logout:       true
-            anonymous:    false
+            anonymous:    true
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
             #http_basic: ~
