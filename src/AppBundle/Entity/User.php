@@ -3,14 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role", inversedBy="statuts")
@@ -41,7 +42,7 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -81,16 +82,16 @@ class User
     /**
      * @var string|null
      *
-     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     *
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="email2", type="string", length=255, nullable=true)
+     * @ORM\Column(name="`email2`", type="string", length=255, nullable=true)
      */
-    private $email2;
+    protected $email2;
 
     /**
      * @var int
@@ -113,6 +114,7 @@ class User
      */
     public function __construct()
     {
+        parent::__construct();
         $this->syndics = new \Doctrine\Common\Collections\ArrayCollection();
         $this->associationCoPros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lots = new \Doctrine\Common\Collections\ArrayCollection();
