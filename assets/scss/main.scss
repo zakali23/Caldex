@@ -77,6 +77,6 @@ path {
 select.form-control:not([size]):not([multiple]) {
   height: calc(2.25rem + 8px) !important;
 }
-#nom_id,#prenom_id,#telephone_id,#email_id,#adresse_id,#nom_valid,#prenom_valid,#email_valid,#telephone_valid,{
+#nom_id,#prenom_id,#telephone_id,#email_id,#adresse_id,#nom_valid,#prenom_valid,#email_valid,#telephone_valid{
   display: none;
 }
