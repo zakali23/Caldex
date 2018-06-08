@@ -82,11 +82,13 @@ class User extends BaseUser
     /**
      * @var string|null
      *
+     *
      */
     protected $email;
 
     /**
      * @var string|null
+     *
      *
      */
     protected $email2;
@@ -117,6 +119,8 @@ class User extends BaseUser
         $this->syndics = new \Doctrine\Common\Collections\ArrayCollection();
         $this->associationCoPros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lots = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
+
     }
 
     /**

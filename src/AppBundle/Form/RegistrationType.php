@@ -8,13 +8,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RegistrationType extends AbstractType
 {
+
     /**
-     * {@inheritdoc}
+     * {@inheritdoc} Including all fields from Registration entity.
      */
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
             ->add('firstname')
             ->add('lastname')
             ->add('adresse')
@@ -28,23 +29,27 @@ class RegistrationType extends AbstractType
             ->add('syndics')
             ->add('associationCoPros')
             ->add('lots');
-    }/**
- * {@inheritdoc}
- */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\RegistrationType'
-        ));
+
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public function configureOptions(OptionsResolver $resolver)
     {
-        return 'appbundle_registration';
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\User'
+        ));
     }
 
+    public function getParent()
+    {
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+    }
+
+    public function getBlockPrefix()
+    {
+        return 'app_user_registration';
+    }
 
 }
