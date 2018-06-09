@@ -1,0 +1,37 @@
+{% extends "base.html.twig"%}
+
+{% block body %}
+
+<h1>Page utilisateur</h1>
+
+    <p> Vous êtes un :
+        {% if is_granted('ROLE_ADMIN') %}
+            <b>Administrateur</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_LOCATAIRE') %}
+            <b>Locataire</b>
+        {% endif %}
+    </p>
+
+   {# {{ dump(app.user) }}#}
+
+    <p> Vos informations</p>
+
+    <p>Dernière connexion le {{ app.user.lastLogin|date("m/d/Y") }}</p>
+
+    <ul>
+
+        <li>Prénom : {{ app.user.firstname }}</li>
+
+        <li>Nom : {{ app.user.lastname }}</li>
+        <li>Adresse : {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
+        <li>Téléphone : {{ app.user.phone }}</li>
+        <li>Email: {{ app.user.email }}</li>
+    </ul>
+
+
+    <p><a href="/logout">Se déconnecter</a></p>
+
+
+{% endblock %}
