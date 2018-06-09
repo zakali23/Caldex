@@ -6,6 +6,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('style', './assets/scss/main.scss')
     .addEntry('entreprise', './assets/scss/entreprise.scss')
+    .addEntry('login', './assets/scss/login.scss')
 
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
