@@ -8,6 +8,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
+use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -45,6 +47,44 @@ class ConnexionController extends Controller{
         return $this->render('locataire/index.html.twig');
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/proprietaire/", name="proprietaire_page")
+     */
+    public function proprietairePageAction(){
+        return $this->render('proprietaire/index.html.twig');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/syndicat/", name="syndicat_page")
+     */
+    public function syndicatPageAction(){
+        return $this->render('syndicat/index.html.twig');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/coproprietaire/", name="coproprietaire_page")
+     */
+    public function coproprietairePageAction(){
+        return $this->render('coproprietaire/index.html.twig');
+    }
+
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/asso_copro/", name="asso_copro_page")
+     */
+    public function asso_coproPageAction(){
+        return $this->render('asso_copro/index.html.twig');
+    }
+
+
 
 
     /**
@@ -66,13 +106,29 @@ class ConnexionController extends Controller{
             return $this->render('locataire/index.html.twig');
         }
 
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_PROPROETAIRE')) {
+            return $this->render('proprietaire/index.html.twig');
+        }
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_SYNDICAT')) {
+            return $this->render('syndicat/index.html.twig');
+        }
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_COPROPRIETAIRE')) {
+            return $this->render('coproprietaire/index.html.twig');
+        }
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ASSOCOPRO')) {
+            return $this->render('asso_copro/index.html.twig');
+        }
+
     }
 
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/profile", name="profile")
+     * @Route("/profile_user", name="profile_user")
      *
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
@@ -82,6 +138,9 @@ class ConnexionController extends Controller{
         return $this->render('user/user.html.twig');
 
     }
+
+
+
 
 
 

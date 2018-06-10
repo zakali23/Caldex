@@ -5,7 +5,6 @@ namespace AppBundle\Form;
 use AppBundle\Entity\Syndic;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -33,6 +32,7 @@ class RegistrationType extends AbstractType
                 'class' => 'AppBundle:Syndic',
                 'choice_label' => 'nom',
                 'multiple' => true,
+                'expanded' => false,
                 'required' => false
 
             ))
@@ -53,9 +53,13 @@ class RegistrationType extends AbstractType
                 'multiple' => true,
                 'expanded' => true, // render check-boxes
                 'choices' => [
-                    'Admin' => 'ROLE_ADMIN',
+                    'Administrateur' => 'ROLE_ADMIN',
+                    'Syndicat' => 'ROLE_SYNDICAT',
+                    'Copropriétaire' => 'ROLE_COPROPRIETAIRE',
+                    'Association de copropriétaire' => 'ROLE_ASSOCOPRO',
+                    'Propriétaire' => 'ROLE_PROPRIETAIRE',
                     'Locataire' => 'ROLE_LOCATAIRE',
-                    'User' => 'ROLE_USER',
+
                 ],
         ]);
     }
