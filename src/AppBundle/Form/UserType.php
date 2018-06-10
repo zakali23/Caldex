@@ -26,7 +26,16 @@ class UserType extends AbstractType
             ->add('statut')
             ->add('syndics')
             ->add('associationCoPros')
-            ->add('lots');
+            ->add('lots')
+            ->add('roles', ChoiceType::class, array(
+                'attr' => array(
+                'choices' => [
+                    'admin' => 'ROLE_ADMIN',
+                    'user' => 'ROLE_USER',
+                ]
+            )))
+
+        ;
     }/**
      * {@inheritdoc}
      */

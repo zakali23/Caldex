@@ -33,8 +33,8 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
-    app_user.registration_listener:
-        class: AppBundle\EventListener\RegistrationListener
-        arguments: []
-        tags:
-            - { name: kernel.event_subscriber }
+   # app_user.registration_listener:
+    #    class: AppBundle\EventListener\RegistrationListener
+     #   arguments: []
+       # tags:
+        #    - { name: kernel.event_subscriber }
