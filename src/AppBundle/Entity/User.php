@@ -89,6 +89,7 @@ class User extends BaseUser
     /**
      * @var string|null
      *
+
      * @ORM\Column(name="`email2`", type="string", length=255, nullable=true)
      */
     protected $email2;
@@ -115,9 +116,12 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
+
         $this->syndics = new \Doctrine\Common\Collections\ArrayCollection();
         $this->associationCoPros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lots = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
+
     }
 
     /**
