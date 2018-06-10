@@ -1,16 +1,33 @@
-{% extends "base.html.twig"%}
+{% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
 
-<h1>Page utilisateur</h1>
+<h1>Profile utilisateur</h1>
 
     <p> Vous êtes un :
         {% if is_granted('ROLE_ADMIN') %}
             <b>Administrateur</b>
+
         {% endif %}
 
         {% if is_granted('ROLE_LOCATAIRE') %}
             <b>Locataire</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_PROPRIETAIRE') %}
+            <b>Propriétaire</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_COPROPRIETAIRE') %}
+            <b>Copropriétaire</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_ASSOCOPRO') %}
+            <b>Association de copropriétaire</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_SYNDICAT') %}
+            <b>Syndicat</b>
         {% endif %}
     </p>
 
@@ -23,7 +40,6 @@
     <ul>
 
         <li>Prénom : {{ app.user.firstname }}</li>
-
         <li>Nom : {{ app.user.lastname }}</li>
         <li>Adresse : {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
         <li>Téléphone : {{ app.user.phone }}</li>
@@ -31,6 +47,26 @@
     </ul>
 
 
+    {% if is_granted('ROLE_ADMIN') %}
+        <li><a href="/admin/">Espace administrateur</a></li>
+    {% endif %}
+
+    {% if is_granted('ROLE_LOCATAIRE') %}
+        <li><a href="/locataire/">Espace locataire</a></li>
+    {% endif %}
+
+    {% if is_granted('ROLE_PROPRIETAIRE') %}
+        <li><a href="/proprietaire/">Espace propriétaire</a></li>
+    {% endif %}
+
+    {% if is_granted('ROLE_COPROPRIETAIRE') %}
+        <li><a href="/coproprietaire/">Espace copropriétaire</a></li>    {% endif %}
+
+    {% if is_granted('ROLE_ASSOCOPRO') %}
+        <li><a href="/asso_copro/">Espace association copro</a></li>    {% endif %}
+
+    {% if is_granted('ROLE_SYNDICAT') %}
+        <li><a href="/syndicat/">Espace syndicat</a></li>    {% endif %}
     <p><a href="/logout">Se déconnecter</a></p>
 
 
