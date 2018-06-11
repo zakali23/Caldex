@@ -135,6 +135,8 @@ class User extends BaseUser implements UserInterface
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->syndics = new \Doctrine\Common\Collections\ArrayCollection();
         $this->associationCoPros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lots = new \Doctrine\Common\Collections\ArrayCollection();
