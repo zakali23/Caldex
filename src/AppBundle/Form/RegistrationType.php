@@ -2,9 +2,12 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Syndic;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class RegistrationType extends AbstractType
 {
@@ -26,14 +29,45 @@ class RegistrationType extends AbstractType
             ->add('email2')
             ->add('phone')
             ->add('phone2')
-            ->add('statut')
-            ->add('syndics')
-            ->add('associationCoPros')
-            ->add('lots');
+            ->add('syndics', EntityType::class, array(
+                'class' => 'AppBundle:Syndic',
+                'choice_label' => 'nom',
+                'multiple' => true,
+                'expanded' => false,
+                'required' => false
 
-    }/**
- * {@inheritdoc}
- */
+
+
+
+            ))
+            ->add('associationCoPros', EntityType::class, array(
+                'class' => 'AppBundle:associationCoPro',
+                'choice_label'=> 'name',
+                'multiple' => true,
+                'required' => false
+
+            ))
+            ->add('lots', EntityType::class, array(
+                'class' => 'AppBundle:Lot',
+                'choice_label'=> 'numero',
+                'multiple' => true,
+                'required' => false
+            ))
+            ->add('roles', ChoiceType::class, [
+                'multiple' => true,
+                'expanded' => true, // render check-boxes
+                'choices' => [
+                    'Administrateur' => 'ROLE_ADMIN',
+                    'Syndicat' => 'ROLE_SYNDICAT',
+                    'Copropriétaire' => 'ROLE_COPROPRIETAIRE',
+                    'Association de copropriétaire' => 'ROLE_ASSOCOPRO',
+                    'Propriétaire' => 'ROLE_PROPRIETAIRE',
+                    'Locataire' => 'ROLE_LOCATAIRE',
+
+                ],
+        ]);
+    }
+
 
     public function configureOptions(OptionsResolver $resolver)
     {

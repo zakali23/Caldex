@@ -4,6 +4,12 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
+        ROLE_LOCATAIRE: ROLE_LOCATAIRE
+        ROLE_PROPRIETAIRE: ROLE_PROPRIETAIRE
+        ROLE_SYNDICAT: ROLE_SYNDICAT
+        ROLE_COPROPRIETAIRE: ROLE_COPROPRIETAIRE
+        ROLE_ASSOCOPRO: ROLE_ASSOCOPRO
+        ROLE_USER: ROLE_USER
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
@@ -28,6 +34,7 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
+                default_target_path: /profile_user
             logout:       true
 
             anonymous:    true
@@ -49,3 +56,8 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/locataire/, role: ROLE_LOCATAIRE }
+        - { path: ^/proprietaire/, role: ROLE_PROPRIETAIRE }
+        - { path: ^/syndicat/, role: ROLE_SYNDICAT }
+        - { path: ^/coproprietaire/, role: ROLE_COPROPRIETAIRE }
+        - { path: ^/asso_copro/, role: ROLE_ASSOCOPRO }

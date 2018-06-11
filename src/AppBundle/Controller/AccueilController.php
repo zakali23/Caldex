@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Accueil controller.
  *
- * @Route("accueil")
+ * @Route("/")
  */
 class AccueilController extends Controller
 {
