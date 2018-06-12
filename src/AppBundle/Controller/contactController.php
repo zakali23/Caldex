@@ -90,7 +90,7 @@ class contactController extends Controller
             }else {
                 $mailer->sendEmail($infoContact->getNomInfo(),$infoContact->getPrenomInfo(),$infoContact->getTelephoneInfo(),$infoContact->getEmailInfo(),$infoContact->getAdresseInfo(),$infoContact->getMessageInfo());
 
-                $request->getSession()->getFlashBag()->add('success', 'Votre message à été bien envoyer')
+                $request->getSession()->getFlashBag()->add('success', 'Votre message a bien été envoyé !')
                 ;
 
                 $url = $this->generateUrl('contact_new');
