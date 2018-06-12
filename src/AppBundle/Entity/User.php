@@ -87,7 +87,8 @@ class User extends BaseUser implements UserInterface
     /**
      * @var string|null
      *
-     *
+
+     * @ORM\Column(name="`email2`", type="string", length=255, nullable=true)
      */
     protected $email2;
 

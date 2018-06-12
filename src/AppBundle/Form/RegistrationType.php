@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class RegistrationType extends AbstractType
 {
 
+
     /**
      * {@inheritdoc} Including all fields from Registration entity.
      */
@@ -34,6 +35,9 @@ class RegistrationType extends AbstractType
                 'multiple' => true,
                 'expanded' => false,
                 'required' => false
+
+
+
 
             ))
             ->add('associationCoPros', EntityType::class, array(
@@ -64,9 +68,7 @@ class RegistrationType extends AbstractType
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -79,9 +81,11 @@ class RegistrationType extends AbstractType
         return 'FOS\UserBundle\Form\Type\RegistrationFormType';
     }
 
+
     public function getBlockPrefix()
     {
         return 'app_user_registration';
     }
+
 
 }

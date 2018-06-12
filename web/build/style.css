@@ -2,33 +2,7 @@ footer,
 footer > a,
 footer > h6,
 footer > hr {
-  background-color: #28ff06;
-}
-
-.linkFooter,
-.linkFooter:hover {
-  text-decoration: none;
-  font-size: 20px;
-}
-
-li > a,
-li > a:hover,
-a,
-a:hover {
-  font-size: 25px;
-  color: #973900;
-}
-
-form > a,
-form > a:hover {
-  text-decoration: none;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.active {
-  border-bottom: 2px solid #973900;
-  padding-bottom: 3px;
+  background-color: #e7e093;
 }
 
 h1,
@@ -38,10 +12,6 @@ h4,
 h5,
 h6 {
   color: #006633;
-}
-
-path {
-  color: #93c01f;
 }
 
 #myBtn {

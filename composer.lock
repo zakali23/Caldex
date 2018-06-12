@@ -1367,7 +1367,10 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-06-08 15:26:40"
+
+
+            "time": "2018-06-06T17:40:22+00:00"
+
         },
         {
             "name": "phpmailer/phpmailer",
@@ -1724,7 +1727,9 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2018-06-07 06:22:12"
+
+            "time": "2018-06-07T06:22:12+00:00"
+
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -1955,7 +1960,10 @@
                 "log",
                 "logging"
             ],
-            "time": "2018-06-04 05:55:43"
+
+            "time": "2018-06-04T05:55:43+00:00"
+
+
         },
         {
             "name": "symfony/polyfill-apcu",

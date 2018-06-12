@@ -28,7 +28,9 @@ security:
                 remember_me: true
                 default_target_path: /profile_user
             logout:       true
+
             anonymous:    true
+
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
             #http_basic: ~
