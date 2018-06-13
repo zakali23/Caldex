@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends "admin/base_admin.html.twig" %}
 
 {% block body %}
     <h1>Syndics list</h1>
@@ -8,6 +8,9 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,6 +19,9 @@
             <tr>
                 <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
                 <td>{{ syndic.nom }}</td>
+                <td>{{ syndic.adresse }}</td>
+                <td>{{ syndic.codePostal }}</td>
+                <td>{{ syndic.ville }}</td>
                 <td>
                     <ul>
                         <li>
@@ -34,6 +40,9 @@
     <ul>
         <li>
             <a href="{{ path('syndic_new') }}">Create a new syndic</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_page') }}">Retour espace admin</a>
         </li>
     </ul>
 {% endblock %}
