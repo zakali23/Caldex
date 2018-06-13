@@ -87,3 +87,16 @@ knp_snappy:
 
     process_timeout: 20 # In seconds
 
+# app/config/config.yml
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltopdf
+        options:
+            no-outline: true
+            page-size: LETTER
+            encoding: UTF-8
+    image:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltoimage
+        options:    []
