@@ -5,6 +5,8 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('build/main_admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/head_admin.css') }}">
+
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -25,6 +27,7 @@
 
 </head>
 <body>
+
 <header>
     {% include 'admin/header_admin.html.twig' %}
 </header>
@@ -43,7 +46,9 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('build/header.js') }}"></script>
+{% endblock %}
 
 <footer>
 </footer>
