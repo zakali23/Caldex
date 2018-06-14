@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Compteur
- *
+ *@Vich\Uploadable
  * @ORM\Table(name="compteur")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CompteurRepository")
  */
@@ -57,11 +59,18 @@ class Compteur
     private $serialNumber;
 
     /**
-     * @var string|null
      *
-     * @ORM\Column(name="photo", type="text", nullable=true)
+     * @Vich\UploadableField(mapping="compteur_image" ,fileNameProperty="photo",)
+     *
+     * @var File
      */
-    private $photo;
+    protected $imageFile;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    protected $photo;
 
     /**
      * @var \DateTime
@@ -321,5 +330,21 @@ class Compteur
     public function getRadiateur()
     {
         return $this->radiateur;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
     }
 }
