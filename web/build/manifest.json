@@ -8,6 +8,9 @@
   "web/login.css": "/web/login.css",
   "web/header.js": "/web/header.js",
   "web/header.css": "/web/header.css",
+  "web/head_admin.js": "/web/head_admin.js",
+  "web/head_admin.css": "/web/head_admin.css",
   "web/entreprise.js": "/web/entreprise.js",
-  "web/entreprise.css": "/web/entreprise.css"
+  "web/entreprise.css": "/web/entreprise.css",
+  "web/header_admin.js": "/web/header_admin.js"
 }
