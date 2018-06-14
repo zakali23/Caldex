@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compteur</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Serialnumber</th>
+                <td>{{ compteur.serialNumber }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ compteur.photo }}</td>
+            </tr>
+            <tr>
+                <th>Dateinstallation</th>
+                <td>{% if compteur.dateInstallation %}{{ compteur.dateInstallation|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateachat</th>
+                <td>{% if compteur.dateAchat %}{{ compteur.dateAchat|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compteur_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('compteur_edit', { 'id': compteur.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,65 @@
+<?php
+
+
+namespace Acme\UserBundle\Controller;
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\DependencyInjection\ContainerAware;
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
+
+
+
+class RegistrationController extends BaseController
+{
+    public function registerAction()
+    {
+        $form = $this->container->get('fos_user.registration.form');
+
+        $userManager = $this->container->get('fos_user.user_manager');
+        $user = $userManager->createUser();
+        $user->setEnabled(true);
+
+        $form->setData($user);
+
+
+
+        $request = $this->container->get('request');
+        if($request->getMethod() === 'POST')
+        {
+            $form->bind($request);
+
+            if ($form->isValid())
+            {
+
+                $role = array($form->get('roleList')->getData());
+
+                $user->setRoles($role);
+
+                $userManager->updateUser($user);
+
+                $url = $this->container->get('router')->generate('User_liste');
+                $response = new RedirectResponse($url);
+                return $response;
+            }
+
+        }
+
+
+
+
+
+     /*   return $this->container->get('templating')->renderResponse('AppBundle:Admin:ajouterUser.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
+*/
+
+        return $this->container->get('templating')->renderResponse('app/Resources/views/user/user.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
+    }
+
+}

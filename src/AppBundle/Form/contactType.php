@@ -2,9 +2,13 @@
 
 namespace AppBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,13 +20,18 @@ class contactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('vousEtes', ChoiceType::class, array(
+            ->add('vousEtes', ChoiceType::class, [
                 'choices'  => [
-                    'Choisissez' => 'null',
+                    'Choisissez ' => 'null',
                     'Syndic' => 'Syndic',
                     'Locataire' => 'locataire',
                     'Autre' => 'Autre'
-                ]))
+                ],
+                'data'=> 'null'
+
+
+                ]
+            )
             ->add('vousSouhaitez', ChoiceType::class, array(
                 'choices'  => [
                     'Choisissez' => 'null',
@@ -37,19 +46,32 @@ class contactType extends AbstractType
                     'Monsieur' => 'Monsieur'
 
                 ]))
+
+    ->add('nomContact',TextType::class,array())
+            ->add('prenomContact',TextType::class,array())
+            ->add('emailContact',EmailType::class,array())
+            ->add('phoneContact',TelType::class,array())
+
             ->add('nomContact')
             ->add('prenomContact')
             ->add('emailContact')
             ->add('phoneContact')
+
             ->add('adresseContact')
-            ->add('nomSyndic')
+            ->add('nomSyndic',TextType::class,array())
             ->add('adresseSyndic')
-            ->add('phoneSyndic')
-            ->add('emailSyndic')
+
+            ->add('phoneSyndic',TelType::class)
+            ->add('emailSyndic',EmailType::class)
             ->add('nomResidence')
+
+            ->add('phoneSyndic',TelType::class,array())
+            ->add('emailSyndic',EmailType::class,array())
+            ->add('nomResidence',TextType::class,array())
+
             ->add('adresseResidence')
             ->add('dateAG')
-            ->add('nblogement')
+            ->add('nblogement',TextType::class,array())
             ->add('immeuble', ChoiceType::class, array(
                 'choices'  => [
                     'Choisissez' => 'null',

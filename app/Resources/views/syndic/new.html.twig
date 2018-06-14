@@ -1,0 +1,21 @@
+{% extends 'admin/base_admin.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <h1>Inscription nouveau syndicat</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('syndic_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_page') }}">Retour espace admin</a>
+        </li>
+    </ul>
+
+{% endblock %}

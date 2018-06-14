@@ -1,7 +1,13 @@
 {
   "web/app.js": "/web/app.js",
+  "web/main_admin.js": "/web/main_admin.js",
+  "web/main_admin.css": "/web/main_admin.css",
   "web/style.js": "/web/style.js",
   "web/style.css": "/web/style.css",
+  "web/login.js": "/web/login.js",
+  "web/login.css": "/web/login.css",
+  "web/header.js": "/web/header.js",
+  "web/header.css": "/web/header.css",
   "web/entreprise.js": "/web/entreprise.js",
   "web/entreprise.css": "/web/entreprise.css"
 }

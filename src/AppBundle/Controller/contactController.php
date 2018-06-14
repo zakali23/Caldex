@@ -3,9 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\contact;
+use AppBundle\Entity\infoContact;
+use AppBundle\Service\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Contact controller.
@@ -36,8 +39,10 @@ class contactController extends Controller
      *
      * @Route("/", name="contact_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,Mailer $mailer)
     {
         $contact = new Contact();
         $form = $this->createForm('AppBundle\Form\contactType', $contact);
@@ -48,17 +53,60 @@ class contactController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
             $em->flush();
-            $activeContact = true;
+            if(!$em){
 
-            return $this->redirectToRoute('contact_show',
-                array('id' => $contact->getId(),
-                'activeContact' => $activeContact));
+            }else{
+                $message = (new \Swift_Message('Demande de devis'))
+                    ->setFrom('caldex67@gmail.com')
+                    ->setTo($contact->getEmailContact())
+                    ->addTo($contact->getEmailSyndic())
+                    ->setBody($contact->getMessage());
+                $this->get('mailer')->send($message);
+
+                // Passenger mail
+                $message = (new \Swift_Message('Réservation Flyaround'))
+                    ->setFrom('reservations@flyaround.com')
+                    ->setTo('caldex67@gmail.com')
+                    ->setBody('Votre réservation est enregistrée.<br/>Merci de voyager avec Flyaround', 'text/html');
+                $this->get('mailer')->send($message);
+
+            }
+
+            return $this->redirectToRoute('contact_new');
         }
 
+
+        $infoContact = new Infocontact();
+        $formInfo = $this->createForm('AppBundle\Form\infoContactType', $infoContact);
+        $formInfo->handleRequest($request);
+
+
+        if ($formInfo->isSubmitted() && $formInfo->isValid()) {
+            $em1 = $this->getDoctrine()->getManager();
+            $em1->persist($infoContact);
+            $em1->flush();
+
+            if(!$em1){
+            }else {
+                $mailer->sendEmail($infoContact->getNomInfo(),$infoContact->getPrenomInfo(),$infoContact->getTelephoneInfo(),$infoContact->getEmailInfo(),$infoContact->getAdresseInfo(),$infoContact->getMessageInfo());
+
+                $request->getSession()->getFlashBag()->add('success', 'Votre message a bien été envoyé !')
+                ;
+
+                $url = $this->generateUrl('contact_new');
+
+                return $this->redirect($url);
+            }
+
+
+        }
         return $this->render('contact/contact.html.twig', array(
             'contact' => $contact,
             'form' => $form->createView(),
             'activeContact' => $activeContact,
+            'infoContact'=>$infoContact,
+            'formInfo'=>$formInfo->createView()
+
         ));
     }
 
