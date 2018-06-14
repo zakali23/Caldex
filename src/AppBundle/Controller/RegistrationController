@@ -50,10 +50,15 @@ class RegistrationController extends BaseController
 
 
 
-        return $this->container->get('templating')->renderResponse('AppBundle:Admin:ajouterUser.html.twig', array(
+     /*   return $this->container->get('templating')->renderResponse('AppBundle:Admin:ajouterUser.html.twig', array(
             'form' => $form->createView(),
         ));
 
+*/
+
+        return $this->container->get('templating')->renderResponse('app/Resources/views/user/user.html.twig', array(
+            'form' => $form->createView(),
+        ));
 
     }
 

@@ -36,9 +36,6 @@ class RegistrationType extends AbstractType
                 'expanded' => false,
                 'required' => false
 
-
-
-
             ))
             ->add('associationCoPros', EntityType::class, array(
                 'class' => 'AppBundle:associationCoPro',

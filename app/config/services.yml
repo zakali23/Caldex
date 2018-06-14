@@ -38,3 +38,15 @@ services:
      #   arguments: []
        # tags:
         #    - { name: kernel.event_subscriber }
+
+    app.redirect_after_registration_subscriber:
+        class: AppBundle\EventListener\RedirectAfterRegistrationSubscriber
+        autowire: true
+        tags:
+            - { name: kernel.event_subscriber }
+
+    app.registration_listener:
+         class: AppBundle\EventListener\RegistrationListener
+         tags:
+             - { name: kernel.event_listener, event: fos_user.registration.completed, method: onKernelResponse, priority: 255 }
+

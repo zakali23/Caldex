@@ -6,12 +6,12 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -82,3 +82,18 @@ fos_user:
         form:
             type: AppBundle\Form\RegistrationType
 
+vich_uploader :
+     db_driver : orm
+     mappings:
+         uploads_image:
+             uri_prefix: /lot/
+             upload_destination: '%kernel.project_dir%/web/images/lot/'
+             namer: Vich\UploaderBundle\Naming\HashNamer
+         piece_image:
+             uri_prefix: /pieces/
+             upload_destination: '%kernel.project_dir%/web/images/pieces/'
+             namer: Vich\UploaderBundle\Naming\HashNamer
+         compteur_image:
+                      uri_prefix: /compteur/
+                      upload_destination: '%kernel.project_dir%/web/images/compteur/'
+                      namer: Vich\UploaderBundle\Naming\HashNamer
