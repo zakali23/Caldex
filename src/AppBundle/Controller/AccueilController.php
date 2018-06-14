@@ -17,7 +17,7 @@ class AccueilController extends Controller
 {
 
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="accueil")
      * @Method("GET")
      */
     public function indexAction(Request $request)

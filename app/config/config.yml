@@ -82,20 +82,6 @@ fos_user:
         form:
             type: AppBundle\Form\RegistrationType
 
-# app/config/config.yml
-knp_snappy:
-    pdf:
-        enabled:    true
-        binary:     /usr/local/bin/wkhtmltopdf
-        options:
-            no-outline: true
-            page-size: LETTER
-            encoding: UTF-8
-    image:
-        enabled:    true
-        binary:     /usr/local/bin/wkhtmltoimage
-        options:    []
-
 vich_uploader :
      db_driver : orm
      mappings:
