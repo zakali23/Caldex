@@ -142,6 +142,16 @@
 
         </div>
         {% endif %}
+    {% if is_granted('ROLE_LOCATAIRE') %}
+    <a href="/profile_user" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="hidden-sm-down">Informations personnelles </span></a>
+    <a href="#menu2" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Mes Consommations </span></a>
+    <div class="collapse" id="menu2">
+        <a href="#" class="list-group-item" data-parent="#menu2">Consommation en Eau</a>
+        <a href="#" class="list-group-item" data-parent="#menu2">Consommation Calorifique</a>
+    </div>
+
+</div>
+{% endif %}
         </div>
         <main class="col-md-9 col-xs-11 p-l-2 p-t-2">
             <a href="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-lg"></i></a>
