@@ -7,6 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
+    "ajv": "^6.5.1",
     "feather-icons": "^4.7.3",
     "jquery": "^3.3.1",
     "mjml": "^4.0.5",
@@ -16,7 +17,7 @@
     "@symfony/webpack-encore": "^0.20.1",
     "bootstrap-sass": "^3.3.7",
     "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1"
+    "sass-loader": "^7.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
