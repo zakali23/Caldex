@@ -1,0 +1,104 @@
+$color-foncer: #006633;
+$color-claire: #93c01f;
+
+h4{
+  color: $color-claire;
+}
+a{
+  color: $color-claire;
+}
+
+a:focus,
+a:focus:active,
+a:active,
+a:hover {
+  color: $color-foncer;
+}
+
+.login-brand {
+  margin: 20px 0 500px 0;
+  margin-bottom: 40px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: $color-foncer;
+  text-align: center;
+}
+
+.card {
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
+  box-shadow: 0 0 40px rgba(0, 0, 0, .05);
+  background-color: #fff;
+  border-radius: 3px;
+  border: none;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.card.card-primary {
+  border-top: 2px solid $color-claire;
+}
+
+.card .card-header,
+.card .card-footer,
+.card .card-body {
+  background-color: transparent;
+}
+
+.card .card-body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #181a20;
+  font-family: 'Montserrat';
+  font-size: 1em;
+  letter-spacing: .5px;
+}
+
+.form-control {
+  border: 1px solid #ededed;
+}
+
+.form-control:focus {
+  border-color: $color-claire;
+}
+
+.btn:focus,
+.btn:focus:active,
+.btn:active,
+.btn:hover {
+  background-color: $color-claire !important;
+  border: 1px solid transparent;
+}
+
+button.btn.btn-primary{
+  background-color: $color-claire !important;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 10px 23px;
+  letter-spacing: .4px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  width:100%;
+
+}
+
+.btn:focus,
+.btn:active,
+.btn:active:focus,
+.form-control:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+
+
+label.custom-control-label::after{
+  background-color: $color-claire;
+  color: $color-claire;
+}

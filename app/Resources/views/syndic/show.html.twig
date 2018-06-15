@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends "admin/base_admin.html.twig" %}
 
 {% block body %}
     <h1>Syndic</h1>
@@ -12,6 +12,18 @@
             <tr>
                 <th>Nom</th>
                 <td>{{ syndic.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ syndic.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepostal</th>
+                <td>{{ syndic.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ syndic.ville }}</td>
             </tr>
         </tbody>
     </table>
@@ -27,6 +39,9 @@
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
+        </li>
+        <li>
+            <a href="{{ path('admin_page') }}">Retour espace admin</a>
         </li>
     </ul>
 {% endblock %}
