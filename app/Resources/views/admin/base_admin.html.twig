@@ -28,10 +28,76 @@
 </head>
 <body>
 
-<header>
-    {% include 'admin/header_admin.html.twig' %}
-</header>
-{% block body %}{% endblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-xs-1 p-l-0 p-r-0 collapse in" id="sidebar">
+            <div class="list-group panel">
+                {% if is_granted('ROLE_ADMIN') %}
+                <a href="#menu1" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-dashboard"></i> <span class="hidden-sm-down">Gestion des utilisateurs</span> </a>
+                <div class="collapse" id="menu1">
+                    <a href="#menu1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Copropriété </a>
+                    <div class="collapse" id="menu1sub1">
+                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Création</a>
+                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Modification</a>
+                    </div>
+                    <a href="#menu1sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Syndicat </a>
+                    <div class="collapse" id="menu1sub2">
+                        <a href="#" class="list-group-item" data-parent="#menu1sub2">Création</a>
+                        <a href="#" class="list-group-item" data-parent="#menu1sub2">Modification</a>
+                    </div>
+                    <a href="#menu1sub3" class="list-group-item" data-toggle="collapse" aria-expanded="false">Association de copropriété </a>
+                    <div class="collapse" id="menu1sub3">
+                        <a href="#" class="list-group-item" data-parent="#menu1sub3">Création</a>
+                        <a href="#" class="list-group-item" data-parent="#menu1sub3">Modification</a>
+                    </div>
+                    <a href="#menu1sub4" class="list-group-item" data-toggle="collapse" aria-expanded="false">Propriétaire </a>
+                    <div class="collapse" id="menu1sub4">
+                        <a href="#" class="list-group-item" data-parent="#menu1sub4">Création</a>
+                        <a href="#" class="list-group-item" data-parent="#menu1sub4">Modification</a>
+                    </div>
+                    <a href="#menu1sub5" class="list-group-item" data-toggle="collapse" aria-expanded="false">Locataire </a>
+                    <div class="collapse" id="menu1sub5">
+                        <a href="#" class="list-group-item" data-parent="#menu1sub5">Création</a>
+                        <a href="#" class="list-group-item" data-parent="#menu1sub5">Modification</a>
+                    </div>
+                </div>
+                <a href="/profile_user" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="hidden-sm-down">Informations personnelles </span></a>
+                <a href="#menu3" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion du parc immobilier </span></a>
+                <div class="collapse" id="menu3">
+                    <a href="#" class="list-group-item" data-parent="#menu3">Créer un nouvel immeuble</a>
+                    <a href="#" class="list-group-item" data-parent="#menu3">Créer un nouveau lot</a>
+                    <a href="#" class="list-group-item" data-parent="#menu3">Créer une nouvelle pièce</a>
+                </div>
+                    <a href="#menu4" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-dashboard"></i> <span class="hidden-sm-down">Matériel</span> </a>
+                    <div class="collapse" id="menu4">
+                        <a href="#menu4sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Compteur </a>
+                        <div class="collapse" id="menu4sub1">
+
+                            <a href="#menu4sub1sub1" class="list-group-item" data-toggle="collapse"  aria-expanded="false">Type de compteur </a>
+
+                            <div class="collapse" id="menu4sub1sub1">
+                                    <a href="#" class="list-group-item" data-parent="#menu4sub1sub1">Subitem 5 e.1</a>
+                                    <a href="#" class="list-group-item" data-parent="#menu4sub1sub1">Subitem 5 e.2</a>
+                                </div>
+                            <a href="#" class="list-group-item" data-parent="#menu4sub1">Fournisseurs</a>
+                            <a href="#" class="list-group-item" data-parent="#menu4sub1">Mesures</a>
+                        </div>
+
+                    </div>
+
+            </div>
+            {% endif %}
+        </div>
+        <main class="col-md-9 col-xs-11 p-l-2 p-t-2">
+            <a href="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-lg"></i></a>
+            <hr>
+            {% block body %}{% endblock %}
+        </main>
+    </div>
+</div>
+
+
+
 {% block fos_user_content %}{% endblock %}
 
 <!-- JQuery maps -->
