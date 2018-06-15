@@ -37,36 +37,36 @@
                 <div class="collapse" id="menu1">
                     <a href="#menu1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Copropriété </a>
                     <div class="collapse" id="menu1sub1">
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Création</a>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Modification</a>
+                        <a href="/copro/new" class="list-group-item" data-parent="#menu1sub1">Création</a>
+                        <a href="{{ path('copro_index') }}" class="list-group-item" data-parent="#menu1sub1">Modification</a>
                     </div>
                     <a href="#menu1sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Syndicat </a>
                     <div class="collapse" id="menu1sub2">
-                        <a href="#" class="list-group-item" data-parent="#menu1sub2">Création</a>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub2">Modification</a>
+                        <a href="/syndic/new" class="list-group-item" data-parent="#menu1sub2">Création</a>
+                        <a href="{{ path('syndic_index') }}" class="list-group-item" data-parent="#menu1sub2">Modification</a>
                     </div>
                     <a href="#menu1sub3" class="list-group-item" data-toggle="collapse" aria-expanded="false">Association de copropriété </a>
                     <div class="collapse" id="menu1sub3">
-                        <a href="#" class="list-group-item" data-parent="#menu1sub3">Création</a>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub3">Modification</a>
+                        <a href="/associationcopro/new" class="list-group-item" data-parent="#menu1sub3">Création</a>
+                        <a href="{{ path('associationcopro_index') }}" class="list-group-item" data-parent="#menu1sub3">Modification</a>
                     </div>
                     <a href="#menu1sub4" class="list-group-item" data-toggle="collapse" aria-expanded="false">Propriétaire </a>
                     <div class="collapse" id="menu1sub4">
-                        <a href="#" class="list-group-item" data-parent="#menu1sub4">Création</a>
+                        <a href="/register" class="list-group-item" data-parent="#menu1sub4">Création</a>
                         <a href="#" class="list-group-item" data-parent="#menu1sub4">Modification</a>
                     </div>
                     <a href="#menu1sub5" class="list-group-item" data-toggle="collapse" aria-expanded="false">Locataire </a>
                     <div class="collapse" id="menu1sub5">
-                        <a href="#" class="list-group-item" data-parent="#menu1sub5">Création</a>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub5">Modification</a>
+                        <a href="/register" class="list-group-item" data-parent="#menu1sub5">Création</a>
+                        <a href="" class="list-group-item" data-parent="#menu1sub5">Modification</a>
                     </div>
                 </div>
                 <a href="/profile_user" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="hidden-sm-down">Informations personnelles </span></a>
                 <a href="#menu3" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion du parc immobilier </span></a>
                 <div class="collapse" id="menu3">
-                    <a href="#" class="list-group-item" data-parent="#menu3">Créer un nouvel immeuble</a>
-                    <a href="#" class="list-group-item" data-parent="#menu3">Créer un nouveau lot</a>
-                    <a href="#" class="list-group-item" data-parent="#menu3">Créer une nouvelle pièce</a>
+                    <a href="/{{ path('immeuble_new') }}" class="list-group-item" data-parent="#menu3">Créer un nouvel immeuble</a>
+                    <a href="{{ path('lot_new') }}" class="list-group-item" data-parent="#menu3">Créer un nouveau lot</a>
+                    <a href="{{ path('piece_new') }}" class="list-group-item" data-parent="#menu3">Créer une nouvelle pièce</a>
                 </div>
                     <a href="#menu4" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-dashboard"></i> <span class="hidden-sm-down">Matériel</span> </a>
                     <div class="collapse" id="menu4">
@@ -76,15 +76,15 @@
                             <a href="#menu4sub1sub1" class="list-group-item" data-toggle="collapse"  aria-expanded="false">Type de compteur </a>
 
                             <div class="collapse" id="menu4sub1sub1">
-                                    <a href="#" class="list-group-item" data-parent="#menu4sub1sub1">Subitem 5 e.1</a>
-                                    <a href="#" class="list-group-item" data-parent="#menu4sub1sub1">Subitem 5 e.2</a>
+                                    <a href="#" class="list-group-item" data-parent="#menu4sub1sub1">Eau</a>
+                                    <a href="#" class="list-group-item" data-parent="#menu4sub1sub1">Calorimètre</a>
                                 </div>
-                            <a href="#" class="list-group-item" data-parent="#menu4sub1">Fournisseurs</a>
+                            <a href="{{ path('fournisseurcompteur_index') }}" class="list-group-item" data-parent="#menu4sub1">Fournisseurs</a>
                             <a href="#" class="list-group-item" data-parent="#menu4sub1">Mesures</a>
                         </div>
                     </div>
 
-            </div>
+
             {% endif %}
             {% if is_granted('ROLE_ASSOCOPRO') %}
             <a href="/profile_user" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="hidden-sm-down">Informations personnelles </span></a>
@@ -110,7 +110,7 @@
                 <a href="#" class="list-group-item" data-parent="#menu5">Création d'un Propriétaire/Locataire</a>
                 <a href="#" class="list-group-item" data-parent="#menu5">Consultation des Propriétaires/Locataires</a>
             </div>
-        </div>
+
             {% endif %}
 
 
@@ -140,7 +140,7 @@
                 <a href="#" class="list-group-item" data-parent="#menu5">Consultation des Propriétaires/Locataires</a>
             </div>
 
-        </div>
+
         {% endif %}
     {% if is_granted('ROLE_LOCATAIRE') %}
     <a href="/profile_user" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="hidden-sm-down">Informations personnelles </span></a>
@@ -167,6 +167,28 @@
         </div>
         <main class="col-md-9 col-xs-11 p-l-2 p-t-2">
             <a href="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-lg"></i></a>
+            <div>
+            {% if is_granted('ROLE_ADMIN') %}
+            <h5>Espace administrateur</h5>
+            {% endif %}
+            {% if is_granted('ROLE_COPROPRIETAIRE') %}
+                <h5>Espace copropriétaire</h5>
+            {% endif %}
+
+            {% if is_granted('ROLE_SYNDICAT') %}
+                <h5>Espace syndicat</h5>
+            {% endif %}
+            {% if is_granted('ROLE_ASSOCOPRO') %}
+                <h5>Espace association de copropriété</h5>
+            {% endif %}
+            {% if is_granted('ROLE_LOCATAIRE') %}
+                <h5>Espace locataire</h5>
+            {% endif %}
+            {% if is_granted('ROLE_PROPRIETAIRE') %}
+                <h5>Espace propriétaire</h5>
+            {% endif %}
+            <a href="/logout" style="float: right;">Se déconnecter</a>
+            </div>
             <hr>
             {% block body %}{% endblock %}
         </main>
