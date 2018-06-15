@@ -82,11 +82,66 @@
                             <a href="#" class="list-group-item" data-parent="#menu4sub1">Fournisseurs</a>
                             <a href="#" class="list-group-item" data-parent="#menu4sub1">Mesures</a>
                         </div>
-
                     </div>
 
             </div>
             {% endif %}
+            {% if is_granted('ROLE_ASSOCOPRO') %}
+            <a href="/profile_user" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="hidden-sm-down">Informations personnelles </span></a>
+            <a href="#menu2" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i><span class="hidden-sm-down">Consultation du Parc immobilier </span></a>
+            <div class="collapse" id="menu2">
+                <a href="#" class="list-group-item" data-parent="#menu2">Consultation Immeuble</a>
+                <a href="#" class="list-group-item" data-parent="#menu2">Consultation Lot</a>
+                <a href="#" class="list-group-item" data-parent="#menu2">Consultation Pièce</a>
+            </div>
+            <a href="#menu3" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion des Consommations</span></a>
+            <div class="collapse" id="menu3">
+                <a href="#" class="list-group-item" data-parent="#menu3">Consommation par Immeuble</a>
+                <a href="#" class="list-group-item" data-parent="#menu3">Consommation par Lot</a>
+                <a href="#" class="list-group-item" data-parent="#menu3">Consommation par Pièce</a>
+            </div>
+            <a href="#menu4" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion des Collaborateurs</span></a>
+            <div class="collapse" id="menu4">
+                <a href="#" class="list-group-item" data-parent="#menu3">Création d'un collaborateur</a>
+                <a href="#" class="list-group-item" data-parent="#menu3">Consultation des collaborateurs</a>
+            </div>
+            <a href="#menu5" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion des Propriétaires/Locataires</span></a>
+            <div class="collapse" id="menu5">
+                <a href="#" class="list-group-item" data-parent="#menu5">Création d'un Propriétaire/Locataire</a>
+                <a href="#" class="list-group-item" data-parent="#menu5">Consultation des Propriétaires/Locataires</a>
+            </div>
+        </div>
+            {% endif %}
+
+
+            {% if is_granted('ROLE_SYNDICAT') %}
+            <a href="/profile_user" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="hidden-sm-down">Informations personnelles </span></a>
+            <a href="#menu2" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion du Parc Immobilier </span></a>
+            <div class="collapse" id="menu2">
+                <a href="#" class="list-group-item" data-parent="#menu2">Consultation Immeuble</a>
+                <a href="#" class="list-group-item" data-parent="#menu2">Consultation Lot</a>
+                <a href="#" class="list-group-item" data-parent="#menu2">Consultation Pièce</a>
+            </div>
+            <a href="#menu3" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion des Consommations </span></a>
+            <div class="collapse" id="menu3">
+                <a href="#" class="list-group-item" data-parent="#menu3">Consommation Syndic</a>
+                <a href="#" class="list-group-item" data-parent="#menu3">Consommation Immeuble</a>
+                <a href="#" class="list-group-item" data-parent="#menu3">Consommation Lot</a>
+                <a href="#" class="list-group-item" data-parent="#menu3">Consommation Pièce</a>
+            </div>
+            <a href="#menu4" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion des Collaborateurs </span></a>
+            <div class="collapse" id="menu4">
+                <a href="#" class="list-group-item" data-parent="#menu4">Création d'un Collaborateur</a>
+                <a href="#" class="list-group-item" data-parent="#menu4">Consultation des Collaborateurs</a>
+            </div>
+            <a href="#menu5" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Gestion des Propriétaires/Locataires </span></a>
+            <div class="collapse" id="menu5">
+                <a href="#" class="list-group-item" data-parent="#menu5">Création d'un Propriétaire/Locataire</a>
+                <a href="#" class="list-group-item" data-parent="#menu5">Consultation des Propriétaires/Locataires</a>
+            </div>
+
+        </div>
+        {% endif %}
         </div>
         <main class="col-md-9 col-xs-11 p-l-2 p-t-2">
             <a href="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-lg"></i></a>
