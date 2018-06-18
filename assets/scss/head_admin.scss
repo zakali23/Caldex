@@ -358,7 +358,7 @@ h3 {
   left: 0;
   top: 0;
   bottom: 0;
-  background: #102c58;
+  background: #93c01f;
   -webkit-transition: width 0.5s ease-in-out;
   -moz-transition: width 0.5s ease-in-out;
   -ms-transition: width 0.5s ease-in-out;
@@ -418,7 +418,7 @@ h3 {
   left: 0;
   top: 50%;
   margin-top: -18px;
-  background-color: #5f9cfd;
+  background-color:#93c01f;
   opacity: 0;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -427,14 +427,14 @@ h3 {
   transition: all 0.5s ease-in-out;
 }
 .c-menu > ul .c-menu__item.is-active .c-menu__item__inner {
-  border-left-color: #5f9cfd;
-  background-color: #1e3e6f;
+  border-left-color: #93c01f;
+  background-color: #006633;
 }
 .c-menu > ul .c-menu__item.is-active .c-menu__item__inner i {
-  color: #5f9cfd;
+  color: #93c01f;
 }
 .c-menu > ul .c-menu__item.is-active .c-menu__item__inner .c-menu-item__title span {
-  color: #5f9cfd;
+  color: #93c01f;
 }
 .c-menu > ul .c-menu__item.is-active .c-menu__item__inner:before {
   height: 36px;
