@@ -2,10 +2,12 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Service\Pdf;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 
 /**
@@ -28,5 +30,18 @@ class AccueilController extends Controller
         return $this->render('accueil/index.html.twig', ['activeAccueil' => $activeAccueil,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
+    }
+
+    /**
+     * @Route("/dl", name="pdf")
+     * @Method({"GET", "POST"})
+     * @param Pdf $pdf
+     * @return string
+     */
+    public function pdfAction(Pdf $pdf)
+    {
+       $test = $pdf->showAction();
+
+       return $test;
     }
 }
