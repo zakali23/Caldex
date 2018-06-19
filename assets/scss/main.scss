@@ -5,6 +5,10 @@ footer, footer>a, footer>h6, footer>hr{
   background-color: #e7e093;
 }
 
+.gris-color {
+
+    color: #6f757d;
+}
 
 h1, h2, h3,h4,h5,h6{
   color: $color-foncer;
@@ -46,7 +50,7 @@ h1, h2, h3,h4,h5,h6{
 .card-body.contact.text-center.h-100.white-text {
   -webkit-border-radius: 0 .25rem .25rem 0;
   border-radius: 0 .25rem .25rem 0;
-  background-color: $color-foncer;
+  background-color: #e7e093;
 }
 .contact-section .contact {
 
@@ -58,3 +62,40 @@ select.form-control:not([size]):not([multiple]) {
 #nom_id,#prenom_id,#telephone_id,#email_id,#adresse_id,#nom_valid,#prenom_valid,#email_valid,#telephone_valid{
   display: none;
 }
+.jumbotron.jumbotron-fluid {
+  background: #e7e093;
+
+}
+
+#username{
+  border-bottom-color: $color-claire;
+  width: 40%;
+}
+#resetMdp {
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
+#envoiMailMdp{
+  margin-bottom: 18%;
+  margin-top: 10%;
+}
+#changeMdp{
+  margin-bottom: 18%;
+  margin-top: 10%;
+}
+.jumbotron.text-center {
+  background: #e7e093;
+  color: $color-foncer;
+}
+.text-muted {
+  color: #373933 !important;
+}
+.input-group-text {
+  color: white !important;
+  background: #93c01f !important;
+}
+#test {
+  color: $color-foncer;
+}
+
+
