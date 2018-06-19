@@ -1,9 +1,10 @@
 {% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
-<div class="profil green-text">
 
-        <h3 class="text-center green-text animated fadeInDownBig">Votre profile</h3>
+<div class="profil green-text text-center">
+
+        <h3 class="text-center green-text animated slideInUp">Votre profile</h3>
 
            <p> Vous êtes un :
         {% if is_granted('ROLE_ADMIN') %}
@@ -34,7 +35,7 @@
 
    {# {{ dump(app.user) }}#}
 
-        <h3 class="text-center animated fadeInDownBig"> Vos informations</h3>
+        <h3 class="text-center animated slideInUp"> Vos informations</h3>
 
         <p>Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
 
