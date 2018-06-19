@@ -8,7 +8,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RadiateurType extends AbstractType
 {
-/**
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('hauteur')->add('longueur')->add('type')->add('puissanceDeltaT50');
+    }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

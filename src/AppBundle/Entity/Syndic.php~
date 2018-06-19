@@ -39,7 +39,26 @@ class Syndic
      */
     private $nom;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="text")
+     */
+    private $adresse;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codePostal", type="integer")
+     */
+    private $codePostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    private $ville;
     /**
      * Get id.
      *
@@ -48,6 +67,54 @@ class Syndic
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param string $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * @param int $codePostal
+     */
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param string $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
     }
 
     /**

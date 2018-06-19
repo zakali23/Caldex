@@ -21,14 +21,38 @@ class Radiateur
      */
     private $id;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="hauteur", type="integer")
+     */
+    private $hauteur;
+
 
     /**
-     * Get id.
+     * @var int
      *
-     * @return int
+     * @ORM\Column(name="longueur", type="integer")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $longueur;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string")
+     */
+    private $type;
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissance_delta_t50", type="integer")
+     */
+    private $puissanceDeltaT50;
+
+
+
+
 }
