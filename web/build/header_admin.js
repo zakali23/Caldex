@@ -149,7 +149,10 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover({
         trigger: 'hover',
-        template: 'body'
+        html: true,
+        content: function content() {
+            return $('.profil').html();
+        }
     });
 });
 

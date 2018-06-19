@@ -1,10 +1,11 @@
 {% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
+<div class="profil green-text">
 
-<h1>Profile utilisateur</h1>
+        <h3 class="text-center green-text animated fadeInDownBig">Votre profile</h3>
 
-    <p> Vous êtes un :
+           <p> Vous êtes un :
         {% if is_granted('ROLE_ADMIN') %}
             <b>Administrateur</b>
 
@@ -33,43 +34,21 @@
 
    {# {{ dump(app.user) }}#}
 
-    <p> Vos informations</p>
+        <h3 class="text-center animated fadeInDownBig"> Vos informations</h3>
 
-    <p>Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
+        <p>Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
 
-    <ul>
+        <ul>
 
-        <li>Prénom : {{ app.user.firstname }}</li>
-        <li>Nom : {{ app.user.lastname }}</li>
-        <li>Adresse : {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
-        <li>Téléphone : {{ app.user.phone }}</li>
-        <li>Email: {{ app.user.email }}</li>
-    </ul>
-
-
-    {% if is_granted('ROLE_ADMIN') %}
-        <li><a href="/admin/">Espace administrateur</a></li>
-    {% endif %}
-
-    {% if is_granted('ROLE_LOCATAIRE') %}
-        <li><a href="/locataire/">Espace locataire</a></li>
-    {% endif %}
-
-    {% if is_granted('ROLE_PROPRIETAIRE') %}
-        <li><a href="/proprietaire/">Espace propriétaire</a></li>
-    {% endif %}
-
-    {% if is_granted('ROLE_COPROPRIETAIRE') %}
-        <li><a href="/coproprietaire/">Espace copropriétaire</a></li>    {% endif %}
-
-    {% if is_granted('ROLE_ASSOCOPRO') %}
-        <li><a href="/asso_copro/">Espace association copro</a></li>    {% endif %}
-
-    {% if is_granted('ROLE_SYNDICAT') %}
-        <li><a href="/syndicat/">Espace syndicat</a></li>    {% endif %}
+            <li>Prénom : {{ app.user.firstname }}</li>
+            <li>Nom : {{ app.user.lastname }}</li>
+            <li><i class="fa fa-map-marker-alt"></i> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
+            <li>Téléphone : {{ app.user.phone }}</li>
+            <li>Email: {{ app.user.email }}</li>
+        </ul>
 
 
-    <p><a href="/logout">Se déconnecter</a></p>
 
 
+</div>
 {% endblock %}

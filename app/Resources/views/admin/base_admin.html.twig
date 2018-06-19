@@ -25,7 +25,7 @@
         <div class="c-header-icon js-hamburger">
             <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
         </div>
-        <div class="c-header-icon has-dropdown"><span class="c-badge c-badge--header-icon animated shake">12</span><i class="fa fa-bell"></i>
+        <div class="c-header-icon has-dropdown"><span class="c-badge c-badge--header-icon animated shake">12</span><i class="fa fas fa-envelope"></i>
             <div class="c-dropdown c-dropdown--notifications">
                 <div class="c-dropdown__header"></div>
                 <div class="c-dropdown__content"></div>
@@ -37,8 +37,36 @@
             </form>
         </div>
         <div class="header-icons-group">
-            <div class="c-header-icon logout"><a href="" class="btn btn-pophover" data-toggle="popover" data-placement="bottom"><i class="fa fa fa-user"></i></a></div>
-            <div class="c-header-icon logout"><a href="/logout"><i class="fa fa-power-off"></i></a></div>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="c-header-icon logout" title="Espace Administration"><a href="/admin/"><i class="fa fa-address-card "></i></a></div>
+
+            {% endif %}
+
+            {% if is_granted('ROLE_LOCATAIRE') %}
+                <div class="c-header-icon logout" title="Espace Administration"><a href="/locataire/"><i class="fa fa-address-card "></i></a></div>
+
+            {% endif %}
+
+            {% if is_granted('ROLE_PROPRIETAIRE') %}
+                <div class="c-header-icon logout" title="Espace Administration"><a href="/proprietaire"><i class="fa fa-address-card "></i></a></div>
+            {% endif %}
+
+            {% if is_granted('ROLE_COPROPRIETAIRE') %}
+                <div class="c-header-icon logout" title="Espace Administration"><a href="/copropritaire/"><i class="fa fa-address-card "></i></a></div>
+            {% endif %}
+            {% if is_granted('ROLE_ASSOCOPRO') %}
+                <div class="c-header-icon logout" title="Espace Administration"><a href="/asso_copro"><i class="fa fa-address-card "></i></a></div>
+
+            {% endif %}
+
+            {% if is_granted('ROLE_SYNDICAT') %}
+                <div class="c-header-icon logout" title="Espace Administration"><a href="/syndicat/"><i class="fa fa-address-card "></i></a></div>
+
+            {% endif %}
+
+            <div class="c-header-icon logout"><a class="btn btn-pophover" data-toggle="popover" data-placement="bottom"><i class="fa fa fa-user"></i></a></div>
+            <div class="c-header-icon logout" title="Deconnexion"><a href="/logout"><i class="fa fa-power-off"></i></a></div>
 
         </div>
 
@@ -52,17 +80,17 @@
         <nav class="c-menu js-menu">
             {% if is_granted('ROLE_ADMIN') %}
             <ul class="u-list">
-                <li class="c-menu__item is-active" data-toggle="tooltip" title="Proposals" id="GU">
-                    <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
+                <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion Utilisateurs" id="GU">
+                    <div class="c-menu__item__inner"><i class="fa fa-users"></i>
                         <div class="c-menu-item__title"><span>Gestion Utilisateurs</span></div>
                     </div>
                 </li>
-                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings" id="GP">
-                    <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Parc Immo" id="GP">
+                    <div class="c-menu__item__inner"><i class="fa fa-building"></i>
                         <div class="c-menu-item__title"><span>Gestion du Parc Immo</span></div>
                     </div>
                 </li>
-                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings" id="GM">
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="GM">
                     <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                         <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
                     </div>
@@ -159,8 +187,9 @@
             </div>
         </nav>
     </div>
+    <div class="cacher">
     {% block body %}{% endblock %}
-
+    </div>
 </main>
 
 

@@ -195,7 +195,7 @@ h3 {
 }
 .hamburger-toggle [class*='bar-'] {
   display: block;
-  background: #102c58;
+  background: #006633;
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
   -webkit-transition: .2s ease all;
@@ -267,13 +267,14 @@ h3 {
 .c-header-icon i {
   font-size: 18px;
   line-height: 40px;
+  color: #006633;
 }
 .c-header-icon--in-circle {
   border: 1px solid #d0d0d0;
   border-radius: 100%;
 }
 .c-header-icon:hover i {
-  color: #f5642d;
+  color: #93c01f;
 }
 
 .l-header {
@@ -371,7 +372,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #051835;
+  background-color: #0a0e0c;
 }
 .l-sidebar .logo .logo__txt {
   font-size: 26px;
@@ -558,5 +559,8 @@ a.list-group-item.active small {
 }
 
 #Gestion-Utilisateurs, #Gestion-Parc,#Gestion-Materiel{
+  display: none;
+}
+.cacher{
   display: none;
 }
