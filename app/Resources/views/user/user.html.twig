@@ -60,16 +60,17 @@
     {% endif %}
 
     {% if is_granted('ROLE_COPROPRIETAIRE') %}
-        <li><a href="/coproprietaire/">Espace copropriétaire</a></li>    {% endif %}
+        <li><a href="/coproprietaire/">Espace copropriétaire</a></li>
+    {% endif %}
 
     {% if is_granted('ROLE_ASSOCOPRO') %}
-        <li><a href="/asso_copro/">Espace association copro</a></li>    {% endif %}
+        <li><a href="/asso_copro/">Espace association copro</a></li>
+    {% endif %}
 
     {% if is_granted('ROLE_SYNDICAT') %}
-        <li><a href="/syndicat/">Espace syndicat</a></li>    {% endif %}
+        <li><a href="/syndicat/">Espace syndicat</a></li>
+    {% endif %}
 
-
-    <p><a href="/logout">Se déconnecter</a></p>
 
 
 {% endblock %}
