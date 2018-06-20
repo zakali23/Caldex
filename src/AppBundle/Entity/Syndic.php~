@@ -17,6 +17,12 @@ class Syndic
      */
     private $gestionnaires;
 
+    /**
+     * Many associationCoPro have Many Prestataire.
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Prestataire", cascade={"persist"})
+     */
+    private $Prestataires;
+
     public function __toString()
     {
         // TODO: Implement __toString() method.
