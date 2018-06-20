@@ -64,6 +64,56 @@
                 </li>
             </ul>
             {% endif %}
+
+            {% if is_granted('ROLE_SYNDICAT') %}
+                <ul class="u-list">
+                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="SGPI">
+                        <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
+                            <div class="c-menu-item__title"><span>Gestion du Parc Immo</span></div>
+                        </div>
+                    </li>
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Consommation" id="SGConso">
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion Consommations</span></div>
+                        </div>
+                    </li>
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Collaborateurs" id="SGCollab">
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion Collaborateurs</span></div>
+                        </div>
+                    </li>
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Propriétaires Locataire" id="SGPL">
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion Résidents</span></div>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
+
+            {% if is_granted('ROLE_ASSOCOPRO') %}
+                <ul class="u-list">
+                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="ACGPI">
+                        <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
+                            <div class="c-menu-item__title"><span>Gestion du Parc Immo</span></div>
+                        </div>
+                    </li>
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Consommation" id="ACGConso">
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion Consommations</span></div>
+                        </div>
+                    </li>
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Collaborateurs" id="ACGCollab">
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion Collaborateurs</span></div>
+                        </div>
+                    </li>
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Propriétaires Locataire" id="ACGPL">
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion Résidents</span></div>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
         </nav>
     </div>
 
@@ -71,6 +121,7 @@
 
 <main class="l-main">
     <div class="container">
+        {% if is_granted('ROLE_ADMIN') %}
         <nav class="navbar navbar-default" id="Gestion-Utilisateurs">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -153,8 +204,89 @@
                 </div>
             </div>
         </nav>
+        {% endif %}
+
+        {% if is_granted('ROLE_SYNDICAT') %}
+            <nav class="navbar navbar-default" id="Parc">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Consultation Immeuble</a>
+                        <a class="navbar-brand" href="">Consultation Lot</a>
+                        <a class="navbar-brand" href="">Consultation Pièce</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-default" id="Consommations">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Consommation Syndic</a>
+                        <a class="navbar-brand" href="">Consommation Immeuble</a>
+                        <a class="navbar-brand" href="">Consommation Lot</a>
+                        <a class="navbar-brand" href="">Consommation Pièce</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-default" id="Collaborateur">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Création d'un collaborateur</a>
+                        <a class="navbar-brand" href="">Consultation des collaborateurs</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-default" id="Résident">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Création d'un résident</a>
+                        <a class="navbar-brand" href="">Consultation des résidents</a>
+                    </div>
+                </div>
+            </nav>
+
+        {% endif %}
+
+        {% if is_granted('ROLE_ASSOCOPRO') %}
+            <nav class="navbar navbar-default" id="ACParc">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Consultation Immeuble</a>
+                        <a class="navbar-brand" href="">Consultation Lot</a>
+                        <a class="navbar-brand" href="">Consultation Pièce</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-default" id="ACConsommations">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Consommation Syndic</a>
+                        <a class="navbar-brand" href="">Consommation Immeuble</a>
+                        <a class="navbar-brand" href="">Consommation Lot</a>
+                        <a class="navbar-brand" href="">Consommation Pièce</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-default" id="ACCollaborateur">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Création d'un collaborateur</a>
+                        <a class="navbar-brand" href="">Consultation des collaborateurs</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-default" id="ACRésident">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Création d'un résident</a>
+                        <a class="navbar-brand" href="">Consultation des résidents</a>
+                    </div>
+                </div>
+            </nav>
+
+        {% endif %}
     </div>
 
+
+    {% block body %}{% endblock %}
 </main>
 
 
