@@ -144,6 +144,16 @@ $(document).ready(function () {
         $("#Gestion-Parc").css({ "display": "none" });
         $("#Gestion-Materiel").css({ "display": "contents" });
     });
+
+    $("li#MBI").click(function () {
+
+        $("#Mes-Biens").css({ "display": "contents" });
+    });
+
+    $("li#MC").click(function () {
+
+        $("#Mes-Consos").css({ "display": "contents" });
+    });
 });
 
 /***/ })
