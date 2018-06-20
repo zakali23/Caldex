@@ -1,4 +1,4 @@
-{% extends "admin/base_admin.html.twig" %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
     <h1>Syndics list</h1>
@@ -40,9 +40,6 @@
     <ul>
         <li>
             <a href="{{ path('syndic_new') }}">Create a new syndic</a>
-        </li>
-        <li>
-            <a href="{{ path('admin_page') }}">Retour espace admin</a>
         </li>
     </ul>
 {% endblock %}

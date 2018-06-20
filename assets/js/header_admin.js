@@ -71,6 +71,16 @@ $(document).ready(function()
         $("#Gestion-Materiel").show();
     });
 
+    $("li#MBI").click(function() {
+
+        $("#Mes-Biens").css({"display": "contents"});
+    });
+
+    $("li#MC").click(function() {
+
+        $("#Mes-Consos").css({"display": "contents"});
+    });
+
     $("li#SGPI").click(function() {
 
         $("#Parc").css({"display": "contents"});
