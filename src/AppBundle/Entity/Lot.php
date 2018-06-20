@@ -25,6 +25,9 @@ class Lot
      */
     private $rooms;
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         // TODO: Implement __toString() method.
