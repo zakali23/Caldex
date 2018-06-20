@@ -1,5 +1,4 @@
-{% extends 'base.html.twig' %}
-
+{% extends "admin/base_admin.html.twig"%}
 {% block body %}
     <h1>Erreur</h1>
 
@@ -10,11 +9,11 @@
                 <td>{{ erreur.id }}</td>
             </tr>
             <tr>
-                <th>Codeerreur</th>
+                <th>Code erreur</th>
                 <td>{{ erreur.codeErreur }}</td>
             </tr>
             <tr>
-                <th>Dateerreur</th>
+                <th>Date erreur</th>
                 <td>{% if erreur.dateErreur %}{{ erreur.dateErreur|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
