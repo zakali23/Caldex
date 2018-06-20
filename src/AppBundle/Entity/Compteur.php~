@@ -14,6 +14,13 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Compteur
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Erreur", inversedBy="versionCompteurs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $versionCompteur;
+
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Piece", inversedBy="compteurs")
      * @ORM\JoinColumn(nullable=false)

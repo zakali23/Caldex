@@ -6,21 +6,21 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RadiateurType extends AbstractType
+class ErreurType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('hauteur')->add('longueur')->add('type')->add('puissanceDeltaT50');
+        $builder->add('codeErreur')->add('dateErreur');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Radiateur'
+            'data_class' => 'AppBundle\Entity\Erreur'
         ));
     }
 
@@ -29,7 +29,7 @@ class RadiateurType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_radiateur';
+        return 'appbundle_erreur';
     }
 
 

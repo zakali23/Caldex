@@ -261,7 +261,6 @@
             </div>
         </nav>
         {% endif %}
-        {% endif %}
 
         {% if is_granted('ROLE_SYNDICAT') %}
             <nav class="navbar navbar-default" id="Parc">
@@ -340,11 +339,6 @@
             </nav>
 
         {% endif %}
-    <div class="cacher">
-    {% block body %}{% endblock %}
-    </div>
-
-</main>
 
         {% if is_granted('ROLE_LOCATAIRE') %}
             <nav class="navbar navbar-default" id="Mes-Consos">
