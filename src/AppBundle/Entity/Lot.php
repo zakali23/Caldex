@@ -25,6 +25,9 @@ class Lot
      */
     private $rooms;
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         // TODO: Implement __toString() method.
@@ -61,6 +64,12 @@ class Lot
      */
     private $etage;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="tantieme", type="integer")
+     */
+    private $tantieme;
 
     /**
      *
@@ -75,6 +84,13 @@ class Lot
      * @var string
      */
     protected $photo;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $reference;
 
 
         /**
@@ -265,5 +281,45 @@ class Lot
     public function setImageFile($imageFile)
     {
         $this->imageFile = $imageFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    }
+
+    /**
+     * Set tantieme.
+     *
+     * @param int $tantieme
+     *
+     * @return Lot
+     */
+    public function setTantieme($tantieme)
+    {
+        $this->tantieme = $tantieme;
+
+        return $this;
+    }
+
+    /**
+     * Get tantieme.
+     *
+     * @return int
+     */
+    public function getTantieme()
+    {
+        return $this->tantieme;
     }
 }

@@ -282,11 +282,24 @@ class User extends BaseUser implements UserInterface
      *
      * @return User
      */
-    public function setEmail($email = null)
+    public function setEmail($email)
     {
-        $this->email = $email;
+        $this->setUsername($email);
 
-        return $this;
+        return parent::setEmail($email);
+    }
+
+    /**
+     * Set the canonical email.
+     *
+     * @param string $emailCanonical
+     * @return User
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $this->setUsernameCanonical($emailCanonical);
+
+        return parent::setEmailCanonical($emailCanonical);
     }
 
     /**

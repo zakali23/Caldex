@@ -17,6 +17,12 @@ class Syndic
      */
     private $gestionnaires;
 
+    /**
+     * Many associationCoPro have Many Prestataire.
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Prestataire", cascade={"persist"})
+     */
+    private $Prestataires;
+
     public function __toString()
     {
         // TODO: Implement __toString() method.
@@ -39,7 +45,38 @@ class Syndic
      */
     private $nom;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="text")
+     */
+    private $adresse;
+<<<<<<< HEAD
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codePostal", type="integer")
+     */
+    private $codePostal;
+
+    /**
+=======
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codePostal", type="integer")
+     */
+    private $codePostal;
+
+    /**
+>>>>>>> 3a88beacba18452284d8ea52a305e682370c3d6e
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    private $ville;
     /**
      * Get id.
      *
@@ -48,6 +85,54 @@ class Syndic
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param string $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * @param int $codePostal
+     */
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param string $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
     }
 
     /**

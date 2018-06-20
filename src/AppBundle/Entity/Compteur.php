@@ -14,6 +14,13 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Compteur
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Erreur", inversedBy="versionCompteurs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $versionCompteur;
+
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Piece", inversedBy="compteurs")
      * @ORM\JoinColumn(nullable=false)
@@ -346,5 +353,29 @@ class Compteur
     public function setImageFile($imageFile)
     {
         $this->imageFile = $imageFile;
+    }
+
+    /**
+     * Set versionCompteur.
+     *
+     * @param \AppBundle\Entity\Erreur $versionCompteur
+     *
+     * @return Compteur
+     */
+    public function setVersionCompteur(\AppBundle\Entity\Erreur $versionCompteur)
+    {
+        $this->versionCompteur = $versionCompteur;
+
+        return $this;
+    }
+
+    /**
+     * Get versionCompteur.
+     *
+     * @return \AppBundle\Entity\Erreur
+     */
+    public function getVersionCompteur()
+    {
+        return $this->versionCompteur;
     }
 }
