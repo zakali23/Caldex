@@ -144,16 +144,6 @@ $(document).ready(function () {
         $("#Gestion-Parc").css({ "display": "none" });
         $("#Gestion-Materiel").show();
     });
-});
-
-$(document).ready(function () {
-    $('[data-toggle="popover"]').popover({
-        trigger: 'hover',
-        html: true,
-        content: function content() {
-            return $('.profil').html();
-        }
-    });
 
     $("li#MBI").click(function () {
 
@@ -227,6 +217,16 @@ $(document).ready(function () {
         $("#Consommations").css({ "display": "none" });
         $("#Collaborateur").css({ "display": "none" });
         $("#Résident").css({ "display": "contents" });
+    });
+});
+
+$(document).ready(function () {
+    $('[data-toggle="popover"]').popover({
+        trigger: 'hover',
+        html: true,
+        content: function content() {
+            return $('.profil').html();
+        }
     });
 });
 
