@@ -17,6 +17,12 @@ class Syndic
      */
     private $gestionnaires;
 
+    /**
+     * Many associationCoPro have Many Prestataire.
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Prestataire", cascade={"persist"})
+     */
+    private $Prestataires;
+
     public function __toString()
     {
         // TODO: Implement __toString() method.
@@ -39,7 +45,26 @@ class Syndic
      */
     private $nom;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="text")
+     */
+    private $adresse;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codePostal", type="integer")
+     */
+    private $codePostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    private $ville;
     /**
      * Get id.
      *
@@ -48,6 +73,54 @@ class Syndic
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param string $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * @param int $codePostal
+     */
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param string $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
     }
 
     /**
@@ -115,5 +188,41 @@ class Syndic
     public function getGestionnaires()
     {
         return $this->gestionnaires;
+    }
+
+    /**
+     * Add prestataire.
+     *
+     * @param \AppBundle\Entity\Prestataire $prestataire
+     *
+     * @return Syndic
+     */
+    public function addPrestataire(\AppBundle\Entity\Prestataire $prestataire)
+    {
+        $this->Prestataires[] = $prestataire;
+
+        return $this;
+    }
+
+    /**
+     * Remove prestataire.
+     *
+     * @param \AppBundle\Entity\Prestataire $prestataire
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removePrestataire(\AppBundle\Entity\Prestataire $prestataire)
+    {
+        return $this->Prestataires->removeElement($prestataire);
+    }
+
+    /**
+     * Get prestataires.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPrestataires()
+    {
+        return $this->Prestataires;
     }
 }

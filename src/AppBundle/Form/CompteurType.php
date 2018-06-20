@@ -13,7 +13,7 @@ class CompteurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('serialNumber')->add('photo')->add('dateInstallation')->add('dateAchat')->add('compteur')->add('categorieCompteur')->add('marque')->add('radiateur');
+        $builder->add('serialNumber')->add('photo')->add('dateInstallation')->add('dateAchat')->add('versionCompteur')->add('compteur')->add('categorieCompteur')->add('marque')->add('radiateur');
     }/**
      * {@inheritdoc}
      */

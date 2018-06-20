@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Lot
- *
+ *@Vich\Uploadable
  * @ORM\Table(name="lot")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\LotRepository")
  */
@@ -23,6 +25,9 @@ class Lot
      */
     private $rooms;
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         // TODO: Implement __toString() method.
@@ -60,11 +65,32 @@ class Lot
     private $etage;
 
     /**
-     * @var string|null
+     * @var int
      *
-     * @ORM\Column(name="photo", type="text", nullable=true)
+     * @ORM\Column(name="tantieme", type="integer")
      */
-    private $photo;
+    private $tantieme;
+
+    /**
+     *
+     * @Vich\UploadableField(mapping="uploads_image" ,fileNameProperty="photo",)
+     *
+     * @var File
+     */
+    protected $imageFile;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    protected $photo;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $reference;
 
 
         /**
@@ -239,5 +265,61 @@ class Lot
     public function getRooms()
     {
         return $this->rooms;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    }
+
+    /**
+     * Set tantieme.
+     *
+     * @param int $tantieme
+     *
+     * @return Lot
+     */
+    public function setTantieme($tantieme)
+    {
+        $this->tantieme = $tantieme;
+
+        return $this;
+    }
+
+    /**
+     * Get tantieme.
+     *
+     * @return int
+     */
+    public function getTantieme()
+    {
+        return $this->tantieme;
     }
 }

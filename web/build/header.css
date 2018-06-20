@@ -1,0 +1,33 @@
+.navbar.navbar-expand-lg.navbar-dark {
+  background: #e7e093;
+}
+
+.nav-link.waves-effect.waves-light {
+  color: #006633 !important;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.nav-item.active {
+  color: #006633;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.navbar.navbar-dark .breadcrumb .nav-item.active > .nav-link,
+.navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link {
+  background-color: transparent;
+  border-bottom: 1px solid #93c01f;
+}
+
+.color-primary {
+  color: #93c01f !important;
+}
+
+.navbar.navbar-dark form .md-form input {
+  border-bottom: 1px solid #93c01f;
+}
+
+.form-control.form-control-sm.mr-sm-2.mb-0.green-text::placeholder {
+  color: #93c01f;
+}

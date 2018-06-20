@@ -1,0 +1,32 @@
+{% extends "admin/base_admin.html.twig" %}
+
+{% block body %}
+
+
+    <h5>Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
+    <h1>Administrateur</h1>
+
+    <div>
+        <h2>Inscription</h2>
+    <li><a href="/register">Enregister un nouveau membre</a></li>
+    <li><a href="/syndic/new">Inscription nouveau syndicat</a></li>
+    <li><a href="/copro/new">Inscription nouvelle copropriété</a></li>
+    <li><a href="/associationcopro/new">Inscription nouvelle association de copropriété</a></li>
+    </div>
+
+<div>
+    <h2>Membres</h2>
+    <li><a href="{{ path('syndic_index') }}">Liste des syndicats</a></li>
+    <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
+    <li><a href="{{ path('associationcopro_index') }}">Liste des association de copropriétés</a></li>
+</div>
+
+    <h2>Gestion</h2>
+    <li>Création d'un lot</li>
+    <li>Gestion des droits </li>
+    <li>Gestion des relevés compteurs</li>
+
+    <li>Boite mail</li>
+    <h2>Statistique</h2>
+
+{% endblock %}

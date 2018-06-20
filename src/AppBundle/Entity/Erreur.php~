@@ -1,0 +1,106 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Erreur
+ *
+ * @ORM\Table(name="erreur")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ErreurRepository")
+ */
+class Erreur
+{
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Compteur", mappedBy="versionCompteur")
+     */
+    private $versionCompteurs;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codeErreur", type="string", length=255)
+     */
+    private $codeErreur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateErreur", type="datetime")
+     */
+    private $dateErreur;
+
+
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set codeErreur.
+     *
+     * @param string $codeErreur
+     *
+     * @return Erreur
+     */
+    public function setCodeErreur($codeErreur)
+    {
+        $this->codeErreur = $codeErreur;
+
+        return $this;
+    }
+
+    /**
+     * Get codeErreur.
+     *
+     * @return string
+     */
+    public function getCodeErreur()
+    {
+        return $this->codeErreur;
+    }
+
+    /**
+     * Set dateErreur.
+     *
+     * @param \DateTime $dateErreur
+     *
+     * @return Erreur
+     */
+    public function setDateErreur($dateErreur)
+    {
+        $this->dateErreur = $dateErreur;
+
+        return $this;
+    }
+
+    /**
+     * Get dateErreur.
+     *
+     * @return \DateTime
+     */
+    public function getDateErreur()
+    {
+        return $this->dateErreur;
+    }
+
+
+}

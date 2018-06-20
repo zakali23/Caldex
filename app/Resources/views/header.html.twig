@@ -1,33 +1,49 @@
-<div>
-    <form class="form-inline ">
-        <div class="ml-auto">
-            <input class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="Search" aria-label="Search">
-        </div>
-        <button class="btn" type="submit"><span class="fa fa-search"></span></button>
-        <i class="fa fa-user" aria-hidden="true"></i><a href=""> login</a>
-    </form>
-</div>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/images/logo.png" height="50" alt="">
+    </a>
 
 
-<nav class="navbar navbar-expand-lg">
-    <img src="/images/logo.png" alt="" style="height:10vh; width: 30vw">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+            aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link {% if activeAccueil is defined %} active {% endif %}" href="/accueil">Accueil</a>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto green-text">
+            <li class="nav-item {% if activeAccueil is defined %} active {% endif %}">
+                <a class="nav-link"  href="/">Accueil</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {% if activeEntreprise is defined %} active {% endif %}" href="/entreprise">Entreprise</a>
+            <li class="nav-item {% if activeEntreprise is defined %} active {% endif %}">
+                <a class="nav-link"  href="/entreprise">Entreprise</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {% if activeVousEtes is defined %} active {% endif %}" href="/vousetes">Vous-êtes ?</a>
+            <li class="nav-item {% if activeVousEtes is defined %} active {% endif %}">
+                <a class="nav-link"  href="/vousetes">Vous-êtes ?</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {% if activeContact is defined %} active {% endif %}" href="/contact">Contact</a>
+            <li class="nav-item {% if activeContact is defined %} active {% endif %}">
+                <a class="nav-link"  href="/contact">Contact</a>
             </li>
+
+
+
+
+        </ul>
+        <!-- Links -->
+
+
+
+        <a href="/login"><button class="btn btn-outline-green btn-md my-2 my-sm-0 ml-3 "  type="submit"><i class="fa fa-user " aria-hidden="true"></i></button></a>
+
     </div>
+
+    <!-- Collapsible content -->
+
 </nav>
+<!--/.Navbar-->

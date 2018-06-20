@@ -1,4 +1,5 @@
-{% extends 'base.html.twig' %}
+{% extends "admin/base_admin.html.twig"%}
+
 
 {% block body %}
     <h1>Radiateurs list</h1>
@@ -7,6 +8,10 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Hauteur</th>
+                <th>Longueur</th>
+                <th>Type</th>
+                <th>Puissancedeltat50</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -14,6 +19,10 @@
         {% for radiateur in radiateurs %}
             <tr>
                 <td><a href="{{ path('radiateur_show', { 'id': radiateur.id }) }}">{{ radiateur.id }}</a></td>
+                <td>{{ radiateur.hauteur }}</td>
+                <td>{{ radiateur.longueur }}</td>
+                <td>{{ radiateur.type }}</td>
+                <td>{{ radiateur.puissanceDeltaT50 }}</td>
                 <td>
                     <ul>
                         <li>

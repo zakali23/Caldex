@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Lot
- *
+ *@Vich\Uploadable
  * @ORM\Table(name="lot")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\LotRepository")
  */
@@ -59,12 +61,41 @@ class Lot
      */
     private $etage;
 
+
     /**
-     * @var string|null
      *
-     * @ORM\Column(name="photo", type="text", nullable=true)
+     * @Vich\UploadableField(mapping="uploads_image" ,fileNameProperty="photo",)
+     *
+     * @var File
      */
-    private $photo;
+    protected $imageFile;
+    /**
+<<<<<<< HEAD
+     * @var int
+     *
+     * @ORM\Column(name="tantieme", type="integer")
+     */
+    private $tantieme;
+
+    /**
+     *
+     * @Vich\UploadableField(mapping="uploads_image" ,fileNameProperty="photo",)
+     *
+     * @var File
+     */
+    protected $imageFile;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+>>>>>>> 3a88beacba18452284d8ea52a305e682370c3d6e
+    protected $photo;
 
 
         /**
@@ -239,5 +270,21 @@ class Lot
     public function getRooms()
     {
         return $this->rooms;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
     }
 }

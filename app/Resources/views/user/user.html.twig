@@ -1,0 +1,54 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+
+<div class="profil green-text text-center">
+
+        <h3 class="text-center green-text animated slideInUp">Votre profile</h3>
+
+           <p> Vous êtes un :
+        {% if is_granted('ROLE_ADMIN') %}
+            <b>Administrateur</b>
+
+        {% endif %}
+
+        {% if is_granted('ROLE_LOCATAIRE') %}
+            <b>Locataire</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_PROPRIETAIRE') %}
+            <b>Propriétaire</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_COPROPRIETAIRE') %}
+            <b>Copropriétaire</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_ASSOCOPRO') %}
+            <b>Association de copropriétaire</b>
+        {% endif %}
+
+        {% if is_granted('ROLE_SYNDICAT') %}
+            <b>Syndicat</b>
+        {% endif %}
+    </p>
+
+   {# {{ dump(app.user) }}#}
+
+        <h3 class="text-center animated slideInUp"> Vos informations</h3>
+
+        <p>Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
+
+        <ul>
+
+            <li>Prénom : {{ app.user.firstname }}</li>
+            <li>Nom : {{ app.user.lastname }}</li>
+            <li><i class="fa fa-map-marker-alt"></i> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
+            <li>Téléphone : {{ app.user.phone }}</li>
+            <li>Email: {{ app.user.email }}</li>
+        </ul>
+
+
+
+</div>
+{% endblock %}

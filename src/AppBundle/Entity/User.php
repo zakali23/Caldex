@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use FOS\UserBundle\Model\UserInterface;
 
 /**
  * User
@@ -11,13 +12,10 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User extends BaseUser
+class User extends BaseUser implements UserInterface
 {
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role", inversedBy="statuts")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $statut;
+
+
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Syndic", cascade={"persist"})
@@ -89,7 +87,8 @@ class User extends BaseUser
     /**
      * @var string|null
      *
-     *
+
+     * @ORM\Column(name="`email2`", type="string", length=255, nullable=true)
      */
     protected $email2;
 
@@ -106,6 +105,29 @@ class User extends BaseUser
      * @ORM\Column(name="phone2", type="integer", nullable=true)
      */
     private $phone2;
+
+    /**
+     *
+     */
+  /*  protected $roles = [];
+
+    public function getRoles()
+    {
+        $roles = $this->roles;
+
+        // give everyone ROLE_USER!
+        if (!in_array('ROLE_USER', $roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+        return $roles;
+    }
+
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+    }
+
+
 
 
 
@@ -260,11 +282,24 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setEmail($email = null)
+    public function setEmail($email)
     {
-        $this->email = $email;
+        $this->setUsername($email);
 
-        return $this;
+        return parent::setEmail($email);
+    }
+
+    /**
+     * Set the canonical email.
+     *
+     * @param string $emailCanonical
+     * @return User
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $this->setUsernameCanonical($emailCanonical);
+
+        return parent::setEmailCanonical($emailCanonical);
     }
 
     /**
@@ -349,29 +384,7 @@ class User extends BaseUser
         return $this->phone2;
     }
 
-    /**
-     * Set statut.
-     *
-     * @param \AppBundle\Entity\Role $statut
-     *
-     * @return User
-     */
-    public function setStatut(\AppBundle\Entity\Role $statut)
-    {
-        $this->statut = $statut;
 
-        return $this;
-    }
-
-    /**
-     * Get statut.
-     *
-     * @return \AppBundle\Entity\Role
-     */
-    public function getStatut()
-    {
-        return $this->statut;
-    }
 
     /**
      * Add syndic.
