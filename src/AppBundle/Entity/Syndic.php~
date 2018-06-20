@@ -51,6 +51,7 @@ class Syndic
      * @ORM\Column(name="adresse", type="text")
      */
     private $adresse;
+<<<<<<< HEAD
 
     /**
      * @var int
@@ -60,6 +61,17 @@ class Syndic
     private $codePostal;
 
     /**
+=======
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codePostal", type="integer")
+     */
+    private $codePostal;
+
+    /**
+>>>>>>> 3a88beacba18452284d8ea52a305e682370c3d6e
      * @var string
      *
      * @ORM\Column(name="ville", type="string", length=255)
