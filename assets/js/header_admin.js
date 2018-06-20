@@ -52,7 +52,7 @@ $(document).ready(function()
 {
     $("li#GU").click(function() {
 
-        $("#Gestion-Utilisateurs").css({"display": "contents"});
+        $("#Gestion-Utilisateurs").show();
         $("#Gestion-Parc").css({"display": "none"});
         $("#Gestion-Materiel").css({"display": "none"});
     });
@@ -60,7 +60,7 @@ $(document).ready(function()
     $("li#GP").click(function() {
 
         $("#Gestion-Utilisateurs").css({"display": "none"});
-        $("#Gestion-Parc").css({"display": "contents"});
+        $("#Gestion-Parc").show();
         $("#Gestion-Materiel").css({"display": "none"});
     });
 
@@ -68,7 +68,7 @@ $(document).ready(function()
 
         $("#Gestion-Utilisateurs").css({"display": "none"});
         $("#Gestion-Parc").css({"display": "none"});
-        $("#Gestion-Materiel").css({"display": "contents"});
+        $("#Gestion-Materiel").show();
     });
 
     $("li#SGPI").click(function() {
@@ -136,3 +136,12 @@ $(document).ready(function()
     });
 });
 
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+        trigger : 'hover',
+        html: true,
+        content: function(){
+            return $('.profil').html();
+        }
+    });
+});
