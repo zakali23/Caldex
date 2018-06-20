@@ -21,6 +21,9 @@
                         <li>
                             <a href="{{ path('associationcopro_show', { 'id': associationCoPro.id }) }}">show</a>
                         </li>
+                        <li>
+                            <a href="{{ path('associationcopro_edit', { 'id': associationCoPro.id }) }}">edit</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -28,5 +31,9 @@
         </tbody>
     </table>
 
-    
+    <ul>
+        <li>
+            <a href="{{ path('associationcopro_new') }}">Create a new associationCoPro</a>
+        </li>
+    </ul>
 {% endblock %}
