@@ -61,6 +61,12 @@ class Lot
      */
     private $etage;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="tantieme", type="integer")
+     */
+    private $tantieme;
 
     /**
      *
@@ -265,5 +271,29 @@ class Lot
     public function setImageFile($imageFile)
     {
         $this->imageFile = $imageFile;
+    }
+
+    /**
+     * Set tantieme.
+     *
+     * @param int $tantieme
+     *
+     * @return Lot
+     */
+    public function setTantieme($tantieme)
+    {
+        $this->tantieme = $tantieme;
+
+        return $this;
+    }
+
+    /**
+     * Get tantieme.
+     *
+     * @return int
+     */
+    public function getTantieme()
+    {
+        return $this->tantieme;
     }
 }
