@@ -6,21 +6,21 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CompteurType extends AbstractType
+class ErreurType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('serialNumber')->add('photo')->add('dateInstallation')->add('dateAchat')->add('versionCompteur')->add('compteur')->add('categorieCompteur')->add('marque')->add('radiateur');
+        $builder->add('codeErreur')->add('dateErreur');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Compteur'
+            'data_class' => 'AppBundle\Entity\Erreur'
         ));
     }
 
@@ -29,7 +29,7 @@ class CompteurType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_compteur';
+        return 'appbundle_erreur';
     }
 
 
