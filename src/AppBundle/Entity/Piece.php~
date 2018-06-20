@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Piece
- *
+ *@Vich\Uploadable
  * @ORM\Table(name="piece")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PieceRepository")
  */
@@ -52,12 +54,20 @@ class Piece
      */
     private $surface;
 
+
     /**
-     * @var string|null
      *
-     * @ORM\Column(name="photo", type="text", nullable=true)
+     * @Vich\UploadableField(mapping="piece_image" ,fileNameProperty="photo",)
+     *
+     * @var File
      */
-    private $photo;
+    protected $imageFile;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    protected $photo;
 
 
     /**
@@ -207,5 +217,21 @@ class Piece
     public function getCompteurs()
     {
         return $this->compteurs;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
     }
 }
