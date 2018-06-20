@@ -61,7 +61,16 @@ class Lot
      */
     private $etage;
 
+
     /**
+     *
+     * @Vich\UploadableField(mapping="uploads_image" ,fileNameProperty="photo",)
+     *
+     * @var File
+     */
+    protected $imageFile;
+    /**
+<<<<<<< HEAD
      * @var int
      *
      * @ORM\Column(name="tantieme", type="integer")
@@ -80,6 +89,12 @@ class Lot
      *
      * @var string
      */
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+>>>>>>> 3a88beacba18452284d8ea52a305e682370c3d6e
     protected $photo;
 
 

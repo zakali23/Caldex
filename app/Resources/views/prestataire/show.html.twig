@@ -1,39 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Syndic</h1>
+    <h1>Prestataire</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ syndic.id }}</td>
+                <td>{{ prestataire.id }}</td>
             </tr>
             <tr>
                 <th>Nom</th>
-                <td>{{ syndic.nom }}</td>
+                <td>{{ prestataire.nom }}</td>
             </tr>
             <tr>
                 <th>Adresse</th>
-                <td>{{ syndic.adresse }}</td>
+                <td>{{ prestataire.adresse }}</td>
             </tr>
             <tr>
-                <th>Codepostal</th>
-                <td>{{ syndic.codePostal }}</td>
+                <th>Tel</th>
+                <td>{{ prestataire.tel }}</td>
             </tr>
             <tr>
-                <th>Ville</th>
-                <td>{{ syndic.ville }}</td>
+                <th>Mail</th>
+                <td>{{ prestataire.mail }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('syndic_index') }}">Back to the list</a>
+            <a href="{{ path('prestataire_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">Edit</a>
+            <a href="{{ path('prestataire_edit', { 'id': prestataire.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

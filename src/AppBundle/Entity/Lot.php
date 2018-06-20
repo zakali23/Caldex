@@ -82,6 +82,13 @@ class Lot
      */
     protected $photo;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $reference;
+
 
         /**
      * Constructor
@@ -271,6 +278,22 @@ class Lot
     public function setImageFile($imageFile)
     {
         $this->imageFile = $imageFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
     }
 
     /**

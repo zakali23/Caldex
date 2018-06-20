@@ -18,6 +18,13 @@ class associationCoPro
      */
     private $cotest;
 
+    /**
+     * Many associationCoPro have Many Prestataire.
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Prestataire", cascade={"persist"})
+     */
+    private $Prestataires;
+
+
     public function __toString()
     {
         // TODO: Implement __toString() method.
@@ -39,12 +46,6 @@ class associationCoPro
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
-
-
-
-
-
-
 
     /**
      * Get id.
@@ -102,5 +103,48 @@ class associationCoPro
     public function getCotest()
     {
         return $this->cotest;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Prestataires = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add prestataire.
+     *
+     * @param \AppBundle\Entity\Prestataire $prestataire
+     *
+     * @return associationCoPro
+     */
+    public function addPrestataire(\AppBundle\Entity\Prestataire $prestataire)
+    {
+        $this->Prestataires[] = $prestataire;
+
+        return $this;
+    }
+
+    /**
+     * Remove prestataire.
+     *
+     * @param \AppBundle\Entity\Prestataire $prestataire
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removePrestataire(\AppBundle\Entity\Prestataire $prestataire)
+    {
+        return $this->Prestataires->removeElement($prestataire);
+    }
+
+    /**
+     * Get prestataires.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPrestataires()
+    {
+        return $this->Prestataires;
     }
 }
