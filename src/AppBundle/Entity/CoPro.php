@@ -14,14 +14,15 @@ class CoPro
 {
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndic", inversedBy="gestionnaires")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $gestionnaire;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\associationCoPro", mappedBy="cotest")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\associationCoPro", inversedBy="assoCoPros")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $cotests;
+    private $copro;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment")
@@ -281,5 +282,29 @@ class CoPro
     public function getBatiments()
     {
         return $this->batiments;
+    }
+
+    /**
+     * Set copro.
+     *
+     * @param \AppBundle\Entity\associationCoPro|null $copro
+     *
+     * @return CoPro
+     */
+    public function setCopro(\AppBundle\Entity\associationCoPro $copro = null)
+    {
+        $this->copro = $copro;
+
+        return $this;
+    }
+
+    /**
+     * Get copro.
+     *
+     * @return \AppBundle\Entity\associationCoPro|null
+     */
+    public function getCopro()
+    {
+        return $this->copro;
     }
 }

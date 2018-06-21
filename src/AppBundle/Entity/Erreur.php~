@@ -103,4 +103,47 @@ class Erreur
     }
 
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->versionCompteurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add versionCompteur.
+     *
+     * @param \AppBundle\Entity\Compteur $versionCompteur
+     *
+     * @return Erreur
+     */
+    public function addVersionCompteur(\AppBundle\Entity\Compteur $versionCompteur)
+    {
+        $this->versionCompteurs[] = $versionCompteur;
+
+        return $this;
+    }
+
+    /**
+     * Remove versionCompteur.
+     *
+     * @param \AppBundle\Entity\Compteur $versionCompteur
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeVersionCompteur(\AppBundle\Entity\Compteur $versionCompteur)
+    {
+        return $this->versionCompteurs->removeElement($versionCompteur);
+    }
+
+    /**
+     * Get versionCompteurs.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVersionCompteurs()
+    {
+        return $this->versionCompteurs;
+    }
 }
