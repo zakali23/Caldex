@@ -72,6 +72,13 @@ class Immeuble
      */
     private $plan;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reference", type="string", length=255, nullable=false)
+     */
+    private $reference;
+
 
 
     /**
@@ -283,5 +290,21 @@ class Immeuble
     public function getBornes()
     {
         return $this->bornes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
     }
 }
