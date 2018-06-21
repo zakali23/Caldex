@@ -2,6 +2,25 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
+    {% for lot in lots %}
+        <tr>
+            <td><a href="{{ path('lot_show', { 'id': lot.id }) }}">{{ lot.id }}</a></td>
+            <td>{{ lot.numero }}</td>
+            <td>{{ lot.surface }}</td>
+            <td>{{ lot.etage }}</td>
+            <td>{{ lot.photo }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('lot_show', { 'id': lot.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('lot_edit', { 'id': lot.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
     <h1>Lot creation</h1>
 
     {{ form_start(form) }}

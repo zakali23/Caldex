@@ -21,10 +21,19 @@ class Lot
     private $appartement;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="lots")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
+
+    /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Piece", mappedBy="room")
      */
     private $rooms;
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         // TODO: Implement __toString() method.
@@ -61,16 +70,7 @@ class Lot
      */
     private $etage;
 
-
     /**
-     *
-     * @Vich\UploadableField(mapping="uploads_image" ,fileNameProperty="photo",)
-     *
-     * @var File
-     */
-    protected $imageFile;
-    /**
-<<<<<<< HEAD
      * @var int
      *
      * @ORM\Column(name="tantieme", type="integer")
@@ -89,13 +89,14 @@ class Lot
      *
      * @var string
      */
-=======
-     * @ORM\Column(type="string", length=255, nullable=true)
+    protected $photo;
+
+    /**
+     * @ORM\Column(type="string", length=255)
      *
      * @var string
      */
->>>>>>> 3a88beacba18452284d8ea52a305e682370c3d6e
-    protected $photo;
+    private $reference;
 
 
         /**
@@ -286,5 +287,45 @@ class Lot
     public function setImageFile($imageFile)
     {
         $this->imageFile = $imageFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    }
+
+    /**
+     * Set tantieme.
+     *
+     * @param int $tantieme
+     *
+     * @return Lot
+     */
+    public function setTantieme($tantieme)
+    {
+        $this->tantieme = $tantieme;
+
+        return $this;
+    }
+
+    /**
+     * Get tantieme.
+     *
+     * @return int
+     */
+    public function getTantieme()
+    {
+        return $this->tantieme;
     }
 }

@@ -14,7 +14,7 @@ class LotType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('numero')->add('surface')->add('etage')->add('appartement')->add('reference')->add('imageFile',FileType::class);
+        $builder->add('numero')->add('surface')->add('etage')->add('appartement')->add('reference')->add('tantieme')->add('imageFile',FileType::class);
     }/**
      * {@inheritdoc}
      */
