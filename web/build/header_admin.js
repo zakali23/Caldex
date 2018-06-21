@@ -157,34 +157,34 @@ $(document).ready(function () {
 
     $("li#SGPI").click(function () {
 
-        $("#Parc").css({ "display": "contents" });
-        $("#Consommations").css({ "display": "none" });
-        $("#Collaborateur").css({ "display": "none" });
-        $("#Résident").css({ "display": "none" });
+        $("#SParc").show();
+        $("#SConsommations").css({ "display": "none" });
+        $("#SCollaborateur").css({ "display": "none" });
+        $("#SResident").css({ "display": "none" });
     });
 
     $("li#SGConso").click(function () {
 
-        $("#Parc").css({ "display": "none" });
-        $("#Consommations").css({ "display": "contents" });
-        $("#Collaborateur").css({ "display": "none" });
-        $("#Résident").css({ "display": "none" });
+        $("#SParc").css({ "display": "none" });
+        $("#SConsommations").show();
+        $("#SCollaborateur").css({ "display": "none" });
+        $("#SResident").css({ "display": "none" });
     });
 
     $("li#SGCollab").click(function () {
 
-        $("#Parc").css({ "display": "none" });
-        $("#Consommations").css({ "display": "none" });
-        $("#Collaborateur").css({ "display": "contents" });
-        $("#Résident").css({ "display": "none" });
+        $("#SParc").css({ "display": "none" });
+        $("#SConsommations").css({ "display": "none" });
+        $("#SCollaborateur").show();
+        $("#SResident").css({ "display": "none" });
     });
 
     $("li#SGPL").click(function () {
 
-        $("#Parc").css({ "display": "none" });
-        $("#Consommations").css({ "display": "none" });
-        $("#Collaborateur").css({ "display": "none" });
-        $("#Résident").css({ "display": "contents" });
+        $("#SParc").css({ "display": "none" });
+        $("#SConsommations").css({ "display": "none" });
+        $("#SCollaborateur").css({ "display": "none" });
+        $("#SResident").show();
     });
 
     $("li#AC1").click(function () {
