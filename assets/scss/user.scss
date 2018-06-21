@@ -1,0 +1,57 @@
+h3,p{
+  text-align: center;
+}
+
+a{
+  color: white !important;
+}
+
+a:focus,
+a:focus:active,
+a:active,
+a:hover {
+  color: white;
+}
+.card{
+  margin: 2vw;
+  width: 50%;
+  border: 2px solid greenyellow;
+}
+
+.card-header{
+  margin-bottom: 2vh;
+  border-bottom: 2px solid greenyellow;
+}
+
+.gestion{
+  margin-left: 2vw;
+}
+
+.connect{
+  text-align: right;
+}
+
+button{
+  background-color: greenyellow;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 10px 23px;
+  letter-spacing: .4px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  width:100%;
+
+}
+
+button:focus,
+button:focus:active,
+button:active,
+button:hover {
+  background-color: greenyellow;
+  border: 1px solid transparent;
+}
+
+span{
+  font-weight: bold;
+}
