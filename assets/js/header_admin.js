@@ -113,37 +113,38 @@ $(document).ready(function()
         $("#Résident").css({"display": "contents"});
     });
 
-    $("li#ACGPI").click(function() {
+    $("li#AC1").click(function() {
 
-        $("#Parc").css({"display": "contents"});
-        $("#Consommations").css({"display": "none"});
-        $("#Collaborateur").css({"display": "none"});
-        $("#Résident").css({"display": "none"});
+        $("#ACParc").show();
+        $("#ACConsommations").css({"display": "none"});
+        $("#ACCollaborateur").css({"display": "none"});
+        $("#ACRésident").css({"display": "none"});
     });
 
-    $("li#ACGConso").click(function() {
+    $("li#AC2").click(function() {
 
-        $("#Parc").css({"display": "none"});
-        $("#Consommations").css({"display": "contents"});
-        $("#Collaborateur").css({"display": "none"});
-        $("#Résident").css({"display": "none"});
+        $("#ACParc").css({"display": "none"});
+        $("#ACConsommations").show();
+        $("#ACCollaborateur").css({"display": "none"});
+        $("#ACRésident").css({"display": "none"});
     });
 
-    $("li#ACGCollab").click(function() {
+    $("li#AC3").click(function() {
 
-        $("#Parc").css({"display": "none"});
-        $("#Consommations").css({"display": "none"});
-        $("#Collaborateur").css({"display": "contents"});
-        $("#Résident").css({"display": "none"});
+        $("#ACParc").css({"display": "none"});
+        $("#ACConsommations").css({"display": "none"});
+        $("#ACCollaborateur").show();
+        $("#ACRésident").css({"display": "none"});
     });
 
-    $("li#ACGPL").click(function() {
+    $("li#AC4").click(function() {
 
-        $("#Parc").css({"display": "none"});
-        $("#Consommations").css({"display": "none"});
-        $("#Collaborateur").css({"display": "none"});
-        $("#Résident").css({"display": "contents"});
+        $("#ACParc").css({"display": "none"});
+        $("#ACConsommations").css({"display": "none"});
+        $("#ACCollaborateur").css({"display": "none"});
+        $("#ACRésident").show();
     });
+
 });
 
 $(document).ready(function(){
