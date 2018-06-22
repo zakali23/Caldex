@@ -2,14 +2,15 @@ h3,p{
   text-align: center;
 }
 
-a{
-  color: white !important;
+button>a{
+  color: white;
+  font-weight: bolder;
 }
 
-a:focus,
-a:focus:active,
-a:active,
-a:hover {
+button>a:focus,
+button>a:focus:active,
+button>a:active,
+button>a:hover {
   color: white;
 }
 .card{

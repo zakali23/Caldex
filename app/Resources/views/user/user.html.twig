@@ -77,19 +77,20 @@
                 </ul>
             {% endif %}
 
-            {#A compléter#}
             {% if is_granted('ROLE_COPROPRIETAIRE') %}
                 <div class="card-header">
-                    <h3>Ma copropriété</h3>
+                    <h3>Mon référent</h3>
                 </div>
                 <ul>
-                    <li><span>Nom :</span></li>
-                    <li><span>Adresse :</span> </li>
-                    <li><span>Téléphone: </span></li>
+                    <li><span>Nom : </span>Caldex</li>
+                    <li><span>Adresse :</span>52 AV DU REPOS - MULHOUSE </li>
+                    <li><span>Téléphone: </span>03 88 81 99 99</li>
+                    <li><span>Email: </span>caldex67@gmail.com</li>
+
                 </ul>
             {% endif %}
 
-            {#A compléter#}
+
             {% if is_granted('ROLE_PROPRIETAIRE') %}
                 <div class="card-header">
                     <h3>Ma copropriété</h3>
@@ -101,7 +102,7 @@
                 </ul>
             {% endif %}
 
-            {#A compléter#}
+
             {% if is_granted('ROLE_LOCATAIRE') %}
                 <div class="card-header">
                     <h3>Ma copropriété</h3>
@@ -111,9 +112,30 @@
                     <li><span>Adresse :</span> </li>
                     <li><span>Téléphone: </span></li>
                 </ul>
+                <div class="card-header">
+                    <h3>Mon propriétaire</h3>
+                </div>
+                <ul>
+                    <li><span>Nom :</span></li>
+                    <li><span>Adresse :</span> </li>
+                    <li><span>Téléphone: </span></li>
+                </ul>
+            {% endif %}
+
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="card-header">
+                    <h3>Notifications</h3>
+                </div>
+                <ul>
+                    <li><span>Erreurs compteur</span></li>
+                    <li><span>Fichiers reçus</span> </li>
+                </ul>
             {% endif %}
         </div>
+
     </div>
+
 
 
 {#{{ dump(app.user) }}#}
