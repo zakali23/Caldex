@@ -28,6 +28,7 @@ class CoPro
      */
     private $batiments;
 
+
     public function __toString()
     {
         // TODO: Implement __toString() method.
