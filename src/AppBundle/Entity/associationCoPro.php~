@@ -47,12 +47,6 @@ class associationCoPro
      */
     private $name;
 
-
-
-
-
-
-
     /**
      * Get id.
      *

@@ -7,21 +7,27 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Pdf
 {
+    private $templating;
+    private $snappy;
+
+    public function __construct( \Twig_Environment $templating, \Knp\Snappy\Pdf $snappy )
+    {
+        $this->snappy = $snappy;
+        $this->templating = $templating;
+
+    }
 
 
     public function pdfAction()
     {
-        $snappy = $this->get('knp_snappy.pdf');
-        $snappy->setOption("encoding", "UTF-8");
+        $this->snappy->setOption("encoding", "UTF-8");
+        $this->snappy->setOption('no-outline', true);
 
-        $html = $this->renderView('default/index.html.twig', array(
-            //..Send some data to your view if you need to //
-        ));
-
+        $html = $this->templating->render('pdf/index.html.twig');
         $filename = 'myFirstSnappyPDF';
 
         return new Response(
-            $snappy->getOutputFromHtml($html),
+            $this->snappy->getOutputFromHtml($html),
             200,
             array(
                 'Content-Type'          => 'application/pdf',
@@ -31,15 +37,13 @@ class Pdf
 
     }
 
-
-
     public function showAction()
     {
-        $html = $this->renderView('default/index.html.twig');
+        $html = $this->templating->render('pdf/index.html.twig');
 
 
         return new Response(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            $this->snappy->getOutputFromHtml($html),
             200,
             array(
                 'Content-Type'          => 'application/pdf',
@@ -48,4 +52,5 @@ class Pdf
         );
 
     }
+
 }

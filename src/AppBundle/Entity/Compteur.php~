@@ -354,4 +354,28 @@ class Compteur
     {
         $this->imageFile = $imageFile;
     }
+
+    /**
+     * Set versionCompteur.
+     *
+     * @param \AppBundle\Entity\Erreur $versionCompteur
+     *
+     * @return Compteur
+     */
+    public function setVersionCompteur(\AppBundle\Entity\Erreur $versionCompteur)
+    {
+        $this->versionCompteur = $versionCompteur;
+
+        return $this;
+    }
+
+    /**
+     * Get versionCompteur.
+     *
+     * @return \AppBundle\Entity\Erreur
+     */
+    public function getVersionCompteur()
+    {
+        return $this->versionCompteur;
+    }
 }

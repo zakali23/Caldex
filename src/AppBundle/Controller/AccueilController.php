@@ -9,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-
 /**
  * Accueil controller.
  *
@@ -33,15 +32,25 @@ class AccueilController extends Controller
     }
 
     /**
-     * @Route("/dl", name="pdf")
+     * @Route("/pdf", name="pdf")
      * @Method({"GET", "POST"})
      * @param Pdf $pdf
      * @return string
      */
     public function pdfAction(Pdf $pdf)
     {
-       $test = $pdf->showAction();
-
-       return $test;
+      return $pdf->pdfAction();
     }
+
+    /**
+     * @Route("/dl", name="dl")
+     * @Method({"GET", "POST"})
+     * @param Pdf $pdf
+     * @return string
+     */
+    public function dlAction(Pdf $pdf)
+    {
+      return $pdf->showAction();
+    }
+
 }
