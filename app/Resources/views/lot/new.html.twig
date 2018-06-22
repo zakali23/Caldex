@@ -31,7 +31,7 @@
                 <td>{{ lot.numero }}</td>
                 <td>{{ lot.surface }}</td>
                 <td>{{ lot.etage }}</td>
-                <td><img src="/images/lot/{{ lot.photo }}" width="100" height="auto"> </td>
+                <td><a href="#myModal" role="button" ><img src="/images/lot/{{ lot.photo }}" width="100" height="auto"></a></td>
                 <td>{{ lot.reference }}</td>
                 <td>{{ lot.tantieme }}</td>
                 <td><a href="{{ path('lot_show', { 'id': lot.id }) }}">Voir</a></td>

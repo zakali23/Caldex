@@ -156,12 +156,6 @@ $(document).ready(function(){
         }
     });
 
-});
-$(document).ready(function(){
-    $("#btnAddLot").click(function() {
-
-        $("#addFormLot").show();
-        $("#btnAddLot").hide();
-    });
 
 });
+
