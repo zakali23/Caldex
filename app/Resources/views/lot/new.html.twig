@@ -2,35 +2,68 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
+
+    <h1 class="text-center green-text">List des Lots</h1>
+<div class="table-responsive">
+        <table class="table">
+
+            <!--Table head-->
+            <thead>
+            <tr>
+
+
+                <th scope="col">numero</th>
+                <th scope="col">Surface</th>
+                <th scope="col">Etage</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Reference</th>
+                <th scope="col">Tantieme</th>
+                <th scope="col">Voir</th>
+                <th scope="col">Modifier</th>
+            </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
     {% for lot in lots %}
-        <tr>
-            <td><a href="{{ path('lot_show', { 'id': lot.id }) }}">{{ lot.id }}</a></td>
-            <td>{{ lot.numero }}</td>
-            <td>{{ lot.surface }}</td>
-            <td>{{ lot.etage }}</td>
-            <td>{{ lot.photo }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('lot_show', { 'id': lot.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('lot_edit', { 'id': lot.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
+            <tbody>
+            <tr>
+                <td>{{ lot.numero }}</td>
+                <td>{{ lot.surface }}</td>
+                <td>{{ lot.etage }}</td>
+                <td><img src="/images/lot/{{ lot.photo }}" width="100" height="auto"> </td>
+                <td>{{ lot.reference }}</td>
+                <td>{{ lot.tantieme }}</td>
+                <td><a href="{{ path('lot_show', { 'id': lot.id }) }}">Voir</a></td>
+                <td> <a href="{{ path('lot_edit', { 'id': lot.id }) }}">Modifier</a></td>
+            </tr>
+
+            </tbody>
     {% endfor %}
-    <h1>Lot creation</h1>
+            {{ form_start(form) }}
+            <tbody id="addFormLot">
+            <tr>
+                <td>{{ form_widget(form.numero, { 'attr': {'class': 'custom-select','placeholder': "Numero"} }) }}</td>
+                <td>{{ form_widget(form.surface, { 'attr': {'class': 'custom-select','placeholder': "Surface"} }) }}</td>
+                <td>{{ form_widget(form.etage, { 'attr': {'class': 'custom-select','placeholder': "Etage"} }) }}</td>
+                <td>{{ form_widget(form.imageFile, { 'attr': {'class': 'custom-select'} }) }}</td>
+                <td>{{ form_widget(form.reference, { 'attr': {'class': 'custom-select','placeholder': "Référence"} }) }}</td>
+                <td>{{ form_widget(form.tantieme, { 'attr': {'class': 'custom-select','placeholder': "Tantieme"} }) }}</td>
+                <td>{{ form_widget(form.appartement, { 'attr': {'class': 'custom-select'} }) }}</td>
+                <td><button type="submit" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button></td>
+            </tr>
+            {{ form_end(form) }}
+            </tbody>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+            <!--Table body-->
 
-    <ul>
-        <li>
-            <a href="{{ path('lot_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+        </table>
+</div>
+    <!--Table-->
+    <div id="btnAddLot" class="text-right">
+        <button type="submit" class="btn btn-success btn-circle btn-lg" title="Ajouter un lot"><i class="glyphicon glyphicon-plus"></i> </button>
+    </div>
+
+
 {% endblock %}

@@ -144,6 +144,7 @@ $(document).ready(function()
         $("#Collaborateur").css({"display": "none"});
         $("#Résident").css({"display": "contents"});
     });
+
 });
 
 $(document).ready(function(){
@@ -154,4 +155,13 @@ $(document).ready(function(){
             return $('.profil').html();
         }
     });
+
+});
+$(document).ready(function(){
+    $("#btnAddLot").click(function() {
+
+        $("#addFormLot").show();
+        $("#btnAddLot").hide();
+    });
+
 });
