@@ -34,12 +34,7 @@ class Erreur
      */
     private $codeErreur;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateErreur", type="datetime")
-     */
-    private $dateErreur;
+
 
 
 
@@ -78,29 +73,49 @@ class Erreur
         return $this->codeErreur;
     }
 
+
+
     /**
-     * Set dateErreur.
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->versionCompteurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add versionCompteur.
      *
-     * @param \DateTime $dateErreur
+     * @param \AppBundle\Entity\Compteur $versionCompteur
      *
      * @return Erreur
      */
-    public function setDateErreur($dateErreur)
+    public function addVersionCompteur(\AppBundle\Entity\Compteur $versionCompteur)
     {
-        $this->dateErreur = $dateErreur;
+        $this->versionCompteurs[] = $versionCompteur;
 
         return $this;
     }
 
     /**
-     * Get dateErreur.
+     * Remove versionCompteur.
      *
-     * @return \DateTime
+     * @param \AppBundle\Entity\Compteur $versionCompteur
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function getDateErreur()
+    public function removeVersionCompteur(\AppBundle\Entity\Compteur $versionCompteur)
     {
-        return $this->dateErreur;
+        return $this->versionCompteurs->removeElement($versionCompteur);
     }
 
-
+    /**
+     * Get versionCompteurs.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVersionCompteurs()
+    {
+        return $this->versionCompteurs;
+    }
 }

@@ -34,12 +34,7 @@ class Erreur
      */
     private $codeErreur;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateErreur", type="datetime")
-     */
-    private $dateErreur;
+
 
 
 
@@ -78,29 +73,6 @@ class Erreur
         return $this->codeErreur;
     }
 
-    /**
-     * Set dateErreur.
-     *
-     * @param \DateTime $dateErreur
-     *
-     * @return Erreur
-     */
-    public function setDateErreur($dateErreur)
-    {
-        $this->dateErreur = $dateErreur;
-
-        return $this;
-    }
-
-    /**
-     * Get dateErreur.
-     *
-     * @return \DateTime
-     */
-    public function getDateErreur()
-    {
-        return $this->dateErreur;
-    }
 
 
     /**
