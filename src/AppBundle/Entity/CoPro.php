@@ -19,10 +19,10 @@ class CoPro
     private $gestionnaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\associationCoPro", inversedBy="assoCoPros")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\associationCoPro", inversedBy="assoCopros")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $copro;
+    private $copropriete;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment")
@@ -73,12 +73,13 @@ class CoPro
      */
     private $ville;
 
+
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->cotests = new \Doctrine\Common\Collections\ArrayCollection();
         $this->batiments = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -191,11 +192,11 @@ class CoPro
     /**
      * Set gestionnaire.
      *
-     * @param \AppBundle\Entity\Syndic $gestionnaire
+     * @param \AppBundle\Entity\Syndic|null $gestionnaire
      *
      * @return CoPro
      */
-    public function setGestionnaire(\AppBundle\Entity\Syndic $gestionnaire)
+    public function setGestionnaire(\AppBundle\Entity\Syndic $gestionnaire = null)
     {
         $this->gestionnaire = $gestionnaire;
 
@@ -205,7 +206,7 @@ class CoPro
     /**
      * Get gestionnaire.
      *
-     * @return \AppBundle\Entity\Syndic
+     * @return \AppBundle\Entity\Syndic|null
      */
     public function getGestionnaire()
     {
@@ -213,39 +214,27 @@ class CoPro
     }
 
     /**
-     * Add cotest.
+     * Set copropriete.
      *
-     * @param \AppBundle\Entity\associationCoPro $cotest
+     * @param \AppBundle\Entity\associationCoPro|null $copropriete
      *
      * @return CoPro
      */
-    public function addCotest(\AppBundle\Entity\associationCoPro $cotest)
+    public function setCopropriete(\AppBundle\Entity\associationCoPro $copropriete = null)
     {
-        $this->cotests[] = $cotest;
+        $this->copropriete = $copropriete;
 
         return $this;
     }
 
     /**
-     * Remove cotest.
+     * Get copropriete.
      *
-     * @param \AppBundle\Entity\associationCoPro $cotest
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return \AppBundle\Entity\associationCoPro|null
      */
-    public function removeCotest(\AppBundle\Entity\associationCoPro $cotest)
+    public function getCopropriete()
     {
-        return $this->cotests->removeElement($cotest);
-    }
-
-    /**
-     * Get cotests.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCotests()
-    {
-        return $this->cotests;
+        return $this->copropriete;
     }
 
     /**
@@ -282,29 +271,5 @@ class CoPro
     public function getBatiments()
     {
         return $this->batiments;
-    }
-
-    /**
-     * Set copro.
-     *
-     * @param \AppBundle\Entity\associationCoPro|null $copro
-     *
-     * @return CoPro
-     */
-    public function setCopro(\AppBundle\Entity\associationCoPro $copro = null)
-    {
-        $this->copro = $copro;
-
-        return $this;
-    }
-
-    /**
-     * Get copro.
-     *
-     * @return \AppBundle\Entity\associationCoPro|null
-     */
-    public function getCopro()
-    {
-        return $this->copro;
     }
 }
