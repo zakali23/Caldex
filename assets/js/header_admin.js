@@ -155,4 +155,13 @@ $(document).ready(function(){
             return $('.profil').html();
         }
     });
+
+});
+$(document).ready(function(){
+    $("#btnAddLot").click(function() {
+
+        $("#addFormLot").show();
+        $("#btnAddLot").hide();
+    });
+
 });
