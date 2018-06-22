@@ -65,8 +65,10 @@
 
             {% endif %}
 
+
             <div class="c-header-icon logout"><a class="btn btn-pophover" data-toggle="popover" data-placement="bottom"><i class="fa fa fa-user"></i></a></div>
             <div class="c-header-icon logout"><a href="/logout"><i class="fa fa-power-off"></i></a></div>
+
 
         </div>
 
@@ -143,22 +145,22 @@
 
             {% if is_granted('ROLE_ASSOCOPRO') %}
                 <ul class="u-list">
-                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="ACGPI">
+                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="AC1">
                         <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
                             <div class="c-menu-item__title"><span>Gestion du Parc Immo</span></div>
                         </div>
                     </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Consommation" id="ACGConso">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Consommation" id="AC2">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion Consommations</span></div>
                         </div>
                     </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Collaborateurs" id="ACGCollab">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Collaborateurs" id="AC3">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion Collaborateurs</span></div>
                         </div>
                     </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Propriétaires Locataire" id="ACGPL">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Propriétaires Locataire" id="AC4">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion Résidents</span></div>
                         </div>
@@ -181,20 +183,21 @@
                 <div class="navbar-header">
                     <ul class="nav nav-pills">
                         <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Asso de Co-Propriétés<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Co-Propriétés<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/associationcopro/new">Création</a>
-                                        <a href="/associationcopro/index">Modification</a>
+                                        <a href="/copro/new">Création</a>
+                                        <a href="/copro/">Modification</a>
                                     </li>
                                 </ul>
                         </li>
                         <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Co-Propriétés<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Asso de Co-Propriétés<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/copro/new">Création</a>
-                                    <a href="/copro/index">Modification</a>
+                                    <a href="/associationcopro/new">Création</a>
+                                    <a href="/associationcopro/">Modification</a>
+                                    <a href="/register">Création Utilisateur</a>
                                 </li>
                             </ul>
                         </li>
@@ -203,7 +206,8 @@
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/syndic/new">Création</a>
-                                    <a href="/syndic/index">Modification</a>
+                                    <a href="/syndic/">Modification</a>
+                                    <a href="/register">Création Utilisateur</a>
                                 </li>
                             </ul>
                         </li>
@@ -261,16 +265,16 @@
         {% endif %}
 
         {% if is_granted('ROLE_SYNDICAT') %}
-            <nav class="navbar navbar-default" id="Parc">
+            <nav class="navbar navbar-default" id="SParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="">Consultation Immeuble</a>
-                        <a class="navbar-brand" href="">Consultation Lot</a>
-                        <a class="navbar-brand" href="">Consultation Pièce</a>
+                        <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
+                        <a class="navbar-brand" href="/lot/">Consultation Lot</a>
+                        <a class="navbar-brand" href="/piece/">Consultation Pièce</a>
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="Consommations">
+            <nav class="navbar navbar-default" id="SConsommations">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="">Consommation Syndic</a>
@@ -280,18 +284,18 @@
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="Collaborateur">
+            <nav class="navbar navbar-default" id="SCollaborateur">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="">Création d'un collaborateur</a>
+                        <a class="navbar-brand" href="/register">Création d'un collaborateur</a>
                         <a class="navbar-brand" href="">Consultation des collaborateurs</a>
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="Résident">
+            <nav class="navbar navbar-default" id="SResident">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="">Création d'un résident</a>
+                        <a class="navbar-brand" href="/register">Création d'un résident</a>
                         <a class="navbar-brand" href="">Consultation des résidents</a>
                     </div>
                 </div>
@@ -303,9 +307,9 @@
             <nav class="navbar navbar-default" id="ACParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="">Consultation Immeuble</a>
-                        <a class="navbar-brand" href="">Consultation Lot</a>
-                        <a class="navbar-brand" href="">Consultation Pièce</a>
+                        <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
+                        <a class="navbar-brand" href="/lot">Consultation Lot</a>
+                        <a class="navbar-brand" href="/piece/">Consultation Pièce</a>
                     </div>
                 </div>
             </nav>
@@ -322,7 +326,7 @@
             <nav class="navbar navbar-default" id="ACCollaborateur">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="">Création d'un collaborateur</a>
+                        <a class="navbar-brand" href="/register">Création d'un collaborateur</a>
                         <a class="navbar-brand" href="">Consultation des collaborateurs</a>
                     </div>
                 </div>
@@ -330,7 +334,7 @@
             <nav class="navbar navbar-default" id="ACRésident">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="">Création d'un résident</a>
+                        <a class="navbar-brand" href="/register">Création d'un résident</a>
                         <a class="navbar-brand" href="">Consultation des résidents</a>
                     </div>
                 </div>

@@ -13,10 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class associationCoPro
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="cotests")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CoPro", mappedBy="copropriete")
      */
-    private $cotest;
+    private $assoCopros;
 
     /**
      * Many associationCoPro have Many Prestataire.
@@ -47,6 +46,7 @@ class associationCoPro
      */
     private $name;
 
+<<<<<<< HEAD
     /**
      * Get id.
      *
@@ -147,4 +147,8 @@ class associationCoPro
     {
         return $this->Prestataires;
     }
+=======
+
+
+>>>>>>> 7b2f9dba918cd88a91cc846eee0c3cd0eec534fa
 }

@@ -558,20 +558,14 @@ a.list-group-item.active small {
   color:#fff;
 }
 
-#Gestion-Utilisateurs, #Gestion-Parc,#Gestion-Materiel,#Parc,#Consommations, #Collaborateur, #Résident, #ACCollaborateur, #ACConsommations, #ACParc, #ACRésident{
+#Gestion-Utilisateurs, #Gestion-Parc, #Gestion-Materiel, #ACCollaborateur, #ACConsommations, #ACParc, #ACRésident, #Mes-Biens, #Mes-Consos, #SParc, #SConsommations, #SCollaborateur, #SResident{
   display: none;
   background: #93c01f;
   color: #fff;
   font-size: 1.5em;
 }
 
-#Mes-Biens{
-  display: none;
-}
 
-#Mes-Consos{
-  display: none;
-}
 .cacher{
 
 }

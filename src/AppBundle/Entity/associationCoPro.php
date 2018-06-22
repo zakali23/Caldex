@@ -13,10 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class associationCoPro
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="cotests")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CoPro", mappedBy="copropriete")
      */
-    private $cotest;
+    private $assoCopros;
 
     /**
      * Many associationCoPro have Many Prestataire.
@@ -46,6 +45,17 @@ class associationCoPro
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->assoCopros = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->Prestataires = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -82,34 +92,39 @@ class associationCoPro
     }
 
     /**
-     * Set cotest.
+     * Add assoCopro.
      *
-     * @param \AppBundle\Entity\CoPro $cotest
+     * @param \AppBundle\Entity\CoPro $assoCopro
      *
      * @return associationCoPro
      */
-    public function setCotest(\AppBundle\Entity\CoPro $cotest)
+    public function addAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
     {
-        $this->cotest = $cotest;
+        $this->assoCopros[] = $assoCopro;
 
         return $this;
     }
 
     /**
-     * Get cotest.
+     * Remove assoCopro.
      *
-     * @return \AppBundle\Entity\CoPro
+     * @param \AppBundle\Entity\CoPro $assoCopro
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function getCotest()
+    public function removeAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
     {
-        return $this->cotest;
+        return $this->assoCopros->removeElement($assoCopro);
     }
+
     /**
-     * Constructor
+     * Get assoCopros.
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function __construct()
+    public function getAssoCopros()
     {
-        $this->Prestataires = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->assoCopros;
     }
 
     /**
