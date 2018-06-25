@@ -56,12 +56,12 @@
             {% if is_granted('ROLE_COPROPRIETAIRE') %}
                 <div class="c-header-icon logout" title="Espace Administration"><a href="/copropritaire/"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
-            {% if is_granted('ROLE_ASSOCOPRO') %}
+            {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
                 <div class="c-header-icon logout" title="Espace Administration"><a href="/asso_copro"><i class="fa fa-address-card "></i></a></div>
 
             {% endif %}
 
-            {% if is_granted('ROLE_SYNDICAT') %}
+            {% if is_granted(['ROLE_SYNDICAT', 'ROLE_SALARIE']) %}
                 <div class="c-header-icon logout" title="Espace Administration"><a href="/syndicat/"><i class="fa fa-address-card "></i></a></div>
 
             {% endif %}
@@ -119,7 +119,7 @@
                 </ul>
             {% endif %}
 
-            {% if is_granted('ROLE_SYNDICAT') %}
+            {% if is_granted(['ROLE_SYNDICAT', 'ROLE_SALARIE']) %}
                 <ul class="u-list">
                     <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="SGPI">
                         <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
@@ -144,7 +144,7 @@
                 </ul>
             {% endif %}
 
-            {% if is_granted('ROLE_ASSOCOPRO') %}
+            {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
                 <ul class="u-list">
                     <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="AC1">
                         <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
@@ -265,7 +265,8 @@
         </nav>
         {% endif %}
 
-        {% if is_granted('ROLE_SYNDICAT') %}
+        {% if is_granted(['ROLE_SYNDICAT', 'ROLE_SALARIE']) %}
+
             <nav class="navbar navbar-default" id="SParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -304,7 +305,7 @@
 
         {% endif %}
 
-        {% if is_granted('ROLE_ASSOCOPRO') %}
+        {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
             <nav class="navbar navbar-default" id="ACParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
