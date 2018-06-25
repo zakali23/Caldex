@@ -13,9 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class associationCoPro
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CoPro", mappedBy="copropriete")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="assoCopro")
+     *
      */
-    private $assoCopros;
+    private $coproprietes;
 
     /**
      * Many associationCoPro have Many Prestataire.
@@ -48,12 +49,12 @@ class associationCoPro
 
 
 
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->assoCopros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->Prestataires = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -92,39 +93,27 @@ class associationCoPro
     }
 
     /**
-     * Add assoCopro.
+     * Set coproprietes.
      *
-     * @param \AppBundle\Entity\CoPro $assoCopro
+     * @param \AppBundle\Entity\CoPro|null $coproprietes
      *
      * @return associationCoPro
      */
-    public function addAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
+    public function setCoproprietes(\AppBundle\Entity\CoPro $coproprietes = null)
     {
-        $this->assoCopros[] = $assoCopro;
+        $this->coproprietes = $coproprietes;
 
         return $this;
     }
 
     /**
-     * Remove assoCopro.
+     * Get coproprietes.
      *
-     * @param \AppBundle\Entity\CoPro $assoCopro
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return \AppBundle\Entity\CoPro|null
      */
-    public function removeAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
+    public function getCoproprietes()
     {
-        return $this->assoCopros->removeElement($assoCopro);
-    }
-
-    /**
-     * Get assoCopros.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAssoCopros()
-    {
-        return $this->assoCopros;
+        return $this->coproprietes;
     }
 
     /**

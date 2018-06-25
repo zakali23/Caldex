@@ -13,16 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
 class CoPro
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndic", inversedBy="gestionnaires")
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndic", mappedBy="gestionnaire")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $gestionnaire;
+    private $gestionnaires;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\associationCoPro", inversedBy="assoCopros")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CoPro", mappedBy="coproprietes")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $copropriete;
+    private $assoCopro;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment")
@@ -75,12 +76,13 @@ class CoPro
     private $ville;
 
 
-
     /**
      * Constructor
      */
     public function __construct()
     {
+        $this->gestionnaires = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->assoCopro = new \Doctrine\Common\Collections\ArrayCollection();
         $this->batiments = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -191,51 +193,75 @@ class CoPro
     }
 
     /**
-     * Set gestionnaire.
+     * Add gestionnaire.
      *
-     * @param \AppBundle\Entity\Syndic|null $gestionnaire
+     * @param \AppBundle\Entity\Syndic $gestionnaire
      *
      * @return CoPro
      */
-    public function setGestionnaire(\AppBundle\Entity\Syndic $gestionnaire = null)
+    public function addGestionnaire(\AppBundle\Entity\Syndic $gestionnaire)
     {
-        $this->gestionnaire = $gestionnaire;
+        $this->gestionnaires[] = $gestionnaire;
 
         return $this;
     }
 
     /**
-     * Get gestionnaire.
+     * Remove gestionnaire.
      *
-     * @return \AppBundle\Entity\Syndic|null
+     * @param \AppBundle\Entity\Syndic $gestionnaire
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function getGestionnaire()
+    public function removeGestionnaire(\AppBundle\Entity\Syndic $gestionnaire)
     {
-        return $this->gestionnaire;
+        return $this->gestionnaires->removeElement($gestionnaire);
     }
 
     /**
-     * Set copropriete.
+     * Get gestionnaires.
      *
-     * @param \AppBundle\Entity\associationCoPro|null $copropriete
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGestionnaires()
+    {
+        return $this->gestionnaires;
+    }
+
+    /**
+     * Add assoCopro.
+     *
+     * @param \AppBundle\Entity\CoPro $assoCopro
      *
      * @return CoPro
      */
-    public function setCopropriete(\AppBundle\Entity\associationCoPro $copropriete = null)
+    public function addAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
     {
-        $this->copropriete = $copropriete;
+        $this->assoCopro[] = $assoCopro;
 
         return $this;
     }
 
     /**
-     * Get copropriete.
+     * Remove assoCopro.
      *
-     * @return \AppBundle\Entity\associationCoPro|null
+     * @param \AppBundle\Entity\CoPro $assoCopro
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function getCopropriete()
+    public function removeAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
     {
-        return $this->copropriete;
+        return $this->assoCopro->removeElement($assoCopro);
+    }
+
+    /**
+     * Get assoCopro.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAssoCopro()
+    {
+        return $this->assoCopro;
     }
 
     /**

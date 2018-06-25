@@ -13,7 +13,7 @@ class SyndicType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('adresse')->add('codePostal')->add('ville')->add('Prestataires');
+        $builder->add('nom')->add('adresse')->add('codePostal')->add('ville')->add('gestionnaire')->add('Prestataires');
     }/**
      * {@inheritdoc}
      */
