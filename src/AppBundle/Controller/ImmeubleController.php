@@ -48,12 +48,17 @@ class ImmeubleController extends Controller
             $em->persist($immeuble);
             $em->flush();
 
-            return $this->redirectToRoute('immeuble_show', array('id' => $immeuble->getId()));
+
         }
+        $em = $this->getDoctrine()->getManager();
+
+        $immeubles = $em->getRepository('AppBundle:Immeuble')->findAll();
+
 
         return $this->render('immeuble/new.html.twig', array(
             'immeuble' => $immeuble,
             'form' => $form->createView(),
+            'immeubles' => $immeubles,
         ));
     }
 

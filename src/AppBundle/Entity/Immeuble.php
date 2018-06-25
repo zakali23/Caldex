@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Immeuble
- *
+ *@Vich\Uploadable
  * @ORM\Table(name="immeuble")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ImmeubleRepository")
  */
@@ -65,12 +67,21 @@ class Immeuble
      */
     private $ville;
 
+
+
+/**
+*
+* @Vich\UploadableField(mapping="immeuble_image" ,fileNameProperty="plan",)
+*
+* @var File
+*/
+    protected $planFile;
     /**
-     * @var string|null
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @ORM\Column(name="plan", type="text", nullable=true)
+     * @var string
      */
-    private $plan;
+    protected $plan;
 
     /**
      * @var string
@@ -306,5 +317,21 @@ class Immeuble
     public function setReference($reference)
     {
         $this->reference = $reference;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPlanFile()
+    {
+        return $this->planFile;
+    }
+
+    /**
+     * @param File $planFile
+     */
+    public function setPlanFile($planFile)
+    {
+        $this->planFile = $planFile;
     }
 }
