@@ -64,9 +64,12 @@ class RegistrationType extends AbstractType
                 'choices' => [
                     'Administrateur' => 'ROLE_ADMIN',
                     'Syndicat' => 'ROLE_SYNDICAT',
-                    'Salarie_Syndicat' => 'ROLE_SALARIE_SYNDICAT',
                     'Copropriétaire' => 'ROLE_COPROPRIETAIRE',
                     'Association de copropriétaire' => 'ROLE_ASSOCOPRO',
+                    'Salarie' => 'ROLE_SALARIE',
+                    'Utilisateur' => 'ROLE_UTILISATEUR',
+                    'Président' => 'ROLE_PRESIDENT',
+                    'Secrétaire' => 'ROLE_SECRETAIRE',
                     'Propriétaire' => 'ROLE_PROPRIETAIRE',
                     'Locataire' => 'ROLE_LOCATAIRE',
 
