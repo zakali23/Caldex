@@ -16,14 +16,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * Accueil controller.
+ *
+ * @Route("syndicat")
+ */
 class SyndicatController extends Controller{
 
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/syndicat/", name="syndicat_page")
+     * @Route("/", name="syndicat_page")
      */
     public function syndicatPageAction(){
         return $this->render('syndicat/index.html.twig');

@@ -28,62 +28,7 @@ class ConnexionController extends Controller{
         return $this->render('accueil/index.html.twig');
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @Route("/admin/", name="admin_page")
-     */
-    public function adminPageAction(){
-        return $this->render('admin/index.html.twig');
-    }
-
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @Route("/locataire/", name="locataire_page")
-     */
-    public function locatairePageAction(){
-        return $this->render('locataire/index.html.twig');
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @Route("/proprietaire/", name="proprietaire_page")
-     */
-    public function proprietairePageAction(){
-        return $this->render('proprietaire/index.html.twig');
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @Route("/syndicat/", name="syndicat_page")
-     */
-    public function syndicatPageAction(){
-        return $this->render('syndicat/index.html.twig');
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @Route("/coproprietaire/", name="coproprietaire_page")
-     */
-    public function coproprietairePageAction(){
-        return $this->render('coproprietaire/index.html.twig');
-    }
-
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @Route("/asso_copro/", name="asso_copro_page")
-     */
-    public function asso_coproPageAction(){
-        return $this->render('asso_copro/index.html.twig');
-    }
-
+    
 
 
 
