@@ -99,6 +99,10 @@ vich_uploader :
                       uri_prefix: /compteur/
                       upload_destination: '%kernel.project_dir%/web/images/compteur/'
                       namer: Vich\UploaderBundle\Naming\HashNamer
+         immeuble_image:
+                               uri_prefix: /immeuble/
+                               upload_destination: '%kernel.project_dir%/web/images/immeuble/'
+                               namer: Vich\UploaderBundle\Naming\HashNamer
 
 # app/config/config.yml
 knp_snappy:

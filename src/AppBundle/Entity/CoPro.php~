@@ -13,21 +13,23 @@ use Doctrine\ORM\Mapping as ORM;
 class CoPro
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndic", inversedBy="gestionnaires")
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndic", mappedBy="gestionnaire")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $gestionnaire;
+    private $gestionnaires;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\associationCoPro", inversedBy="assoCoPros")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CoPro", mappedBy="coproprietes")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $copropriete;
+    private $assoCopro;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment")
      */
     private $batiments;
+
 
     public function __toString()
     {
@@ -72,7 +74,6 @@ class CoPro
      * @ORM\Column(name="ville", type="string", length=255)
      */
     private $ville;
-
 
 
 }
