@@ -232,6 +232,7 @@ $(document).ready(function () {
     $("#btnAddLot").click(function () {
 
         $("#addFormLot").show();
+        $("#btnAddLot").hide();
     });
 });
 
