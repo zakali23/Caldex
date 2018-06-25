@@ -10,4 +10,5 @@ namespace AppBundle\Repository;
  */
 class CoProRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

@@ -10,6 +10,7 @@
     "ajv": "^6.5.1",
     "feather-icons": "^4.7.3",
     "jquery": "^3.3.1",
+    "magnific-popup": "^1.1.0",
     "mjml": "^4.0.5",
     "webpack-notifier": "^1.6.0"
   },

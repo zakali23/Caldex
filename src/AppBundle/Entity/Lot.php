@@ -20,6 +20,8 @@ class Lot
      */
     private $appartement;
 
+
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Piece", mappedBy="room")
      */
@@ -322,4 +324,6 @@ class Lot
     {
         return $this->tantieme;
     }
+
+
 }
