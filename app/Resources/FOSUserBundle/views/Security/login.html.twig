@@ -6,6 +6,9 @@
 {% endblock %}
     {% block fos_user_content %}
 
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {% endif %}
+
     <div id="app">
         <section class="section">
             <div class="container mt-5">
