@@ -29,6 +29,14 @@ class RegistrationType extends AbstractType
             ->add('email2')
             ->add('phone')
             ->add('phone2')
+            ->add('copros', EntityType::class, array(
+                'class' => 'AppBundle:CoPro',
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'required' => false
+
+            ))
             ->add('syndics', EntityType::class, array(
                 'class' => 'AppBundle:Syndic',
                 'choice_label' => 'nom',

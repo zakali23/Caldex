@@ -18,6 +18,11 @@ class User extends BaseUser implements UserInterface
 
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\CoPro", cascade={"persist"})
+     */
+    private $copros;
+
+    /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Syndic", cascade={"persist"})
      */
     private $syndics;
@@ -109,24 +114,6 @@ class User extends BaseUser implements UserInterface
     /**
      *
      */
-  /*  protected $roles = [];
-
-    public function getRoles()
-    {
-        $roles = $this->roles;
-
-        // give everyone ROLE_USER!
-        if (!in_array('ROLE_USER', $roles)) {
-            $roles[] = 'ROLE_USER';
-        }
-        return $roles;
-    }
-
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
-    }
-
 
 
 
@@ -141,6 +128,7 @@ class User extends BaseUser implements UserInterface
         $this->syndics = new \Doctrine\Common\Collections\ArrayCollection();
         $this->associationCoPros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lots = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->copros = new \Doctrine\Common\Collections\ArrayCollection();
         parent::__construct();
 
     }
@@ -492,5 +480,41 @@ class User extends BaseUser implements UserInterface
     public function getLots()
     {
         return $this->lots;
+    }
+
+    /**
+     * Add copro.
+     *
+     * @param \AppBundle\Entity\CoPro $copro
+     *
+     * @return User
+     */
+    public function addCopro(\AppBundle\Entity\CoPro $copro)
+    {
+        $this->copros[] = $copro;
+
+        return $this;
+    }
+
+    /**
+     * Remove copro.
+     *
+     * @param \AppBundle\Entity\CoPro $copro
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeCopro(\AppBundle\Entity\CoPro $copro)
+    {
+        return $this->copros->removeElement($copro);
+    }
+
+    /**
+     * Get copros.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCopros()
+    {
+        return $this->copros;
     }
 }

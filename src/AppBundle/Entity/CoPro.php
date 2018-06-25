@@ -20,7 +20,7 @@ class CoPro
     private $gestionnaires;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CoPro", mappedBy="coproprietes")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\associationCoPro", mappedBy="coproprietes")
      * @ORM\JoinColumn(nullable=true)
      */
     private $assoCopro;
