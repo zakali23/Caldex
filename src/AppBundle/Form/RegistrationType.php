@@ -59,7 +59,7 @@ class RegistrationType extends AbstractType
                 'required' => false
             ))
             ->add('roles', ChoiceType::class, [
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => true, // render check-boxes
                 'choices' => [
                     'Administrateur' => 'ROLE_ADMIN',
