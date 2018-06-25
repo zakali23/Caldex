@@ -48,12 +48,15 @@ class PieceController extends Controller
             $em->persist($piece);
             $em->flush();
 
-            return $this->redirectToRoute('piece_show', array('id' => $piece->getId()));
         }
+        $em = $this->getDoctrine()->getManager();
+
+        $pieces = $em->getRepository('AppBundle:Piece')->findAll();
 
         return $this->render('piece/new.html.twig', array(
             'piece' => $piece,
             'form' => $form->createView(),
+            'pieces' => $pieces,
         ));
     }
 

@@ -228,6 +228,11 @@ $(document).ready(function () {
             return $('#profil').html();
         }
     });
+
+    $("#btnAddLot").click(function () {
+
+        $("#addFormLot").show();
+    });
 });
 
 /***/ })
