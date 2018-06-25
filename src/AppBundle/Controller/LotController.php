@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Lot;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -39,6 +40,7 @@ class LotController extends Controller
      */
     public function newAction(Request $request)
     {
+
         $lot = new Lot();
         $form = $this->createForm('AppBundle\Form\LotType', $lot);
         $form->handleRequest($request);
@@ -48,12 +50,19 @@ class LotController extends Controller
             $em->persist($lot);
             $em->flush();
 
-            return $this->redirectToRoute('lot_show', array('id' => $lot->getId()));
+
+
         }
 
+
+        $em = $this->getDoctrine()->getManager();
+
+        $lots = $em->getRepository('AppBundle:Lot')->findAll();
         return $this->render('lot/new.html.twig', array(
             'lot' => $lot,
             'form' => $form->createView(),
+            'lots' => $lots,
+
         ));
     }
 
