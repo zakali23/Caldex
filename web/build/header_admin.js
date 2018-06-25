@@ -234,6 +234,10 @@ $(document).ready(function () {
         $("#addFormLot").show();
         $("#btnAddLot").hide();
     });
+    $("#urlDirec").click(function () {
+
+        $(location).attr('href', 'http://localhost:8000/syndicat');
+    });
 });
 
 /***/ })

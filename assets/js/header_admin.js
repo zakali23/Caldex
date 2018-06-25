@@ -162,5 +162,10 @@ $(document).ready(function(){
         $("#btnAddLot").hide();
 
     });
+    $("#urlDirec").click(function() {
+
+        $(location).attr('href', 'http://localhost:8000/syndicat')
+
+    });
 });
 
