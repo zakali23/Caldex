@@ -22,10 +22,28 @@
                                 <div class="form-group col-6">
                                     <div class="form-group col-6">
                                         <label for="syndic">Statut</label>
+                                        <div class="row" style="display: flex;">
+                                            <div class="form-group col-3" style="margin: 2vw;" >
+                                                {{  form_widget(form.roles.0, { 'attr': {'class': 'form-select' } }) }}
+                                                {{  form_widget(form.roles.1, { 'attr': {'class': 'form-select' } }) }}
+                                                {{  form_widget(form.roles.2, { 'attr': {'class': 'form-select' } }) }}
+                                                {{  form_widget(form.roles.3, { 'attr': {'class': 'form-select' } }) }}
+                                            </div>
 
-                                        {{  form_widget(form.roles, { 'attr': {'class': 'form-select' } }) }}
-                                        {{ form_errors(form.roles) }}
-                                        {{ dump(form.roles) }}
+                                            <div class="form-group col-3" style="margin: 2vw;">
+                                                {{  form_widget(form.roles.6, { 'attr': {'class': 'form-select' } }) }}
+                                                {{  form_widget(form.roles.7, { 'attr': {'class': 'form-select' } }) }}
+                                                {{  form_widget(form.roles.4, { 'attr': {'class': 'form-select' } }) }}
+                                                {{  form_widget(form.roles.5, { 'attr': {'class': 'form-select' } }) }}
+
+                                            </div>
+                                            <div class="form-group col-3" style="margin: 2vw;">
+                                            {{  form_widget(form.roles.8, { 'attr': {'class': 'form-select' } }) }}
+                                            {{  form_widget(form.roles.9, { 'attr': {'class': 'form-select' } }) }}
+                                            {{ form_errors(form.roles) }}
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <label for="syndic">Copro</label>
 
