@@ -16,17 +16,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * Accueil controller.
+ *
+ * @Route("/asso_copro")
+ */
 class AssoCoproController extends Controller{
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/asso_copro/", name="asso_copro_page")
+     * @Route("/", name="asso_copro_page")
      */
     public function asso_coproPageAction(){
         return $this->render('asso_copro/index.html.twig');
     }
+
+
 
 
 
