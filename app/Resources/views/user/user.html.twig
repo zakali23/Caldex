@@ -1,53 +1,144 @@
 {% extends "admin/base_admin.html.twig"%}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/user.css') }}">
+{% endblock %}
+
 {% block body %}
 
-<div class="profil green-text text-center">
+<div class="container">
+    <p class="connect"> Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
+    <div class="row" style="display: flex;">
+        <div class="col-6 card">
+            <div class="card-header">
+                <h3>Mon Profil</h3>
+            </div>
 
-        <h3 class="text-center green-text animated slideInUp">Votre profile</h3>
 
-           <p> Vous êtes un :
-        {% if is_granted('ROLE_ADMIN') %}
-            <b>Administrateur</b>
+            <p> Je suis
+                {% if is_granted('ROLE_ADMIN') %}
+                    <b>Administrateur</b>
+                {% endif %}
 
-        {% endif %}
+                {% if is_granted('ROLE_LOCATAIRE') %}
+                    <b>Locataire</b>
+                {% endif %}
 
-        {% if is_granted('ROLE_LOCATAIRE') %}
-            <b>Locataire</b>
-        {% endif %}
+                {% if is_granted('ROLE_PROPRIETAIRE') %}
+                    <b>Propriétaire</b>
+                {% endif %}
 
-        {% if is_granted('ROLE_PROPRIETAIRE') %}
-            <b>Propriétaire</b>
-        {% endif %}
+                {% if is_granted('ROLE_COPROPRIETAIRE') %}
+                    <b>Copropriétaire</b>
+                {% endif %}
 
-        {% if is_granted('ROLE_COPROPRIETAIRE') %}
-            <b>Copropriétaire</b>
-        {% endif %}
+                {% if is_granted('ROLE_ASSOCOPRO') %}
+                    <b> une association de copropriété</b>
+                {% endif %}
 
-        {% if is_granted('ROLE_ASSOCOPRO') %}
-            <b>Association de copropriétaire</b>
-        {% endif %}
+                {% if is_granted('ROLE_SYNDICAT') %}
+                    <b> un syndicat de copropriété</b>
+                {% endif %}
+            </p>
 
-        {% if is_granted('ROLE_SYNDICAT') %}
-            <b>Syndicat</b>
-        {% endif %}
-    </p>
 
-   {# {{ dump(app.user) }}#}
 
-        <h3 class="text-center animated slideInUp"> Vos informations</h3>
+            <ul>
 
-        <p>Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
+                <li><span>Prénom :</span> {{ app.user.firstname }}</li>
+                <li><span>Nom :</span> {{ app.user.lastname }}</li>
+                <li><span>Adresse :</span>{{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
+                <li><span>Téléphone :</span> {{ app.user.phone }}</li>
+                <li><span>Email:</span> {{ app.user.email }}</li>
+            </ul>
 
-        <ul>
+            <button><a href="/profile/edit"> Modifier mon profil</a></button>
+        </div>
+        <div class="col-6 card">
+            {% if is_granted('ROLE_ASSOCOPRO') %}
+                <div class="card-header">
+                    <h3>Ma copropriété</h3>
+                </div>
+                <ul>
+                    <li><span>Nom :</span></li>
+                    <li><span>Adresse :</span> </li>
+                    <li><span>Téléphone: </span></li>
+                </ul>
+            {% endif %}
 
-            <li>Prénom : {{ app.user.firstname }}</li>
-            <li>Nom : {{ app.user.lastname }}</li>
-            <li><i class="fa fa-map-marker-alt"></i> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
-            <li>Téléphone : {{ app.user.phone }}</li>
-            <li>Email: {{ app.user.email }}</li>
-        </ul>
+            {% if is_granted('ROLE_SYNDICAT') %}
+                <div class="card-header">
+                    <h3>Ma copropriété</h3>
+                </div>
+                <ul>
+                    <li><span>Nom :</span></li>
+                    <li><span>Adresse :</span> </li>
+                    <li><span>Téléphone: </span></li>
+                </ul>
+            {% endif %}
 
+            {% if is_granted('ROLE_COPROPRIETAIRE') %}
+                <div class="card-header">
+                    <h3>Mon référent</h3>
+                </div>
+                <ul>
+                    <li><span>Nom : </span>Caldex</li>
+                    <li><span>Adresse :</span>52 AV DU REPOS - MULHOUSE </li>
+                    <li><span>Téléphone: </span>03 88 81 99 99</li>
+                    <li><span>Email: </span>caldex67@gmail.com</li>
+
+                </ul>
+            {% endif %}
+
+
+            {% if is_granted('ROLE_PROPRIETAIRE') %}
+                <div class="card-header">
+                    <h3>Ma copropriété</h3>
+                </div>
+                <ul>
+                    <li><span>Nom :</span></li>
+                    <li><span>Adresse :</span> </li>
+                    <li><span>Téléphone: </span></li>
+                </ul>
+            {% endif %}
+
+
+            {% if is_granted('ROLE_LOCATAIRE') %}
+                <div class="card-header">
+                    <h3>Ma copropriété</h3>
+                </div>
+                <ul>
+                    <li><span>Nom :</span></li>
+                    <li><span>Adresse :</span> </li>
+                    <li><span>Téléphone: </span></li>
+                </ul>
+                <div class="card-header">
+                    <h3>Mon propriétaire</h3>
+                </div>
+                <ul>
+                    <li><span>Nom :</span></li>
+                    <li><span>Adresse :</span> </li>
+                    <li><span>Téléphone: </span></li>
+                </ul>
+            {% endif %}
+
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="card-header">
+                    <h3>Notifications</h3>
+                </div>
+                <ul>
+                    <li><span>Erreurs compteur</span></li>
+                    <li><span>Fichiers reçus</span> </li>
+                </ul>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+
+{#{{ dump(app.user) }}#}
 
 
 </div>

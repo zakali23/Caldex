@@ -13,8 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class associationCoPro
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CoPro", mappedBy="copro")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CoPro", mappedBy="copropriete")
      */
     private $assoCopros;
 
@@ -47,6 +46,7 @@ class associationCoPro
      */
     private $name;
 
+<<<<<<< HEAD
     /**
      * Get id.
      *
@@ -147,40 +147,8 @@ class associationCoPro
     {
         return $this->Prestataires;
     }
+=======
 
-    /**
-     * Add assoCopro.
-     *
-     * @param \AppBundle\Entity\CoPro $assoCopro
-     *
-     * @return associationCoPro
-     */
-    public function addAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
-    {
-        $this->assoCopros[] = $assoCopro;
 
-        return $this;
-    }
-
-    /**
-     * Remove assoCopro.
-     *
-     * @param \AppBundle\Entity\CoPro $assoCopro
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
-    {
-        return $this->assoCopros->removeElement($assoCopro);
-    }
-
-    /**
-     * Get assoCopros.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAssoCopros()
-    {
-        return $this->assoCopros;
-    }
+>>>>>>> 7b2f9dba918cd88a91cc846eee0c3cd0eec534fa
 }

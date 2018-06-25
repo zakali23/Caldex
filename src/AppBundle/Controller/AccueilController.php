@@ -2,11 +2,12 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Service\Pdf;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Accueil controller.
@@ -29,4 +30,27 @@ class AccueilController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/pdf", name="pdf")
+     * @Method({"GET", "POST"})
+     * @param Pdf $pdf
+     * @return string
+     */
+    public function pdfAction(Pdf $pdf)
+    {
+      return $pdf->pdfAction();
+    }
+
+    /**
+     * @Route("/dl", name="dl")
+     * @Method({"GET", "POST"})
+     * @param Pdf $pdf
+     * @return string
+     */
+    public function dlAction(Pdf $pdf)
+    {
+      return $pdf->showAction();
+    }
+
 }

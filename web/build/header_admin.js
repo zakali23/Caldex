@@ -230,6 +230,16 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('[data-toggle="popover"]').popover({
+        trigger: 'hover',
+        html: true,
+        content: function content() {
+            return $('.profil').html();
+        }
+    });
+});
+
 /***/ })
 
 /******/ });
