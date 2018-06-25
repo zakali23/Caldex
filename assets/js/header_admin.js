@@ -156,6 +156,10 @@ $(document).ready(function(){
         }
     });
 
+    $("#btnAddLot").click(function() {
 
+        $("#addFormLot").show();
+
+    });
 });
 
