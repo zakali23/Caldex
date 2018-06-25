@@ -20,6 +20,39 @@
                         <form method="POST">
                             <div class="row">
                                 <div class="form-group col-6">
+                                    <div class="form-group col-6">
+                                        <label for="syndic">Statut</label>
+
+                                        {{  form_widget(form.roles, { 'attr': {'class': 'form-select' } }) }}
+                                        {{ form_errors(form.roles) }}
+                                    </div>
+                                    <label for="syndic">Copro</label>
+
+                                    {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
+                                    {{ form_errors(form.copros) }}
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="syndic">Syndic</label>
+
+                                    {{  form_widget(form.syndics, { 'attr': {'class': 'form-control' } }) }}
+                                    {{ form_errors(form.syndics) }}
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="syndic">Association Copros</label>
+
+                                    {{  form_widget(form.associationCoPros, { 'attr': {'class': 'form-control' } }) }}
+                                    {{ form_errors(form.associationCoPros) }}
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label for="syndic">lots</label>
+
+                                    {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
+                                    {{ form_errors(form.lots) }}
+                                </div>
+
+
+                                <div class="form-group col-6">
                                     <label for="first_name">Prénom</label>
                                     {{ form_widget(form.firstname) }}
                                     {{ form_errors(form.firstname) }}
@@ -80,38 +113,7 @@
                                     {{  form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control' } }) }}
                                     {{ form_errors(form.plainPassword.second) }}
                                 </div>
-                                <div class="form-group col-6">
-                                    <label for="syndic">Copro</label>
 
-                                    {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
-                                    {{ form_errors(form.copros) }}
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="syndic">Syndic</label>
-
-                                    {{  form_widget(form.syndics, { 'attr': {'class': 'form-control' } }) }}
-                                    {{ form_errors(form.syndics) }}
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="syndic">Association Copros</label>
-
-                                    {{  form_widget(form.associationCoPros, { 'attr': {'class': 'form-control' } }) }}
-                                    {{ form_errors(form.associationCoPros) }}
-                                </div>
-
-                                <div class="form-group col-6">
-                                    <label for="syndic">lots</label>
-
-                                    {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
-                                    {{ form_errors(form.lots) }}
-                                </div>
-
-                                <div class="form-group col-6">
-                                    <label for="syndic">lots</label>
-
-                                    {{  form_widget(form.roles, { 'attr': {'class': 'form-select' } }) }}
-                                    {{ form_errors(form.roles) }}
-                                </div>
                                 <div class="form-group col-12">
                                     <button type="submit" value="enregistrer" class="btn btn-primary btn-block">Enregistrer</button>
                                 </div>
