@@ -37,7 +37,6 @@ class ConnexionController extends Controller{
         return $this->render('admin/index.html.twig');
     }
 
-
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
@@ -74,7 +73,6 @@ class ConnexionController extends Controller{
         return $this->render('coproprietaire/index.html.twig');
     }
 
-
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
@@ -83,7 +81,6 @@ class ConnexionController extends Controller{
     public function asso_coproPageAction(){
         return $this->render('asso_copro/index.html.twig');
     }
-
 
 
 

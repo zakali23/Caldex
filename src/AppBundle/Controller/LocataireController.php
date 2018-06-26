@@ -16,13 +16,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * Accueil controller.
+ *
+ * @Route("locataire")
+ */
 class LocataireController extends Controller{
 
 
     /**
      *
-     * @Route("/locataire/", name="locataire_page")
+     * @Route("/", name="locataire_page")
      */
     public function locatairePageAction(){
         return $this->render('locataire/index.html.twig');

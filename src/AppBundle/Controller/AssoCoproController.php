@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Accueil controller.
  *
- * @Route("/asso_copro")
+ * @Route("asso_copro")
  */
 class AssoCoproController extends Controller{
 

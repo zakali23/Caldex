@@ -16,14 +16,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * Accueil controller.
+ *
+ * @Route("proprietaire")
+ */
 class ProprietaireController extends Controller{
 
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/proprietaire/", name="proprietaire_page")
+     * @Route("/", name="proprietaire_page")
      */
     public function proprietairePageAction(){
         return $this->render('proprietaire/index.html.twig');
