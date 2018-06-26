@@ -54,7 +54,7 @@
             {% endif %}
 
             {% if is_granted('ROLE_COPROPRIETAIRE') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="/copropritaire/"><i class="fa fa-address-card "></i></a></div>
+                <div class="c-header-icon logout" title="Espace Administration"><a href="/coproprietaire/"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
             {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
                 <div class="c-header-icon logout" title="Espace Administration"><a href="/asso_copro"><i class="fa fa-address-card "></i></a></div>
