@@ -1,17 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: coralie
- * Date: 09/06/18
- * Time: 09:13
- */
 
 namespace AppBundle\Controller;
 
-
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -21,8 +15,10 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AdminController extends Controller{
 
-    /*
+    /* @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="admin_page")
+     * @Method("GET")
+     *
      */
     public function adminPageAction(){
         return $this->render('admin/index.html.twig');
