@@ -60,7 +60,7 @@ security:
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, roles: [ROLE_ADMIN, ROLE_ASSOCOPRO] }
+        - { path: ^/register, roles: [ROLE_ADMIN, ROLE_ASSOCOPRO, ROLE_SYNDICAT, ROLE_PRESIDENT, ROLE_SECRETAIRE, ROLE_UTILISATEUR, ROLE_SALARIE] }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/locataire/, role: ROLE_LOCATAIRE }
