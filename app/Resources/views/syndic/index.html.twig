@@ -1,5 +1,6 @@
 {% extends "admin/base_admin.html.twig"%}
 
+<<<<<<< HEAD
 {% block body %}
     <h1>Syndics liste</h1>
 
@@ -42,4 +43,53 @@
             <a href="{{ path('syndic_new') }}">Create a new syndic</a>
         </li>
     </ul>
+=======
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/main_admin.css') }}">
+    {% endblock %}
+
+    {% block body %}
+        <nav class="navbar navbar-default" id="SyndicParc">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/syndic/{{app.user.id }}">Consultation Immeuble</a>
+                    <a class="navbar-brand" href="/syndic/{{app.user.id }}/lot">Consultation Lot</a>
+                    <a class="navbar-brand" href="/syndic/{{app.user.id }}/piece">Consultation Pièce</a>
+                </div>
+            </div>
+        </nav>
+
+        <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
+
+        <div class="container">
+            <div class="row" style="display: flex;">
+
+                <div class="col card">
+                    <h2>Inscription</h2>
+                    <li><a href="/register">Enregister un nouveau membre</a></li>
+
+                </div>
+
+                <div class="col card">
+                    <h2>Membres</h2>
+                    <li><a href="/syndic/{{app.user.id }}">Liste des membres</a></li>
+                </div>
+
+                <div class="col card">
+                    <h2>Gestion</h2>
+                    <li>Gestion des droits </li>
+                    <li>Gestion des relevés compteurs</li>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+>>>>>>> listImmeuble
 {% endblock %}

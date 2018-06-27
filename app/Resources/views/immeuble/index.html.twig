@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for immeuble in immeubles %}
+        {% for immeuble in immeubles.appartements %}
             <tr>
                 <td><a href="{{ path('immeuble_show', { 'id': immeuble.id }) }}">{{ immeuble.id }}</a></td>
                 <td>{{ immeuble.adresse }}</td>
@@ -23,12 +23,7 @@
                 <td>{{ immeuble.plan }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('immeuble_show', { 'id': immeuble.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('immeuble_edit', { 'id': immeuble.id }) }}">edit</a>
-                        </li>
+                       t
                     </ul>
                 </td>
             </tr>

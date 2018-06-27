@@ -1,4 +1,4 @@
-npm i @symfony/webpack-encoreimport $ from "jquery"
+import $ from "jquery"
 
 
 $(document).ready(function()

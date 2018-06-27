@@ -5,28 +5,50 @@
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ syndic.id }}</td>
-            </tr>
+
             <tr>
                 <th>Nom</th>
-                <td>{{ syndic.nom }}</td>
+                <td>{{ syndics.nom }}</td>
             </tr>
             <tr>
                 <th>Adresse</th>
-                <td>{{ syndic.adresse }}</td>
+                <td>{{ syndics.adresse }}</td>
             </tr>
             <tr>
                 <th>Codepostal</th>
-                <td>{{ syndic.codePostal }}</td>
+                <td>{{ syndics.codePostal }}</td>
             </tr>
             <tr>
                 <th>Ville</th>
-                <td>{{ syndic.ville }}</td>
+                <td>{{ syndics.ville }}</td>
             </tr>
         </tbody>
     </table>
+<br>
+    {% for immeuble in syndics.immeuble %}
+        <table>
+            <tbody>
+
+            <tr>
+                <th>Nom</th>
+                <td>{{ immeuble.reference}}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ immeuble.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepostal</th>
+                <td>{{ immeuble.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ immeuble.ville }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+    {% endfor %}
 
     <ul>
         <li>

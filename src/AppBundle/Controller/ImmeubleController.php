@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Controller;
-
+use AppBundle\Entity\Syndic;
 use AppBundle\Entity\Immeuble;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -24,11 +24,16 @@ class ImmeubleController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $immeubles = $em->getRepository('AppBundle:Immeuble')->findAll();
+
+
+        $immeuble = $em->getRepository('AppBundle:Syndic')->findAll();
 
         return $this->render('immeuble/index.html.twig', array(
-            'immeubles' => $immeubles,
+            'immeubles' => $immeuble,
         ));
+
+
+
     }
 
     /**
@@ -65,15 +70,16 @@ class ImmeubleController extends Controller
     /**
      * Finds and displays a immeuble entity.
      *
-     * @Route("/{id}", name="immeuble_show")
+     * @Route("/{id}", name="/syndic/{{app.user.id }}")
      * @Method("GET")
      */
     public function showAction(Immeuble $immeuble)
     {
         $deleteForm = $this->createDeleteForm($immeuble);
 
-        return $this->render('immeuble/show.html.twig', array(
+             return $this->render('immeuble/show.html.twig', array(
             'immeuble' => $immeuble,
+
             'delete_form' => $deleteForm->createView(),
         ));
     }

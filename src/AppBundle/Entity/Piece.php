@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Piece
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Lot", inversedBy="rooms")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Lot", inversedBy="rooms", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $room;
