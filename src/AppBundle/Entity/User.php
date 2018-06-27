@@ -19,6 +19,7 @@ class User extends BaseUser implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\CoPro", cascade={"persist"})
+     *
      */
     private $copros;
 

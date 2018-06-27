@@ -2,6 +2,8 @@
   "web/app.js": "/web/app.js",
   "web/user.js": "/web/user.js",
   "web/user.css": "/web/user.css",
+  "web/register1.js": "/web/register1.js",
+  "web/register1.css": "/web/register1.css",
   "web/main_admin.js": "/web/main_admin.js",
   "web/main_admin.css": "/web/main_admin.css",
   "web/style.js": "/web/style.js",
@@ -14,5 +16,6 @@
   "web/head_admin.css": "/web/head_admin.css",
   "web/entreprise.js": "/web/entreprise.js",
   "web/entreprise.css": "/web/entreprise.css",
+  "web/register.js": "/web/register.js",
   "web/header_admin.js": "/web/header_admin.js"
 }

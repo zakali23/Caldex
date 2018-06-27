@@ -2,9 +2,9 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Syndic;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -27,7 +27,7 @@ class RegistrationType extends AbstractType
             ->add('ville')
             ->add('email')
             ->add('email2')
-            ->add('phone')
+            ->add('phone', TelType::class)
             ->add('phone2')
             ->add('copros', EntityType::class, array(
                 'class' => 'AppBundle:CoPro',
