@@ -1,45 +1,50 @@
 {% extends "admin/base_admin.html.twig"%}
 
-{% block body %}
-    <h1>Syndics list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Codepostal</th>
-                <th>Ville</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for syndic in syndics %}
-            <tr>
-                <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
-                <td>{{ syndic.nom }}</td>
-                <td>{{ syndic.adresse }}</td>
-                <td>{{ syndic.codePostal }}</td>
-                <td>{{ syndic.ville }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('syndic_show', { 'id': syndic.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/main_admin.css') }}">
+    {% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('syndic_new') }}">Create a new syndic</a>
-        </li>
-    </ul>
+    {% block body %}
+        <nav class="navbar navbar-default" id="SyndicParc">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/syndic/{{app.user.id }}">Consultation Immeuble</a>
+                    <a class="navbar-brand" href="/syndic/{{app.user.id }}/lot">Consultation Lot</a>
+                    <a class="navbar-brand" href="/syndic/{{app.user.id }}/piece">Consultation Pièce</a>
+                </div>
+            </div>
+        </nav>
+
+        <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
+
+        <div class="container">
+            <div class="row" style="display: flex;">
+
+                <div class="col card">
+                    <h2>Inscription</h2>
+                    <li><a href="/register">Enregister un nouveau membre</a></li>
+
+                </div>
+
+                <div class="col card">
+                    <h2>Membres</h2>
+                    <li><a href="/syndic/{{app.user.id }}">Liste des membres</a></li>
+                </div>
+
+                <div class="col card">
+                    <h2>Gestion</h2>
+                    <li>Gestion des droits </li>
+                    <li>Gestion des relevés compteurs</li>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
 {% endblock %}

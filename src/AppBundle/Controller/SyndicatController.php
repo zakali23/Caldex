@@ -8,7 +8,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\User;
+use AppBundle\Entity\Syndic;
 use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -16,17 +16,37 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * User controller.
+ *
+ * @Route("/syndicat")
+ */
 class SyndicatController extends Controller{
 
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/syndicat/", name="syndicat_page")
+     * @Route("/", name="syndicat_page")
      */
     public function syndicatPageAction(){
         return $this->render('syndicat/index.html.twig');
+    }
+
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/{id}", name="syndicat_show")
+     * @Method("GET")
+     */
+    public function showAction(Syndic $syndic)
+    {
+        $deleteForm = $this->createDeleteForm($syndicat);
+
+        return $this->render('syndicat/show.html.twig', array(
+            'syndic' => $syndicat,
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
 
 

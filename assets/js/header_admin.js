@@ -95,6 +95,7 @@ $(document).ready(function()
         $("#SConsommations").show();
         $("#SCollaborateur").css({"display": "none"});
         $("#SResident").css({"display": "none"});
+        $("#SyndicParc").css({"display": "none"});
     });
 
     $("li#SGCollab").click(function() {
@@ -103,6 +104,7 @@ $(document).ready(function()
         $("#SConsommations").css({"display": "none"});
         $("#SCollaborateur").show();
         $("#SResident").css({"display": "none"});
+        $("#SyndicParc").css({"display": "none"});
     });
 
     $("li#SGPL").click(function() {
@@ -111,6 +113,7 @@ $(document).ready(function()
         $("#SConsommations").css({"display": "none"});
         $("#SCollaborateur").css({"display": "none"});
         $("#SResident").show();
+        $("#SyndicParc").css({"display": "none"});
     });
 
     $("li#AC1").click(function() {
@@ -164,7 +167,7 @@ $(document).ready(function(){
     });
     $("#urlDirec").click(function() {
 
-        $(location).attr('href', 'http://localhost:8000/syndicat')
+        $(location).attr('href', 'http://localhost:8000/syndic')
 
     });
 });
