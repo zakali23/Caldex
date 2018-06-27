@@ -84,7 +84,7 @@
             {% if is_granted('ROLE_ADMIN') %}
             <ul class="u-list">
                 <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion Utilisateurs" id="GU">
-                    <div class="c-menu__item__inner"><i class="fa fa-users"></i>
+                    <div id="urlDirec" class="c-menu__item__inner"><i class="fa fa-users"></i>
                         <div class="c-menu-item__title"><span>Gestion Utilisateurs</span></div>
                     </div>
                 </li>
@@ -103,7 +103,7 @@
             {% if is_granted('ROLE_PROPRIETAIRE') %}
                 <ul class="u-list">
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings" id="MBI">
-                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                        <div id="urlDirec" class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Mes Biens Immo</span></div>
                         </div>
                     </li>
@@ -112,7 +112,7 @@
             {% if is_granted('ROLE_LOCATAIRE') %}
                 <ul class="u-list">
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings" id="MC">
-                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                        <div id="urlDirec" class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Mes Consommations</span></div>
                         </div>
                     </li>
@@ -147,7 +147,7 @@
             {% if is_granted('ROLE_ASSOCOPRO') %}
                 <ul class="u-list">
                     <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="AC1">
-                        <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
+                        <div id="urlDirec" class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
                             <div class="c-menu-item__title"><span>Gestion du Parc Immo</span></div>
                         </div>
                     </li>

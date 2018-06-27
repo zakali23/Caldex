@@ -132,14 +132,14 @@ $(document).ready(function () {
     });
 
     $("li#GP").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#Gestion-Utilisateurs").css({ "display": "none" });
         $("#Gestion-Parc").show();
         $("#Gestion-Materiel").css({ "display": "none" });
     });
 
     $("li#GM").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#Gestion-Utilisateurs").css({ "display": "none" });
         $("#Gestion-Parc").css({ "display": "none" });
         $("#Gestion-Materiel").show();
@@ -156,7 +156,7 @@ $(document).ready(function () {
     });
 
     $("li#SGPI").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#SParc").show();
         $("#SConsommations").css({ "display": "none" });
         $("#SCollaborateur").css({ "display": "none" });
@@ -164,7 +164,7 @@ $(document).ready(function () {
     });
 
     $("li#SGConso").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#SParc").css({ "display": "none" });
         $("#SConsommations").show();
         $("#SCollaborateur").css({ "display": "none" });
@@ -172,7 +172,7 @@ $(document).ready(function () {
     });
 
     $("li#SGCollab").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#SParc").css({ "display": "none" });
         $("#SConsommations").css({ "display": "none" });
         $("#SCollaborateur").show();
@@ -180,7 +180,7 @@ $(document).ready(function () {
     });
 
     $("li#SGPL").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#SParc").css({ "display": "none" });
         $("#SConsommations").css({ "display": "none" });
         $("#SCollaborateur").css({ "display": "none" });
@@ -188,7 +188,7 @@ $(document).ready(function () {
     });
 
     $("li#AC1").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#ACParc").show();
         $("#ACConsommations").css({ "display": "none" });
         $("#ACCollaborateur").css({ "display": "none" });
@@ -196,7 +196,7 @@ $(document).ready(function () {
     });
 
     $("li#AC2").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#ACParc").css({ "display": "none" });
         $("#ACConsommations").show();
         $("#ACCollaborateur").css({ "display": "none" });
@@ -204,7 +204,7 @@ $(document).ready(function () {
     });
 
     $("li#AC3").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#ACParc").css({ "display": "none" });
         $("#ACConsommations").css({ "display": "none" });
         $("#ACCollaborateur").show();
@@ -212,7 +212,7 @@ $(document).ready(function () {
     });
 
     $("li#AC4").click(function () {
-
+        $("#user_syndic").css({ "display": "none" });
         $("#ACParc").css({ "display": "none" });
         $("#ACConsommations").css({ "display": "none" });
         $("#ACCollaborateur").css({ "display": "none" });
@@ -236,7 +236,8 @@ $(document).ready(function () {
     });
     $("#urlDirec").click(function () {
 
-        $(location).attr('href', 'http://localhost:8000/syndicat');
+        $(location).attr('href', 'http://localhost:8000/user/');
+        $("#Gestion-Utilisateurs").show();
     });
 });
 

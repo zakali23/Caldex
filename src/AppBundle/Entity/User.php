@@ -18,22 +18,22 @@ class User extends BaseUser implements UserInterface
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\CoPro", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\CoPro", cascade={"persist"}, fetch="EAGER")
      */
     private $copros;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Syndic", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Syndic", cascade={"persist"}, fetch="EAGER")
      */
     private $syndics;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\associationCoPro", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\associationCoPro", cascade={"persist"},fetch="EAGER")
      */
     private $associationCoPros;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Lot", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Lot", cascade={"persist"}, fetch="EAGER")
      */
     private $lots;
 

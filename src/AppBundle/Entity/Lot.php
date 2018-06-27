@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Lot
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Immeuble", inversedBy="appartements")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Immeuble", inversedBy="appartements",fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $appartement;
