@@ -20,7 +20,11 @@ class CoPro
     private $gestionnaires;
 
     /**
+<<<<<<< HEAD
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\associationCoPro", inversedBy="assoCopros")
+=======
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\associationCoPro", mappedBy="coproprietes")
+>>>>>>> 6e74c9c93cf2e1219c3a6dad49bda193fb6f8665
      * @ORM\JoinColumn(nullable=true)
      */
     private $assoCopro;
@@ -145,6 +149,75 @@ class CoPro
     }
 
     /**
+<<<<<<< HEAD
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->batiments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name.
+     *
+     * @param string $name
+     *
+     * @return CoPro
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set adresse.
+     *
+     * @param string $adresse
+     *
+     * @return CoPro
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse.
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+=======
+>>>>>>> 6e74c9c93cf2e1219c3a6dad49bda193fb6f8665
      * Set codePostal.
      *
      * @param int $codePostal
@@ -193,6 +266,17 @@ class CoPro
     }
 
     /**
+<<<<<<< HEAD
+     * Set gestionnaire.
+     *
+     * @param \AppBundle\Entity\Syndic|null $gestionnaire
+     *
+     * @return CoPro
+     */
+    public function setGestionnaire(\AppBundle\Entity\Syndic $gestionnaire = null)
+    {
+        $this->gestionnaire = $gestionnaire;
+=======
      * Add gestionnaire.
      *
      * @param \AppBundle\Entity\Syndic $gestionnaire
@@ -202,11 +286,33 @@ class CoPro
     public function addGestionnaire(\AppBundle\Entity\Syndic $gestionnaire)
     {
         $this->gestionnaires[] = $gestionnaire;
+>>>>>>> 6e74c9c93cf2e1219c3a6dad49bda193fb6f8665
 
         return $this;
     }
 
     /**
+<<<<<<< HEAD
+     * Get gestionnaire.
+     *
+     * @return \AppBundle\Entity\Syndic|null
+     */
+    public function getGestionnaire()
+    {
+        return $this->gestionnaire;
+    }
+
+    /**
+     * Set copropriete.
+     *
+     * @param \AppBundle\Entity\associationCoPro|null $copropriete
+     *
+     * @return CoPro
+     */
+    public function setCopropriete(\AppBundle\Entity\associationCoPro $copropriete = null)
+    {
+        $this->copropriete = $copropriete;
+=======
      * Remove gestionnaire.
      *
      * @param \AppBundle\Entity\Syndic $gestionnaire
@@ -238,11 +344,21 @@ class CoPro
     public function addAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
     {
         $this->assoCopro[] = $assoCopro;
+>>>>>>> 6e74c9c93cf2e1219c3a6dad49bda193fb6f8665
 
         return $this;
     }
 
     /**
+<<<<<<< HEAD
+     * Get copropriete.
+     *
+     * @return \AppBundle\Entity\associationCoPro|null
+     */
+    public function getCopropriete()
+    {
+        return $this->copropriete;
+=======
      * Remove assoCopro.
      *
      * @param \AppBundle\Entity\CoPro $assoCopro
@@ -262,6 +378,7 @@ class CoPro
     public function getAssoCopro()
     {
         return $this->assoCopro;
+>>>>>>> 6e74c9c93cf2e1219c3a6dad49bda193fb6f8665
     }
 
     /**

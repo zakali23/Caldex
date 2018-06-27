@@ -40,20 +40,21 @@
         <div class="header-icons-group">
 
             {% if is_granted('ROLE_ADMIN') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="/admin/"><i class="fa fa-address-card "></i></a></div>
+                <div class="c-header-icon" title="Espace Administration"><a href="/admin/"><i class="fa fa-address-card "></i></a></div>
 
             {% endif %}
 
             {% if is_granted('ROLE_LOCATAIRE') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="/locataire/"><i class="fa fa-address-card "></i></a></div>
+                <div class="c-header-icon" title="Espace Administration"><a href="/locataire/"><i class="fa fa-address-card "></i></a></div>
 
             {% endif %}
 
             {% if is_granted('ROLE_PROPRIETAIRE') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="/proprietaire"><i class="fa fa-address-card "></i></a></div>
+                <div class="c-header-icon" title="Espace Administration"><a href="/proprietaire"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
 
             {% if is_granted('ROLE_COPROPRIETAIRE') %}
+
                 <div class="c-header-icon logout" title="Espace Administration"><a href="/coproprietaire/"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
             {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
