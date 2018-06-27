@@ -1,53 +1,222 @@
-{% extends 'base.html.twig' %}
+{% extends "admin/base_admin.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/main_admin.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Users list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Adresse</th>
-                <th>Codepostal</th>
-                <th>Ville</th>
-                <th>Email2</th>
-                <th>Phone</th>
-                <th>Phone2</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.adresse }}</td>
-                <td>{{ user.codePostal }}</td>
-                <td>{{ user.ville }}</td>
-                <td>{{ user.email2 }}</td>
-                <td>{{ user.phone }}</td>
-                <td>{{ user.phone2 }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <nav class="nav justify-content-center grey lighten-4 py-4" id="user_syndic">
+
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <ul class="nav nav-pills">
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Co-Propriétés<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/copro/new">Création</a>
+                                    <a href="/copro/">Modification</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Asso de Co-Propriétés<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/associationcopro/new">Création</a>
+                                    <a href="/associationcopro/">Modification</a>
+                                    <a href="/register">Création Utilisateur</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Syndicats<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/syndic/new">Création</a>
+                                    <a href="/syndic/">Modification</a>
+                                    <a href="/register">Création Utilisateur</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Propriétaire<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/register">Création</a>
+                                    <a href="/#">Modification</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Locataires<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/register">Création</a>
+                                    <a href="#">Modification</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                </div>
+            </div>
+        </nav>
+        <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
 
-    <ul>
-        <li>
-            <a href="{{ path('user_new') }}">Create a new user</a>
-        </li>
-    </ul>
+        <div class="container">
+            <div class="row" style="display: flex;">
+
+                <div class="col card">
+                    <h2>Inscription</h2>
+                    <li><a href="/register">Enregister un nouveau membre</a></li>
+                    <li><a href="/syndic/new">Inscription nouveau syndicat</a></li>
+                    <li><a href="/copro/new">Inscription nouvelle copropriété</a></li>
+                    <li><a href="/associationcopro/new">Inscription nouvelle association de copropriété</a></li>
+                </div>
+
+                <div class="col card">
+                    <h2>Membres</h2>
+                    <li><a href="{{ path('syndic_index') }}">Liste des syndicats</a></li>
+                    <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
+                    <li><a href="{{ path('associationcopro_index') }}">Liste des association de copropriétés</a></li>
+                </div>
+
+                <div class="col card">
+                    <h2>Gestion</h2>
+                    <li>Création d'un lot</li>
+                    <li>Gestion des droits </li>
+                    <li>Gestion des relevés compteurs</li>
+                </div>
+
+
+
+            </div>
+        </div>
+    {% endif %}
+
+    {% if is_granted('ROLE_SYNDICAT') %}
+        <nav class="navbar navbar-default" id="user_syndic">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/user/{{ app.user.id }}/immeuble">Consultation Immeuble</a>
+                    <a class="navbar-brand" href="/user/{{ app.user.id }}/lot">Consultation Lot</a>
+                    <a class="navbar-brand" href="/user/{{ app.user.id }}/piece">Consultation Pièce</a>
+                </div>
+            </div>
+        </nav>
+        <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
+
+        <div class="container">
+            <div class="row" style="display: flex;">
+
+                <div class="col card">
+                    <h2>Inscription</h2>
+                    <li><a href="/register">Enregister un nouveau membre</a></li>
+
+                </div>
+
+                <div class="col card">
+                    <h2>Membres</h2>
+
+                    <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
+
+                </div>
+
+                <div class="col card">
+                    <h2>Gestion</h2>
+
+                    <li>Gestion des droits </li>
+                    <li>Gestion des relevés compteurs</li>
+                </div>
+
+
+
+            </div>
+        </div>
+    {% endif %}
+    {% if is_granted('ROLE_ASSOCOPRO') %}
+
+        <nav class="navbar navbar-default" id="user_syndic">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
+                <a class="navbar-brand" href="/lot">Consultation Lot</a>
+                <a class="navbar-brand" href="/piece/">Consultation Pièce</a>
+            </div>
+        </div>
+
+        <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
+
+        <div class="container">
+            <div class="row" style="display: flex;">
+
+                <div class="col card">
+                    <h2>Inscription</h2>
+                    <li><a href="/register">Enregister un nouveau membre</a></li>
+
+                </div>
+
+                <div class="col card">
+                    <h2>Membres</h2>
+                    <li><a href="">Liste des membres</a></li>
+                    <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
+                </div>
+
+                <div class="col card">
+                    <h2>Gestion</h2>
+                    <li>Gestion des droits </li>
+                    <li>Gestion des relevés compteurs</li>
+                </div>
+
+
+
+            </div>
+        </div>
+    {% endif %}
+
+
+    {% if is_granted('ROLE_PROPRIETAIRE') %}
+
+        <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
+
+        <div class="container">
+            <div class="row" style="display: flex;">
+
+
+
+
+                <div class="col card">
+                    <h2>Gestion</h2>
+                    <li>Gestion des droits </li>
+                    <li>Gestion des relevés compteurs</li>
+                </div>
+
+
+
+            </div>
+        </div>
+    {% endif %}
+
+    {% if is_granted('ROLE_LOCATAIRE') %}
+
+        <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
+
+        <div class="container">
+            <div class="row" style="display: flex;">
+
+
+
+                <div class="col card">
+                    <h2>Gestion</h2>
+                    <li>Gestion des droits </li>
+                    <li>Gestion des relevés compteurs</li>
+                </div>
+
+
+
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

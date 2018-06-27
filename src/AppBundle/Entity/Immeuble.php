@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Immeuble
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="batiments")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="batiments",fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $batiment;

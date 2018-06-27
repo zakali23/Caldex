@@ -26,7 +26,7 @@ class CoPro
     private $assoCopro;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment", fetch="EAGER")
      */
     private $batiments;
 
