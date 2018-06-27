@@ -132,7 +132,7 @@ $(document).ready(function () {
     });
 
     $("li#GP").click(function () {
-        $("#user_syndic").css({ "display": "none" });
+
         $("#Gestion-Utilisateurs").css({ "display": "none" });
         $("#Gestion-Parc").show();
         $("#Gestion-Materiel").css({ "display": "none" });
