@@ -13,9 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Syndic
 {
     /**
-     * @ORM\OneToMany(targetEntity="CoPro", mappedBy="gestionnaire")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="gestionnaires")
+     *
      */
-    private $gestionnaires;
+    private $gestionnaire;
 
     /**
      * Many associationCoPro have Many Prestataire.
@@ -65,6 +66,15 @@ class Syndic
      * @ORM\Column(name="ville", type="string", length=255)
      */
     private $ville;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Prestataires = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id.
      *
@@ -73,54 +83,6 @@ class Syndic
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
-
-    /**
-     * @param string $adresse
-     */
-    public function setAdresse($adresse)
-    {
-        $this->adresse = $adresse;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCodePostal()
-    {
-        return $this->codePostal;
-    }
-
-    /**
-     * @param int $codePostal
-     */
-    public function setCodePostal($codePostal)
-    {
-        $this->codePostal = $codePostal;
-    }
-
-    /**
-     * @return string
-     */
-    public function getVille()
-    {
-        return $this->ville;
-    }
-
-    /**
-     * @param string $ville
-     */
-    public function setVille($ville)
-    {
-        $this->ville = $ville;
     }
 
     /**
@@ -146,48 +108,101 @@ class Syndic
     {
         return $this->nom;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->gestionnaires = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add gestionnaire.
+     * Set adresse.
      *
-     * @param \AppBundle\Entity\CoPro $gestionnaire
+     * @param string $adresse
      *
      * @return Syndic
      */
-    public function addGestionnaire(\AppBundle\Entity\CoPro $gestionnaire)
+    public function setAdresse($adresse)
     {
-        $this->gestionnaires[] = $gestionnaire;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     /**
-     * Remove gestionnaire.
+     * Get adresse.
      *
-     * @param \AppBundle\Entity\CoPro $gestionnaire
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return string
      */
-    public function removeGestionnaire(\AppBundle\Entity\CoPro $gestionnaire)
+    public function getAdresse()
     {
-        return $this->gestionnaires->removeElement($gestionnaire);
+        return $this->adresse;
     }
 
     /**
-     * Get gestionnaires.
+     * Set codePostal.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param int $codePostal
+     *
+     * @return Syndic
      */
-    public function getGestionnaires()
+    public function setCodePostal($codePostal)
     {
-        return $this->gestionnaires;
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codePostal.
+     *
+     * @return int
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * Set ville.
+     *
+     * @param string $ville
+     *
+     * @return Syndic
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville.
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set gestionnaire.
+     *
+     * @param \AppBundle\Entity\CoPro|null $gestionnaire
+     *
+     * @return Syndic
+     */
+    public function setGestionnaire(\AppBundle\Entity\CoPro $gestionnaire = null)
+    {
+        $this->gestionnaire = $gestionnaire;
+
+        return $this;
+    }
+
+    /**
+     * Get gestionnaire.
+     *
+     * @return \AppBundle\Entity\CoPro|null
+     */
+    public function getGestionnaire()
+    {
+        return $this->gestionnaire;
     }
 
     /**

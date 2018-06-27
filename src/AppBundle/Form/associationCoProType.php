@@ -13,7 +13,7 @@ class associationCoProType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('Prestataires');
+        $builder->add('name')->add('coproprietes')->add('Prestataires');
     }/**
      * {@inheritdoc}
      */

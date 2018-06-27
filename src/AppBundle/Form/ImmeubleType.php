@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ImmeubleType extends AbstractType
 {
@@ -13,7 +15,13 @@ class ImmeubleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse')->add('codePostal')->add('ville')->add('plan')->add('batiment')->add('reference');
+        $builder
+            ->add('adresse',TextType::class)
+            ->add('codePostal',TextType::class)
+            ->add('ville',TextType::class)
+            ->add('planFile',FileType::class)
+            ->add('batiment')
+            ->add('reference',TextType::class);
     }/**
      * {@inheritdoc}
      */

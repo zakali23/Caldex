@@ -147,12 +147,12 @@ $(document).ready(function () {
 
     $("li#MBI").click(function () {
 
-        $("#Mes-Biens").css({ "display": "contents" });
+        $("#Mes-Biens").show();
     });
 
     $("li#MC").click(function () {
 
-        $("#Mes-Consos").css({ "display": "contents" });
+        $("#Mes-Consos").show();
     });
 
     $("li#SGPI").click(function () {
@@ -232,6 +232,7 @@ $(document).ready(function () {
     $("#btnAddLot").click(function () {
 
         $("#addFormLot").show();
+        $("#btnAddLot").hide();
     });
 });
 

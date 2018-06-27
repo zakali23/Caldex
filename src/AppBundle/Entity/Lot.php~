@@ -20,11 +20,7 @@ class Lot
      */
     private $appartement;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="lots")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $users;
+
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Piece", mappedBy="room")
@@ -328,4 +324,6 @@ class Lot
     {
         return $this->tantieme;
     }
+
+
 }

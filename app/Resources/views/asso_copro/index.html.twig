@@ -1,9 +1,31 @@
 {% extends "admin/base_admin.html.twig" %}
 
 {% block body %}
-    <h1>Association de copropriétaire</h1>
+    <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
 
-    <p><a href="/logout">Se déconnecter</a></p>
+    <div class="container">
+        <div class="row" style="display: flex;">
+
+            <div class="col card">
+                <h2>Membres</h2>
+                <li><a href="/register">Enregister un nouveau membre</a></li>
+                <li><a href="{{ path('syndic_index') }}">Liste des utilisateurs</a></li>
+
+            </div>
+
+            <div class="col card">
+                <h2>Gestion</h2>
+                <li><a href="{{ path('immeuble_index') }}">Consultation d'un immeuble</a></li>
+                <li><a href="{{ path('lot_index') }}">Consultation d'un lot</a></li>
+                <li><a href="{{ path('compteur_index') }}">Consultation des relevés compteurs</a></li>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
 
 
 {% endblock %}

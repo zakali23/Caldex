@@ -2,9 +2,9 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Syndic;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -27,8 +27,16 @@ class RegistrationType extends AbstractType
             ->add('ville')
             ->add('email')
             ->add('email2')
-            ->add('phone')
+            ->add('phone', TelType::class)
             ->add('phone2')
+            ->add('copros', EntityType::class, array(
+                'class' => 'AppBundle:CoPro',
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'required' => false
+
+            ))
             ->add('syndics', EntityType::class, array(
                 'class' => 'AppBundle:Syndic',
                 'choice_label' => 'nom',
@@ -56,9 +64,12 @@ class RegistrationType extends AbstractType
                 'choices' => [
                     'Administrateur' => 'ROLE_ADMIN',
                     'Syndicat' => 'ROLE_SYNDICAT',
-                    'Salarie_Syndicat' => 'ROLE_SALARIE_SYNDICAT',
                     'Copropriétaire' => 'ROLE_COPROPRIETAIRE',
                     'Association de copropriétaire' => 'ROLE_ASSOCOPRO',
+                    'Salarie' => 'ROLE_SALARIE',
+                    'Utilisateur' => 'ROLE_UTILISATEUR',
+                    'Président' => 'ROLE_PRESIDENT',
+                    'Secrétaire' => 'ROLE_SECRETAIRE',
                     'Propriétaire' => 'ROLE_PROPRIETAIRE',
                     'Locataire' => 'ROLE_LOCATAIRE',
 
