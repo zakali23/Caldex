@@ -12,6 +12,9 @@ Encore
     .addEntry('header_admin', './assets/js/header_admin.js')
     .addEntry('head_admin', './assets/scss/head_admin.scss')
     .addEntry('user', './assets/scss/user.scss')
+    .addEntry('register1', './assets/scss/register1.scss')
+    .addEntry('register', './assets/js/register.js')
+
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSassLoader();

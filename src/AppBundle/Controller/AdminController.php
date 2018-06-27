@@ -15,10 +15,10 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AdminController extends Controller{
 
-    /* @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/", name="admin_page")
-     * @Method("GET")
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
      *
+     * @Route("/", name="admin_page")
      */
     public function adminPageAction(){
         return $this->render('admin/index.html.twig');
