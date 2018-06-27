@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,7 +26,7 @@ class RegistrationType extends AbstractType
             ->add('adresse')
             ->add('codePostal')
             ->add('ville')
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('email2')
             ->add('phone', TelType::class)
             ->add('phone2')
