@@ -27,7 +27,7 @@ security:
         main:
             remember_me:
                 secret:    '%secret%'
-                lifetime: 604800 # 1 week in seconds
+                lifetime: 31536000 # 1 year in seconds
                 path:    /
             pattern: ^/
             #remember_me:
