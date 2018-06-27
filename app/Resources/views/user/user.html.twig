@@ -39,13 +39,25 @@
                 {% if is_granted('ROLE_SYNDICAT') %}
                     <b> un syndicat de copropriété</b>
                 {% endif %}
+
+                {% if is_granted('ROLE_SALARIE') %}
+                    <b> un salarié</b>
+                {% endif %}
+                {% if is_granted('ROLE_UTILISATEUR') %}
+                    <b> un utilisateur</b>
+                {% endif %}
+                {% if is_granted('ROLE_PRESIDENT') %}
+                    <b> Président</b>
+                {% endif %}
+                {% if is_granted('ROLE_SECRETAIRE') %}
+                    <b> Secrétaire</b>
+                {% endif %}
             </p>
 
 
 
             <ul>
-
-                <li><span>Prénom :</span> {{ app.user.firstname }}</li>
+                <li><span>Prénom1 :</span> {{ app.user.firstname }}</li>
                 <li><span>Nom :</span> {{ app.user.lastname }}</li>
                 <li><span>Adresse :</span>{{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
                 <li><span>Téléphone :</span> {{ app.user.phone }}</li>
@@ -130,6 +142,50 @@
                 <ul>
                     <li><span>Erreurs compteur</span></li>
                     <li><span>Fichiers reçus</span> </li>
+                </ul>
+            {% endif %}
+            {% if is_granted('ROLE_SALARIE') %}
+                <div class="card-header">
+                    <h3>Mon Syndic</h3>
+                </div>
+                <ul>
+                    <li><span>Nom</span></li>
+                    <li><span>Adresse</span></li>
+                    <li><span>Téléphone</span></li>
+
+                </ul>
+            {% endif %}
+            {% if is_granted('ROLE_UTILISATEUR') %}
+                <div class="card-header">
+                    <h3>Mon Association de Copropriété</h3>
+                </div>
+                <ul>
+                    <li><span>Nom</span></li>
+                    <li><span>Adresse</span></li>
+                    <li><span>Téléphone</span></li>
+
+                </ul>
+            {% endif %}
+            {% if is_granted('ROLE_PRESIDENT') %}
+                <div class="card-header">
+                    <h3>Mon Association de Copropriété</h3>
+                </div>
+                <ul>
+                    <li><span>Nom</span></li>
+                    <li><span>Adresse</span></li>
+                    <li><span>Téléphone</span></li>
+
+                </ul>
+            {% endif %}
+            {% if is_granted('ROLE_SECRETAIRE') %}
+                <div class="card-header">
+                    <h3>Mon Association de Copropriété</h3>
+                </div>
+                <ul>
+                    <li><span>Nom</span></li>
+                    <li><span>Adresse</span></li>
+                    <li><span>Téléphone</span></li>
+
                 </ul>
             {% endif %}
         </div>

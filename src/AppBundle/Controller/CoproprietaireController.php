@@ -16,14 +16,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * Accueil controller.
+ *
+ * @Route("coproprietaire")
+ */
 class CoproprietaireController extends Controller{
 
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/coproprietaire/", name="coproprietaire_page")
+     * @Route("/", name="coproprietaire_page")
      */
     public function coproprietairePageAction(){
         return $this->render('coproprietaire/index.html.twig');

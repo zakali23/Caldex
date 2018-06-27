@@ -40,28 +40,29 @@
         <div class="header-icons-group">
 
             {% if is_granted('ROLE_ADMIN') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="/admin/"><i class="fa fa-address-card "></i></a></div>
+                <div class="c-header-icon" title="Espace Administration"><a href="/admin/"><i class="fa fa-address-card "></i></a></div>
 
             {% endif %}
 
             {% if is_granted('ROLE_LOCATAIRE') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="/locataire/"><i class="fa fa-address-card "></i></a></div>
+                <div class="c-header-icon" title="Espace Administration"><a href="/locataire/"><i class="fa fa-address-card "></i></a></div>
 
             {% endif %}
 
             {% if is_granted('ROLE_PROPRIETAIRE') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="/proprietaire"><i class="fa fa-address-card "></i></a></div>
+                <div class="c-header-icon" title="Espace Administration"><a href="/proprietaire"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
 
             {% if is_granted('ROLE_COPROPRIETAIRE') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="/copropritaire/"><i class="fa fa-address-card "></i></a></div>
+
+                <div class="c-header-icon logout" title="Espace Administration"><a href="/coproprietaire/"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
-            {% if is_granted('ROLE_ASSOCOPRO') %}
+            {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
                 <div class="c-header-icon logout" title="Espace Administration"><a href="/asso_copro"><i class="fa fa-address-card "></i></a></div>
 
             {% endif %}
 
-            {% if is_granted('ROLE_SYNDICAT') %}
+            {% if is_granted(['ROLE_SYNDICAT', 'ROLE_SALARIE']) %}
                 <div class="c-header-icon logout" title="Espace Administration"><a href="/syndicat/"><i class="fa fa-address-card "></i></a></div>
 
             {% endif %}
@@ -119,7 +120,7 @@
                 </ul>
             {% endif %}
 
-            {% if is_granted('ROLE_SYNDICAT') %}
+            {% if is_granted(['ROLE_SYNDICAT', 'ROLE_SALARIE']) %}
                 <ul class="u-list">
                     <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="SGPI">
                         <div id="urlDirec" class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
@@ -144,7 +145,7 @@
                 </ul>
             {% endif %}
 
-            {% if is_granted('ROLE_ASSOCOPRO') %}
+            {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
                 <ul class="u-list">
                     <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="AC1">
                         <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
@@ -265,8 +266,8 @@
         </nav>
         {% endif %}
 
-        {% if is_granted('ROLE_SYNDICAT') %}
-            <nav class="navbar navbar-default" id="SParc">
+        {% if is_granted(['ROLE_SYNDICAT', 'ROLE_SALARIE']) %}
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="SParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
@@ -275,7 +276,7 @@
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="SConsommations">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="SConsommations">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="">Consommation Syndic</a>
@@ -285,7 +286,7 @@
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="SCollaborateur">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="SCollaborateur">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/register">Création d'un collaborateur</a>
@@ -293,7 +294,7 @@
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="SResident">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="SResident">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/register">Création d'un résident</a>
@@ -304,8 +305,8 @@
 
         {% endif %}
 
-        {% if is_granted('ROLE_ASSOCOPRO') %}
-            <nav class="navbar navbar-default" id="ACParc">
+        {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="ACParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
@@ -314,7 +315,7 @@
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="ACConsommations">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="ACConsommations">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="">Consommation Syndic</a>
@@ -324,7 +325,7 @@
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="ACCollaborateur">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="ACCollaborateur">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/register">Création d'un collaborateur</a>
@@ -332,7 +333,7 @@
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-default" id="ACRésident">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="ACRésident">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/register">Création d'un résident</a>
@@ -344,7 +345,7 @@
         {% endif %}
 
         {% if is_granted('ROLE_LOCATAIRE') %}
-            <nav class="navbar navbar-default" id="Mes-Consos">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="Mes-Consos">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">Consommation d'Eau</a>
@@ -361,7 +362,7 @@
     {% endblock fos_user_content %}
     </main>
 
-
+{% block javascript %}{% endblock %}
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://use.fontawesome.com/2188c74ac9.js'></script>

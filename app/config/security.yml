@@ -6,12 +6,15 @@ security:
     role_hierarchy:
         ROLE_LOCATAIRE: ROLE_LOCATAIRE
         ROLE_PROPRIETAIRE: ROLE_PROPRIETAIRE
-        ROLE_SALARIE_SYNDICAT: ROLE_SALARIE_SYNDICAT
+        ROLE_SECRETAIRE: ROLE_SECRETAIRE
+        ROLE_PRESIDENT: ROLE_PRESIDENT
+        ROLE_UTILISATEUR: ROLE_UTILISATEUR
+        ROLE_SALARIE: ROLE_SALARIE
         ROLE_SYNDICAT: ROLE_SYNDICAT
         ROLE_COPROPRIETAIRE: ROLE_COPROPRIETAIRE
         ROLE_ASSOCOPRO: ROLE_ASSOCOPRO
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_ADMIN:       ROLE_ADMIN
+
 
     providers:
         in_memory:
@@ -22,7 +25,19 @@ security:
 
     firewalls:
         main:
+            remember_me:
+                secret:    '%secret%'
+                lifetime: 604800 # 1 week in seconds
+                path:    /
             pattern: ^/
+            #remember_me:
+            #    secret:   '%secret%'
+            #    lifetime: 1 # 1 week in seconds
+            #    path:     /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                #always_remember_me: true
             form_login:
                 provider: fos_userbundle
                 remember_me: true
@@ -45,7 +60,7 @@ security:
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: ROLE_ADMIN }
+        - { path: ^/register, roles: [ROLE_ADMIN, ROLE_ASSOCOPRO] }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/locataire/, role: ROLE_LOCATAIRE }
