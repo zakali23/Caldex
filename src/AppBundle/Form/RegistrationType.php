@@ -27,9 +27,13 @@ class RegistrationType extends AbstractType
             ->add('codePostal')
             ->add('ville')
             ->add('email', EmailType::class)
-            ->add('email2')
+            ->add('email2', EmailType::class, array(
+                'required' => false
+            ))
             ->add('phone', TelType::class)
-            ->add('phone2')
+            ->add('phone2', TelType::class, array(
+                'required' => false
+            ))
             ->add('copros', EntityType::class, array(
                 'class' => 'AppBundle:CoPro',
                 'choice_label' => 'name',
