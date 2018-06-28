@@ -266,7 +266,7 @@
         </nav>
         {% endif %}
 
-        {% if is_granted(['ROLE_SYNDICAT', 'ROLE_SALARIE']) %}
+        {% if is_granted(['ROLE_SYNDICAT']) %}
             <nav class="nav justify-content-center grey lighten-4 py-4" id="SParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -304,8 +304,38 @@
             </nav>
 
         {% endif %}
+        {% if is_granted(['ROLE_SALARIE']) %}
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="SParc">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
+                        <a class="navbar-brand" href="/lot/">Consultation Lot</a>
+                        <a class="navbar-brand" href="/piece/">Consultation Pièce</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="SConsommations">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Consommation Syndic</a>
+                        <a class="navbar-brand" href="">Consommation Immeuble</a>
+                        <a class="navbar-brand" href="">Consommation Lot</a>
+                        <a class="navbar-brand" href="">Consommation Pièce</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="SResident">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/register">Création d'un résident</a>
+                        <a class="navbar-brand" href="">Consultation des résidents</a>
+                    </div>
+                </div>
+            </nav>
 
-        {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_UTILISATEUR', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
+        {% endif %}
+
+        {% if is_granted(['ROLE_ASSOCOPRO', 'ROLE_PRESIDENT', 'ROLE_SECRETAIRE']) %}
             <nav class="nav justify-content-center grey lighten-4 py-4" id="ACParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -330,6 +360,36 @@
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/register">Création d'un collaborateur</a>
                         <a class="navbar-brand" href="">Consultation des collaborateurs</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="ACRésident">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/register">Création d'un résident</a>
+                        <a class="navbar-brand" href="">Consultation des résidents</a>
+                    </div>
+                </div>
+            </nav>
+
+        {% endif %}
+        {% if is_granted(['ROLE_UTILISATEUR']) %}
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="ACParc">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
+                        <a class="navbar-brand" href="/lot">Consultation Lot</a>
+                        <a class="navbar-brand" href="/piece/">Consultation Pièce</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="ACConsommations">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">Consommation Syndic</a>
+                        <a class="navbar-brand" href="">Consommation Immeuble</a>
+                        <a class="navbar-brand" href="">Consommation Lot</a>
+                        <a class="navbar-brand" href="">Consommation Pièce</a>
                     </div>
                 </div>
             </nav>
