@@ -4,16 +4,10 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
-        ROLE_LOCATAIRE: ROLE_LOCATAIRE
-        ROLE_PROPRIETAIRE: ROLE_PROPRIETAIRE
-        ROLE_SECRETAIRE: ROLE_SECRETAIRE
-        ROLE_PRESIDENT: ROLE_PRESIDENT
-        ROLE_UTILISATEUR: ROLE_UTILISATEUR
-        ROLE_SALARIE: ROLE_SALARIE
-        ROLE_SYNDICAT: ROLE_SYNDICAT
-        ROLE_COPROPRIETAIRE: ROLE_COPROPRIETAIRE
-        ROLE_ASSOCOPRO: ROLE_ASSOCOPRO
-        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_SALARIE: ROLE_USER
+        ROLE_GESTION: ROLE_SALARIE
+        ROLE_ADMIN: ROLE_GESTION
+
 
 
     providers:
@@ -60,14 +54,8 @@ security:
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, roles: [ROLE_ADMIN, ROLE_ASSOCOPRO, ROLE_SYNDICAT, ROLE_PRESIDENT, ROLE_SECRETAIRE, ROLE_UTILISATEUR, ROLE_SALARIE] }
+        - { path: ^/register, roles: [ROLE_ADMIN, ROLE_GESTION, ROLE_SALARIE] }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/locataire/, role: ROLE_LOCATAIRE }
-        - { path: ^/proprietaire/, role: ROLE_PROPRIETAIRE }
-        - { path: ^/syndicat/, role: ROLE_SYNDICAT }
-        - { path: ^/coproprietaire/, role: ROLE_COPROPRIETAIRE }
-        - { path: ^/asso_copro/, role: ROLE_ASSOCOPRO }
         - { path: ^/immeuble/new$, role: ROLE_ADMIN }
         - { path: ^/lot/new$, role: ROLE_ADMIN }
         - { path: ^/piece/new$, role: ROLE_ADMIN }

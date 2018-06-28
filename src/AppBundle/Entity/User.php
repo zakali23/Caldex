@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use FOS\UserBundle\Model\UserInterface;
+
 
 /**
  * User
@@ -12,7 +12,7 @@ use FOS\UserBundle\Model\UserInterface;
  * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User extends BaseUser implements UserInterface
+class User extends BaseUser
 {
 
 
@@ -113,8 +113,21 @@ class User extends BaseUser implements UserInterface
     private $phone2;
 
     /**
+     * @var \DateTime
      *
+     * @ORM\Column(name="date_entree", type="datetime", nullable=true)
      */
+    private $dateEntree;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_sortie", type="datetime", nullable=true)
+     */
+    private $dateSortie;
+
+
 
 
 
@@ -130,7 +143,7 @@ class User extends BaseUser implements UserInterface
         $this->associationCoPros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lots = new \Doctrine\Common\Collections\ArrayCollection();
         $this->copros = new \Doctrine\Common\Collections\ArrayCollection();
-        parent::__construct();
+
 
     }
 
@@ -517,5 +530,53 @@ class User extends BaseUser implements UserInterface
     public function getCopros()
     {
         return $this->copros;
+    }
+
+    /**
+     * Set dateEntree.
+     *
+     * @param \DateTime|null $dateEntree
+     *
+     * @return User
+     */
+    public function setDateEntree($dateEntree = null)
+    {
+        $this->dateEntree = $dateEntree;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEntree.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateEntree()
+    {
+        return $this->dateEntree;
+    }
+
+    /**
+     * Set dateSortie.
+     *
+     * @param \DateTime|null $dateSortie
+     *
+     * @return User
+     */
+    public function setDateSortie($dateSortie = null)
+    {
+        $this->dateSortie = $dateSortie;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSortie.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateSortie()
+    {
+        return $this->dateSortie;
     }
 }

@@ -64,18 +64,11 @@ class RegistrationType extends AbstractType
                 'expanded' => true, // render check-boxes
                 'choices' => [
                     'Administrateur' => 'ROLE_ADMIN',
-                    'Syndicat' => 'ROLE_SYNDICAT',
-                    'Copropriétaire' => 'ROLE_COPROPRIETAIRE',
-                    'Association de copropriétaire' => 'ROLE_ASSOCOPRO',
-                    'Salarie' => 'ROLE_SALARIE',
-                    'Utilisateur' => 'ROLE_UTILISATEUR',
-                    'Président' => 'ROLE_PRESIDENT',
-                    'Secrétaire' => 'ROLE_SECRETAIRE',
-                    'Propriétaire' => 'ROLE_PROPRIETAIRE',
-                    'Locataire' => 'ROLE_LOCATAIRE',
-
+                    "Délégué de copropriété" => 'ROLE_GESTION',
+                    'Gestionnaire' => 'ROLE_SALARIE',
+                    'Habitant' => 'ROLE_USER',
                 ],
-        ]);
+            ]);
     }
 
 

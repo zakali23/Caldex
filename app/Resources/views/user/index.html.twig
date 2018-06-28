@@ -15,6 +15,8 @@
                 <th>Email2</th>
                 <th>Phone</th>
                 <th>Phone2</th>
+                <th>Dateentree</th>
+                <th>Datesortie</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -30,6 +32,8 @@
                 <td>{{ user.email2 }}</td>
                 <td>{{ user.phone }}</td>
                 <td>{{ user.phone2 }}</td>
+                <td>{% if user.dateEntree %}{{ user.dateEntree|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.dateSortie %}{{ user.dateSortie|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>

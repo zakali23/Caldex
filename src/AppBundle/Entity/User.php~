@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use FOS\UserBundle\Model\UserInterface;
+
 
 /**
  * User
@@ -12,13 +12,14 @@ use FOS\UserBundle\Model\UserInterface;
  * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User extends BaseUser implements UserInterface
+class User extends BaseUser
 {
 
 
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\CoPro", cascade={"persist"})
+     *
      */
     private $copros;
 
@@ -112,8 +113,21 @@ class User extends BaseUser implements UserInterface
     private $phone2;
 
     /**
+     * @var \DateTime
      *
+     * @ORM\Column(name="date_entree", type="datetime", nullable=true)
      */
+    private $dateEntree;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_sortie", type="datetime", nullable=true)
+     */
+    private $dateSortie;
+
+
 
 
 
@@ -129,7 +143,7 @@ class User extends BaseUser implements UserInterface
         $this->associationCoPros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lots = new \Doctrine\Common\Collections\ArrayCollection();
         $this->copros = new \Doctrine\Common\Collections\ArrayCollection();
-        parent::__construct();
+
 
     }
 

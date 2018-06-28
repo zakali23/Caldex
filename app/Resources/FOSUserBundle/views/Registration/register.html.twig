@@ -13,7 +13,7 @@
                 <div class="login-brand">
                     Inscription d'un nouveau membre
                 </div>
-
+                {{ dump(form.roles.0) }}
                 <div class="card card-primary">
                     <div class="card-header"></div>
                     {{ form_errors(form) }}
@@ -28,6 +28,7 @@
                                             <div class="form-group col-3" style="margin: 2vw;" >
                                                 <div class="admin">
                                                 {{  form_widget(form.roles.0) }}
+
                                                 </div>
                                                 <div class="copro">
                                                     {{  form_widget(form.roles.2) }}
@@ -65,34 +66,35 @@
                                             {{ form_errors(form.roles) }}
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="OFF ROLE_COPROPRIETAIRE ROLE_PRESIDENT ROLE_SECRETAIRE ROLE_SALARIE">
                                     <label for="syndic">Copro</label>
 
-                                    {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
+                                    {{  form_widget(form.copros) }}
                                     {{ form_errors(form.copros) }}
                                     </div>
 
                                 <div class="form-group col-6 OFF ROLE_SYNDICAT ROLE_PRESIDENT ROLE_SECRETAIRE ROLE_SALARIE ">
                                     <label for="syndic">Syndic</label>
 
-                                    {{  form_widget(form.syndics, { 'attr': {'class': 'form-control' } }) }}
+                                    {{  form_widget(form.syndics) }}
                                     {{ form_errors(form.syndics) }}
                                 </div>
 
                                 <div class="form-group col-6 OFF ROLE_ASSOCOPRO ROLE_PRESIDENT ROLE_SECRETAIRE  ROLE_UTILISATEUR">
                                     <label for="syndic">Association Copros</label>
 
-                                    {{  form_widget(form.associationCoPros, { 'attr': {'class': 'form-control' } }) }}
+                                    {{  form_widget(form.associationCoPros) }}
                                     {{ form_errors(form.associationCoPros) }}
                                 </div>
 
                                 <div class="form-group col-6 OFF ROLE_PROPRIETAIRE ROLE_LOCATAIRE">
                                     <label for="syndic">lots</label>
 
-                                    {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
+                                    {{  form_widget(form.lots) }}
                                     {{ form_errors(form.lots) }}
+
+
                                 </div>
 
 
@@ -210,6 +212,11 @@
                                 {{ form_widget(form.lastname) }}
                                 {{ form_errors(form.lastname) }}
                             </div>
+                            <div class="form-group col-6 ">
+                                <label for="username">Nom d'utilisateur</label>
+                                {{ form_widget(form.username) }}
+                                {{ form_errors(form.username) }}
+                            </div>
                             <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
                                 <label for="adresse">Adresse</label>
                                 {{ form_widget(form.adresse) }}
@@ -302,6 +309,11 @@
                                             <label for="last_name">Nom</label>
                                             {{ form_widget(form.lastname) }}
                                             {{ form_errors(form.lastname) }}
+                                        </div>
+                                        <div class="form-group col-6 ">
+                                            <label for="username">Nom d'utilisateur</label>
+                                            {{ form_widget(form.username) }}
+                                            {{ form_errors(form.username) }}
                                         </div>
                                         <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
                                             <label for="adresse">Adresse</label>
@@ -396,6 +408,11 @@
                                             {{ form_widget(form.lastname) }}
                                             {{ form_errors(form.lastname) }}
                                         </div>
+                                        <div class="form-group col-6 ">
+                                            <label for="username">Nom d'utilisateur</label>
+                                            {{ form_widget(form.username) }}
+                                            {{ form_errors(form.username) }}
+                                        </div>
                                         <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
                                             <label for="adresse">Adresse</label>
                                             {{ form_widget(form.adresse) }}
@@ -485,6 +502,11 @@
                                             {{ form_widget(form.lastname) }}
                                             {{ form_errors(form.lastname) }}
                                         </div>
+                                        <div class="form-group col-6 ">
+                                            <label for="username">Nom d'utilisateur</label>
+                                            {{ form_widget(form.username) }}
+                                            {{ form_errors(form.username) }}
+                                        </div>
                                         <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
                                             <label for="adresse">Adresse</label>
                                             {{ form_widget(form.adresse) }}
@@ -573,6 +595,11 @@
                                             {{ form_widget(form.lastname) }}
                                             {{ form_errors(form.lastname) }}
                                         </div>
+                                        <div class="form-group col-6 ">
+                                            <label for="username">Nom d'utilisateur</label>
+                                            {{ form_widget(form.username) }}
+                                            {{ form_errors(form.username) }}
+                                        </div>
                                         <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
                                             <label for="adresse">Adresse</label>
                                             {{ form_widget(form.adresse) }}
@@ -660,6 +687,11 @@
                                             <label for="last_name">Nom</label>
                                             {{ form_widget(form.lastname) }}
                                             {{ form_errors(form.lastname) }}
+                                        </div>
+                                        <div class="form-group col-6 ">
+                                            <label for="username">Nom d'utilisateur</label>
+                                            {{ form_widget(form.username) }}
+                                            {{ form_errors(form.username) }}
                                         </div>
                                         <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
                                             <label for="adresse">Adresse</label>

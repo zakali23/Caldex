@@ -69,7 +69,7 @@ class Lot
     /**
      * @var int
      *
-     * @ORM\Column(name="tantieme", type="integer")
+     * @ORM\Column(name="tantieme", type="integer", nullable=true)
      */
     private $tantieme;
 
