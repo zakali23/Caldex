@@ -3,11 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Syndic;
-
+use AppBundle\Service\Lister;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Syndic controller.
@@ -29,9 +28,9 @@ class SyndicController extends Controller
         $syndics = $em->getRepository('AppBundle:Syndic')->findAll();
 
 
-        return $this->render('syndic/index.html.twig', [
+        return $this->render('syndic/index.html.twig', array(
             'syndics' => $syndics,
-        ]);
+        ));
     }
 
     /**
@@ -70,18 +69,30 @@ class SyndicController extends Controller
     {
         $deleteForm = $this->createDeleteForm($syndic);
 
-        $em = $this->getDoctrine()->getManager();
-
-        $syndicId = $this->getUser()->getId();
-
-        $syndics = $em->getRepository('AppBundle:Syndic')->find( $syndicId);
-
-
         return $this->render('syndic/show.html.twig', array(
             'syndic' => $syndic,
-            'syndics' => $syndics,
-
             'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a syndic entity.
+     *
+     * @Route("/{id}/immeuble", name="syndic_immeuble")
+     * @Method("GET")
+     * @param Syndic $syndic
+     * @param Lister $lister
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function immeubleAction(Syndic $syndic, Lister $lister)
+    {
+        $immeubles = $lister->getImmeubleFromSyndic($syndic);
+
+
+        return $this->render('syndic/immeuble_syndic.html.twig', array(
+            'syndic' => $syndic,
+            'immeubles' => $immeubles,
+
         ));
     }
 
@@ -90,48 +101,43 @@ class SyndicController extends Controller
      *
      * @Route("/{id}/lot", name="syndic_lot")
      * @Method("GET")
+     * @param Syndic $syndic
+     * @param Lister $lister
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function lotAction(Syndic $syndic)
+    public function lotAction(Syndic $syndic, Lister $lister)
     {
-        $deleteForm = $this->createDeleteForm($syndic);
-
-        $em = $this->getDoctrine()->getManager();
-
-        $syndicId = $this->getUser()->getId();
-
-        $syndics = $em->getRepository('AppBundle:Syndic')->find( $syndicId);
+        $lots = $lister->getLotsFromSyndic($syndic);
 
 
-        return $this->render('syndic/piece_syndic.html.twig', array(
+        return $this->render('syndic/lot_syndic.html.twig', array(
+
+            'lots' => $lots,
             'syndic' => $syndic,
-            'syndics' => $syndics,
 
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
      * Finds and displays a syndic entity.
      *
-     * @Route("/{id}/piece", name="syndic_piece")
+     * @Route("/{id}/piece", name="syndic_room")
      * @Method("GET")
+     * @param Syndic $syndic
+     * @param Lister $lister
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function pieceAction(Syndic $syndic)
+    public function roomAction(Syndic $syndic, Lister $lister)
     {
-        $deleteForm = $this->createDeleteForm($syndic);
+        $rooms = $lister->getRoomsFromSyndic($syndic);
 
-        $em = $this->getDoctrine()->getManager();
-
-        $syndicId = $this->getUser()->getId();
-
-        $syndics = $em->getRepository('AppBundle:Syndic')->find( $syndicId);
-        dump($syndics);
+        dump($rooms);
 
         return $this->render('syndic/piece_syndic.html.twig', array(
-            'syndic' => $syndic,
-            'syndics' => $syndics,
 
-            'delete_form' => $deleteForm->createView(),
+            'rooms' => $rooms,
+            'syndic' => $syndic,
+
         ));
     }
 
@@ -193,6 +199,6 @@ class SyndicController extends Controller
             ->setAction($this->generateUrl('syndic_delete', array('id' => $syndic->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

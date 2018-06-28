@@ -78,66 +78,6 @@ class UserController extends Controller
     }
 
     /**
-     * Finds and displays a user entity.
-     *
-     * @Route("/{id}/immeuble", name="user_immeuble")
-     * @Method("GET")
-     */
-    public function listImmeubleAction(User $user)
-    {
-        $deleteForm = $this->createDeleteForm($user);
-        $idUser = $this->getUser()->getId();
-        $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('AppBundle:User')->find($idUser);
-        dump($users);
-        return $this->render('user/user_immeuble.html.twig', array(
-            'user' => $user,
-            'users' => $users,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a user entity.
-     *
-     * @Route("/{id}/lot", name="user_lot")
-     * @Method("GET")
-     */
-    public function listLotAction(User $user)
-    {
-        $deleteForm = $this->createDeleteForm($user);
-        $idUser = $this->getUser()->getId();
-        $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('AppBundle:User')->find($idUser);
-        dump($users);
-        return $this->render('user/user_lot.html.twig', array(
-            'user' => $user,
-            'users' => $users,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a user entity.
-     *
-     * @Route("/{id}/piece", name="user_piece")
-     * @Method("GET")
-     */
-    public function listpieceAction(User $user)
-    {
-        $deleteForm = $this->createDeleteForm($user);
-        $idUser = $this->getUser()->getId();
-        $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('AppBundle:User')->find($idUser);
-
-        return $this->render('user/user_piece.html.twig', array(
-            'user' => $user,
-            'users' => $users,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
      * Displays a form to edit an existing user entity.
      *
      * @Route("/{id}/edit", name="user_edit")

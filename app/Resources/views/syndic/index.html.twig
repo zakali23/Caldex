@@ -1,19 +1,19 @@
 {% extends "admin/base_admin.html.twig"%}
 
-<<<<<<< HEAD
 {% block body %}
+    {% if is_granted('ROLE_ADMIN') %}
     <h1>Syndics liste</h1>
 
     <table>
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Codepostal</th>
-                <th>Ville</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Codepostal</th>
+            <th>Ville</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for syndic in syndics %}
@@ -43,22 +43,19 @@
             <a href="{{ path('syndic_new') }}">Create a new syndic</a>
         </li>
     </ul>
-=======
+    {% endif %}
+    {% if is_granted('ROLE_SYNDICAT') %}
 
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('build/main_admin.css') }}">
-    {% endblock %}
-
-    {% block body %}
-        <nav class="navbar navbar-default" id="SyndicParc">
+        <nav class="navbar navbar-default" id="user_syndic">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/syndic/{{app.user.id }}">Consultation Immeuble</a>
-                    <a class="navbar-brand" href="/syndic/{{app.user.id }}/lot">Consultation Lot</a>
-                    <a class="navbar-brand" href="/syndic/{{app.user.id }}/piece">Consultation Pièce</a>
+                    <a class="navbar-brand" href="{{ syndics.0.id }}/immeuble">Consultation Immeuble</a>
+                    <a class="navbar-brand" href="{{ syndics.0.id }}/lot">Consultation Lot</a>
+                    <a class="navbar-brand" href="{{ syndics.0.id }}/piece">Consultation Pièce</a>
                 </div>
             </div>
         </nav>
+
 
         <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
 
@@ -73,11 +70,14 @@
 
                 <div class="col card">
                     <h2>Membres</h2>
-                    <li><a href="/syndic/{{app.user.id }}">Liste des membres</a></li>
+
+                    <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
+
                 </div>
 
                 <div class="col card">
                     <h2>Gestion</h2>
+
                     <li>Gestion des droits </li>
                     <li>Gestion des relevés compteurs</li>
                 </div>
@@ -86,10 +86,5 @@
 
             </div>
         </div>
-
-
-
-
-
->>>>>>> listImmeuble
+    {% endif %}
 {% endblock %}

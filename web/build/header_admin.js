@@ -237,9 +237,9 @@ $(document).ready(function () {
         $("#addFormLot").show();
         $("#btnAddLot").hide();
     });
-    $("#urlDirec").click(function () {
+    $("#SGPI").click(function () {
 
-        $(location).attr('href', 'http://localhost:8000/user/');
+        $(location).attr('href', 'http://localhost:8000/syndic/');
         $("#Gestion-Utilisateurs").show();
     });
 });

@@ -34,6 +34,7 @@ class SyndicatController extends Controller{
         return $this->render('syndicat/index.html.twig');
     }
 
+
     /**
      * Finds and displays a user entity.
      *

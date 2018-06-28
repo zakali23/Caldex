@@ -5,78 +5,56 @@
 
     <table>
         <tbody>
-
+        <tr>
+            <th>Id</th>
+            <td>{{ syndic.id }}</td>
+        </tr>
         <tr>
             <th>Nom</th>
-            <td>{{ syndics.nom }}</td>
+            <td>{{ syndic.nom }}</td>
         </tr>
         <tr>
             <th>Adresse</th>
-            <td>{{ syndics.adresse }}</td>
+            <td>{{ syndic.adresse }}</td>
         </tr>
         <tr>
             <th>Codepostal</th>
-            <td>{{ syndics.codePostal }}</td>
+            <td>{{ syndic.codePostal }}</td>
         </tr>
         <tr>
             <th>Ville</th>
-            <td>{{ syndics.ville }}</td>
+            <td>{{ syndic.ville }}</td>
         </tr>
         </tbody>
     </table>
     <br>
-    {% for immeuble in syndics.immeuble %}
-        {% for lot in immeuble.appartements %}
+    <h1>Piece</h1>
+{% for room in rooms %}
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ room.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ room.nom }}</td>
+        </tr>
+        <tr>
+            <th>Surface</th>
+            <td>{{ room.surface }}</td>
+        </tr>
 
-            <table>
-                <tbody>
+        <tr>
+            <th>Photo</th>
+            <td>{{ room.photo }}</td>
+        </tr>
 
-                <tr>
-                    <th>Numero</th>
-                    <td>{{ lot.numero}}</td>
-                </tr>
-                <tr>
-                    <th>Surface</th>
-                    <td>{{ lot.surface }}</td>
-                </tr>
-                <tr>
-                    <th>etage</th>
-                    <td>{{ lot.etage }}</td>
-                </tr>
-                <tr>
-                    <th>Tantieme</th>
-                    <td>{{ lot.tantieme }}</td>
-                </tr>
-                <tr>
-                    <th>image</th>
-                    <td>{{ lot.photo }}</td>
-                </tr>
-                </tbody>
-            </table>
-            <br>
-            {% for piece in appartements.rooms.room %}
-            <table>
-                <tbody>
-
-                <tr>
-                    <th>Nom</th>
-                    <td>{{ piece.nom}}</td>
-                </tr>
-                <tr>
-                    <th>Surface</th>
-                    <td>{{ piece.surface }}</td>
-                </tr>
-                <tr>
-                    <th>Photo</th>
-                    <td>{{ piece.photo }}</td>
-                </tr>
-
-                </tbody>
-            </table>
-            {% endfor %}
-        {% endfor %}
-    {% endfor %}
+        
+        </tbody>
+    </table>
 
 
+{% endfor %}
 
 {% endblock %}

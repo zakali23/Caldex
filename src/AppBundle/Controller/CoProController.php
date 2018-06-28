@@ -98,6 +98,16 @@ class CoProController extends Controller
         ));
     }
 
+
+    public function listImmeubleAction(CoPro $coPro)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $idcoPro = $coPro->getid();
+
+        $coPros = $em->getRepository('AppBundle:CoPro')->find($idcoPro);
+       return $coPros;
+
+    }
     /**
      * Deletes a coPro entity.
      *

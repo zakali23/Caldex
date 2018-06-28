@@ -5,50 +5,28 @@
 
     <table>
         <tbody>
-
-            <tr>
-                <th>Nom</th>
-                <td>{{ syndics.nom }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ syndics.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Codepostal</th>
-                <td>{{ syndics.codePostal }}</td>
-            </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{ syndics.ville }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ syndic.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ syndic.nom }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ syndic.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Codepostal</th>
+            <td>{{ syndic.codePostal }}</td>
+        </tr>
+        <tr>
+            <th>Ville</th>
+            <td>{{ syndic.ville }}</td>
+        </tr>
         </tbody>
     </table>
-<br>
-    {% for immeuble in syndics.immeuble %}
-        <table>
-            <tbody>
-
-            <tr>
-                <th>Nom</th>
-                <td>{{ immeuble.reference}}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ immeuble.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Codepostal</th>
-                <td>{{ immeuble.codePostal }}</td>
-            </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{ immeuble.ville }}</td>
-            </tr>
-            </tbody>
-        </table>
-        <br>
-    {% endfor %}
 
     <ul>
         <li>
@@ -59,7 +37,7 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
