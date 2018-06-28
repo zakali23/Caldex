@@ -22,6 +22,21 @@ class Radiateur
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string")
+     */
+    private $nom;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modele", type="string")
+     */
+    private $modele;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="hauteur", type="integer")
@@ -35,14 +50,6 @@ class Radiateur
      * @ORM\Column(name="longueur", type="integer")
      */
     private $longueur;
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string")
-     */
-    private $type;
 
 
     /**
@@ -114,29 +121,6 @@ class Radiateur
         return $this->longueur;
     }
 
-    /**
-     * Set type.
-     *
-     * @param string $type
-     *
-     * @return Radiateur
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type.
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * Set puissanceDeltaT50.
@@ -160,5 +144,42 @@ class Radiateur
     public function getPuissanceDeltaT50()
     {
         return $this->puissanceDeltaT50;
+    }
+
+    /**
+     * Get modele.
+     *
+     * @return string
+     */
+    public function getModele()
+    {
+        return $this->modele;
+    }
+
+    /**
+     * Set type.
+     *
+     * @param string $modele
+     * @return void
+     */
+    public function setModele(string $modele)
+    {
+        $this->modele = $modele;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom(string $nom)
+    {
+        $this->nom = $nom;
     }
 }

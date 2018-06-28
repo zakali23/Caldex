@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,12 @@ class RadiateurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('hauteur')->add('longueur')->add('type')->add('puissanceDeltaT50');
+        $builder
+            ->add('nom', TextType::class)
+            ->add('modele', TextType::class)
+            ->add('hauteur', TextType::class)
+            ->add('longueur', TextType::class)
+            ->add('puissanceDeltaT50', TextType::class);
     }/**
      * {@inheritdoc}
      */
