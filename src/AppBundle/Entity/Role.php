@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Role
 {
     /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="statut")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="statut")
      */
     private $statuts;
 
@@ -42,7 +42,7 @@ class Role
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="text")
      */
     private $nom;
 
@@ -55,30 +55,6 @@ class Role
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set nom.
-     *
-     * @param string $nom
-     *
-     * @return Role
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom.
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
     }
 
     /**
@@ -115,5 +91,29 @@ class Role
     public function getStatuts()
     {
         return $this->statuts;
+    }
+
+    /**
+     * Set nom.
+     *
+     * @param string $nom
+     *
+     * @return Role
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom.
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
     }
 }

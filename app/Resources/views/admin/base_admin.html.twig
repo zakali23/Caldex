@@ -43,16 +43,12 @@
                 <div class="c-header-icon" title="Espace Administration"><a href="/admin/"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
 
-            {% if is_granted('ROLE_GESTION') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="#"><i class="fa fa-address-card "></i></a></div>
-            {% endif %}
-
-            {% if is_granted('ROLE_SALARIE') %}
-                <div class="c-header-icon logout" title="Espace Administration"><a href="#"><i class="fa fa-address-card "></i></a></div>
+            {% if is_granted('[ROLE_GESTION, ROLE_SALARIE]') %}
+                <div class="c-header-icon logout" title="Espace Organisme de copropriété"><a href="#"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
 
             {% if is_granted('ROLE_USER') %}
-                <div class="c-header-icon" title="Espace Administration"><a href="#"><i class="fa fa-address-card "></i></a></div>
+                <div class="c-header-icon" title="Espace Résident"><a href="#"><i class="fa fa-address-card "></i></a></div>
             {% endif %}
 
 
@@ -64,24 +60,19 @@
     </div>
 </header>
 
+{#-----------------------------------------MENU VERTICAL GAUCHE-----------------------------------------#}
+
 <div class="l-sidebar">
     <div class="logo">
         <div class="logo__txt">X</div>
     </div>
     <div class="l-sidebar__content">
         <nav class="c-menu js-menu">
+
+            {#-----------------------------------------ADMIN-----------------------------------------#}
+
             {% if is_granted('ROLE_ADMIN') %}
                 <ul class="u-list">
-                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion Utilisateurs" id="GU">
-                        <div class="c-menu__item__inner"><i class="fa fa-users"></i>
-                            <div class="c-menu-item__title"><span>Gestion Utilisateurs</span></div>
-                        </div>
-                    </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Parc Immo" id="GP">
-                        <div class="c-menu__item__inner"><i class="fa fa-building"></i>
-                            <div class="c-menu-item__title"><span>Gestion du Parc Immo</span></div>
-                        </div>
-                    </li>
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="GM">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
@@ -90,22 +81,8 @@
                 </ul>
             {% endif %}
 
-            {% if is_granted('ROLE_USER') %}
-                <ul class="u-list">
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings" id="MBI">
-                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                            <div class="c-menu-item__title"><span>Mes Biens Immo</span></div>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="u-list">
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings" id="MC">
-                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                            <div class="c-menu-item__title"><span>Mes Consommations</span></div>
-                        </div>
-                    </li>
-                </ul>
-            {% endif %}
+
+            {#-----------------------------------------GESTION / SALARIE-----------------------------------------#}
 
             {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
                 <ul class="u-list">
@@ -114,30 +91,35 @@
                             <div class="c-menu-item__title"><span>Gestion du Parc Immo</span></div>
                         </div>
                     </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Consommation" id="SGConso">
-                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                            <div class="c-menu-item__title"><span>Gestion Consommations</span></div>
-                        </div>
-                    </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Collaborateurs" id="SGCollab">
-                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                            <div class="c-menu-item__title"><span>Gestion Collaborateurs</span></div>
-                        </div>
-                    </li>
+
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Propriétaires Locataire" id="SGPL">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                            <div class="c-menu-item__title"><span>Gestion Résidents</span></div>
+                            <div class="c-menu-item__title"><span>Gestion des utilisateurs </span></div>
                         </div>
                     </li>
                 </ul>
             {% endif %}
+
+            {#----------------------------------------- USER -----------------------------------------#}
+
+            {% if is_granted('ROLE_USER') %}
+                <ul class="u-list">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings" id="MC">
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Consommations</span></div>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
+
 
         </nav>
     </div>
 
 </div>
 
-{# MENU NAV #}
+{#----------------------------------------- MENU JQUERY -----------------------------------------#}
+
 <main class="l-main">
     <div class="container">
 

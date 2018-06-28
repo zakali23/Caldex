@@ -38,6 +38,12 @@ class User extends BaseUser
      */
     private $lots;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role", inversedBy="statuts")
+     *
+     */
+    private $statut;
+
 
     /**
      * @var int
@@ -530,5 +536,77 @@ class User extends BaseUser
     public function getCopros()
     {
         return $this->copros;
+    }
+
+    /**
+     * Set dateEntree.
+     *
+     * @param \DateTime|null $dateEntree
+     *
+     * @return User
+     */
+    public function setDateEntree($dateEntree = null)
+    {
+        $this->dateEntree = $dateEntree;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEntree.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateEntree()
+    {
+        return $this->dateEntree;
+    }
+
+    /**
+     * Set dateSortie.
+     *
+     * @param \DateTime|null $dateSortie
+     *
+     * @return User
+     */
+    public function setDateSortie($dateSortie = null)
+    {
+        $this->dateSortie = $dateSortie;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSortie.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateSortie()
+    {
+        return $this->dateSortie;
+    }
+
+    /**
+     * Set statut.
+     *
+     * @param \AppBundle\Entity\Role $statut
+     *
+     * @return User
+     */
+    public function setStatut(\AppBundle\Entity\Role $statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut.
+     *
+     * @return \AppBundle\Entity\Role
+     */
+    public function getStatut()
+    {
+        return $this->statut;
     }
 }

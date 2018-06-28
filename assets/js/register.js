@@ -13,12 +13,14 @@ $(document).ready(function(){
                 $(".gestion").hide();
                 $(".salarie").hide();
                 $(".user").hide();
+                $(".statut").hide();
 
             } else {
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
                 $(".user").show();
+                $(".statut").hide();
 
             }
         });
@@ -29,12 +31,14 @@ $(document).ready(function(){
                 $(".gestion").show();
                 $(".salarie").hide();
                 $(".user").hide();
+                $(".statut").hide();
 
             } else {
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
                 $(".user").show();
+                $(".statut").hide();
 
             }
         });
@@ -45,12 +49,14 @@ $(document).ready(function(){
                 $(".gestion").hide();
                 $(".salarie").show();
                 $(".user").hide();
+                $(".statut").hide();
 
             } else {
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
                 $(".user").show();
+                $(".statut").hide();
 
             }
         });
@@ -62,12 +68,14 @@ $(document).ready(function(){
                 $(".gestion").hide();
                 $(".salarie").hide();
                 $(".user").show();
+                $(".statut").show();
 
             } else {
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
                 $(".user").show();
+                $(".statut").hide();
 
             }
         });

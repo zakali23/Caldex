@@ -63,6 +63,14 @@ class RegistrationType extends AbstractType
                 'multiple' => true,
                 'required' => false
             ))
+            ->add('statut', EntityType::class, array(
+                'class' => 'AppBundle:Role',
+                'choice_label'=> 'nom',
+                'multiple' => true,
+                'expanded' => true,
+                'required' => false
+            ))
+
             ->add('roles', ChoiceType::class, [
                 'multiple' => true,
                 'expanded' => true, // render check-boxes

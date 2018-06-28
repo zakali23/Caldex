@@ -38,6 +38,12 @@ class User extends BaseUser
      */
     private $lots;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role", inversedBy="statuts")
+     *
+     */
+    private $statut;
+
 
     /**
      * @var int
@@ -578,5 +584,29 @@ class User extends BaseUser
     public function getDateSortie()
     {
         return $this->dateSortie;
+    }
+
+    /**
+     * Set statut.
+     *
+     * @param \AppBundle\Entity\Role $statut
+     *
+     * @return User
+     */
+    public function setStatut(\AppBundle\Entity\Role $statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut.
+     *
+     * @return \AppBundle\Entity\Role
+     */
+    public function getStatut()
+    {
+        return $this->statut;
     }
 }

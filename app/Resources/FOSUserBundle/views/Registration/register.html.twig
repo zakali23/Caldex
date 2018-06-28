@@ -20,12 +20,14 @@
                         <form method="POST">
                             <div class="row">
 
+
                                 {#-----------------------STATUT/ROLES---------------------#}
                                     <div>
                                         <label for="syndic">Statut</label>
                                         <div class="row" style="display: flex;">
                                             <div style="margin: 2vw;" >
                                                 {{ form_errors(form.roles) }}
+
                                                 {#-----------------------ADMIN---------------------#}
                                                 {% if is_granted('ROLE_ADMIN') %}
                                                 <div class="admin">
@@ -50,8 +52,11 @@
                                                 </div>
                                                 {% endif %}
 
-
                                             </div>
+                                            <div class="statut"style="margin: 2vw;">
+                                                {{ form_widget(form.statut) }}
+                                            </div>
+
                                         </div>
                                     </div>
 
