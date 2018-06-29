@@ -131,7 +131,7 @@ class SyndicController extends Controller
     {
         $rooms = $lister->getRoomsFromSyndic($syndic);
 
-        dump($rooms);
+
 
         return $this->render('syndic/piece_syndic.html.twig', array(
 

@@ -22,6 +22,7 @@ class Lister
 
         return $batiments;
     }
+
     public function getLotsFromSyndic(Syndic $syndic)
     {
         $batiments = $syndic->getGestionnaire()->getBatiments();
