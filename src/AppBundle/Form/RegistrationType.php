@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,9 +28,13 @@ class RegistrationType extends AbstractType
             ->add('codePostal')
             ->add('ville')
             ->add('email', EmailType::class)
-            ->add('email2')
+            ->add('email2', EmailType::class, array(
+                'required' => false
+            ))
             ->add('phone', TelType::class)
-            ->add('phone2')
+            ->add('phone2', TelType::class, array(
+                'required' => false
+            ))
             ->add('copros', EntityType::class, array(
                 'class' => 'AppBundle:CoPro',
                 'choice_label' => 'name',
@@ -38,6 +43,11 @@ class RegistrationType extends AbstractType
                 'required' => false
 
             ))
+            ->add('dateEntree',  DateType::class, array(
+                'format' => 'dd-MM-yyyy',
+            ))
+            ->add('dateSortie')
+
             ->add('syndics', EntityType::class, array(
                 'class' => 'AppBundle:Syndic',
                 'choice_label' => 'nom',
@@ -59,23 +69,24 @@ class RegistrationType extends AbstractType
                 'multiple' => true,
                 'required' => false
             ))
+            ->add('type_loc_props', EntityType::class, array(
+                'class' => 'AppBundle:Role',
+                'choice_label'=> 'nom',
+                'multiple' => true,
+                'expanded' => true,
+                'required' => false
+            ))
+
             ->add('roles', ChoiceType::class, [
                 'multiple' => true,
                 'expanded' => true, // render check-boxes
                 'choices' => [
                     'Administrateur' => 'ROLE_ADMIN',
-                    'Syndicat' => 'ROLE_SYNDICAT',
-                    'Copropriétaire' => 'ROLE_COPROPRIETAIRE',
-                    'Association de copropriétaire' => 'ROLE_ASSOCOPRO',
-                    'Salarie' => 'ROLE_SALARIE',
-                    'Utilisateur' => 'ROLE_UTILISATEUR',
-                    'Président' => 'ROLE_PRESIDENT',
-                    'Secrétaire' => 'ROLE_SECRETAIRE',
-                    'Propriétaire' => 'ROLE_PROPRIETAIRE',
-                    'Locataire' => 'ROLE_LOCATAIRE',
-
+                    "Délégué de copropriété" => 'ROLE_GESTION',
+                    'Gestionnaire' => 'ROLE_SALARIE',
+                    'Habitant' => 'ROLE_USER',
                 ],
-        ]);
+            ]);
     }
 
 

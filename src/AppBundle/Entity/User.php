@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use FOS\UserBundle\Model\UserInterface;
+
 
 /**
  * User
@@ -12,10 +12,8 @@ use FOS\UserBundle\Model\UserInterface;
  * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User extends BaseUser implements UserInterface
+class User extends BaseUser
 {
-
-
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\CoPro", cascade={"persist"}, fetch="EAGER")
@@ -36,6 +34,16 @@ class User extends BaseUser implements UserInterface
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Lot", cascade={"persist"}, fetch="EAGER")
      */
     private $lots;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Role", cascade={"persist"})
+     * @ORM\JoinTable(name="role_user")
+     *
+     */
+    private $type_loc_props;
+
+
+
 
 
     /**
@@ -112,9 +120,19 @@ class User extends BaseUser implements UserInterface
     private $phone2;
 
     /**
+     * @var \DateTime
      *
+     * @ORM\Column(name="date_entree", type="datetime", nullable=true)
      */
+    private $dateEntree;
 
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_sortie", type="datetime", nullable=true)
+     */
+    private $dateSortie;
 
 
 
@@ -129,19 +147,10 @@ class User extends BaseUser implements UserInterface
         $this->associationCoPros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lots = new \Doctrine\Common\Collections\ArrayCollection();
         $this->copros = new \Doctrine\Common\Collections\ArrayCollection();
-        parent::__construct();
+
 
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set firstname.
@@ -264,43 +273,6 @@ class User extends BaseUser implements UserInterface
     }
 
     /**
-     * Set email.
-     *
-     * @param string|null $email
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->setUsername($email);
-
-        return parent::setEmail($email);
-    }
-
-    /**
-     * Set the canonical email.
-     *
-     * @param string $emailCanonical
-     * @return User
-     */
-    public function setEmailCanonical($emailCanonical)
-    {
-        $this->setUsernameCanonical($emailCanonical);
-
-        return parent::setEmailCanonical($emailCanonical);
-    }
-
-    /**
-     * Get email.
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
      * Set email2.
      *
      * @param string|null $email2
@@ -372,7 +344,89 @@ class User extends BaseUser implements UserInterface
         return $this->phone2;
     }
 
+    /**
+     * Set dateEntree.
+     *
+     * @param \DateTime|null $dateEntree
+     *
+     * @return User
+     */
+    public function setDateEntree($dateEntree = null)
+    {
+        $this->dateEntree = $dateEntree;
 
+        return $this;
+    }
+
+    /**
+     * Get dateEntree.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateEntree()
+    {
+        return $this->dateEntree;
+    }
+
+    /**
+     * Set dateSortie.
+     *
+     * @param \DateTime|null $dateSortie
+     *
+     * @return User
+     */
+    public function setDateSortie($dateSortie = null)
+    {
+        $this->dateSortie = $dateSortie;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSortie.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateSortie()
+    {
+        return $this->dateSortie;
+    }
+
+    /**
+     * Add copro.
+     *
+     * @param \AppBundle\Entity\CoPro $copro
+     *
+     * @return User
+     */
+    public function addCopro(\AppBundle\Entity\CoPro $copro)
+    {
+        $this->copros[] = $copro;
+
+        return $this;
+    }
+
+    /**
+     * Remove copro.
+     *
+     * @param \AppBundle\Entity\CoPro $copro
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeCopro(\AppBundle\Entity\CoPro $copro)
+    {
+        return $this->copros->removeElement($copro);
+    }
+
+    /**
+     * Get copros.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCopros()
+    {
+        return $this->copros;
+    }
 
     /**
      * Add syndic.
@@ -483,38 +537,38 @@ class User extends BaseUser implements UserInterface
     }
 
     /**
-     * Add copro.
+     * Add typeLocProp.
      *
-     * @param \AppBundle\Entity\CoPro $copro
+     * @param \AppBundle\Entity\Role $typeLocProp
      *
      * @return User
      */
-    public function addCopro(\AppBundle\Entity\CoPro $copro)
+    public function addTypeLocProp(\AppBundle\Entity\Role $typeLocProp)
     {
-        $this->copros[] = $copro;
+        $this->type_loc_props[] = $typeLocProp;
 
         return $this;
     }
 
     /**
-     * Remove copro.
+     * Remove typeLocProp.
      *
-     * @param \AppBundle\Entity\CoPro $copro
+     * @param \AppBundle\Entity\Role $typeLocProp
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeCopro(\AppBundle\Entity\CoPro $copro)
+    public function removeTypeLocProp(\AppBundle\Entity\Role $typeLocProp)
     {
-        return $this->copros->removeElement($copro);
+        return $this->type_loc_props->removeElement($typeLocProp);
     }
 
     /**
-     * Get copros.
+     * Get typeLocProps.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCopros()
+    public function getTypeLocProps()
     {
-        return $this->copros;
+        return $this->type_loc_props;
     }
 }

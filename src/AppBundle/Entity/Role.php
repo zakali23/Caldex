@@ -13,20 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Role
 {
-    /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="statut")
-     */
-    private $statuts;
+
+
+
+
 
     public function __toString()
     {
         // TODO: Implement __toString() method.
         return $this ->nom;
-    }
-
-    public function __construct()
-    {
-        $this->statuts = new ArrayCollection();
     }
 
 
@@ -42,10 +37,18 @@ class Role
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="text")
      */
     private $nom;
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->type_loc_props = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -82,38 +85,38 @@ class Role
     }
 
     /**
-     * Add statut.
+     * Add typeLocProp.
      *
-     * @param \AppBundle\Entity\User $statut
+     * @param \AppBundle\Entity\User $typeLocProp
      *
      * @return Role
      */
-    public function addStatut(\AppBundle\Entity\User $statut)
+    public function addTypeLocProp(\AppBundle\Entity\User $typeLocProp)
     {
-        $this->statuts[] = $statut;
+        $this->type_loc_props[] = $typeLocProp;
 
         return $this;
     }
 
     /**
-     * Remove statut.
+     * Remove typeLocProp.
      *
-     * @param \AppBundle\Entity\User $statut
+     * @param \AppBundle\Entity\User $typeLocProp
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeStatut(\AppBundle\Entity\User $statut)
+    public function removeTypeLocProp(\AppBundle\Entity\User $typeLocProp)
     {
-        return $this->statuts->removeElement($statut);
+        return $this->type_loc_props->removeElement($typeLocProp);
     }
 
     /**
-     * Get statuts.
+     * Get typeLocProps.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getStatuts()
+    public function getTypeLocProps()
     {
-        return $this->statuts;
+        return $this->type_loc_props;
     }
 }

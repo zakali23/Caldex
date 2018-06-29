@@ -5,9 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
  * User controller.
@@ -89,24 +87,8 @@ class UserController extends Controller
         $editForm = $this->createForm('AppBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
-        $form=$this->createFormBuilder(null)
-        ->add('language', ChoiceType::class, array(
-                'choices' => array(
-                    'Choix1' => 'ADMIN',
-                    'Choix2' => 'PAS_ADMIN',
-                    'Choix3' => 'USER',
-                    'Choix4' => 'AUTRE',
-                ),
-                'expanded' => true,
-                'multiple' => false
-            )
-        )->getForm();
-
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-
 
             return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
         }
@@ -115,9 +97,7 @@ class UserController extends Controller
             'user' => $user,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-            'form'=>$form->createView(),
         ));
-
     }
 
     /**

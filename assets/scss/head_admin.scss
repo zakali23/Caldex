@@ -558,7 +558,7 @@ a.list-group-item.active small {
   color:#fff;
 }
 
-#Gestion-Utilisateurs, #Gestion-Parc, #Gestion-Materiel, #ACCollaborateur, #ACConsommations, #ACParc, #ACRésident, #Mes-Biens, #Mes-Consos, #SParc, #SConsommations, #SCollaborateur, #SResident{
+#Mes-Consos, #Utilisateurs, #GestionConsommations, #ConsultParc, #Gestion-Materiel, #Gestion-Parc, #Gestion-Utilisateurs{
   display: none;
   background: #93c01f;
   color: #fff;
@@ -602,3 +602,6 @@ a.list-group-item.active small {
   margin-right: 5%;
 }
 
+.OFF{
+  display: none;
+}

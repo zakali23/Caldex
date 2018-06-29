@@ -13,704 +13,166 @@
                 <div class="login-brand">
                     Inscription d'un nouveau membre
                 </div>
-
                 <div class="card card-primary">
                     <div class="card-header"></div>
                     {{ form_errors(form) }}
                     <div class="card-body">
                         <form method="POST">
                             <div class="row">
-                                <div class="form-group col-6">
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                    <div class="form-group col-6">
+
+
+
+                                {#-----------------------STATUT/ROLES---------------------#}
+                                    <div>
                                         <label for="syndic">Statut</label>
                                         <div class="row" style="display: flex;">
-                                            <div class="form-group col-3" style="margin: 2vw;" >
+                                            <div style="margin: 2vw;" >
+                                                {{ form_errors(form.roles) }}
+
+                                                {#-----------------------ADMIN---------------------#}
+                                                {% if is_granted('ROLE_ADMIN') %}
                                                 <div class="admin">
-                                                {{  form_widget(form.roles.0) }}
+                                                    {{  form_widget(form.roles.0) }}
                                                 </div>
-                                                <div class="copro">
+                                                <div class="gestion">
+                                                    {{  form_widget(form.roles.1) }}
+                                                </div >
+                                                {% endif %}
+
+                                                {#-----------------------GESTION---------------------#}
+                                                {% if is_granted('ROLE_GESTION') %}
+                                                <div class="salarie">
                                                     {{  form_widget(form.roles.2) }}
                                                 </div>
-                                                <div class="syndicat">
-                                                {{  form_widget(form.roles.1) }}
-                                                </div >
-                                                <div class="assocopro">
-                                                {{  form_widget(form.roles.3) }}
-                                                </div>
-                                            </div>
+                                                {% endif %}
 
-                                            <div class="form-group col-3" style="margin: 2vw;">
-                                                <div class="president">
-                                                {{  form_widget(form.roles.6) }}
-                                                </div>
-                                                <div class="secretaire">
-                                                {{  form_widget(form.roles.7) }}
-                                                </div>
-                                                <div class="salarie">
-                                                {{  form_widget(form.roles.4) }}
-                                                </div>
+                                                {#-----------------------SALARIE---------------------#}
+                                                {% if is_granted('ROLE_SALARIE') %}
                                                 <div class="user">
-                                                {{  form_widget(form.roles.5) }}
+                                                    {{  form_widget(form.roles.3) }}
                                                 </div>
+                                                {% endif %}
+
+                                            </div>
+                                            <div class="statut"style="margin: 2vw;">
+                                                {{  form_widget(form.type_loc_props) }}
                                             </div>
 
-                                            <div class="form-group col-3" style="margin: 2vw;">
-                                                <div class="proprio">
-                                            {{  form_widget(form.roles.8) }}
-                                                </div>
-                                                <div class="locataire">
-                                            {{  form_widget(form.roles.9) }}
-                                                </div>
-                                            {{ form_errors(form.roles) }}
-                                            </div>
                                         </div>
-
-                                    </div>
-                                    <div class="OFF ROLE_COPROPRIETAIRE ROLE_PRESIDENT ROLE_SECRETAIRE ROLE_SALARIE">
-                                    <label for="syndic">Copro</label>
-
-                                    {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
-                                    {{ form_errors(form.copros) }}
                                     </div>
 
-                                <div class="form-group col-6 OFF ROLE_SYNDICAT ROLE_PRESIDENT ROLE_SECRETAIRE ROLE_SALARIE ">
-                                    <label for="syndic">Syndic</label>
 
-                                    {{  form_widget(form.syndics, { 'attr': {'class': 'form-control' } }) }}
-                                    {{ form_errors(form.syndics) }}
-                                </div>
+    {#-----------------------------------------ADMIN-----------------------------------------#}
 
-                                <div class="form-group col-6 OFF ROLE_ASSOCOPRO ROLE_PRESIDENT ROLE_SECRETAIRE  ROLE_UTILISATEUR">
-                                    <label for="syndic">Association Copros</label>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <div class="OFF ROLE_ADMIN">
+                                        <label for="copro">Copro</label>
+                                        {{  form_widget(form.copros) }}
+                                        {{ form_errors(form.copros) }}
+                                    </div>
 
-                                    {{  form_widget(form.associationCoPros, { 'attr': {'class': 'form-control' } }) }}
-                                    {{ form_errors(form.associationCoPros) }}
-                                </div>
+                                    <div class="OFF ROLE_GESTION ROLE_SALARIE ">
+                                        <label for="syndic">Syndic</label>
+                                        {{  form_widget(form.syndics) }}
+                                        {{ form_errors(form.syndics) }}
+                                    </div>
 
-                                <div class="form-group col-6 OFF ROLE_PROPRIETAIRE ROLE_LOCATAIRE">
-                                    <label for="syndic">lots</label>
-
-                                    {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
-                                    {{ form_errors(form.lots) }}
-                                </div>
-
-
-                                <div class="form-group col-6">
-                                    <label for="first_name">Prénom</label>
-                                    {{ form_widget(form.firstname) }}
-                                    {{ form_errors(form.firstname) }}
-                                </div>
-
-                                <div class="form-group col-6">
-                                    <label for="last_name">Nom</label>
-                                    {{ form_widget(form.lastname) }}
-                                    {{ form_errors(form.lastname) }}
-                                </div>
-
-                                <div class="form-group col-6 ">
-                                    <label for="username">Nom d'utilisateur</label>
-                                    {{ form_widget(form.username) }}
-                                    {{ form_errors(form.username) }}
-                                </div>
-
-                                <div class="form-group col-12 OFF ROLE_UTILISATEUR ROLE_SYNDICAT ROLE_ASSOCOPRO ROLE_COPROPRIETAIRE ROLE_PRESIDENT ROLE_SALARIE ROLE_SECRETAIRE ROLE_ADMIN ">
-                                    <label for="adresse">Adresse</label>
-                                    {{ form_widget(form.adresse) }}
-                                    {{ form_errors(form.adresse) }}
-                                </div>
-
-                                <div class="form-group col-6 OFF ROLE_UTILISATEUR ROLE_SYNDICAT ROLE_ASSOCOPRO ROLE_COPROPRIETAIRE ROLE_PRESIDENT ROLE_SALARIE ROLE_SECRETAIRE ROLE_ADMIN">
-                                    <label for="codePostal">Code Postal</label>
-                                    {{ form_widget(form.codePostal) }}
-                                    {{ form_errors(form.codePostal) }}
-                                </div>
-
-                                <div class="form-group col-6 OFF ROLE_UTILISATEUR ROLE_SYNDICAT ROLE_ASSOCOPRO ROLE_COPROPRIETAIRE ROLE_PRESIDENT ROLE_SALARIE ROLE_SECRETAIRE ROLE_ADMIN">
-                                    <label for="ville">ville</label>
-                                    {{ form_widget(form.ville) }}
-                                    {{ form_errors(form.ville) }}
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="email">Email</label>
-                                    {{ form_widget(form.email) }}
-                                    {{ form_errors(form.email) }}
-                                </div>
-                                <div class="form-group col-6 OFF ROLE_UTILISATEUR ROLE_SYNDICAT ROLE_ASSOCOPRO ROLE_COPROPRIETAIRE ROLE_PRESIDENT ROLE_SALARIE ROLE_SECRETAIRE ROLE_ADMIN">
-                                    <label for="email2">Email 2</label>
-                                    {{ form_widget(form.email2) }}
-                                    {{ form_errors(form.email2) }}
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="phone">Numéro de téléphone</label>
-                                    {{ form_widget(form.phone) }}
-                                    {{ form_errors(form.phone) }}
-                                </div>
-                                <div class="form-group col-6 OFF ROLE_UTILISATEUR ROLE_SYNDICAT ROLE_ASSOCOPRO ROLE_COPROPRIETAIRE ROLE_PRESIDENT ROLE_SALARIE ROLE_SECRETAIRE ROLE_ADMIN">
-                                    <label for="phone2">Numéro de téléphone 2</label>
-                                    {{ form_widget(form.phone2) }}
-                                    {{ form_errors(form.phone2) }}
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="plainPassword.first">Mot de passe</label>
-                                    {{  form_widget(form.plainPassword.first) }}
-                                    {{ form_errors(form.plainPassword.first) }}
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="plainPassword.second">Confirmer le mot de passe</label>
-                                    {{  form_widget(form.plainPassword.second) }}
-                                    {{ form_errors(form.plainPassword.second) }}
-                                </div>
+                                    <div class="OFF ROLE_GESTION ROLE_SALARIE">
+                                        <label for="syndic">Association Copros</label>
+                                        {{  form_widget(form.associationCoPros) }}
+                                        {{ form_errors(form.associationCoPros) }}
+                                    </div>
                                 {% endif %}
 
-                                {% if is_granted('ROLE_ASSOCOPRO') %}
-                                <div>
-                                    <label for="syndic">Statut</label>
-                                    <div class="row" style="display: flex;">
 
-                                        <div style="margin: 2vw;">
-                                            <div class="user">
-                                                    {{  form_widget(form.roles.5) }}
-                                            </div>
+            {#-----------------------------------------SALARIE-----------------------------------------#}
 
-                                            <div class="proprio">
-                                                {{  form_widget(form.roles.8) }}
-                                            </div>
-
-                                            <div class="locataire">
-                                            {{  form_widget(form.roles.9) }}
-                                            </div>
-                                                {{ form_errors(form.roles) }}
-                                        </div>
-                                    </div>
-
-                                </div>
-                            <div class="form-group col-6 OFF">
-                                <label for="syndic">Copro</label>
-
-                                {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
-                                {{ form_errors(form.copros) }}
-                            </div>
-
-                            <div class="form-group col-6 OFF ROLE_LOCATAIRE ROLE_PROPRIETAIRE">
-                                <label for="syndic">lots</label>
-
-                                {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
-                                {{ form_errors(form.lots) }}
-                            </div>
-
-
-                            <div class="form-group col-6 ">
-                                <label for="first_name">Prénom</label>
-                                {{ form_widget(form.firstname) }}
-                                {{ form_errors(form.firstname) }}
-                            </div>
-                            <div class="form-group col-6 ">
-                                <label for="last_name">Nom</label>
-                                {{ form_widget(form.lastname) }}
-                                {{ form_errors(form.lastname) }}
-                            </div>
-                            <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
-                                <label for="adresse">Adresse</label>
-                                {{ form_widget(form.adresse) }}
-                                {{ form_errors(form.adresse) }}
-                            </div>
-                            <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                <label for="codePostal">Code Postal</label>
-                                {{ form_widget(form.codePostal) }}
-                                {{ form_errors(form.codePostal) }}
-                            </div>
-                            <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                <label for="ville">ville</label>
-                                {{ form_widget(form.ville) }}
-                                {{ form_errors(form.ville) }}
-                            </div>
-                            <div class="form-group col-6 ">
-                                <label for="email">Email</label>
-                                {{ form_widget(form.email) }}
-                                {{ form_errors(form.email) }}
-                            </div>
-                            <div class="form-group col-6 OFF ROLE_SALARIE ">
-                                <label for="email2">Email 2</label>
-                                {{ form_widget(form.email2) }}
-                                {{ form_errors(form.email2) }}
-                            </div>
-                            <div class="form-group col-6 ">
-                                <label for="phone">Numéro de téléphone</label>
-                                {{ form_widget(form.phone) }}
-                                {{ form_errors(form.phone) }}
-                            </div>
-                            <div class="form-group col-6 OFF ROLE_SALARIE">
-                                <label for="phone2">Numéro de téléphone 2</label>
-                                {{ form_widget(form.phone2) }}
-                                {{ form_errors(form.phone2) }}
-                            </div>
-                            <div class="form-group col-6 ">
-                                <label for="plainPassword.first">Mot de passe</label>
-                                {{  form_widget(form.plainPassword.first) }}
-                                {{ form_errors(form.plainPassword.first) }}
-                            </div>
-                            <div class="form-group col-6 ">
-                                <label for="plainPassword.second">Confirmer le mot de passe</label>
-                                {{  form_widget(form.plainPassword.second) }}
-                                {{ form_errors(form.plainPassword.second) }}
-                            </div>
-                                {% endif %}
-                                    {% if is_granted('ROLE_SYNDICAT') %}
-                                        <div>
-                                            <label for="syndic">Statut</label>
-                                            <div class="row" style="display: flex;">
-
-                                                <div style="margin: 2vw;">
-                                                    <div class="salarie">
-                                                        {{  form_widget(form.roles.4) }}
-                                                    </div>
-
-                                                    <div class="proprio">
-                                                        {{  form_widget(form.roles.8) }}
-                                                    </div>
-
-                                                    <div class="locataire">
-                                                        {{  form_widget(form.roles.9) }}
-                                                    </div>
-                                                    {{ form_errors(form.roles) }}
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group col-6 OFF">
-                                            <label for="syndic">Copro</label>
-
-                                            {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.copros) }}
-                                        </div>
-
-                                        <div class="form-group col-6 OFF ROLE_LOCATAIRE ROLE_PROPRIETAIRE">
-                                            <label for="syndic">lots</label>
-
-                                            {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.lots) }}
-                                        </div>
-
-
-                                        <div class="form-group col-6 ">
-                                            <label for="first_name">Prénom</label>
-                                            {{ form_widget(form.firstname) }}
-                                            {{ form_errors(form.firstname) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="last_name">Nom</label>
-                                            {{ form_widget(form.lastname) }}
-                                            {{ form_errors(form.lastname) }}
-                                        </div>
-                                        <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
-                                            <label for="adresse">Adresse</label>
-                                            {{ form_widget(form.adresse) }}
-                                            {{ form_errors(form.adresse) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                            <label for="codePostal">Code Postal</label>
-                                            {{ form_widget(form.codePostal) }}
-                                            {{ form_errors(form.codePostal) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                            <label for="ville">ville</label>
-                                            {{ form_widget(form.ville) }}
-                                            {{ form_errors(form.ville) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="email">Email</label>
-                                            {{ form_widget(form.email) }}
-                                            {{ form_errors(form.email) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE ">
-                                            <label for="email2">Email 2</label>
-                                            {{ form_widget(form.email2) }}
-                                            {{ form_errors(form.email2) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="phone">Numéro de téléphone</label>
-                                            {{ form_widget(form.phone) }}
-                                            {{ form_errors(form.phone) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE">
-                                            <label for="phone2">Numéro de téléphone 2</label>
-                                            {{ form_widget(form.phone2) }}
-                                            {{ form_errors(form.phone2) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="plainPassword.first">Mot de passe</label>
-                                            {{  form_widget(form.plainPassword.first) }}
-                                            {{ form_errors(form.plainPassword.first) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="plainPassword.second">Confirmer le mot de passe</label>
-                                            {{  form_widget(form.plainPassword.second) }}
-                                            {{ form_errors(form.plainPassword.second) }}
-                                        </div>
-                                    {% endif %}
-                                    {% if is_granted('ROLE_PRESIDENT') %}
-                                        <div>
-                                            <label for="syndic">Statut</label>
-                                            <div class="row" style="display: flex;">
-
-                                                <div style="margin: 2vw;">
-                                                    <div class="user">
-                                                        {{  form_widget(form.roles.5) }}
-                                                    </div>
-
-                                                    <div class="proprio">
-                                                        {{  form_widget(form.roles.8) }}
-                                                    </div>
-
-                                                    <div class="locataire">
-                                                        {{  form_widget(form.roles.9) }}
-                                                    </div>
-                                                    {{ form_errors(form.roles) }}
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group col-6 OFF">
-                                            <label for="syndic">Copro</label>
-
-                                            {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.copros) }}
-                                        </div>
-
-                                        <div class="form-group col-6 OFF ROLE_LOCATAIRE ROLE_PROPRIETAIRE">
-                                            <label for="syndic">lots</label>
-
-                                            {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.lots) }}
-                                        </div>
-
-
-                                        <div class="form-group col-6 ">
-                                            <label for="first_name">Prénom</label>
-                                            {{ form_widget(form.firstname) }}
-                                            {{ form_errors(form.firstname) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="last_name">Nom</label>
-                                            {{ form_widget(form.lastname) }}
-                                            {{ form_errors(form.lastname) }}
-                                        </div>
-                                        <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
-                                            <label for="adresse">Adresse</label>
-                                            {{ form_widget(form.adresse) }}
-                                            {{ form_errors(form.adresse) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                            <label for="codePostal">Code Postal</label>
-                                            {{ form_widget(form.codePostal) }}
-                                            {{ form_errors(form.codePostal) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                            <label for="ville">ville</label>
-                                            {{ form_widget(form.ville) }}
-                                            {{ form_errors(form.ville) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="email">Email</label>
-                                            {{ form_widget(form.email) }}
-                                            {{ form_errors(form.email) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE ">
-                                            <label for="email2">Email 2</label>
-                                            {{ form_widget(form.email2) }}
-                                            {{ form_errors(form.email2) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="phone">Numéro de téléphone</label>
-                                            {{ form_widget(form.phone) }}
-                                            {{ form_errors(form.phone) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE">
-                                            <label for="phone2">Numéro de téléphone 2</label>
-                                            {{ form_widget(form.phone2) }}
-                                            {{ form_errors(form.phone2) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="plainPassword.first">Mot de passe</label>
-                                            {{  form_widget(form.plainPassword.first) }}
-                                            {{ form_errors(form.plainPassword.first) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="plainPassword.second">Confirmer le mot de passe</label>
-                                            {{  form_widget(form.plainPassword.second) }}
-                                            {{ form_errors(form.plainPassword.second) }}
-                                        </div>
-                                    {% endif %}
-                                    {% if is_granted('ROLE_SECRETAIRE') %}
-                                        <div>
-                                            <label for="syndic">Statut</label>
-                                            <div class="row" style="display: flex;">
-
-                                                <div style="margin: 2vw;">
-                                                    <div class="proprio">
-                                                        {{  form_widget(form.roles.8) }}
-                                                    </div>
-
-                                                    <div class="locataire">
-                                                        {{  form_widget(form.roles.9) }}
-                                                    </div>
-                                                    {{ form_errors(form.roles) }}
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group col-6 OFF">
-                                            <label for="syndic">Copro</label>
-
-                                            {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.copros) }}
-                                        </div>
-
-                                        <div class="form-group col-6 OFF ROLE_LOCATAIRE ROLE_PROPRIETAIRE">
-                                            <label for="syndic">lots</label>
-
-                                            {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.lots) }}
-                                        </div>
-
-
-                                        <div class="form-group col-6 ">
-                                            <label for="first_name">Prénom</label>
-                                            {{ form_widget(form.firstname) }}
-                                            {{ form_errors(form.firstname) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="last_name">Nom</label>
-                                            {{ form_widget(form.lastname) }}
-                                            {{ form_errors(form.lastname) }}
-                                        </div>
-                                        <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
-                                            <label for="adresse">Adresse</label>
-                                            {{ form_widget(form.adresse) }}
-                                            {{ form_errors(form.adresse) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                            <label for="codePostal">Code Postal</label>
-                                            {{ form_widget(form.codePostal) }}
-                                            {{ form_errors(form.codePostal) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                            <label for="ville">ville</label>
-                                            {{ form_widget(form.ville) }}
-                                            {{ form_errors(form.ville) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="email">Email</label>
-                                            {{ form_widget(form.email) }}
-                                            {{ form_errors(form.email) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE ">
-                                            <label for="email2">Email 2</label>
-                                            {{ form_widget(form.email2) }}
-                                            {{ form_errors(form.email2) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="phone">Numéro de téléphone</label>
-                                            {{ form_widget(form.phone) }}
-                                            {{ form_errors(form.phone) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE">
-                                            <label for="phone2">Numéro de téléphone 2</label>
-                                            {{ form_widget(form.phone2) }}
-                                            {{ form_errors(form.phone2) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="plainPassword.first">Mot de passe</label>
-                                            {{  form_widget(form.plainPassword.first) }}
-                                            {{ form_errors(form.plainPassword.first) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="plainPassword.second">Confirmer le mot de passe</label>
-                                            {{  form_widget(form.plainPassword.second) }}
-                                            {{ form_errors(form.plainPassword.second) }}
-                                        </div>
-                                    {% endif %}
                                     {% if is_granted('ROLE_SALARIE') %}
-                                        <div>
-                                            <label for="syndic">Statut</label>
-                                            <div class="row" style="display: flex;">
-
-                                                <div style="margin: 2vw;">
-                                                    <div class="proprio">
-                                                        {{  form_widget(form.roles.8) }}
-                                                    </div>
-                                                    <div class="locataire">
-                                                        {{  form_widget(form.roles.9) }}
-                                                    </div>
-                                                    {{ form_errors(form.roles) }}
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group col-6 OFF">
-                                            <label for="syndic">Copro</label>
-
-                                            {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.copros) }}
-                                        </div>
-
-                                        <div class="form-group col-6 OFF ROLE_LOCATAIRE ROLE_PROPRIETAIRE">
+                                        <div class="ROLE_USER">
                                             <label for="syndic">lots</label>
-
-                                            {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
+                                            {{  form_widget(form.lots) }}
                                             {{ form_errors(form.lots) }}
+
+                                            <label for="date_entree">Date d'entrée</label>
+                                            {{ form_widget(form.dateEntree) }}
+
                                         </div>
+                                    {% endif %}
 
 
-                                        <div class="form-group col-6 ">
+            {#-----------------------------------------GLOBAL-----------------------------------------#}
+
+                                        <div>
                                             <label for="first_name">Prénom</label>
                                             {{ form_widget(form.firstname) }}
                                             {{ form_errors(form.firstname) }}
                                         </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="last_name">Nom</label>
-                                            {{ form_widget(form.lastname) }}
-                                            {{ form_errors(form.lastname) }}
-                                        </div>
-                                        <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
-                                            <label for="adresse">Adresse</label>
-                                            {{ form_widget(form.adresse) }}
-                                            {{ form_errors(form.adresse) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                            <label for="codePostal">Code Postal</label>
-                                            {{ form_widget(form.codePostal) }}
-                                            {{ form_errors(form.codePostal) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
-                                            <label for="ville">ville</label>
-                                            {{ form_widget(form.ville) }}
-                                            {{ form_errors(form.ville) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="email">Email</label>
-                                            {{ form_widget(form.email) }}
-                                            {{ form_errors(form.email) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE ">
-                                            <label for="email2">Email 2</label>
-                                            {{ form_widget(form.email2) }}
-                                            {{ form_errors(form.email2) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="phone">Numéro de téléphone</label>
-                                            {{ form_widget(form.phone) }}
-                                            {{ form_errors(form.phone) }}
-                                        </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE">
-                                            <label for="phone2">Numéro de téléphone 2</label>
-                                            {{ form_widget(form.phone2) }}
-                                            {{ form_errors(form.phone2) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="plainPassword.first">Mot de passe</label>
-                                            {{  form_widget(form.plainPassword.first) }}
-                                            {{ form_errors(form.plainPassword.first) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
-                                            <label for="plainPassword.second">Confirmer le mot de passe</label>
-                                            {{  form_widget(form.plainPassword.second) }}
-                                            {{ form_errors(form.plainPassword.second) }}
-                                        </div>
-                                    {% endif %}
-                                    {% if is_granted('ROLE_UTILISATEUR') %}
+
                                         <div>
-                                            <label for="syndic">Statut</label>
-                                            <div class="row" style="display: flex;">
-
-                                                <div style="margin: 2vw;">
-                                                    <div class="proprio">
-                                                        {{  form_widget(form.roles.8) }}
-                                                    </div>
-                                                    <div class="locataire">
-                                                        {{  form_widget(form.roles.9) }}
-                                                    </div>
-                                                    {{ form_errors(form.roles) }}
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group col-6 OFF">
-                                            <label for="syndic">Copro</label>
-
-                                            {{  form_widget(form.copros, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.copros) }}
-                                        </div>
-
-                                        <div class="form-group col-6 OFF ROLE_LOCATAIRE ROLE_PROPRIETAIRE">
-                                            <label for="syndic">lots</label>
-
-                                            {{  form_widget(form.lots, { 'attr': {'class': 'form-control' } }) }}
-                                            {{ form_errors(form.lots) }}
-                                        </div>
-
-
-                                        <div class="form-group col-6 ">
-                                            <label for="first_name">Prénom</label>
-                                            {{ form_widget(form.firstname) }}
-                                            {{ form_errors(form.firstname) }}
-                                        </div>
-                                        <div class="form-group col-6 ">
                                             <label for="last_name">Nom</label>
                                             {{ form_widget(form.lastname) }}
                                             {{ form_errors(form.lastname) }}
                                         </div>
-                                        <div class="form-group col-12 OFF ROLE_PROPRIETAIRE" >
+
+                                        <div>
+                                            <label for="username">Nom d'utilisateur</label>
+                                            {{ form_widget(form.username) }}
+                                            {{ form_errors(form.username) }}
+                                        </div>
+
+                                        <div>
                                             <label for="adresse">Adresse</label>
                                             {{ form_widget(form.adresse) }}
                                             {{ form_errors(form.adresse) }}
                                         </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
+
+                                        <div>
                                             <label for="codePostal">Code Postal</label>
                                             {{ form_widget(form.codePostal) }}
                                             {{ form_errors(form.codePostal) }}
                                         </div>
-                                        <div class="form-group col-6 OFF ROLE_PROPRIETAIRE">
+
+                                        <div>
                                             <label for="ville">ville</label>
                                             {{ form_widget(form.ville) }}
                                             {{ form_errors(form.ville) }}
                                         </div>
-                                        <div class="form-group col-6 ">
+
+                                        <div>
                                             <label for="email">Email</label>
                                             {{ form_widget(form.email) }}
                                             {{ form_errors(form.email) }}
                                         </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE ">
+
+                                        <div class="OFF ROLE_SALARIE ROLE_GESTION ROLE_ADMIN">
                                             <label for="email2">Email 2</label>
                                             {{ form_widget(form.email2) }}
                                             {{ form_errors(form.email2) }}
                                         </div>
-                                        <div class="form-group col-6 ">
+                                        <div class="form-group col-6">
                                             <label for="phone">Numéro de téléphone</label>
                                             {{ form_widget(form.phone) }}
                                             {{ form_errors(form.phone) }}
                                         </div>
-                                        <div class="form-group col-6 OFF ROLE_SALARIE">
+                                        <div class="OFF ROLE_SALARIE ROLE_GESTION ROLE_ADMIN">
                                             <label for="phone2">Numéro de téléphone 2</label>
                                             {{ form_widget(form.phone2) }}
                                             {{ form_errors(form.phone2) }}
                                         </div>
-                                        <div class="form-group col-6 ">
+                                        <div >
                                             <label for="plainPassword.first">Mot de passe</label>
                                             {{  form_widget(form.plainPassword.first) }}
                                             {{ form_errors(form.plainPassword.first) }}
                                         </div>
-                                        <div class="form-group col-6 ">
+                                        <div>
                                             <label for="plainPassword.second">Confirmer le mot de passe</label>
                                             {{  form_widget(form.plainPassword.second) }}
                                             {{ form_errors(form.plainPassword.second) }}
                                         </div>
-                                    {% endif %}
 
-                                    {{ form_widget(form._token) }}
+                                        {{ form_widget(form._token) }}
                                 <div class="form-group col-12">
-                                    <button type="submit" value="enregistrer" class="btn btn-primary btn-block">Enregistrer</button>
+                                    <button type="submit" value="enregistrer" class="btn btn-primary btn-block" style="margin-top: 2vh">Enregistrer</button>
                                 </div>
 
 
