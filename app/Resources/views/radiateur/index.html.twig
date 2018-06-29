@@ -4,13 +4,14 @@
 {% block body %}
     <h1>Radiateurs list</h1>
 
-    <table>
+    <table class="table table-striped table-condensed table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Type</th>
+                <th>Modèle</th>
                 <th>Hauteur</th>
                 <th>Longueur</th>
-                <th>Type</th>
                 <th>Puissancedeltat50</th>
                 <th>Actions</th>
             </tr>
@@ -19,9 +20,10 @@
         {% for radiateur in radiateurs %}
             <tr>
                 <td><a href="{{ path('radiateur_show', { 'id': radiateur.id }) }}">{{ radiateur.id }}</a></td>
+                <td>{{ radiateur.type }}</td>
+                <td>{{ radiateur.modele }}</td>
                 <td>{{ radiateur.hauteur }}</td>
                 <td>{{ radiateur.longueur }}</td>
-                <td>{{ radiateur.type }}</td>
                 <td>{{ radiateur.puissanceDeltaT50 }}</td>
                 <td>
                     <ul>

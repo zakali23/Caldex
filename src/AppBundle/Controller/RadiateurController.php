@@ -48,12 +48,16 @@ class RadiateurController extends Controller
             $em->persist($radiateur);
             $em->flush();
 
-            return $this->redirectToRoute('radiateur_show', array('id' => $radiateur->getId()));
         }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $radiateurs = $em->getRepository('AppBundle:Radiateur')->findAll();
 
         return $this->render('radiateur/new.html.twig', array(
             'radiateur' => $radiateur,
             'form' => $form->createView(),
+            'radiateurs' => $radiateurs
         ));
     }
 
