@@ -13,29 +13,8 @@
                 <div class="card-header">
                     <h3>Mon Profil</h3>
                 </div>
-
-
-                <p> Je suis
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <b>Administrateur</b>
-                    {% endif %}
-
-                    {% if is_granted('ROLE_GESTION') %}
-                        <b>Organisme de copropriété</b>
-                    {% endif %}
-
-                    {% if is_granted('ROLE_SALARIE') %}
-                        <b>Gestionnaire</b>
-                    {% endif %}
-
-                    {% if is_granted('ROLE_USER') %}
-                        <b>Résident</b>
-                    {% endif %}
-
-                </p>
-
                 <ul>
-                    <li><span>Prénom1 :</span> {{ app.user.firstname }}</li>
+                    <li><span>Prénom :</span> {{ app.user.firstname }}</li>
                     <li><span>Nom :</span> {{ app.user.lastname }}</li>
                     <li><span>Adresse :</span>{{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
                     <li><span>Téléphone :</span> {{ app.user.phone }}</li>
