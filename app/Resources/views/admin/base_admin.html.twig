@@ -69,32 +69,21 @@
     <div class="l-sidebar__content">
         <nav class="c-menu js-menu">
 
-            {#-----------------------------------------ADMIN-----------------------------------------#}
 
-            {% if is_granted('ROLE_ADMIN') %}
-                <ul class="u-list">
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="GM">
-                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                            <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
-                        </div>
-                    </li>
-                </ul>
-            {% endif %}
 
 
             {#-----------------------------------------GESTION / SALARIE-----------------------------------------#}
 
             {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
                 <ul class="u-list">
-                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="SGPI">
-                        <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
-                            <div class="c-menu-item__title"><span>Gestion du Parc Immo</span></div>
-                        </div>
-                    </li>
-
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Propriétaires Locataire" id="SGPL">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion des utilisateurs" id="GPU">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion des utilisateurs </span></div>
+                        </div>
+                    </li>
+                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="GPI">
+                        <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
+                            <div class="c-menu-item__title"><span>Gestion du Parc Immobilier</span></div>
                         </div>
                     </li>
                 </ul>
@@ -104,9 +93,21 @@
 
             {% if is_granted('ROLE_USER') %}
                 <ul class="u-list">
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings" id="MC">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Consommations" id="MC">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Consommations</span></div>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
+
+            {#-----------------------------------------ADMIN-----------------------------------------#}
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <ul class="u-list">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="GM">
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
                         </div>
                     </li>
                 </ul>
@@ -145,7 +146,6 @@
                                     <li>
                                         <a href="/associationcopro/new">Création</a>
                                         <a href="/associationcopro/">Modification</a>
-                                        <a href="/register">Création Utilisateur</a>
                                     </li>
                                 </ul>
                             </li>
@@ -155,25 +155,6 @@
                                     <li>
                                         <a href="/syndic/new">Création</a>
                                         <a href="/syndic/">Modification</a>
-                                        <a href="/register">Création Utilisateur</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li role="presentation" class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Propriétaire<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="/register">Création</a>
-                                        <a href="/#">Modification</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li role="presentation" class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Locataires<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="/register">Création</a>
-                                        <a href="#">Modification</a>
                                     </li>
                                 </ul>
                             </li>
@@ -213,7 +194,7 @@
         {% endif %}
 
         {% if is_granted('ROLE_GESTION') %}
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="SParc">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="ConsultParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
@@ -222,29 +203,21 @@
                     </div>
                 </div>
             </nav>
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="SConsommations">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="GestionConsommations">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="">Consommation Syndic</a>
+                        <a class="navbar-brand" href="">Consommation Co-Propriété</a>
                         <a class="navbar-brand" href="">Consommation Immeuble</a>
                         <a class="navbar-brand" href="">Consommation Lot</a>
                         <a class="navbar-brand" href="">Consommation Pièce</a>
                     </div>
                 </div>
             </nav>
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="SCollaborateur">
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="Utilisateurs">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/register">Création d'un collaborateur</a>
-                        <a class="navbar-brand" href="">Consultation des collaborateurs</a>
-                    </div>
-                </div>
-            </nav>
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="SResident">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/register">Création d'un résident</a>
-                        <a class="navbar-brand" href="">Consultation des résidents</a>
+                        <a class="navbar-brand" href="/register">Création d'un Utilisateur</a>
+                        <a class="navbar-brand" href="">Consultation des Utilisateurs</a>
                     </div>
                 </div>
             </nav>
