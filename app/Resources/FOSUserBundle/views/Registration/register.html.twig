@@ -21,6 +21,7 @@
                             <div class="row">
 
 
+
                                 {#-----------------------STATUT/ROLES---------------------#}
                                     <div>
                                         <label for="syndic">Statut</label>
@@ -54,7 +55,7 @@
 
                                             </div>
                                             <div class="statut"style="margin: 2vw;">
-                                                {{ form_widget(form.statut) }}
+                                                {{  form_widget(form.type_loc_props) }}
                                             </div>
 
                                         </div>
@@ -91,6 +92,10 @@
                                             <label for="syndic">lots</label>
                                             {{  form_widget(form.lots) }}
                                             {{ form_errors(form.lots) }}
+
+                                            <label for="date_entree">Date d'entrée</label>
+                                            {{ form_widget(form.dateEntree) }}
+
                                         </div>
                                     {% endif %}
 

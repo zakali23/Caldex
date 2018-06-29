@@ -15,8 +15,6 @@ use FOS\UserBundle\Model\User as BaseUser;
 class User extends BaseUser
 {
 
-
-
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\CoPro", cascade={"persist"})
      *
@@ -39,10 +37,14 @@ class User extends BaseUser
     private $lots;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role", inversedBy="statuts")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Role", cascade={"persist"})
+     * @ORM\JoinTable(name="role_user")
      *
      */
-    private $statut;
+    private $type_loc_props;
+
+
+
 
 
     /**
@@ -135,9 +137,6 @@ class User extends BaseUser
 
 
 
-
-
-
     /**
      * Constructor
      */
@@ -153,15 +152,6 @@ class User extends BaseUser
 
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set firstname.
@@ -284,43 +274,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set email.
-     *
-     * @param string|null $email
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->setUsername($email);
-
-        return parent::setEmail($email);
-    }
-
-    /**
-     * Set the canonical email.
-     *
-     * @param string $emailCanonical
-     * @return User
-     */
-    public function setEmailCanonical($emailCanonical)
-    {
-        $this->setUsernameCanonical($emailCanonical);
-
-        return parent::setEmailCanonical($emailCanonical);
-    }
-
-    /**
-     * Get email.
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
      * Set email2.
      *
      * @param string|null $email2
@@ -392,7 +345,89 @@ class User extends BaseUser
         return $this->phone2;
     }
 
+    /**
+     * Set dateEntree.
+     *
+     * @param \DateTime|null $dateEntree
+     *
+     * @return User
+     */
+    public function setDateEntree($dateEntree = null)
+    {
+        $this->dateEntree = $dateEntree;
 
+        return $this;
+    }
+
+    /**
+     * Get dateEntree.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateEntree()
+    {
+        return $this->dateEntree;
+    }
+
+    /**
+     * Set dateSortie.
+     *
+     * @param \DateTime|null $dateSortie
+     *
+     * @return User
+     */
+    public function setDateSortie($dateSortie = null)
+    {
+        $this->dateSortie = $dateSortie;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSortie.
+     *
+     * @return \DateTime|null
+     */
+    public function getDateSortie()
+    {
+        return $this->dateSortie;
+    }
+
+    /**
+     * Add copro.
+     *
+     * @param \AppBundle\Entity\CoPro $copro
+     *
+     * @return User
+     */
+    public function addCopro(\AppBundle\Entity\CoPro $copro)
+    {
+        $this->copros[] = $copro;
+
+        return $this;
+    }
+
+    /**
+     * Remove copro.
+     *
+     * @param \AppBundle\Entity\CoPro $copro
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeCopro(\AppBundle\Entity\CoPro $copro)
+    {
+        return $this->copros->removeElement($copro);
+    }
+
+    /**
+     * Get copros.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCopros()
+    {
+        return $this->copros;
+    }
 
     /**
      * Add syndic.
@@ -503,110 +538,38 @@ class User extends BaseUser
     }
 
     /**
-     * Add copro.
+     * Add typeLocProp.
      *
-     * @param \AppBundle\Entity\CoPro $copro
+     * @param \AppBundle\Entity\Role $typeLocProp
      *
      * @return User
      */
-    public function addCopro(\AppBundle\Entity\CoPro $copro)
+    public function addTypeLocProp(\AppBundle\Entity\Role $typeLocProp)
     {
-        $this->copros[] = $copro;
+        $this->type_loc_props[] = $typeLocProp;
 
         return $this;
     }
 
     /**
-     * Remove copro.
+     * Remove typeLocProp.
      *
-     * @param \AppBundle\Entity\CoPro $copro
+     * @param \AppBundle\Entity\Role $typeLocProp
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeCopro(\AppBundle\Entity\CoPro $copro)
+    public function removeTypeLocProp(\AppBundle\Entity\Role $typeLocProp)
     {
-        return $this->copros->removeElement($copro);
+        return $this->type_loc_props->removeElement($typeLocProp);
     }
 
     /**
-     * Get copros.
+     * Get typeLocProps.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCopros()
+    public function getTypeLocProps()
     {
-        return $this->copros;
-    }
-
-    /**
-     * Set dateEntree.
-     *
-     * @param \DateTime|null $dateEntree
-     *
-     * @return User
-     */
-    public function setDateEntree($dateEntree = null)
-    {
-        $this->dateEntree = $dateEntree;
-
-        return $this;
-    }
-
-    /**
-     * Get dateEntree.
-     *
-     * @return \DateTime|null
-     */
-    public function getDateEntree()
-    {
-        return $this->dateEntree;
-    }
-
-    /**
-     * Set dateSortie.
-     *
-     * @param \DateTime|null $dateSortie
-     *
-     * @return User
-     */
-    public function setDateSortie($dateSortie = null)
-    {
-        $this->dateSortie = $dateSortie;
-
-        return $this;
-    }
-
-    /**
-     * Get dateSortie.
-     *
-     * @return \DateTime|null
-     */
-    public function getDateSortie()
-    {
-        return $this->dateSortie;
-    }
-
-    /**
-     * Set statut.
-     *
-     * @param \AppBundle\Entity\Role $statut
-     *
-     * @return User
-     */
-    public function setStatut(\AppBundle\Entity\Role $statut)
-    {
-        $this->statut = $statut;
-
-        return $this;
-    }
-
-    /**
-     * Get statut.
-     *
-     * @return \AppBundle\Entity\Role
-     */
-    public function getStatut()
-    {
-        return $this->statut;
+        return $this->type_loc_props;
     }
 }

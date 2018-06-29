@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -42,6 +43,11 @@ class RegistrationType extends AbstractType
                 'required' => false
 
             ))
+            ->add('dateEntree',  DateType::class, array(
+                'format' => 'dd-MM-yyyy',
+            ))
+            ->add('dateSortie')
+
             ->add('syndics', EntityType::class, array(
                 'class' => 'AppBundle:Syndic',
                 'choice_label' => 'nom',
@@ -63,7 +69,7 @@ class RegistrationType extends AbstractType
                 'multiple' => true,
                 'required' => false
             ))
-            ->add('statut', EntityType::class, array(
+            ->add('type_loc_props', EntityType::class, array(
                 'class' => 'AppBundle:Role',
                 'choice_label'=> 'nom',
                 'multiple' => true,
