@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
+                <th>Type</th>
                 <th>Modèle</th>
                 <th>Hauteur</th>
                 <th>Longueur</th>
@@ -20,7 +20,7 @@
         {% for radiateur in radiateurs %}
             <tr>
                 <td><a href="{{ path('radiateur_show', { 'id': radiateur.id }) }}">{{ radiateur.id }}</a></td>
-                <td>{{ radiateur.nom }}</td>
+                <td>{{ radiateur.type }}</td>
                 <td>{{ radiateur.modele }}</td>
                 <td>{{ radiateur.hauteur }}</td>
                 <td>{{ radiateur.longueur }}</td>

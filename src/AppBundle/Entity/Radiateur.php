@@ -24,9 +24,16 @@ class Radiateur
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string")
+     * @ORM\Column(name="type", type="string")
      */
-    private $nom;
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="profondeur", type="string")
+     */
+    private $profondeur;
 
 
     /**
@@ -50,6 +57,20 @@ class Radiateur
      * @ORM\Column(name="longueur", type="integer")
      */
     private $longueur;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="regimeDimension", type="integer")
+     */
+    private $regimeDimension;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="temperatureInterne", type="integer")
+     */
+    private $temperatureInterne;
 
 
     /**
@@ -170,16 +191,102 @@ class Radiateur
     /**
      * @return string
      */
-    public function getNom()
+    public function getType()
     {
-        return $this->nom;
+        return $this->type;
     }
 
     /**
-     * @param string $nom
+     * @param string $type
      */
-    public function setNom(string $nom)
+    public function setNom(string $type)
     {
-        $this->nom = $nom;
+        $this->type = $type;
+    }
+
+    /**
+     * Set type.
+     *
+     * @param string $type
+     *
+     * @return Radiateur
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Set profondeur.
+     *
+     * @param string $profondeur
+     *
+     * @return Radiateur
+     */
+    public function setProfondeur($profondeur)
+    {
+        $this->profondeur = $profondeur;
+
+        return $this;
+    }
+
+    /**
+     * Get profondeur.
+     *
+     * @return string
+     */
+    public function getProfondeur()
+    {
+        return $this->profondeur;
+    }
+
+    /**
+     * Set regimeDimension.
+     *
+     * @param int $regimeDimension
+     *
+     * @return Radiateur
+     */
+    public function setRegimeDimension($regimeDimension)
+    {
+        $this->regimeDimension = $regimeDimension;
+
+        return $this;
+    }
+
+    /**
+     * Get regimeDimension.
+     *
+     * @return int
+     */
+    public function getRegimeDimension()
+    {
+        return $this->regimeDimension;
+    }
+
+    /**
+     * Set temperatureInterne.
+     *
+     * @param int $temperatureInterne
+     *
+     * @return Radiateur
+     */
+    public function setTemperatureInterne($temperatureInterne)
+    {
+        $this->temperatureInterne = $temperatureInterne;
+
+        return $this;
+    }
+
+    /**
+     * Get temperatureInterne.
+     *
+     * @return int
+     */
+    public function getTemperatureInterne()
+    {
+        return $this->temperatureInterne;
     }
 }

@@ -164,3 +164,52 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $('#appbundle_radiateur_type').change(function() {
+        if ($(this).val() === 'Fonte') {
+            $('#appbundle_radiateur_profondeur').val(15);
+        }
+        else if ($(this).val() === 'type10') {
+            $('#appbundle_radiateur_profondeur').val("1 panneau");
+        }
+        else if ($(this).val() === 'type11') {
+            $('#appbundle_radiateur_profondeur').val("1 panneau 1rang d'ailettes");
+        }
+        else if ($(this).val() === 'type20') {
+            $('#appbundle_radiateur_profondeur').val("2 panneaux");
+        }
+        else if ($(this).val() === 'type21') {
+            $('#appbundle_radiateur_profondeur').val("2 panneaux 1 rang d'ailettes");
+        }
+        else if ($(this).val() === 'type22') {
+            $('#appbundle_radiateur_profondeur').val("2 panneaux 2 rangs d'ailettes");
+        }
+        else if ($(this).val() === 'type30') {
+            $('#appbundle_radiateur_profondeur').val("3 panneaux");
+        }
+        else if ($(this).val() === 'type32') {
+            $('#appbundle_radiateur_profondeur').val("3 panneaux 2 rangs d'ailettes");
+        }
+        else {
+            $('#appbundle_radiateur_profondeur').val('choisir');
+        }
+
+    });
+});
+
+// Calcule la puissance nominale
+
+$(document).ready(function(){
+    function puissanceDelta() {
+        var hauteur =  $('#appbundle_radiateur_hauteur').val();
+        var longueur =  $('#appbundle_radiateur_longueur').val();
+        if (hauteur !== false  && longueur !== false ){
+            var res = hauteur * longueur;
+
+            $('#appbundle_radiateur_puissanceDeltaT50').val(res);
+        }
+    }
+    $('#appbundle_radiateur_hauteur' ).on('input', puissanceDelta);
+    $('#appbundle_radiateur_longueur' ).on('input', puissanceDelta);
+
+});
