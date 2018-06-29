@@ -193,7 +193,7 @@
             </nav>
         {% endif %}
 
-        {% if is_granted('ROLE_GESTION') %}
+        {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
             <nav class="nav justify-content-center grey lighten-4 py-4" id="ConsultParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
