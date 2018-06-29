@@ -41,6 +41,14 @@
                 <th>Phone2</th>
                 <td>{{ user.phone2 }}</td>
             </tr>
+            <tr>
+                <th>Dateentree</th>
+                <td>{% if user.dateEntree %}{{ user.dateEntree|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datesortie</th>
+                <td>{% if user.dateSortie %}{{ user.dateSortie|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
         </tbody>
     </table>
 

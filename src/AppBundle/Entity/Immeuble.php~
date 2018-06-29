@@ -318,4 +318,20 @@ class Immeuble
     {
         $this->reference = $reference;
     }
+
+    /**
+     * @return File
+     */
+    public function getPlanFile()
+    {
+        return $this->planFile;
+    }
+
+    /**
+     * @param File $planFile
+     */
+    public function setPlanFile($planFile)
+    {
+        $this->planFile = $planFile;
+    }
 }
