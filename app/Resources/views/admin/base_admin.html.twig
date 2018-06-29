@@ -225,12 +225,13 @@
         {% endif %}
 
 
-        {% if is_granted('ROLE_USER') %}
+        {% if is_granted(['ROLE_SALARIE', 'ROLE_GESTION', 'ROLE_ADMIN']) %}
+
+        {% elseif is_granted('ROLE_USER') %}
             <nav class="nav justify-content-center grey lighten-4 py-4" id="Mes-Consos">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Consommation d'Eau</a>
-                        <a class="navbar-brand" href="#">Consommation Calorifique</a>
+                        <a class="navbar-brand" href="#">Consommation de l'appartement</a>
                     </div>
                 </div>
             </nav>
