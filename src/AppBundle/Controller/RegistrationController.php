@@ -78,7 +78,6 @@ class RegistrationController extends BaseController
                 return $response;
             }
         }
-        dump('coucou!');
 
 
         return $this->render('@FOSUser/Registration/register.html.twig', array(
