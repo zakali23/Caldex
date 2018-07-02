@@ -1,8 +1,8 @@
 {% extends "admin/base_admin.html.twig"%}
 {% block body %}
-    <h1>Lots list</h1>
+    <h1>Lots</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -36,9 +36,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('lot_new') }}">Create a new lot</a>
-        </li>
-    </ul>
+
 {% endblock %}

@@ -17,6 +17,8 @@
                 <th scope="col">Téléphone</th>
                 <th scope="col">Date d'entrée</th>
                 <th scope="col">Date de sortie</th>
+                <th scope="col">Statut</th>
+
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -34,6 +36,11 @@
                 <td>{{ user.phone }}</td>
                 <td>{% if user.dateEntree %}{{ user.dateEntree|date('d-m-Y') }}{% endif %}</td>
                 <td>{% if user.dateSortie %}{{ user.dateSortie|date('d-m-Y') }}{% endif %}</td>
+               {% for role in user.typeLocProps %}
+                <td>{{ role.nom }}</td>
+
+                {% endfor %}
+
                 <td>
                     <ul>
                         <li>
