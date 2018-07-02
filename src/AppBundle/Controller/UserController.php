@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -24,10 +25,8 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $idUser = $this->getUser()->getId();
 
-        $users = $em->getRepository('AppBundle:User')->find($idUser);
-
+        $users = $em->getRepository('AppBundle:User')->findAll();
         return $this->render('user/index.html.twig', array(
             'users' => $users,
         ));
@@ -135,4 +134,6 @@ class UserController extends Controller
             ->getForm()
         ;
     }
+
+
 }

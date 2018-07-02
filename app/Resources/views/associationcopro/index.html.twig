@@ -1,14 +1,14 @@
 {% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
-    <h1>Associationcopros list</h1>
-
-    <table>
+<h1 class="text-center green-text">Liste des associations de copropriétés</h1>
+<div class="table-responsive">
+    <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,9 +31,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('associationcopro_new') }}">Create a new associationCoPro</a>
-        </li>
-    </ul>
+
 {% endblock %}

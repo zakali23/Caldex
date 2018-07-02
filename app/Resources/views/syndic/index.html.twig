@@ -1,18 +1,17 @@
 {% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
-    {% if is_granted('ROLE_ADMIN') %}
-    <h1>Syndics liste</h1>
-
-    <table>
+<h1 class="text-center green-text">Liste des syndicats</h1>
+<div class="table-responsive">
+    <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Adresse</th>
-            <th>Codepostal</th>
-            <th>Ville</th>
-            <th>Actions</th>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Codepostal</th>
+            <th scope="col">Ville</th>
+            <th scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -38,53 +37,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('syndic_new') }}">Create a new syndic</a>
-        </li>
-    </ul>
-    {% endif %}
-    {% if is_granted('ROLE_SYNDICAT') %}
 
-        <nav class="navbar navbar-default" id="user_syndic">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ syndics.0.id }}/immeuble">Consultation Immeuble</a>
-                    <a class="navbar-brand" href="{{ syndics.0.id }}/lot">Consultation Lot</a>
-                    <a class="navbar-brand" href="{{ syndics.0.id }}/piece">Consultation Pièce</a>
-                </div>
-            </div>
-        </nav>
-
-
-        <h5 class="hello">Bonjour {{ app.user.firstname }} {{ app.user.lastname }} </h5>
-
-        <div class="container">
-            <div class="row" style="display: flex;">
-
-                <div class="col card">
-                    <h2>Inscription</h2>
-                    <li><a href="/register">Enregister un nouveau membre</a></li>
-
-                </div>
-
-                <div class="col card">
-                    <h2>Membres</h2>
-
-                    <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
-
-                </div>
-
-                <div class="col card">
-                    <h2>Gestion</h2>
-
-                    <li>Gestion des droits </li>
-                    <li>Gestion des relevés compteurs</li>
-                </div>
-
-
-
-            </div>
-        </div>
-    {% endif %}
-{% endblock %}
+    {% endblock %}

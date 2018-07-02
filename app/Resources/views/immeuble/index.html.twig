@@ -1,17 +1,19 @@
 {% extends "admin/base_admin.html.twig"%}
 {% block body %}
-    <h1>Immeubles list</h1>
+    <h1>Immeubles</h1>
 
-    <table>
+    <table class="table">
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Adresse</th>
-            <th>Codepostal</th>
-            <th>Ville</th>
-            <th>Plan</th>
-            <th>Actions</th>
-        </tr>
+
+            <tr>
+                <th>Id</th>
+                <th>Adresse</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Plan</th>
+                <th>Actions</th>
+            </tr>
+
         </thead>
         <tbody>
         {% for immeuble in immeubles %}
@@ -36,9 +38,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('immeuble_new') }}">Create a new immeuble</a>
-        </li>
-    </ul>
+
 {% endblock %}

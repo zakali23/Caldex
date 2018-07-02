@@ -1,26 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
-    <h1>Users list</h1>
 
-    <table>
+<h1 class="text-center green-text">Liste des utilisateurs</h1>
+<div class="table-responsive">
+    <table class="table">
         <thead>
-    <tr>
-                <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Adresse</th>
-                <th>Codepostal</th>
-                <th>Ville</th>
-                <th>Email2</th>
-                <th>Phone</th>
-                <th>Phone2</th>
-                <th>Dateentree</th>
-                <th>Datesortie</th>
-                <th>Actions</th>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Email</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Date d'entrée</th>
+                <th scope="col">Date de sortie</th>
+                <th scope="col">Statut</th>
+
+                <th scope="col">Actions</th>
+
             </tr>
         </thead>
         <tbody>
+
         {% for user in users %}
             <tr>
                 <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
@@ -29,11 +33,15 @@
                 <td>{{ user.adresse }}</td>
                 <td>{{ user.codePostal }}</td>
                 <td>{{ user.ville }}</td>
-                <td>{{ user.email2 }}</td>
+                <td>{{ user.email }}</td>
                 <td>{{ user.phone }}</td>
-                <td>{{ user.phone2 }}</td>
-                <td>{% if user.dateEntree %}{{ user.dateEntree|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if user.dateSortie %}{{ user.dateSortie|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.dateEntree %}{{ user.dateEntree|date('d-m-Y') }}{% endif %}</td>
+                <td>{% if user.dateSortie %}{{ user.dateSortie|date('d-m-Y') }}{% endif %}</td>
+               {% for role in user.typeLocProps %}
+                <td>{{ role.nom }}</td>
+
+                {% endfor %}
+
                 <td>
                     <ul>
                         <li>
@@ -49,11 +57,11 @@
         </tbody>
     </table>
 
+
     <ul>
         <li>
             <a href="{{ path('user_new') }}">Create a new user</a>
         </li>
     </ul>
-
 
 {% endblock %}

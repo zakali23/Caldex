@@ -1,16 +1,16 @@
 {% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
-    <h1>Associationcopro</h1>
 
-    <table>
+<div class="table-responsive">
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ associationCoPro.id }}</td>
+                <th>Nom</th>
             </tr>
             <tr>
-                <th>Name</th>
+                <td>{{ associationCoPro.id }}</td>
                 <td>{{ associationCoPro.name }}</td>
             </tr>
         </tbody>
