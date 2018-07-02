@@ -100,7 +100,7 @@
                                             <label for="syndic">Syndic</label>
                                             <select id="fos_user_registration_form_syndics" name="fos_user_registration_form[syndics][]" class="form-control" multiple="multiple">
                                                 {% for syndic in user.syndics %}
-                                                    <option value="syndic.id">syndic.nom</option>
+                                                    <option value="syndic.id">{{ syndic.nom }} </option>
                                                 {% endfor %}
                                             </select>
                                             {{ form_errors(form.syndics) }}
@@ -112,7 +112,7 @@
                                             <select id="fos_user_registration_form_associationCoPros" name="fos_user_registration_form[associationCoPros][]" class="form-control" multiple="multiple">
 
                                                 {% for associationCoPro in user.associationCoPros %}
-                                                    <option value="associationCoPro.id">associationCoPro.name</option>
+                                                    <option value="associationCoPro.id">{{ associationCoPro.name }}</option>
                                                 {% endfor %}
                                             </select>
                                             {{ form_errors(form.associationCoPros) }}
@@ -123,7 +123,7 @@
 
                                             <select id="fos_user_registration_form_lots" name="fos_user_registration_form[lots][]" class="form-control" multiple="multiple">
                                                 {% for lot in user.lots %}
-                                                <option value="lot.id">lot.numero</option>
+                                                <option value="lot.id">{{ lot.numero }}</option>
                                                 {% endfor %}
                                             </select>
 
