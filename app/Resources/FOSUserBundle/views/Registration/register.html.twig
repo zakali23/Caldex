@@ -83,31 +83,41 @@
 
                                     <div class="OFF ROLE_GESTION ROLE_SALARIE ">
                                         <label for="syndic">Syndic</label>
-                                        <select id="fos_user_registration_form_syndics" name="fos_user_registration_form[syndics][]" class="form-control" multiple="multiple">
-                                            {% for syndic in user.syndics %}
-                                            <option value="syndic.id">syndic.nom</option>
-                                            {% endfor %}
-                                        </select>
+                                        {{ form_widget(form.syndics) }}
                                         {{ form_errors(form.syndics) }}
-                                        {% do form.syndics.setRendered %}
+
                                     </div>
 
                                     <div class="OFF ROLE_GESTION ROLE_SALARIE">
                                         <label for="assoCoPro">Association Copros</label>
-                                        <select id="fos_user_registration_form_associationCoPros" name="fos_user_registration_form[associationCoPros][]" class="form-control" multiple="multiple">
-
-                                            {% for associationCoPro in user.associationCoPros %}
-                                            <option value="associationCoPro.id">associationCoPro.name</option>
-                                            {% endfor %}
-                                        </select>
+                                        {{ form_widget(form.associationCoPros) }}
                                         {{ form_errors(form.associationCoPros) }}
                                     </div>
-                                {% endif %}
-
-
             {#-----------------------------------------SALARIE-----------------------------------------#}
+                                {% elseif is_granted('ROLE_SALARIE') %}
 
-                                    {% if is_granted('ROLE_SALARIE') %}
+                                        <div class="OFF ROLE_GESTION ROLE_SALARIE ">
+                                            <label for="syndic">Syndic</label>
+                                            <select id="fos_user_registration_form_syndics" name="fos_user_registration_form[syndics][]" class="form-control" multiple="multiple">
+                                                {% for syndic in user.syndics %}
+                                                    <option value="syndic.id">syndic.nom</option>
+                                                {% endfor %}
+                                            </select>
+                                            {{ form_errors(form.syndics) }}
+                                            {% do form.syndics.setRendered %}
+                                        </div>
+
+                                        <div class="OFF ROLE_GESTION ROLE_SALARIE">
+                                            <label for="assoCoPro">Association Copros</label>
+                                            <select id="fos_user_registration_form_associationCoPros" name="fos_user_registration_form[associationCoPros][]" class="form-control" multiple="multiple">
+
+                                                {% for associationCoPro in user.associationCoPros %}
+                                                    <option value="associationCoPro.id">associationCoPro.name</option>
+                                                {% endfor %}
+                                            </select>
+                                            {{ form_errors(form.associationCoPros) }}
+                                        </div>
+
                                         <div class="ROLE_USER">
                                             <label for="syndic">lots</label>
 
@@ -123,7 +133,7 @@
                                             {{ form_widget(form.dateEntree) }}
 
                                         </div>
-                                    {% endif %}
+                                {% endif %}
 
 
             {#-----------------------------------------GLOBAL-----------------------------------------#}

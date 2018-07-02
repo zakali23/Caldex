@@ -3,8 +3,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Syndic;
-use AppBundle\Entity\User;
+
 use FOS\UserBundle\FOSUserEvents;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
