@@ -3,13 +3,24 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Syndic;
+use AppBundle\Entity\User;
+use FOS\UserBundle\FOSUserEvents;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class RegistrationController
+ * @Route("register")
+ */
 class RegistrationController extends BaseController
 {
+    /**
+     * @Route("/"), name="register")
+     */
     public function registerAction(Request $request)
     {
         /** @var $formFactory FactoryInterface */
@@ -18,6 +29,8 @@ class RegistrationController extends BaseController
         $userManager = $this->get('fos_user.user_manager');
         /** @var $dispatcher EventDispatcherInterface */
         $dispatcher = $this->get('event_dispatcher');
+
+
 
         $user = $userManager->createUser();
         $user->setEnabled(true);
@@ -40,6 +53,7 @@ class RegistrationController extends BaseController
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
                 $userManager->updateUser($user);
+
 
                 /*****************************************************
                  * Add new functionality (e.g. log the registration) *
@@ -65,10 +79,12 @@ class RegistrationController extends BaseController
                 return $response;
             }
         }
+        dump('coucou!');
 
 
         return $this->render('@FOSUser/Registration/register.html.twig', array(
             'form' => $form->createView(),
+            'user'=>$this->getUser(),
         ));
     }
 }

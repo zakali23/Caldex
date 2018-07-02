@@ -83,13 +83,23 @@
 
                                     <div class="OFF ROLE_GESTION ROLE_SALARIE ">
                                         <label for="syndic">Syndic</label>
-                                        {{  form_widget(form.syndics) }}
+                                        <select id="fos_user_registration_form_syndics" name="fos_user_registration_form[syndics][]" class="form-control" multiple="multiple">
+                                            {% for syndic in user.syndics %}
+                                            <option value="syndic.id">syndic.nom</option>
+                                            {% endfor %}
+                                        </select>
                                         {{ form_errors(form.syndics) }}
+                                        {% do form.syndics.setRendered %}
                                     </div>
 
                                     <div class="OFF ROLE_GESTION ROLE_SALARIE">
-                                        <label for="syndic">Association Copros</label>
-                                        {{  form_widget(form.associationCoPros) }}
+                                        <label for="assoCoPro">Association Copros</label>
+                                        <select id="fos_user_registration_form_associationCoPros" name="fos_user_registration_form[associationCoPros][]" class="form-control" multiple="multiple">
+
+                                            {% for associationCoPro in user.associationCoPros %}
+                                            <option value="associationCoPro.id">associationCoPro.name</option>
+                                            {% endfor %}
+                                        </select>
                                         {{ form_errors(form.associationCoPros) }}
                                     </div>
                                 {% endif %}
@@ -100,7 +110,13 @@
                                     {% if is_granted('ROLE_SALARIE') %}
                                         <div class="ROLE_USER">
                                             <label for="syndic">lots</label>
-                                            {{  form_widget(form.lots) }}
+
+                                            <select id="fos_user_registration_form_lots" name="fos_user_registration_form[lots][]" class="form-control" multiple="multiple">
+                                                {% for lot in user.lots %}
+                                                <option value="lot.id">lot.numero</option>
+                                                {% endfor %}
+                                            </select>
+
                                             {{ form_errors(form.lots) }}
 
                                             <label for="date_entree">Date d'entrée</label>
