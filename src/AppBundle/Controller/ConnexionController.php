@@ -80,7 +80,9 @@ class ConnexionController extends Controller{
     {
 
 
-        return $this->render('user/user.html.twig');
+        return $this->render('user/user.html.twig', array(
+            'user'=>$this->getUser(),
+        ));
 
     }
 

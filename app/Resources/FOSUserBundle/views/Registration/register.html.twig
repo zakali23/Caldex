@@ -75,7 +75,7 @@
     {#-----------------------------------------ADMIN-----------------------------------------#}
 
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <div class="OFF ROLE_ADMIN">
+                                    <div class="OFF ROLE_GESTION ROLE_SALARIE">
                                         <label for="copro">Copro</label>
                                         {{  form_widget(form.copros) }}
                                         {{ form_errors(form.copros) }}

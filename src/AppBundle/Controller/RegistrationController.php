@@ -3,7 +3,8 @@
 
 namespace AppBundle\Controller;
 
-
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\FOSUserEvents;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -78,6 +79,7 @@ class RegistrationController extends BaseController
                 return $response;
             }
         }
+        dump('coucou!');
 
 
         return $this->render('@FOSUser/Registration/register.html.twig', array(
