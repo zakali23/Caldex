@@ -54,8 +54,18 @@
                                                 {% endif %}
 
                                             </div>
-                                            <div class="statut"style="margin: 2vw;">
-                                                {{  form_widget(form.type_loc_props) }}
+                                            <div class="statut_habitant"style="margin: 2vw;">
+                                                {{  form_widget(form.type_loc_props.1) }}
+                                                {{  form_widget(form.type_loc_props.2) }}
+                                            </div>
+
+                                            <div class="statut_gestionnaire"style="margin: 2vw;">
+                                                {{  form_widget(form.type_loc_props.3) }}
+                                            </div>
+
+                                            <div class="statut_delegueCoPro"style="margin: 2vw;">
+                                                {{  form_widget(form.type_loc_props.4) }}
+                                                {{  form_widget(form.type_loc_props.5) }}
                                             </div>
 
                                         </div>
@@ -65,7 +75,7 @@
     {#-----------------------------------------ADMIN-----------------------------------------#}
 
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <div class="OFF ROLE_ADMIN">
+                                    <div class="OFF ROLE_GESTION ROLE_SALARIE">
                                         <label for="copro">Copro</label>
                                         {{  form_widget(form.copros) }}
                                         {{ form_errors(form.copros) }}
@@ -73,31 +83,57 @@
 
                                     <div class="OFF ROLE_GESTION ROLE_SALARIE ">
                                         <label for="syndic">Syndic</label>
-                                        {{  form_widget(form.syndics) }}
+                                        {{ form_widget(form.syndics) }}
                                         {{ form_errors(form.syndics) }}
+
                                     </div>
 
                                     <div class="OFF ROLE_GESTION ROLE_SALARIE">
-                                        <label for="syndic">Association Copros</label>
-                                        {{  form_widget(form.associationCoPros) }}
+                                        <label for="assoCoPro">Association Copros</label>
+                                        {{ form_widget(form.associationCoPros) }}
                                         {{ form_errors(form.associationCoPros) }}
                                     </div>
-                                {% endif %}
-
-
             {#-----------------------------------------SALARIE-----------------------------------------#}
+                                {% elseif is_granted('ROLE_SALARIE') %}
 
-                                    {% if is_granted('ROLE_SALARIE') %}
+                                        <div class="OFF ROLE_GESTION ROLE_SALARIE ">
+                                            <label for="syndic">Syndic</label>
+                                            <select id="fos_user_registration_form_syndics" name="fos_user_registration_form[syndics][]" class="form-control" multiple="multiple">
+                                                {% for syndic in user.syndics %}
+                                                    <option value="syndic.id">{{ syndic.nom }} </option>
+                                                {% endfor %}
+                                            </select>
+                                            {{ form_errors(form.syndics) }}
+                                            {% do form.syndics.setRendered %}
+                                        </div>
+
+                                        <div class="OFF ROLE_GESTION ROLE_SALARIE">
+                                            <label for="assoCoPro">Association Copros</label>
+                                            <select id="fos_user_registration_form_associationCoPros" name="fos_user_registration_form[associationCoPros][]" class="form-control" multiple="multiple">
+
+                                                {% for associationCoPro in user.associationCoPros %}
+                                                    <option value="associationCoPro.id">{{ associationCoPro.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                            {{ form_errors(form.associationCoPros) }}
+                                        </div>
+
                                         <div class="ROLE_USER">
                                             <label for="syndic">lots</label>
-                                            {{  form_widget(form.lots) }}
+
+                                            <select id="fos_user_registration_form_lots" name="fos_user_registration_form[lots][]" class="form-control" multiple="multiple">
+                                                {% for lot in user.lots %}
+                                                <option value="lot.id">{{ lot.numero }}</option>
+                                                {% endfor %}
+                                            </select>
+
                                             {{ form_errors(form.lots) }}
 
                                             <label for="date_entree">Date d'entrée</label>
                                             {{ form_widget(form.dateEntree) }}
 
                                         </div>
-                                    {% endif %}
+                                {% endif %}
 
 
             {#-----------------------------------------GLOBAL-----------------------------------------#}
@@ -177,6 +213,7 @@
 
 
                             </div>
+                          </div>
                         </form>
                     </div>
                 </div>
