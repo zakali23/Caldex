@@ -165,9 +165,9 @@
             <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Parc">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/immeuble/new">Créer un nouvel immeuble</a>
-                        <a class="navbar-brand" href="/lot/new">Créer un nouveau Lot</a>
-                        <a class="navbar-brand" href="/piece/new">Créer une nouvelle pièce</a>
+                        <a class="navbar-brand" href="/immeuble/new">Création/Gestion immeuble</a>
+                        <a class="navbar-brand" href="/lot/new">Création/Gestion lot</a>
+                        <a class="navbar-brand" href="/piece/new">Création/Gestion pièce</a>
                     </div>
                 </div>
             </nav>
@@ -194,15 +194,7 @@
         {% endif %}
 
         {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="ConsultParc">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
-                        <a class="navbar-brand" href="/lot/">Consultation Lot</a>
-                        <a class="navbar-brand" href="/piece/">Consultation Pièce</a>
-                    </div>
-                </div>
-            </nav>
+
             <nav class="nav justify-content-center grey lighten-4 py-4" id="GestionConsommations">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -217,7 +209,7 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/register">Création d'un Utilisateur</a>
-                        <a class="navbar-brand" href="">Consultation des Utilisateurs</a>
+                        <a class="navbar-brand" href="/user/">Consultation des Utilisateurs</a>
                     </div>
                 </div>
             </nav>
