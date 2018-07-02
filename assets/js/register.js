@@ -13,14 +13,18 @@ $(document).ready(function(){
                 $(".gestion").hide();
                 $(".salarie").hide();
                 $(".user").hide();
-                $(".statut").hide();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").hide();
 
             } else {
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
                 $(".user").show();
-                $(".statut").hide();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").hide();
 
             }
         });
@@ -31,14 +35,18 @@ $(document).ready(function(){
                 $(".gestion").show();
                 $(".salarie").hide();
                 $(".user").hide();
-                $(".statut").hide();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").show();
 
             } else {
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
                 $(".user").show();
-                $(".statut").hide();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").hide();
 
             }
         });
@@ -49,14 +57,18 @@ $(document).ready(function(){
                 $(".gestion").hide();
                 $(".salarie").show();
                 $(".user").hide();
-                $(".statut").hide();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").show();
+                $(".statut_delegueCoPro").hide();
 
             } else {
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
                 $(".user").show();
-                $(".statut").hide();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").hide();
 
             }
         });
@@ -68,14 +80,18 @@ $(document).ready(function(){
                 $(".gestion").hide();
                 $(".salarie").hide();
                 $(".user").show();
-                $(".statut").show();
+                $(".statut_habitant").show();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").hide();
 
             } else {
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
                 $(".user").show();
-                $(".statut").hide();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").hide();
 
             }
         });
