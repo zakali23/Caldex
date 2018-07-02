@@ -59,3 +59,4 @@ security:
         - { path: ^/immeuble/new$, role: ROLE_ADMIN }
         - { path: ^/lot/new$, role: ROLE_ADMIN }
         - { path: ^/piece/new$, role: ROLE_ADMIN }
+        - { path: ^/copro/new$, role: ROLE_ADMIN }
