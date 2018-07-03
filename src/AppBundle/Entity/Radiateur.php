@@ -22,6 +22,28 @@ class Radiateur
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string")
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="profondeur", type="string")
+     */
+    private $profondeur;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modele", type="string")
+     */
+    private $modele;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="hauteur", type="integer")
@@ -36,13 +58,19 @@ class Radiateur
      */
     private $longueur;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="regimeDimension", type="integer")
+     */
+    private $regimeDimension;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="type", type="string")
+     * @ORM\Column(name="temperatureInterne", type="integer")
      */
-    private $type;
+    private $temperatureInterne;
 
 
     /**
@@ -114,29 +142,6 @@ class Radiateur
         return $this->longueur;
     }
 
-    /**
-     * Set type.
-     *
-     * @param string $type
-     *
-     * @return Radiateur
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type.
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * Set puissanceDeltaT50.
@@ -160,5 +165,128 @@ class Radiateur
     public function getPuissanceDeltaT50()
     {
         return $this->puissanceDeltaT50;
+    }
+
+    /**
+     * Get modele.
+     *
+     * @return string
+     */
+    public function getModele()
+    {
+        return $this->modele;
+    }
+
+    /**
+     * Set type.
+     *
+     * @param string $modele
+     * @return void
+     */
+    public function setModele(string $modele)
+    {
+        $this->modele = $modele;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setNom(string $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * Set type.
+     *
+     * @param string $type
+     *
+     * @return Radiateur
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Set profondeur.
+     *
+     * @param string $profondeur
+     *
+     * @return Radiateur
+     */
+    public function setProfondeur($profondeur)
+    {
+        $this->profondeur = $profondeur;
+
+        return $this;
+    }
+
+    /**
+     * Get profondeur.
+     *
+     * @return string
+     */
+    public function getProfondeur()
+    {
+        return $this->profondeur;
+    }
+
+    /**
+     * Set regimeDimension.
+     *
+     * @param int $regimeDimension
+     *
+     * @return Radiateur
+     */
+    public function setRegimeDimension($regimeDimension)
+    {
+        $this->regimeDimension = $regimeDimension;
+
+        return $this;
+    }
+
+    /**
+     * Get regimeDimension.
+     *
+     * @return int
+     */
+    public function getRegimeDimension()
+    {
+        return $this->regimeDimension;
+    }
+
+    /**
+     * Set temperatureInterne.
+     *
+     * @param int $temperatureInterne
+     *
+     * @return Radiateur
+     */
+    public function setTemperatureInterne($temperatureInterne)
+    {
+        $this->temperatureInterne = $temperatureInterne;
+
+        return $this;
+    }
+
+    /**
+     * Get temperatureInterne.
+     *
+     * @return int
+     */
+    public function getTemperatureInterne()
+    {
+        return $this->temperatureInterne;
     }
 }
