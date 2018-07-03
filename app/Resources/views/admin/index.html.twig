@@ -37,7 +37,7 @@
                 <li><a href="{{ path('associationcopro_index') }}">Liste des association de copropriétés</a></li>
             {% endif %}
             {% if is_granted ('ROLE_SALARIE') %}
-                <li><a href="/#">Consultation des Membres</a></li>
+                <li><a href="{{ path('user_index') }}">Consultation des Membres</a></li>
             {% endif %}
 
         </div>
@@ -47,17 +47,17 @@
     {% if is_granted ('ROLE_ADMIN') %}
         <div class="col card">
         <h2>Inscription Immo</h2>
-            <li>Création d'un Immeuble</li>
-            <li>Création d'un lot</li>
-            <li>Création d'une pièce</li>
+            <li><a href="{{ path('immeuble_new') }}">Création d'un Immeuble</a></li>
+            <li><a href="{{ path('lot_new') }}">Création d'un lot</a></li>
+            <li><a href="{{ path('piece_new') }}">Création d'une pièce</a></li>
         </div>
     {% endif %}
     {% if is_granted ('ROLE_SALARIE') %}
         <div class="col card">
         <h2>Consultation Immo</h2>
-            <li>Liste des Immeubles</li>
-            <li>Liste des lots</li>
-            <li>Liste des pièces</li>
+            <li><a href="{{ path('immeuble_index') }}">Liste des Immeubles</a></li>
+            <li><a href="{{ path('lot_index') }}">Liste des lots</a></li>
+            <li><a href="{{ path('piece_index') }}">Liste des pièces</a></li>
         </div>
     {% endif %}
     </div>
@@ -66,15 +66,15 @@
     <div class="row" style="display: flex;">
             <div class="col card">
                 <h2>Déclarer un Compteur</h2>
-                <li>Déclarer un nouveau fournisseur</li>
-                <li>Déclarer un nouveau modèle de compteur</li>
-                <li>Déclarer l'installation d'un compteur</li>
+                <li><a href="{{ path('fournisseurcompteur_new') }}">Déclarer un nouveau fournisseur</a></li>
+                <li><a href="{{ path('compteur_new') }}">Déclarer un nouveau modèle de compteur</li>
+                <li><a href="{{ path('compteur_new') }}">Déclarer l'installation d'un compteur</li>
             </div>
             <div class="col card">
                 <h2>Consultation des Compteur</h2>
-                <li>Liste des fournisseurs de compteurs</li>
-                <li>Liste des modèles de compteurs</li>
-                <li>Liste des compteurs installés</li>
+                <li><a href="{{ path('fournisseurcompteur_index') }}">Liste des fournisseurs de compteurs</a></li>
+                <li><a href="{{ path('fournisseurcompteur_index') }}">Liste des modèles de compteurs</a></li>
+                <li><a href="{{ path('fournisseurcompteur_index') }}">Liste des compteurs installés</a></li>
             </div>
     </div>
     {% endif %}
