@@ -190,6 +190,83 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('#appbundle_radiateur_type').change(function () {
+        if ($(this).val() === 'Fonte') {
+            //$('.test').hide();
+            $('#appbundle_radiateur_profondeur').val(15);
+        } else if ($(this).val() === 'type10') {
+            $('#appbundle_radiateur_profondeur').val("1 panneau");
+        } else if ($(this).val() === 'type11') {
+            $('#appbundle_radiateur_profondeur').val("1 panneau 1rang d'ailettes");
+        } else if ($(this).val() === 'type20') {
+            $('#appbundle_radiateur_profondeur').val("2 panneaux");
+        } else if ($(this).val() === 'type21') {
+            $('#appbundle_radiateur_profondeur').val("2 panneaux 1 rang d'ailettes");
+        } else if ($(this).val() === 'type22') {
+            $('#appbundle_radiateur_profondeur').val("2 panneaux 2 rangs d'ailettes");
+        } else if ($(this).val() === 'type30') {
+            $('#appbundle_radiateur_profondeur').val("3 panneaux");
+        } else if ($(this).val() === 'type32') {
+            $('#appbundle_radiateur_profondeur').val("3 panneaux 2 rangs d'ailettes");
+        } else {
+            $('#appbundle_radiateur_profondeur').val('choisir');
+        }
+    });
+});
+
+// changement dynamique du pouvoir émissif
+
+$(document).ready(function () {
+
+    function puissanceDelta() {
+        var hauteur = $('#appbundle_radiateur_hauteur').val();
+        if (hauteur === '0.3') {
+            if ($('#appbundle_radiateur_type').val() === "Fonte") {
+                $('#appbundle_radiateur_regimeDimension').val(3325);
+            }
+        } else if (hauteur === '0.6') {
+            $('#appbundle_radiateur_regimeDimension').val(3185);
+        }
+        if (hauteur === '0.8') {
+            $('#appbundle_radiateur_regimeDimension').val(3105);
+        }
+    }
+
+    $('#appbundle_radiateur_hauteur').on('input', puissanceDelta);
+});
+
+// Calcule du pouvoir émissif
+
+$(document).ready(function () {
+    function puissanceDelta() {
+        var hauteur = $('#appbundle_radiateur_hauteur').val();
+        var longueur = $('#appbundle_radiateur_longueur').val();
+        var regime = $('#appbundle_radiateur_regimeDimension').val();
+        if (hauteur !== false && longueur !== false) {
+            var res = hauteur * longueur * regime;
+
+            $('#appbundle_radiateur_puissanceDeltaT50').val(res);
+        }
+    }
+    $('#appbundle_radiateur_hauteur').on('input', puissanceDelta);
+    $('#appbundle_radiateur_longueur').on('input', puissanceDelta);
+    $('#appbundle_radiateur_regimeDimension').on('input', puissanceDelta);
+});
+
+/*$('#appbundle_radiateur_hauteur').change(function () {
+    if ( $(this).val() === '0.3') {
+        $('#appbundle_radiateur_regimeDimension').val(3325);
+    }
+    else if ( $(this).val() === '0.6') {
+        $('#appbundle_radiateur_regimeDimension').val(3185);
+    }
+    else if ( $(this).val() === '0.8') {
+        $('#appbundle_radiateur_regimeDimension').val(3105);
+    }
+});
+});*/
+
 /***/ })
 
 /******/ });
