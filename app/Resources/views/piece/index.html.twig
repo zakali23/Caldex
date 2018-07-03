@@ -1,8 +1,8 @@
 {% extends "admin/base_admin.html.twig"%}
 {% block body %}
-    <h1>Pieces list</h1>
+    <h1>Pièces </h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -34,9 +34,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('piece_new') }}">Create a new piece</a>
-        </li>
-    </ul>
+
 {% endblock %}

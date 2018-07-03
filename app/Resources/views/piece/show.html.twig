@@ -1,31 +1,29 @@
 {% extends "admin/base_admin.html.twig"%}
 {% block body %}
-    <h1>Piece</h1>
-
-    <table>
+<h1>Description pièce</h1>
+<div class="table-responsive">
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ piece.id }}</td>
-            </tr>
-            <tr>
                 <th>Nom</th>
-                <td>{{ piece.nom }}</td>
-            </tr>
-            <tr>
                 <th>Surface</th>
-                <td>{{ piece.surface }}</td>
+                <th>Photo</th>
+
             </tr>
             <tr>
-                <th>Photo</th>
-                <td>{{ piece.photo }}</td>
+                <td>{{ piece.id }}</td>
+                <td>{{ piece.nom }}</td>
+                <td>{{ piece.surface }} m2</td>
+                <td><a href="#myModal" role="button" ><img src="/images/pieces/{{ piece.photo }}" width="100" height="auto"></a></td>
             </tr>
+
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('piece_index') }}">Back to the list</a>
+            <a href="{{ path('piece_new') }}">Back to the list</a>
         </li>
         <li>
             <a href="{{ path('piece_edit', { 'id': piece.id }) }}">Edit</a>

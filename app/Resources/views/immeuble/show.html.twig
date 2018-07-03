@@ -1,35 +1,31 @@
 {% extends "admin/base_admin.html.twig"%}
 {% block body %}
-    <h1>Immeuble</h1>
-
-    <table>
+<h1>Description immeuble</h1>
+<div class="table-responsive">
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ immeuble.id }}</td>
-            </tr>
-            <tr>
                 <th>Adresse</th>
-                <td>{{ immeuble.adresse }}</td>
-            </tr>
-            <tr>
                 <th>Codepostal</th>
-                <td>{{ immeuble.codePostal }}</td>
-            </tr>
-            <tr>
                 <th>Ville</th>
-                <td>{{ immeuble.ville }}</td>
+                <th>Plan</th>
+
             </tr>
             <tr>
-                <th>Plan</th>
-                <td>{{ immeuble.plan }}</td>
+                <td>{{ immeuble.id }}</td>
+                <td>{{ immeuble.adresse }}</td>
+                <td>{{ immeuble.codePostal }}</td>
+                <td>{{ immeuble.ville }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/immeuble/{{ immeuble.plan }}" width="100" height="auto"></a></td>
             </tr>
+
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('immeuble_index') }}">Back to the list</a>
+            <a href="{{ path('immeuble_new') }}">Back to the list</a>
         </li>
         <li>
             <a href="{{ path('immeuble_edit', { 'id': immeuble.id }) }}">Edit</a>

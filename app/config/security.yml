@@ -24,6 +24,14 @@ security:
                 lifetime: 31536000 # 1 year in seconds
                 path:    /
             pattern: ^/
+            #remember_me:
+            #    secret:   '%secret%'
+            #    lifetime: 1 # 1 week in seconds
+            #    path:     /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                #always_remember_me: true
             form_login:
                 provider: fos_userbundle
                 remember_me: true
@@ -48,13 +56,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: [ROLE_ADMIN, ROLE_GESTION, ROLE_SALARIE] }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/locataire/, role: ROLE_LOCATAIRE }
-        - { path: ^/proprietaire/, role: ROLE_PROPRIETAIRE }
-        - { path: ^/syndicat/, role: ROLE_SYNDICAT }
-        - { path: ^/coproprietaire/, role: ROLE_COPROPRIETAIRE }
-        - { path: ^/asso_copro/, role: ROLE_ASSOCOPRO }
-        - { path: ^/copro/new$, role: ROLE_ADMIN }
         - { path: ^/immeuble/new$, role: ROLE_ADMIN }
         - { path: ^/lot/new$, role: ROLE_ADMIN }
         - { path: ^/piece/new$, role: ROLE_ADMIN }
+        - { path: ^/copro/new$, role: ROLE_ADMIN }

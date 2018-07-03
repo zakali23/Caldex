@@ -1,35 +1,31 @@
 {% extends "admin/base_admin.html.twig"%}
 {% block body %}
-    <h1>Lot</h1>
-
-    <table>
+<h1>Description lot</h1>
+<div class="table-responsive">
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ lot.id }}</td>
-            </tr>
-            <tr>
                 <th>Numero</th>
-                <td>{{ lot.numero }}</td>
-            </tr>
-            <tr>
                 <th>Surface</th>
-                <td>{{ lot.surface }}</td>
-            </tr>
-            <tr>
                 <th>Etage</th>
-                <td>{{ lot.etage }}</td>
+                <th>Photo</th>
+
             </tr>
             <tr>
-                <th>Photo</th>
-                <td>{{ lot.photo }}</td>
+                <td>{{ lot.id }}</td>
+                <td>{{ lot.numero }}</td>
+                <td>{{ lot.surface }} m2</td>
+                <td>{{ lot.etage }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/lot/{{ lot.photo }}" width="100" height="auto"></a></td>
             </tr>
+
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('lot_index') }}">Back to the list</a>
+            <a href="{{ path('lot_new') }}">Back to the list</a>
         </li>
         <li>
             <a href="{{ path('lot_edit', { 'id': lot.id }) }}">Edit</a>

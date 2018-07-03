@@ -14,6 +14,7 @@
                     <h3>Mon Profil</h3>
                 </div>
                 <ul>
+
                     <li><span>Prénom :</span> {{ app.user.firstname }}</li>
                     <li><span>Nom :</span> {{ app.user.lastname }}</li>
                     <li><span>Adresse :</span>{{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
@@ -30,9 +31,10 @@
                         <h3>Ma copropriété</h3>
                     </div>
                     <ul>
-                        <li><span>Nom :</span></li>
-                        <li><span>Adresse :</span> </li>
-                        <li><span>Téléphone: </span></li>
+                        {% for user in user.copros %}
+                        <li><span>Nom : {{ user.name }}</span></li>
+                        <li><span>Adresse : {{ user.adresse }} {{ user.codePostal }} {{ user.ville }}</span> </li>
+                        {% endfor %}
                     </ul>
                 {% endif %}
 
