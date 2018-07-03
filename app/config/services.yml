@@ -32,6 +32,10 @@ services:
     AppBundle\Service\Pdf:
         public: true
 
+    AppBundle\Controller\RegistrationController:
+        arguments:
+            $formFactory: '@fos_user.registration.form.factory'
+
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:

@@ -78,7 +78,11 @@ class ConnexionController extends Controller{
 
     public function determineUser()
     {
-        return $this->render('user/user.html.twig');
+
+
+        return $this->render('user/user.html.twig', array(
+            'user'=>$this->getUser(),
+        ));
 
     }
 
