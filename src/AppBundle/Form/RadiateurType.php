@@ -48,7 +48,15 @@ class RadiateurType extends AbstractType
                         "3 panneaux 2 rangs d'ailettes" => "3 panneaux 2 rangs d'ailettes",
                     ]
                 ))
-            ->add('hauteur', TextType::class)
+            ->add('hauteur', ChoiceType::class,
+                array(
+                    'choices' => [
+                        'choisir' => 'null',
+                        '0.3' => '0.3',
+                        '0.6' => '0.6',
+                        '0.8' => '0.8',
+                    ]
+                ))
             ->add('longueur', TextType::class)
             ->add('regimeDimension', TextType::class)
             ->add('puissanceDeltaT50', TextType::class);

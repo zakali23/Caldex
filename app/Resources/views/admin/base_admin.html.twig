@@ -38,21 +38,8 @@
             </form>
         </div>
         <div class="header-icons-group">
-
-            {% if is_granted('ROLE_ADMIN') %}
-                <div class="c-header-icon" title="Espace Administration"><a href="/admin/"><i class="fa fa-address-card "></i></a></div>
-            {% endif %}
-
-            {% if is_granted('[ROLE_GESTION, ROLE_SALARIE]') %}
-                <div class="c-header-icon logout" title="Espace Organisme de copropriété"><a href=""><i class="fa fa-address-card "></i></a></div>
-            {% endif %}
-
-            {% if is_granted('ROLE_USER') %}
-                <div class="c-header-icon" title="Espace Résident"><a href="#"><i class="fa fa-address-card "></i></a></div>
-            {% endif %}
-
-
-            <div class="c-header-icon logout"><a id="btn-show-popover-nobug" class="btn btn-pophover" data-toggle="popover" data-placement="bottom"><i class="fa fa fa-user"></i></a></div>
+            <div class="c-header-icon" title="Espace Personnel"><a href="/admin"><i class="fa fa-address-card "></i></a></div>
+            <div class="c-header-icon logout"><a href="/profile_user" id="btn-show-popover-nobug" class="btn btn-pophover" data-toggle="popover" data-placement="bottom"><i class="fa fa fa-user"></i></a></div>
             <div class="c-header-icon logout"><a href="/logout"><i class="fa fa-power-off"></i></a></div>
 
         </div>
