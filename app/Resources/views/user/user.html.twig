@@ -53,7 +53,13 @@
         </div>
 
 
+        {% for copro in user.copros %}
+        {% for batiment in copro.batiments %}
 
+            <li><span>Reference : {{ batiment.reference }}</span></li>
+            <li><span>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</span> </li>
+        {% endfor %}
+        {% endfor %}
 
     </div>
 {% endblock %}
