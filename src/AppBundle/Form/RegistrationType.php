@@ -31,7 +31,7 @@ class RegistrationType extends AbstractType
             ->add('email2', EmailType::class, array(
                 'required' => false
             ))
-            ->add('phone', TelType::class)
+            ->add('phone')
             ->add('phone2', TelType::class, array(
                 'required' => false
             ))
