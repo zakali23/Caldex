@@ -194,6 +194,28 @@
                     </div>
                 </div>
             </nav>
+
+        {% elseif  is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
+
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Utilisateurs">
+
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <ul class="nav nav-pills">
+                            <li >
+                                <a href="{{ path('copro_index') }} ">Consultation co-Propriétés</a>
+                            </li>
+                            <li >
+                                <a  href="{{ path('associationcopro_index') }}"> Asso de Co-Propriétés</a>
+                            </li>
+                            <li >
+                                <a  href="{{ path('syndic_index') }} ">Syndicats</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
         {% endif %}
 
         {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}

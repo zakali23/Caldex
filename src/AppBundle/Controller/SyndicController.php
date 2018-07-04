@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Syndic;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -24,10 +25,13 @@ class SyndicController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+
+
         $syndics = $em->getRepository('AppBundle:Syndic')->findAll();
 
         return $this->render('syndic/index.html.twig', array(
             'syndics' => $syndics,
+            'user' => $this->getUser(),
         ));
     }
 
