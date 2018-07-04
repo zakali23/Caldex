@@ -40,7 +40,7 @@ class RadiateurType extends AbstractType
                         '25' => '25',
                         '35' => '35',
                         '1 panneau' => '1 panneau',
-                        "1 panneau 1rang d'ailettes" => "1 panneau 1rang d'ailettes",
+                        "1 panneau 1rang d'ailettes" => "1 panneau 1rang d'ailettes" ,
                         '2 panneaux ' => "2 panneaux",
                         "2 panneaux 1 rang d'ailettes" => "2 panneaux 1 rang d'ailettes",
                         "2 panneaux 2 rangs d'ailettes" => "2 panneaux 2 rangs d'ailettes",
