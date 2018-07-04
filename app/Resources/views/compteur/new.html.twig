@@ -3,11 +3,28 @@
 
 {% block body %}
     <h1>Compteur creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+{{ form_start(form) }}
+        <label>Type de Compteur</label>
+        {{ form_widget(form.categorieCompteur) }}
+        {{ form_errors(form.categorieCompteur) }}
+        <label>Marque du Compteur</label>
+        {{ form_widget(form.marque) }}
+        {{ form_errors(form.marque) }}
+        <label>Référence du Compteur</label>
+        {{ form_widget(form.reference) }}
+        {{ form_errors(form.reference) }}
+        <label>Numéro de Série</label>
+        {{ form_widget(form.serialNumber) }}
+        {{ form_errors(form.serialNumber) }}
+        <label>Photo du Compteur</label>
+        {{ form_widget(form.photo) }}
+        {{ form_errors(form.photo) }}
+    <input type="submit" value="Create" />
+    <div class="hidden">
+    {{ form_rest(form) }}
+    </div>
     {{ form_end(form) }}
+
 
     <ul>
         <li>
