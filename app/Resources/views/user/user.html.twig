@@ -31,9 +31,13 @@
                         <h3>Ma copropriété</h3>
                     </div>
                     <ul>
+
                         {% for user in user.copros %}
+                            {{ dump(user.batiments) }}
+
                         <li><span>Nom : {{ user.name }}</span></li>
                         <li><span>Adresse : {{ user.adresse }} {{ user.codePostal }} {{ user.ville }}</span> </li>
+
                         {% endfor %}
                     </ul>
                 {% endif %}

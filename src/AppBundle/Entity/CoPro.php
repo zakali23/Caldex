@@ -14,19 +14,19 @@ class CoPro
 {
     /**
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndic", mappedBy="gestionnaire")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndic", mappedBy="gestionnaire", fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
      */
     private $gestionnaires;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\associationCoPro", mappedBy="coproprietes")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\associationCoPro", mappedBy="coproprietes", fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
      */
     private $assoCopro;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment", fetch="EAGER")
      */
     private $batiments;
 
