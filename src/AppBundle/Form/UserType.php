@@ -18,6 +18,7 @@ class UserType extends AbstractType
             ->add('adresse')
             ->add('codePostal')
             ->add('ville')
+            ->add('email')
             ->add('email2')
             ->add('phone')
             ->add('phone2')
