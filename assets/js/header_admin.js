@@ -50,7 +50,6 @@ Dashboard.init();
 
 $(document).ready(function()
 {
-
     $("li#MC").click(function() {
 
         $("#Utilisateurs").css({"display": "none"});
@@ -60,7 +59,6 @@ $(document).ready(function()
         $("#Gestion-Materiel").css({"display": "none"});
         $("#Gestion-Parc").css({"display": "none"});
         $("#Gestion-Utilisateurs").css({"display": "none"});
-
 
 
     });
@@ -89,20 +87,19 @@ $(document).ready(function()
         $("#Gestion-Parc").show();
         $("#Gestion-Utilisateurs").css({"display": "none"});
 
+
     });
     $("li#GM").click(function() {
-
 
         $("#Utilisateurs").css({"display": "none"});
         $("#Mes-Consos").css({"display": "none"});
         $("#GestionConsommations").css({"display": "none"});
         $("#ConsultParc").css({"display": "none"});
-        $("#Gestion-Materiel").css({"display": "none"});
+        $("#Gestion-Materiel").show();
         $("#Gestion-Parc").css({"display": "none"});
         $("#Gestion-Utilisateurs").css({"display": "none"});
 
     });
-
 
 
 });
@@ -120,14 +117,6 @@ $(document).ready(function(){
 
         $("#addFormLot").show();
         $("#btnAddLot").hide();
-
-    });
-    $("#SGPI").click(function() {
-
-
-        $(location).attr('href', 'http://localhost:8000/syndic/');
-        $("#Gestion-Utilisateurs").show();
-
 
     });
 });
@@ -335,17 +324,17 @@ $(document).ready(function(){
 });
 
 
-            /*$('#appbundle_radiateur_hauteur').change(function () {
-                if ( $(this).val() === '0.3') {
-                    $('#appbundle_radiateur_regimeDimension').val(3325);
-                }
-                else if ( $(this).val() === '0.6') {
-                    $('#appbundle_radiateur_regimeDimension').val(3185);
-                }
-                else if ( $(this).val() === '0.8') {
-                    $('#appbundle_radiateur_regimeDimension').val(3105);
-                }
-            });
+/*$('#appbundle_radiateur_hauteur').change(function () {
+    if ( $(this).val() === '0.3') {
+        $('#appbundle_radiateur_regimeDimension').val(3325);
+    }
+    else if ( $(this).val() === '0.6') {
+        $('#appbundle_radiateur_regimeDimension').val(3185);
+    }
+    else if ( $(this).val() === '0.8') {
+        $('#appbundle_radiateur_regimeDimension').val(3105);
+    }
+});
 
 
 

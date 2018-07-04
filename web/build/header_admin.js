@@ -124,7 +124,6 @@ Dashboard.init();
 //# sourceURL=pen.js
 
 $(document).ready(function () {
-
     $("li#MC").click(function () {
 
         $("#Utilisateurs").css({ "display": "none" });
@@ -163,7 +162,7 @@ $(document).ready(function () {
         $("#Mes-Consos").css({ "display": "none" });
         $("#GestionConsommations").css({ "display": "none" });
         $("#ConsultParc").css({ "display": "none" });
-        $("#Gestion-Materiel").css({ "display": "none" });
+        $("#Gestion-Materiel").show();
         $("#Gestion-Parc").css({ "display": "none" });
         $("#Gestion-Utilisateurs").css({ "display": "none" });
     });
@@ -182,11 +181,6 @@ $(document).ready(function () {
 
         $("#addFormLot").show();
         $("#btnAddLot").hide();
-    });
-    $("#SGPI").click(function () {
-
-        $(location).attr('href', 'http://localhost:8000/syndic/');
-        $("#Gestion-Utilisateurs").show();
     });
 });
 
@@ -215,25 +209,134 @@ $(document).ready(function () {
     });
 });
 
-// changement dynamique du pouvoir émissif
+// changement dynamique du pouvoir émissif : Fonte
 
 $(document).ready(function () {
 
-    function puissanceDelta() {
+    function regimeEmissif() {
         var hauteur = $('#appbundle_radiateur_hauteur').val();
+        var type = $('#appbundle_radiateur_type').val();
+        var profondeur = $('#appbundle_radiateur_profondeur').val();
+
         if (hauteur === '0.3') {
-            if ($('#appbundle_radiateur_type').val() === "Fonte") {
-                $('#appbundle_radiateur_regimeDimension').val(3325);
+            if (type === "Fonte") {
+                if (profondeur === '15') {
+                    $(profondeur).val("1 panneau").hide();
+                    $('#appbundle_radiateur_regimeDimension').val(3290);
+                } else if (profondeur === '25') {
+                    $('#appbundle_radiateur_regimeDimension').val(4825);
+                } else if (profondeur === '35') {
+                    $('#appbundle_radiateur_regimeDimension').val(7090);
+                }
             }
         } else if (hauteur === '0.6') {
-            $('#appbundle_radiateur_regimeDimension').val(3185);
+            if (type === "Fonte") {
+                if (profondeur === "15") {
+                    $('#appbundle_radiateur_regimeDimension').val(3165);
+                } else if (profondeur === '25') {
+                    $('#appbundle_radiateur_regimeDimension').val(4645);
+                } else if (profondeur === '35') {
+                    $('#appbundle_radiateur_regimeDimension').val(6820);
+                }
+            }
         }
         if (hauteur === '0.8') {
-            $('#appbundle_radiateur_regimeDimension').val(3105);
+            if (type === "Fonte") {
+                if (profondeur === '15') {
+                    $('#appbundle_radiateur_regimeDimension').val(3080);
+                } else if (profondeur === '25') {
+                    $('#appbundle_radiateur_regimeDimension').val(4525);
+                } else if (profondeur === '35') {
+                    $('#appbundle_radiateur_regimeDimension').val(6645);
+                }
+            }
         }
     }
 
-    $('#appbundle_radiateur_hauteur').on('input', puissanceDelta);
+    $('#appbundle_radiateur_hauteur').on('input', regimeEmissif);
+    $('#appbundle_radiateur_profondeur').on('input', regimeEmissif);
+});
+
+// changement dynamique du pouvoir émissif : Acier
+
+$(document).ready(function () {
+
+    function regimeEmissif() {
+        var hauteur = $('#appbundle_radiateur_hauteur').val();
+        var type = $('#appbundle_radiateur_type').val();
+
+        if (hauteur === '0.3') {
+            if (type === "type10") {
+                $('#appbundle_radiateur_regimeDimension').val(1330);
+            }
+            if (type === "type11") {
+                $('#appbundle_radiateur_regimeDimension').val(1880);
+            }
+            if (type === "type20") {
+                $('#appbundle_radiateur_regimeDimension').val(2150);
+            }
+            if (type === "type21") {
+                $('#appbundle_radiateur_regimeDimension').val(2780);
+            }
+            if (type === "type22") {
+                $('#appbundle_radiateur_regimeDimension').val(3210);
+            }
+            if (type === "type30") {
+                $('#appbundle_radiateur_regimeDimension').val(3045);
+            }
+            if (type === "type32") {
+                $('#appbundle_radiateur_regimeDimension').val(4185);
+            }
+        } else if (hauteur === '0.6') {
+            if (type === "type10") {
+                $('#appbundle_radiateur_regimeDimension').val(1200);
+            }
+            if (type === "type11") {
+                $('#appbundle_radiateur_regimeDimension').val(1720);
+            }
+            if (type === "type20") {
+                $('#appbundle_radiateur_regimeDimension').val(1950);
+            }
+            if (type === "type21") {
+                $('#appbundle_radiateur_regimeDimension').val(2510);
+            }
+            if (type === "type22") {
+                $('#appbundle_radiateur_regimeDimension').val(2900);
+            }
+            if (type === "type30") {
+                $('#appbundle_radiateur_regimeDimension').val(2765);
+            }
+            if (type === "type32") {
+                $('#appbundle_radiateur_regimeDimension').val(3800);
+            }
+        }
+        if (hauteur === '0.8') {
+            if (type === "type10") {
+                $('#appbundle_radiateur_regimeDimension').val(1170);
+            }
+            if (type === "type11") {
+                $('#appbundle_radiateur_regimeDimension').val(1685);
+            }
+            if (type === "type20") {
+                $('#appbundle_radiateur_regimeDimension').val(1910);
+            }
+            if (type === "type21") {
+                $('#appbundle_radiateur_regimeDimension').val(2465);
+            }
+            if (type === "type22") {
+                $('#appbundle_radiateur_regimeDimension').val(2840);
+            }
+            if (type === "type30") {
+                $('#appbundle_radiateur_regimeDimension').val(2710);
+            }
+            if (type === "type32") {
+                $('#appbundle_radiateur_regimeDimension').val(3730);
+            }
+        }
+    }
+
+    $('#appbundle_radiateur_type').on('input', regimeEmissif);
+    $('#appbundle_radiateur_hauteur').on('input', regimeEmissif);
 });
 
 // Calcule du pouvoir émissif
@@ -252,6 +355,8 @@ $(document).ready(function () {
     $('#appbundle_radiateur_hauteur').on('input', puissanceDelta);
     $('#appbundle_radiateur_longueur').on('input', puissanceDelta);
     $('#appbundle_radiateur_regimeDimension').on('input', puissanceDelta);
+    $('#appbundle_radiateur_profondeur').on('input', puissanceDelta);
+    $('#appbundle_radiateur_type').on('input', puissanceDelta);
 });
 
 /*$('#appbundle_radiateur_hauteur').change(function () {
@@ -265,6 +370,10 @@ $(document).ready(function () {
         $('#appbundle_radiateur_regimeDimension').val(3105);
     }
 });
+
+
+
+
 });*/
 
 /***/ })
