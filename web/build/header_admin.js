@@ -166,6 +166,12 @@ $(document).ready(function () {
         $("#Gestion-Parc").css({ "display": "none" });
         $("#Gestion-Utilisateurs").css({ "display": "none" });
     });
+
+    $("#btnListCopro").click(function () {
+
+        $("#cardForUser").css({ "display": "none" });
+        $("#listFromCopro").show();
+    });
 });
 
 $(document).ready(function () {

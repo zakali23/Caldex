@@ -32,6 +32,7 @@ class UserController extends Controller
         ));
     }
 
+
     /**
      * Creates a new user entity.
      *

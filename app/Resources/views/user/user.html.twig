@@ -8,7 +8,7 @@
 
     <br class="container">
         <p class="connect"> Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
-        <div class="row" style="display: flex;">
+        <div class="row" style="display: flex;" id="cardForUser">
             <div id="profil" class="col-6 card">
                 <div class="card-header">
                     <h3>Mon Profil</h3>
@@ -53,23 +53,7 @@
         </div>
 
 
-        {% for copro in user.copros %}
-            {% for batiment in copro.batiments %}
 
-                <li><span>Reference : {{ batiment.reference }}</span></li>
-                <li><span>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</span> </li></br>
-                {% for lot in batiment.appartements %}
-                    <li><span>Numero : {{ lot.numero }}</span></li>
-                    <li><span>Surface : {{ lot.surface }} </span> </li>
-                    <li><span>Etage : {{ lot.etage }} </span> </li></br>
-                    {% for room in lot.rooms %}
-                        <li><span>Nom : {{ room.nom }}</span></li>
-                        <li><span>Surface : {{room.surface }} </span> </li></br>
-                    {% endfor %}
-                {% endfor %}
+    {% include 'user/consultation.html.twig' %}
 
-            {% endfor %}
-        {% endfor %}
-
-    </div>
 {% endblock %}

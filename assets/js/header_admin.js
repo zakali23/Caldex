@@ -101,6 +101,14 @@ $(document).ready(function()
 
     });
 
+    $("#btnListCopro").click(function() {
+
+        $("#cardForUser").css({"display": "none"});
+        $("#listFromCopro").show();
+
+
+    });
+
 
 });
 
