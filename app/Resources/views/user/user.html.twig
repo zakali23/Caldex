@@ -6,7 +6,7 @@
 
 {% block body %}
 
-    <div class="container">
+    <br class="container">
         <p class="connect"> Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
         <div class="row" style="display: flex;">
             <div id="profil" class="col-6 card">
@@ -54,11 +54,21 @@
 
 
         {% for copro in user.copros %}
-        {% for batiment in copro.batiments %}
+            {% for batiment in copro.batiments %}
 
-            <li><span>Reference : {{ batiment.reference }}</span></li>
-            <li><span>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</span> </li>
-        {% endfor %}
+                <li><span>Reference : {{ batiment.reference }}</span></li>
+                <li><span>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</span> </li></br>
+                {% for lot in batiment.appartements %}
+                    <li><span>Numero : {{ lot.numero }}</span></li>
+                    <li><span>Surface : {{ lot.surface }} </span> </li>
+                    <li><span>Etage : {{ lot.etage }} </span> </li></br>
+                    {% for room in lot.rooms %}
+                        <li><span>Nom : {{ room.nom }}</span></li>
+                        <li><span>Surface : {{room.surface }} </span> </li></br>
+                    {% endfor %}
+                {% endfor %}
+
+            {% endfor %}
         {% endfor %}
 
     </div>
