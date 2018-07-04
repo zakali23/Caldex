@@ -80,8 +80,9 @@ class User extends BaseUser
 
     /**
      * @var int
-     *
+     * @Assert\Regex(pattern="/^[0-9]{5,5}$/")
      * @ORM\Column(name="codePostal", type="integer")
+     *
      */
     private $codePostal;
 
