@@ -3,10 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Syndic;
-use AppBundle\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Syndic controller.
@@ -39,6 +41,7 @@ class SyndicController extends Controller
      * Creates a new syndic entity.
      *
      * @Route("/new", name="syndic_new")
+     * @IsGranted("ROLE_ADMIN")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -65,6 +68,7 @@ class SyndicController extends Controller
      * Finds and displays a syndic entity.
      *
      * @Route("/{id}", name="syndic_show")
+     * @IsGranted("ROLE_ADMIN")
      * @Method("GET")
      */
     public function showAction(Syndic $syndic)
@@ -81,10 +85,12 @@ class SyndicController extends Controller
      * Displays a form to edit an existing syndic entity.
      *
      * @Route("/{id}/edit", name="syndic_edit")
+     * @IsGranted("ROLE_ADMIN")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Syndic $syndic)
     {
+
         $deleteForm = $this->createDeleteForm($syndic);
         $editForm = $this->createForm('AppBundle\Form\SyndicType', $syndic);
         $editForm->handleRequest($request);
@@ -106,6 +112,7 @@ class SyndicController extends Controller
      * Deletes a syndic entity.
      *
      * @Route("/{id}", name="syndic_delete")
+     * @IsGranted("ROLE_ADMIN")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Syndic $syndic)
