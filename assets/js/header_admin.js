@@ -95,7 +95,7 @@ $(document).ready(function()
         $("#Mes-Consos").css({"display": "none"});
         $("#GestionConsommations").css({"display": "none"});
         $("#ConsultParc").css({"display": "none"});
-        $("#Gestion-Materiel").css({"display": "none"});
+        $("#Gestion-Materiel").show();
         $("#Gestion-Parc").css({"display": "none"});
         $("#Gestion-Utilisateurs").css({"display": "none"});
 
