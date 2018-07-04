@@ -167,10 +167,26 @@ $(document).ready(function () {
         $("#Gestion-Utilisateurs").css({ "display": "none" });
     });
 
+    $("#btnListImmeuble").click(function () {
+
+        $("#cardForUser").css({ "display": "none" });
+        $("#listFromCopro").css({ "display": "none" });
+        $("#listFromLot").css({ "display": "none" });
+        $("#listFromImmeuble").show();
+    });
+    $("#btnListLot").click(function () {
+
+        $("#cardForUser").css({ "display": "none" });
+        $("#listFromCopro").css({ "display": "none" });
+        $("#listFromLot").show();
+        $("#listFromImmeuble").css({ "display": "none" });
+    });
     $("#btnListCopro").click(function () {
 
         $("#cardForUser").css({ "display": "none" });
         $("#listFromCopro").show();
+        $("#listFromLot").css({ "display": "none" });
+        $("#listFromImmeuble").css({ "display": "none" });
     });
 });
 

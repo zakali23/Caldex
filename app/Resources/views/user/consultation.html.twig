@@ -1,73 +1,95 @@
-{% extends 'admin/base_admin.html.twig' %}
 
-{% block body %}
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Collapsible Group Item #1
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+    <div id="listFromImmeuble">
+        <div class="container">
+            {% for copro in user.copros %}
+
+            <div class="row" style="display: flex;" id="cardForUser">
+                <div id="profil" class="col card">
+                    <div class="card-header">
+                        <h3>Votre Corpo</h3>
+                    </div>
+                    <ul>
+
+                        <li><span>Nom:</span> {{ copro.name }}</li>
+                        <li><span>Adresse:</span>  {{ copro.adresse }} {{ copro.codePostal }} {{ copro.ville }}</li>
+
+                    </ul>
+
+
                 </div>
+
+
             </div>
+
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Collapsible Group Item #2
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
+
+           </br>
+            {% for batiment in copro.batiments %}
+
+                    <div class="col-xs-6 col-md-3">
+                        <div class="card text-center">
+                            <div class="card-header deep-orange lighten-1 white-text"><h3>Votre Immeuble</h3></div>
+                            <div class="card-body">
+                                <h4 class="card-title">Reference : {{ batiment.reference }}</h4>
+                                <h5 class="card-text">Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div id="listFromLot">
+
+
+        {% for copro in user.copros %}
+
+
+            <li><span>Nom : {{ copro.name }}</span></li>
+            <li><span>Adresse : {{ copro.adresse }} {{ copro.codePostal }} {{ copro.ville }}</span> </li></br>
+            {% for batiment in copro.batiments %}
+
+                <li><span>Reference : {{ batiment.reference }}</span></li>
+                <li><span>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</span> </li></br>
+                {% for lot in batiment.appartements %}
+                    <li><span>Numero : {{ lot.numero }}</span></li>
+                    <li><span>Surface : {{ lot.surface }} </span> </li>
+                    <li><span>Etage : {{ lot.etage }} </span> </li></br>
+
+                {% endfor %}
+
+            {% endfor %}
+        {% endfor %}
     </div>
     <div id="listFromCopro">
 
-      {% for copro in user.copros %}
-        {% for batiment in copro.batiments %}
 
-            <li><span>Reference : {{ batiment.reference }}</span></li>
-            <li><span>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</span> </li></br>
-            {% for lot in batiment.appartements %}
-                <li><span>Numero : {{ lot.numero }}</span></li>
-                <li><span>Surface : {{ lot.surface }} </span> </li>
-                <li><span>Etage : {{ lot.etage }} </span> </li></br>
-                {% for room in lot.rooms %}
-                    <li><span>Nom : {{ room.nom }}</span></li>
-                    <li><span>Surface : {{room.surface }} </span> </li></br>
+        {% for copro in user.copros %}
+
+
+            <li><span>Nom : {{ copro.name }}</span></li>
+            <li><span>Adresse : {{ copro.adresse }} {{ copro.codePostal }} {{ copro.ville }}</span> </li></br>
+            {% for batiment in copro.batiments %}
+
+                <li><span>Reference : {{ batiment.reference }}</span></li>
+                <li><span>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</span> </li></br>
+                {% for lot in batiment.appartements %}
+                    <li><span>Numero : {{ lot.numero }}</span></li>
+                    <li><span>Surface : {{ lot.surface }} </span> </li>
+                    <li><span>Etage : {{ lot.etage }} </span> </li></br>
+                    {% for room in lot.rooms %}
+                        <li><span>Nom : {{ room.nom }}</span></li>
+                        <li><span>Surface : {{room.surface }} </span> </li></br>
+                    {% endfor %}
                 {% endfor %}
+
             {% endfor %}
-
         {% endfor %}
-    {% endfor %}
     </div>
-{% endblock %}
 
-{% block stylesheets %}
-
-{% endblock %}
 
