@@ -8,15 +8,25 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">Ville</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th scope="col">Actions</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
-        {% for associationCoPro in associationCoPros %}
+
+        {% for associationCoPro in user.associationCoPros %}
             <tr>
                 <td><a href="{{ path('associationcopro_show', { 'id': associationCoPro.id }) }}">{{ associationCoPro.id }}</a></td>
                 <td>{{ associationCoPro.name }}</td>
+                <td>{{ associationCoPro.adresse }}</td>
+                <td>{{ associationCoPro.codePostal }}</td>
+                <td>{{ associationCoPro.codePostal }}</td>
                 <td>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <ul>
                         <li>
                             <a href="{{ path('associationcopro_show', { 'id': associationCoPro.id }) }}">show</a>
@@ -25,6 +35,7 @@
                             <a href="{{ path('associationcopro_edit', { 'id': associationCoPro.id }) }}">edit</a>
                         </li>
                     </ul>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}

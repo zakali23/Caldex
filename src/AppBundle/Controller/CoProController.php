@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\CoPro;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -18,6 +19,7 @@ class CoProController extends Controller
      * Lists all coPro entities.
      *
      * @Route("/", name="copro_index")
+     *
      * @Method("GET")
      */
     public function indexAction()
@@ -28,6 +30,7 @@ class CoProController extends Controller
 
         return $this->render('copro/index.html.twig', array(
             'coPros' => $coPros,
+            'user' => $this->getUser(),
         ));
     }
 
@@ -35,6 +38,7 @@ class CoProController extends Controller
      * Creates a new coPro entity.
      *
      * @Route("/new", name="copro_new")
+     * @IsGranted("ROLE_ADMIN")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -61,6 +65,7 @@ class CoProController extends Controller
      * Finds and displays a coPro entity.
      *
      * @Route("/{id}", name="copro_show")
+     * @IsGranted("ROLE_ADMIN")
      * @Method("GET")
      */
     public function showAction(CoPro $coPro)
@@ -77,6 +82,7 @@ class CoProController extends Controller
      * Displays a form to edit an existing coPro entity.
      *
      * @Route("/{id}/edit", name="copro_edit")
+     * @IsGranted("ROLE_ADMIN")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, CoPro $coPro)
@@ -102,6 +108,7 @@ class CoProController extends Controller
      * Deletes a coPro entity.
      *
      * @Route("/{id}", name="copro_delete")
+     * @IsGranted("ROLE_ADMIN")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, CoPro $coPro)
