@@ -18,8 +18,8 @@
         </thead>
         <tbody>
 
-
-        {% for syndic in user.syndics %}
+    {% if is_granted('ROLE_ADMIN')%}
+        {% for syndic in syndics %}
             <tr>
                 <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
                 <td>{{ syndic.nom }}</td>
@@ -27,7 +27,6 @@
                 <td>{{ syndic.codePostal }}</td>
                 <td>{{ syndic.ville }}</td>
                 <td>
-                    {% if is_granted('ROLE_ADMIN') %}
                     <ul>
                         <li>
                             <a href="{{ path('syndic_show', { 'id': syndic.id }) }}">show</a>
@@ -36,10 +35,22 @@
                             <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">edit</a>
                         </li>
                     </ul>
-                    {% endif %}
                 </td>
             </tr>
         {% endfor %}
+
+    {% elseif is_granted('ROLE_GESTION') %}
+        {% for syndic in user.syndics %}
+            <tr>
+                <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
+                <td>{{ syndic.nom }}</td>
+                <td>{{ syndic.adresse }}</td>
+                <td>{{ syndic.codePostal }}</td>
+                <td>{{ syndic.ville }}</td>
+
+            </tr>
+        {% endfor %}
+    {% endif %}
         </tbody>
     </table>
 
