@@ -605,6 +605,9 @@ a.list-group-item.active small {
 .OFF{
   display: none;
 }
-#listFromCopro,#listFromImmeuble,#listFromLot{
+#listFromCopro,#listFromImmeuble,#listFromLot,#scrollUpLot,#scrollUp{
   display: none;
+}
+#scrollList,#scrollUp,#scrollList,#scrollUpLot,#scrollDownLot{
+  font-size: 2em;
 }
