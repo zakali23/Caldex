@@ -6,7 +6,6 @@ footer, footer>a, footer>h6, footer>hr{
 }
 
 .gris-color {
-
     color: #6f757d;
 }
 
@@ -53,18 +52,13 @@ h1, h2, h3,h4,h5,h6{
   background-color: #e7e093;
 }
 .contact-section .contact {
-
-  background-color:$color-foncer;
+  background-color:$color-foncer !important;
 }
 select.form-control:not([size]):not([multiple]) {
   height: calc(2.25rem + 8px) !important;
 }
 #nom_id,#prenom_id,#telephone_id,#email_id,#adresse_id,#nom_valid,#prenom_valid,#email_valid,#telephone_valid{
   display: none;
-}
-.jumbotron.jumbotron-fluid {
-  background: #e7e093;
-
 }
 
 #username{
@@ -83,10 +77,23 @@ select.form-control:not([size]):not([multiple]) {
   margin-bottom: 18%;
   margin-top: 10%;
 }
-.jumbotron.text-center {
-  background: #e7e093;
-  color: $color-foncer;
+
+footer {
+  margin-top: 150px;
+  p, h6, .linkFooter {
+    color: $color-foncer;
+    .linkFooter {
+      color: $color-foncer;
+      text-decoration: none;
+    }
+
+  }
 }
+
+.jumbotron{
+  background-color: rgba(248,248,250, 0.8)  !important;
+}
+
 .text-muted {
   color: #373933 !important;
 }
