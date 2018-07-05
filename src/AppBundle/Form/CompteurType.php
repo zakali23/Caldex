@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use function Sodium\add;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +15,19 @@ class CompteurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('serialNumber')->add('photo')->add('dateInstallation')->add('dateAchat')->add('versionCompteur')->add('compteur')->add('categorieCompteur')->add('marque')->add('radiateur');
+        $builder
+            ->add('categorieCompteur')
+            ->add('marque')
+            ->add('reference')
+            ->add('serialNumber')
+            ->add('photo')
+            ->add('dateInstallation')
+            ->add('dateAchat')
+            ->add('compteur')
+            ->add('radiateur')
+            ->add('versionCompteur')
+
+        ;
     }/**
      * {@inheritdoc}
      */

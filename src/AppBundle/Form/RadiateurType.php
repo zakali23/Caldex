@@ -46,7 +46,15 @@ class RadiateurType extends AbstractType
                         "2 panneaux 2 rangs d'ailettes" => "2 panneaux 2 rangs d'ailettes",
                         "3 panneaux" => "3 panneaux",
                         "3 panneaux 2 rangs d'ailettes" => "3 panneaux 2 rangs d'ailettes",
-                    ]
+                        ],
+                        'choice_attr' => function($choiceValue, $key, $value) {
+                            // adds a class like attending_yes, attending_no, etc
+                            if($value == 15 || $value == 25 || $value == 35 || $value == 'null'){
+                                return ['id' => 'Fonte'];
+                            }
+                            return ['id' => 'acier'];
+                        },
+
                 ))
             ->add('hauteur', ChoiceType::class,
                 array(

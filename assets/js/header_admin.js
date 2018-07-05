@@ -132,8 +132,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('#appbundle_radiateur_type').change(function() {
         if ($(this).val() === 'Fonte') {
-            //$('.test').hide();
-            $('#appbundle_radiateur_profondeur').val(15);
+            $('#appbundle_radiateur_profondeur').val('null');
         }
         else if ($(this).val() === 'type10') {
             $('#appbundle_radiateur_profondeur').val("1 panneau");
@@ -177,7 +176,6 @@ $(document).ready(function() {
         if (hauteur === '0.3') {
             if( type === "Fonte" ){
                 if( profondeur === '15' ){
-                    $(profondeur).val("1 panneau").hide();
                     $('#appbundle_radiateur_regimeDimension').val(3290);
                 }
                 else if ( profondeur === '25' ){
@@ -217,6 +215,7 @@ $(document).ready(function() {
         }
     }
 
+    $('#appbundle_radiateur_type').on('input', regimeEmissif);
     $('#appbundle_radiateur_hauteur').on('input', regimeEmissif);
     $('#appbundle_radiateur_profondeur').on('input', regimeEmissif);
 
@@ -317,7 +316,7 @@ $(document).ready(function(){
         var longueur =  $('#appbundle_radiateur_longueur').val();
         var regime = $('#appbundle_radiateur_regimeDimension').val();
         if (hauteur !== false  && longueur !== false ){
-            var res = hauteur * longueur * regime ;
+            var res = Math.round(hauteur * longueur * regime) ;
 
             $('#appbundle_radiateur_puissanceDeltaT50').val(res);
         }
@@ -329,6 +328,7 @@ $(document).ready(function(){
     $('#appbundle_radiateur_type' ).on('input', puissanceDelta);
 
 
+<<<<<<< HEAD
 });
 
 
@@ -348,3 +348,6 @@ $(document).ready(function(){
 
 
 });*/
+=======
+});
+>>>>>>> aa3868c6eec46aa782fdc55c4a3d9dd8834e7a4f

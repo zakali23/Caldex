@@ -14,7 +14,9 @@ class CoPro
 {
     /**
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndic", mappedBy="gestionnaire",fetch="EAGER")
+
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndic", mappedBy="gestionnaire", fetch="EAGER")
+
      * @ORM\JoinColumn(nullable=true)
      */
     private $gestionnaires;

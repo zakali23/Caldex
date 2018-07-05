@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
@@ -78,8 +79,9 @@ class User extends BaseUser
 
     /**
      * @var int
-     *
+     * @Assert\Regex(pattern="/^[0-9]{5,5}$/")
      * @ORM\Column(name="codePostal", type="integer")
+     *
      */
     private $codePostal;
 
@@ -106,16 +108,16 @@ class User extends BaseUser
     protected $email2;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="phone", type="integer")
+     * @var string
+     * @Assert\Regex(pattern="/^((\+)33|0)[1-9](\d{2}){4}$/")
+     * @ORM\Column(name="phone")
      */
     private $phone;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="phone2", type="integer", nullable=true)
+     * @var string|null
+     * @Assert\Regex(pattern="/^((\+)33|0)[1-9](\d{2}){4}$/")
+     * @ORM\Column(name="phone2", nullable=true)
      */
     private $phone2;
 
