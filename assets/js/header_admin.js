@@ -390,7 +390,7 @@ $(document).ready(function(){
     $('#appbundle_radiateur_type' ).on('input', puissanceDelta);
 
 
-<<<<<<< HEAD
+
 });
 
 
@@ -410,6 +410,4 @@ $(document).ready(function(){
 
 
 });*/
-=======
-});
->>>>>>> aa3868c6eec46aa782fdc55c4a3d9dd8834e7a4f
+

@@ -34,7 +34,7 @@
                                                 {#-----------------------ADMIN---------------------#}
                                                 {% if is_granted('ROLE_ADMIN') %}
                                                     <div class="admin">
-                                                         {{ form_widget(edit_form.roles.0) }}
+                                                        {{ form_widget(edit_form.roles.0) }}
                                                     </div>
                                                     <div class="gestion">
                                                         {{  form_widget(edit_form.roles.1) }}
@@ -106,7 +106,6 @@
                                                 {% endfor %}
                                             </select>
                                             {{ form_errors(edit_form.syndics) }}
-                                            {% do form.syndics.setRendered %}
                                         </div>
 
                                         <div class="OFF ROLE_GESTION ROLE_SALARIE">
@@ -115,7 +114,6 @@
                                                 {% for associationCoPro in user.associationCoPros %}
                                                     <option value="associationCoPro.id">{{ associationCoPro.name }}</option>
                                                 {% endfor %}
-                                                {% do form.associationCoPro.setRendered %}
                                             </select>
                                             {{ form_errors(edit_form.associationCoPros) }}
                                         </div>
@@ -123,7 +121,22 @@
 
                                     {% endif %}
 
-                                    {% if is_granted('ROLE_SALARIE') %}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <div class="ROLE_USER">
+                                        <label for="syndic">lots</label>
+
+                                        {{  form_widget(edit_form.lots) }}
+                                        {{ form_errors(edit_form.lots) }}
+
+                                        <label for="date_entree">Date d'entrée</label>
+                                        {{ form_widget(edit_form.dateEntree) }}
+
+                                        <label for="date_entree">Date de sortie</label>
+                                        {{ form_widget(edit_form.dateSortie) }}
+
+                                    </div>
+
+                                    {% elseif is_granted('ROLE_SALARIE') %}
 
                                         <div class=" ROLE_USER">
                                             <label for="syndic">lots</label>
@@ -132,7 +145,6 @@
                                                 {% for lot in user.lots %}
                                                     <option value="lot.id">{{ lot.numero }}</option>
                                                 {% endfor %}
-                                                {% do edit_form.lots.setRendered %}
                                             </select>
 
                                             {{ form_errors(edit_form.lots) }}
@@ -207,6 +219,9 @@
                                     </div>
 
                                     {{ form_widget(edit_form._token) }}
+                                    <div class="hidden">
+                                        {{ form_rest(edit_form) }}
+                                    </div>
 
                                     <div class="form-group col-6">
                                         <button type="submit" value="Edit" class="btn btn-primary btn-block" style="margin-top: 2vh">Modifier</button>
@@ -222,15 +237,15 @@
                                     <a href="{{ path('user_index') }}">Liste des utilisateurs</a>
 
                                 </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
     </section>
-    
+
 
 {% endblock %}
 

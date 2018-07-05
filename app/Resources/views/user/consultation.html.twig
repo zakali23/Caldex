@@ -13,7 +13,7 @@
 
                         <li><span>Nom: </span>{{ copro.name }}</li>
                         <li><span>Adresse:</span>  {{ copro.adresse }} {{ copro.codePostal }} {{ copro.ville }}</li>
-                        <p class="text-center animated bounce infinite  " id="scrollList"><a role="button" class="green-text"><i class="fas fa-angle-down"></i></a></p>
+                        <p class="text-center " id="scrollList"><a role="button" class="green-text"><i class="fas fa-angle-down"></i></a></p>
                         <p class="text-center" id="scrollUp"><a role="button" class="green-text"><i class="fas fa-angle-up"></i></a></p>
 
 
@@ -93,14 +93,15 @@
                     <ul>
                         <li>Reference : {{ batiment.reference }}</li>
                         <li>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</li>
-                        <p class="text-center animated bounce infinite  " ><a role="button" class="green-text" id="scrollDownLot"><i class="fas fa-angle-down"></i></a></p>
+                        <p class="text-center " ><a role="button" class="green-text" id="scrollDownLot"><i class="fas fa-angle-down"></i></a></p>
                         <p class="text-center animated " id="scrollUpLot"><a role="button" class="green-text"><i class="fas fa-angle-up"></i></a></p>
 
                     </ul>
                 </div>
         </div>
-        <div class="row" style="display: none;" id="cardForLot">
+
         {% for lot in batiment.appartements %}
+        <div class="row" style="display: none;" id="cardForLot">
 
             <div id="profil" class="col-md-4 card">
                 <div class="card-header">
@@ -112,8 +113,9 @@
                     <li><span>Etage : {{ lot.etage }} </span> </li>
                 </ul>
             </div>
-            {% endfor %}
         </div>
+            {% endfor %}
+
                 <hr style=" border:none;
   height: 20px;
  	width: 90%;
