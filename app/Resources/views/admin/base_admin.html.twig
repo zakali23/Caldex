@@ -176,8 +176,8 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Type de Compteur<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="#">Créer un nouveau type de compteur</a>
-                                            <a href="#">Consultation des types de compteurs</a>
+                                            <a href="/compteur/new">Créer un nouveau type de compteur</a>
+                                            <a href="/compteur">Consultation des types de compteurs</a>
                                         </li>
                                     </ul>
                             </li>
@@ -194,6 +194,28 @@
                     </div>
                 </div>
             </nav>
+
+        {% elseif  is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
+
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Utilisateurs">
+
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <ul class="nav nav-pills">
+                            <li >
+                                <a href="{{ path('copro_index') }} ">Consultation co-Propriétés</a>
+                            </li>
+                            <li >
+                                <a  href="{{ path('associationcopro_index') }}"> Asso de Co-Propriétés</a>
+                            </li>
+                            <li >
+                                <a  href="{{ path('syndic_index') }} ">Syndicats</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
         {% endif %}
 
         {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}

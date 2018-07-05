@@ -8,6 +8,8 @@ security:
         ROLE_GESTION: ROLE_SALARIE
         ROLE_ADMIN: ROLE_GESTION
 
+    access_denied_url: /login
+
 
 
     providers:

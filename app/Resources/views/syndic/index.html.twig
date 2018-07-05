@@ -11,11 +11,15 @@
                 <th scope="col">Adresse</th>
                 <th scope="col">Codepostal</th>
                 <th scope="col">Ville</th>
+                {% if is_granted('ROLE_ADMIN') %}
                 <th scope="col">Actions</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
-        {% for syndic in syndics %}
+
+
+        {% for syndic in user.syndics %}
             <tr>
                 <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
                 <td>{{ syndic.nom }}</td>
@@ -23,6 +27,7 @@
                 <td>{{ syndic.codePostal }}</td>
                 <td>{{ syndic.ville }}</td>
                 <td>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <ul>
                         <li>
                             <a href="{{ path('syndic_show', { 'id': syndic.id }) }}">show</a>
@@ -31,6 +36,7 @@
                             <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">edit</a>
                         </li>
                     </ul>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}

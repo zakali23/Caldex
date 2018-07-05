@@ -17,13 +17,13 @@ class Compteur
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Erreur", inversedBy="versionCompteurs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $versionCompteur;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Piece", inversedBy="compteurs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $compteur;
 
@@ -45,6 +45,7 @@ class Compteur
     private $releves;
 
     /**
+     * @ORM\JoinColumn(name="radiateur_id", nullable=true)
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Radiateur", cascade={"persist"})
      */
     private $radiateur;
@@ -64,6 +65,13 @@ class Compteur
      * @ORM\Column(name="serialNumber", type="integer", unique=true)
      */
     private $serialNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reference", type="string", length=255, unique=true, nullable=false)
+     */
+    private $reference;
 
     /**
      *
@@ -377,5 +385,29 @@ class Compteur
     public function getVersionCompteur()
     {
         return $this->versionCompteur;
+    }
+
+    /**
+     * Set reference.
+     *
+     * @param string $reference
+     *
+     * @return Compteur
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get reference.
+     *
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
     }
 }
