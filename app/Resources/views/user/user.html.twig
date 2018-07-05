@@ -2,11 +2,13 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('build/user.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/head_admin.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 {% endblock %}
 
 {% block body %}
 
-    <br class="container">
+    <div class="container">
         <p class="connect"> Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
         <div class="row" style="display: flex;" id="cardForUser">
             <div id="profil" class="col-6 card">
@@ -56,8 +58,9 @@
 
         </div>
 
-
+    </div>
 
     {% include 'user/consultation.html.twig' %}
+
 
 {% endblock %}

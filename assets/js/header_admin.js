@@ -100,11 +100,73 @@ $(document).ready(function()
         $("#Gestion-Utilisateurs").css({"display": "none"});
 
     });
+    /* ------ List Immeubles -------------   */
+
+
+    $("#btnListImmeuble").click(function() {
+
+        $("#cardForUser").css({"display": "none"});
+        $("#listFromCopro").css({"display": "none"});
+        $("#listFromLot").css({"display": "none"});
+        $("#listFromImmeuble").show();
+        $("#cardForImmeuble").css({"display": "none"});
+
+
+    });
+    $("#scrollList").click(function() {
+
+        $("#cardForImmeuble").css({"display": "flex"});
+        $("#scrollList").css({"display": "none"});
+        $("#scrollUp").show();
+
+    });
+
+    $("#scrollUp").click(function() {
+
+        $("#cardForImmeuble").css({"display": "none"});
+        $("#scrollList").show();
+        $("#scrollUp").css({"display": "none"});
+
+
+    });
+
+    /* ------ List Lots -------------   */
+    $("#btnListLot").click(function() {
+
+        $("#cardForUser").css({"display": "none"});
+        $("#listFromCopro").css({"display": "none"});
+        $("#listFromLot").show();
+        $("#listFromImmeuble").css({"display": "none"});
+        $("#cardForLot").css({"display": "none"});
+
+
+    });
+    $("#scrollDownLot").click(function() {
+
+        $("#cardForLot").css({"display": "flex"});
+        $("#scrollDownLot").css({"display": "none"});
+        $("#scrollUpLot").show();
+
+
+    });
+    $("#scrollUpLot").click(function() {
+
+        $("#cardForLot").css({"display": "none"});
+        $("#scrollDownLot").show();
+        $("#scrollUpLot").css({"display": "none"});
+
+
+    });
+
+    /* ------ List rooms -------------   */
+
 
     $("#btnListCopro").click(function() {
 
         $("#cardForUser").css({"display": "none"});
         $("#listFromCopro").show();
+        $("#listFromLot").css({"display": "none"});
+        $("#listFromImmeuble").css({"display": "none"});
 
 
     });
