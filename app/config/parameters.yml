@@ -3,8 +3,8 @@ parameters:
     database_host: localhost
     database_port: null
     database_name: caldex
-    database_user: root
-    database_password: Wild3r
+    database_user: zak
+    database_password: 123456
     mailer_transport: smtp
     mailer_host: gmail
     mailer_user: charlottehofraise@gmail.com
