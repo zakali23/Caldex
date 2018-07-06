@@ -64,7 +64,7 @@ class Compteur
     /**
      * @var string
      *
-     * @ORM\Column(name="reference", type="string", length=255, unique=true, nullable=false)
+     * @ORM\Column(name="reference", type="string", length=255, unique=false, nullable=false)
      */
     private $reference;
 
