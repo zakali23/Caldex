@@ -65,13 +65,6 @@ class Radiateur
      */
     private $regimeDimension;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="temperatureInterne", type="integer")
-     */
-    private $temperatureInterne;
-
 
     /**
      * @var int
@@ -80,9 +73,14 @@ class Radiateur
      */
     private $puissanceDeltaT50;
 
-
-
-
+    /**
+     *
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->modele;
+    }
 
     /**
      * Get id.
@@ -264,29 +262,5 @@ class Radiateur
     public function getRegimeDimension()
     {
         return $this->regimeDimension;
-    }
-
-    /**
-     * Set temperatureInterne.
-     *
-     * @param int $temperatureInterne
-     *
-     * @return Radiateur
-     */
-    public function setTemperatureInterne($temperatureInterne)
-    {
-        $this->temperatureInterne = $temperatureInterne;
-
-        return $this;
-    }
-
-    /**
-     * Get temperatureInterne.
-     *
-     * @return int
-     */
-    public function getTemperatureInterne()
-    {
-        return $this->temperatureInterne;
     }
 }
