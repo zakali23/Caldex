@@ -16,14 +16,19 @@
         <label>Numéro de Série</label>
         {{ form_widget(form.serialNumber) }}
         {{ form_errors(form.serialNumber) }}
+        <label>Date d'Achat</label>
+        {{ form_widget(form.dateAchat) }}
+        {{ form_errors(form.dateAchat) }}
         <label>Photo du Compteur</label>
         {{ form_widget(form.photo) }}
         {{ form_errors(form.photo) }}
+
+    {{ form_rest(form, {'required':false}) }}
+
     <input type="submit" value="Create" />
-    <div class="hidden">
-    {{ form_rest(form) }}
-    </div>
+
     {{ form_end(form) }}
+
 
 
     <ul>

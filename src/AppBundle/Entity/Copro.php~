@@ -271,3 +271,46 @@ class Copro
         return $this->batiments;
     }
 }
+rine\Common\Collections\Collection
+     */
+    public function getAssoCopro()
+    {
+        return $this->assoCopro;
+    }
+
+    /**
+     * Add batiment.
+     *
+     * @param \AppBundle\Entity\Immeuble $batiment
+     *
+     * @return CoPro
+     */
+    public function addBatiment(\AppBundle\Entity\Immeuble $batiment)
+    {
+        $this->batiments[] = $batiment;
+
+        return $this;
+    }
+
+    /**
+     * Remove batiment.
+     *
+     * @param \AppBundle\Entity\Immeuble $batiment
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeBatiment(\AppBundle\Entity\Immeuble $batiment)
+    {
+        return $this->batiments->removeElement($batiment);
+    }
+
+    /**
+     * Get batiments.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBatiments()
+    {
+        return $this->batiments;
+    }
+}

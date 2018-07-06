@@ -19,8 +19,14 @@
                 <td><a href="{{ path('compteur_show', { 'id': compteur.id }) }}">{{ compteur.id }}</a></td>
                 <td>{{ compteur.serialNumber }}</td>
                 <td>{{ compteur.photo }}</td>
+                <td>{{ compteur.isInstalled }}</td>
+                {% if compteur.isInstalled == true %}
                 <td>{% if compteur.dateInstallation %}{{ compteur.dateInstallation|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if compteur.dateAchat %}{{ compteur.dateAchat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {% else %}
+                <td> - </td>
+                <td> - </td>
+                {% endif %}
                 <td>
                     <ul>
                         <li>
