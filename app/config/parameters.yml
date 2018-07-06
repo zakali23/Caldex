@@ -5,8 +5,8 @@ parameters:
     database_name: caldex
     database_user: zak
     database_password: 123456
-    mailer_transport: smtp
-    mailer_host: gmail
-    mailer_user: charlottehofraise@gmail.com
-    mailer_password: tablechaise
-    secret: 44821c264df339166b798d3ef92217
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user: caldex67@gmail.com
+    mailer_password: Caldex67*
+    secret: a6ed4ab756947d3a1ea501c38e7d47d4caae009a
