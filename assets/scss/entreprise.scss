@@ -13,6 +13,8 @@ body {
   color: #545454;
   text-align: justify;
 }
+
+
 h2 {
   font-size: 24px;
   text-transform: uppercase;
@@ -27,6 +29,14 @@ h4 {
   font-weight: 400;
   margin-bottom: 30px;
 }
+#vous{
+  font-size: 3em;
+  color: $color-claire;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+
+}
 .light{
   color:white;
 }
@@ -36,8 +46,14 @@ h4 {
 .bg-grey {
   background-image: url("/images/abstract-21851_1920.jpg");
 }
+.bg{
+  background-color: #edffe6;
+}
+.vous{
+  margin-bottom: -150px;
+}
 
-.img-thumbnail {
+.img-thumbnail.ent {
   margin-top: 9vw;
 }
 

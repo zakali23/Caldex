@@ -71,11 +71,13 @@ class Radiateur
 
 
     /**
-     * @var int
      *
-     * @ORM\Column(name="puissance_delta_t50", type="integer")
      */
-    private $puissanceDeltaT50;
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->modele;
+    }
 
 
     /**

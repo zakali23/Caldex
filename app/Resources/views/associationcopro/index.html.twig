@@ -8,14 +8,24 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">Ville</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th scope="col">Actions</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
+
+    {% if is_granted('ROLE_ADMIN')%}
         {% for associationCoPro in associationCoPros %}
             <tr>
                 <td><a href="{{ path('associationcopro_show', { 'id': associationCoPro.id }) }}">{{ associationCoPro.id }}</a></td>
                 <td>{{ associationCoPro.name }}</td>
+                <td>{{ associationCoPro.adresse }}</td>
+                <td>{{ associationCoPro.codePostal }}</td>
+                <td>{{ associationCoPro.ville }}</td>
                 <td>
                     <ul>
                         <li>
@@ -28,6 +38,19 @@
                 </td>
             </tr>
         {% endfor %}
+    {% elseif is_granted('ROLE_GESTION') %}
+        {% for associationCoPro in user.associationCoPros %}
+            <tr>
+                <td><a href="{{ path('associationcopro_show', { 'id': associationCoPro.id }) }}">{{ associationCoPro.id }}</a></td>
+                <td>{{ associationCoPro.name }}</td>
+                <td>{{ associationCoPro.adresse }}</td>
+                <td>{{ associationCoPro.codePostal }}</td>
+                <td>{{ associationCoPro.codePostal }}</td>
+
+
+            </tr>
+        {% endfor %}
+    {% endif %}
         </tbody>
     </table>
 

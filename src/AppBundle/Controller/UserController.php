@@ -25,11 +25,13 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+
         $users = $em->getRepository('AppBundle:User')->findAll();
         return $this->render('user/index.html.twig', array(
             'users' => $users,
         ));
     }
+
 
     /**
      * Creates a new user entity.

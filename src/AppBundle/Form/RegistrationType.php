@@ -31,7 +31,7 @@ class RegistrationType extends AbstractType
             ->add('email2', EmailType::class, array(
                 'required' => false
             ))
-            ->add('phone', TelType::class)
+            ->add('phone')
             ->add('phone2', TelType::class, array(
                 'required' => false
             ))
@@ -45,8 +45,24 @@ class RegistrationType extends AbstractType
             ))
             ->add('dateEntree',  DateType::class, array(
                 'format' => 'dd-MM-yyyy',
+                'widget' => 'choice',
+                'data' => new \DateTime(),
+                'years' => range(date('Y')-58, date('Y')+10),
+                'months' => range(date('m'), 12),
+                'days' => range(date('d'), 31),
+
+
+
             ))
-            ->add('dateSortie')
+            ->add('dateSortie', DateType::class, array(
+                'format' => 'dd-MM-yyyy',
+                'widget' => 'choice',
+                'data' => new \DateTime(),
+                'years' => range(date('Y')-1, date('Y')+10),
+                'months' => range(date('m'), 12),
+                'days' => range(date('d'), 31),
+
+            ))
 
             ->add('syndics', EntityType::class, array(
                 'class' => 'AppBundle:Syndic',

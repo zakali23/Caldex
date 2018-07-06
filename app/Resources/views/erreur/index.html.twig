@@ -1,4 +1,4 @@
-{% extends "admin/base_admin.html.twig"%}
+{% extends 'base.html.twig' %}
 
 {% block body %}
     <h1>Erreurs list</h1>
@@ -7,8 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Code erreur</th>
-                <th>Date erreur</th>
+                <th>Codeerreur</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,7 +16,6 @@
             <tr>
                 <td><a href="{{ path('erreur_show', { 'id': erreur.id }) }}">{{ erreur.id }}</a></td>
                 <td>{{ erreur.codeErreur }}</td>
-                <td>{% if erreur.dateErreur %}{{ erreur.dateErreur|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>

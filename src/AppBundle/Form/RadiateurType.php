@@ -46,13 +46,21 @@ class RadiateurType extends AbstractType
                         '25' => '25',
                         '35' => '35',
                         '1 panneau' => '1 panneau',
-                        "1 panneau 1rang d'ailettes" => "1 panneau 1rang d'ailettes" ,
+                        "1 panneau 1rang d'ailettes" => "1 panneau 1rang d'ailettes",
                         '2 panneaux ' => "2 panneaux",
                         "2 panneaux 1 rang d'ailettes" => "2 panneaux 1 rang d'ailettes",
                         "2 panneaux 2 rangs d'ailettes" => "2 panneaux 2 rangs d'ailettes",
                         "3 panneaux" => "3 panneaux",
                         "3 panneaux 2 rangs d'ailettes" => "3 panneaux 2 rangs d'ailettes",
-                    ]
+                        ],
+                        'choice_attr' => function($choiceValue, $key, $value) {
+                            // adds a class like attending_yes, attending_no, etc
+                            if($value == 15 || $value == 25 || $value == 35 || $value == 'null'){
+                                return ['id' => 'Fonte'];
+                            }
+                            return ['id' => 'acier'];
+                        },
+
                 ))
             ->add('hauteur', ChoiceType::class,
                 array(
@@ -64,8 +72,12 @@ class RadiateurType extends AbstractType
                     ]
                 ))
             ->add('longueur', TextType::class)
-            ->add('regimeDimension', TextType::class)
-            ->add('puissanceDeltaT50', TextType::class);
+            ->add('regimeDimension', TextType::class, array(
+                'attr' => array('readonly' => true)
+            ))
+            ->add('puissanceDeltaT50', TextType::class, array(
+                'attr' => array('readonly' => true)
+            ));
     }/**
      * {@inheritdoc}
      */

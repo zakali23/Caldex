@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\associationCoPro;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +29,7 @@ class associationCoProController extends Controller
 
         return $this->render('associationcopro/index.html.twig', array(
             'associationCoPros' => $associationCoPros,
+            'user' => $this->getUser(),
         ));
     }
 
@@ -35,6 +37,7 @@ class associationCoProController extends Controller
      * Creates a new associationCoPro entity.
      *
      * @Route("/new", name="associationcopro_new")
+     * @IsGranted("ROLE_ADMIN")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -61,6 +64,7 @@ class associationCoProController extends Controller
      * Finds and displays a associationCoPro entity.
      *
      * @Route("/{id}", name="associationcopro_show")
+     * @IsGranted("ROLE_ADMIN")
      * @Method("GET")
      */
     public function showAction(associationCoPro $associationCoPro)
@@ -77,6 +81,7 @@ class associationCoProController extends Controller
      * Displays a form to edit an existing associationCoPro entity.
      *
      * @Route("/{id}/edit", name="associationcopro_edit")
+     * @IsGranted("ROLE_ADMIN")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, associationCoPro $associationCoPro)
@@ -102,6 +107,7 @@ class associationCoProController extends Controller
      * Deletes a associationCoPro entity.
      *
      * @Route("/{id}", name="associationcopro_delete")
+     * @IsGranted("ROLE_ADMIN")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, associationCoPro $associationCoPro)

@@ -24,6 +24,7 @@ class UserType extends AbstractType
             ->add('adresse')
             ->add('codePostal')
             ->add('ville')
+
             ->add('email', EmailType::class)
             ->add('email2', EmailType::class, array(
                 'required' => false
@@ -42,9 +43,22 @@ class UserType extends AbstractType
             ))
             ->add('dateEntree',  DateType::class, array(
                 'format' => 'dd-MM-yyyy',
+                'widget' => 'choice',
+                'years' => range(date('Y')-60, date('Y')+10),
+                'months' => range(1, 12),
+                'days' => range(1, 31),
+
+
+
+
             ))
             ->add('dateSortie', DateType::class, array(
                 'format' => 'dd-MM-yyyy',
+                'widget' => 'choice',
+                'years' => range(date('Y')-1, date('Y')+10),
+                'months' => range(date('m'), 12),
+                'days' => range(date('d'), 31),
+
             ))
 
             ->add('syndics', EntityType::class, array(
@@ -86,6 +100,7 @@ class UserType extends AbstractType
                     'Habitant' => 'ROLE_USER',
                 ],
             ]);
+
     }
 
     /**

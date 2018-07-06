@@ -17,7 +17,7 @@
     <style class="cp-pen-styles">@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
     </style>
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('style/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/style.css') }}">
 </head>
 
 <body class="sidebar-is-reduced">
@@ -59,6 +59,7 @@
 
 
 
+
             {#-----------------------------------------GESTION / SALARIE-----------------------------------------#}
 
             {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
@@ -66,6 +67,7 @@
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion des utilisateurs" id="GPU">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion des utilisateurs </span></div>
+
                         </div>
                     </li>
                     <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="GPI">
@@ -80,7 +82,9 @@
 
             {% if is_granted('ROLE_USER') %}
                 <ul class="u-list">
+
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Consommations" id="MC">
+
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Consommations</span></div>
                         </div>
@@ -92,7 +96,9 @@
 
             {% if is_granted('ROLE_ADMIN') %}
                 <ul class="u-list">
+
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="GM">
+
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
                         </div>
@@ -111,7 +117,7 @@
 <main class="l-main">
     <div class="container">
 
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_ADMIN ') %}
 
             <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Utilisateurs">
 
@@ -194,15 +200,37 @@
                     </div>
                 </div>
             </nav>
+
+        {% elseif  is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
+
+            <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Utilisateurs">
+
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <ul class="nav nav-pills">
+                            <li >
+                                <a href="{{ path('copro_index') }} ">Consultation co-Propriétés</a>
+                            </li>
+                            <li >
+                                <a  href="{{ path('associationcopro_index') }}"> Asso de Co-Propriétés</a>
+                            </li>
+                            <li >
+                                <a  href="{{ path('syndic_index') }} ">Syndicats</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
         {% endif %}
 
         {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
             <nav class="nav justify-content-center grey lighten-4 py-4" id="ConsultParc">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/immeuble/">Consultation Immeuble</a>
-                        <a class="navbar-brand" href="/lot/">Consultation Lot</a>
-                        <a class="navbar-brand" href="/piece/">Consultation Pièce</a>
+                        <a href="{{ path('immeuble_index') }}" class="navbar-brand" role="button"  id="btnListImmeuble">Consultation Immeuble</a>
+                        <a href="{{ path('lot_index') }}" class="navbar-brand" role="button" id="btnListLot">Consultation Lot</a>
+                        <a href="{{ path('piece_index') }}" class="navbar-brand" role="button" id="btnListCopro">Consultation Pièce</a>
                     </div>
                 </div>
             </nav>

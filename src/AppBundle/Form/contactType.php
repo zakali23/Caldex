@@ -24,7 +24,10 @@ class contactType extends AbstractType
                 'choices'  => [
                     'Choisissez ' => 'null',
                     'Syndic' => 'Syndic',
+                    'Bailleur'=>'Bailleur',
+                    'Membre du conseil syndical'=>'Membre du conseil syndical',
                     'Locataire' => 'locataire',
+                    'Copropriétaire' => 'Copropriétaire',
                     'Autre' => 'Autre'
                 ],
                 'data'=> 'null'
