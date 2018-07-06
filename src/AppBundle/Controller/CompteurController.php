@@ -2,10 +2,22 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
 use AppBundle\Entity\Compteur;
+use AppBundle\Entity\Immeuble;
+use AppBundle\Repository\ImmeubleRepository;
+use AppBundle\Entity\Radiateur;
+use AppBundle\Repository\RadiateurRepository;
+use AppBundle\Entity\Lot;
+use AppBundle\Repository\LotRepository;
+use AppBundle\Entity\Piece;
+use AppBundle\Repository\PieceRepository;
+use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Compteur controller.
@@ -32,6 +44,24 @@ class CompteurController extends Controller
     }
 
     /**
+     * Lists all compteur entities.
+     *
+     * @Route("/installation", name="compteur_installation")
+     * @Method("GET")
+     */
+
+    public function installationAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $compteurs = $em->getRepository('AppBundle:Compteur')->findAll();
+
+        return $this->render('compteur/installation.html.twig', array(
+            'compteurs' => $compteurs,
+        ));
+    }
+
+    /**
      * Creates a new compteur entity.
      *
      * @Route("/new", name="compteur_new")
@@ -40,8 +70,9 @@ class CompteurController extends Controller
     public function newAction(Request $request)
     {
         $compteur = new Compteur();
-        $form = $this->createForm('AppBundle\Form\CompteurType', $compteur);
+        $form = $this->createForm('AppBundle\Form\CompteurNewType', $compteur);
         $form->handleRequest($request);
+        dump($form);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -85,17 +116,42 @@ class CompteurController extends Controller
         $editForm = $this->createForm('AppBundle\Form\CompteurType', $compteur);
         $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
+        $radiateur = new Radiateur();
+        $form = $this->createForm('AppBundle\Form\RadiateurType', $radiateur);
+        $form->handleRequest($request);
+
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
             return $this->redirectToRoute('compteur_edit', array('id' => $compteur->getId()));
         }
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $radiateur->setCalorimetre($compteur);
+            $em->persist($radiateur);
+            $em->flush();
+
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $immeubles = $em->getRepository('AppBundle:Immeuble')->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $radiateurs = $em->getRepository('AppBundle:Radiateur')->findAll();
 
         return $this->render('compteur/edit.html.twig', array(
             'compteur' => $compteur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'immeubles' => $immeubles,
+            'radiateur' => $radiateur,
+            'form' => $form->createView(),
+            'radiateurs' => $radiateurs
         ));
+
+
     }
 
     /**
@@ -117,6 +173,79 @@ class CompteurController extends Controller
 
         return $this->redirectToRoute('compteur_index');
     }
+
+    /**
+     * @Route("/search/{adresse}", name="ajaxRechercheAction")
+     *
+     */
+    public function ajaxRechercheAction($adresse, SerializerInterface $serializer){
+
+        $em=$this->getDoctrine()->getManager();
+        $immeubles=$em->getRepository('AppBundle:Immeuble')->findImmeublesByAdresse($adresse);
+        $data=$serializer->serialize($immeubles, 'json');
+
+        $response=new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
+    /**
+     * @Route("/find/{id}", name="ajaxIdAction")
+     *
+     */
+    public function ajaxIdAction($id, SerializerInterface $serializer){
+
+        $em=$this->getDoctrine()->getManager();
+        $lots=$em->getRepository('AppBundle:Lot')->findLotsById($id);
+        $data=$serializer->serialize($lots, 'json');
+        $response=new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
+    /**
+     * @Route("/findPiece/{id}", name="ajaxFindPieceAction")
+     *
+     */
+    public function ajaxFindPieceAction($id, SerializerInterface $serializer){
+
+        $em=$this->getDoctrine()->getManager();
+        $pieces=$em->getRepository('AppBundle:Piece')->findPiecesById($id);
+        $data=$serializer->serialize($pieces, 'json');
+        $response=new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
+    /**
+     * @Route("/compteurSubmit", name="compteurSubmit")
+     * @Method({"POST"})
+     *
+     */
+    public function getPostPiece(){
+      //  if(!empty($_POST)) {dump($_POST['idCompteur']);dump($_POST['idPiece']);}
+        if(empty($_POST)){
+
+            $this->addFlash("error", "Saisie Incorrecte");
+
+        }
+        $id=$_POST['idCompteur'];
+        $idPiece=$_POST['idPiece'];
+        $em=$this->getDoctrine()->getManager();
+        $compteur = $em->getRepository('AppBundle:Compteur')->findOneBy(['id'=>$id]);
+        $piece = $em->getRepository('AppBundle:Piece')->findOneBy(['id'=>$idPiece]);
+        $compteur->setCompteur($piece);
+        $em->persist($compteur);
+        $em->flush();
+
+
+        return $this->redirectToRoute('compteur_index');
+
+    }
+
+
+
+
 
     /**
      * Creates a form to delete a compteur entity.

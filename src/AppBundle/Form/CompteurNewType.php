@@ -12,7 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\DateTime;
 
-class CompteurType extends AbstractType
+class CompteurNewType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -21,19 +21,17 @@ class CompteurType extends AbstractType
     {
         $builder
             ->add('categorieCompteur')
-            ->add('marque', TextType::class)
+            ->add('marque')
             ->add('reference', TextType::class)
             ->add('serialNumber', IntegerType::class)
             ->add('dateAchat', DateTimeType::class)
             ->add('photo', TextType::class)
             ->add('isInstalled')
-            ->add('compteur', PieceType::class, ['required'=>false ])
-            ->add('dateInstallation', DateTimeType::class)
-
         ;
+
     }/**
-     * {@inheritdoc}
-     */
+ * {@inheritdoc}
+ */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(

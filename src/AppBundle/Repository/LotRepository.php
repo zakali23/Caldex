@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class LotRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findLotsById($id){
+        $fields = array('l.id', 'l.numero', 'l.etage', 'l.reference');
+        return $this->createQueryBuilder('l')
+            ->select($fields)
+            ->andWhere('l.appartement = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
