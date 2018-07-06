@@ -1,12 +1,12 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: localhost
+    database_host: 127.0.0.1
     database_port: null
     database_name: caldex
     database_user: root
-    database_password: Wild3r
+    database_password: jecode4wcs
     mailer_transport: smtp
-    mailer_host: gmail
-    mailer_user: charlottehofraise@gmail.com
-    mailer_password: tablechaise
-    secret: 44821c264df339166b798d3ef92217
+    mailer_host: 127.0.0.1
+    mailer_user: c@gmail.com
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt
