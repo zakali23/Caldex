@@ -77,21 +77,21 @@
     {#-----------------------------------------ADMIN-----------------------------------------#}
 
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <div class="OFF ROLE_GESTION ROLE_SALARIE">
+                                    <div>
                                         <label for="copro">Copro</label>
                                         {{  form_widget(form.copros) }}
                                         {{ form_errors(form.copros) }}
 
                                     </div>
 
-                                    <div class="OFF ROLE_GESTION ROLE_SALARIE ">
+                                    <div>
                                         <label for="syndic">Syndic</label>
                                         {{ form_widget(form.syndics) }}
                                         {{ form_errors(form.syndics) }}
 
                                     </div>
 
-                                    <div class="OFF ROLE_GESTION ROLE_SALARIE">
+                                    <div>
                                         <label for="assoCoPro">Association Copros</label>
                                         {{ form_widget(form.associationCoPros) }}
                                         {{ form_errors(form.associationCoPros) }}
