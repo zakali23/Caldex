@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Syndic;
+use AppBundle\Service\Lister;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -28,6 +29,7 @@ class SyndicController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $syndics = $em->getRepository('AppBundle:Syndic')->findAll();
+
 
         return $this->render('syndic/index.html.twig', array(
             'syndics' => $syndics,
@@ -76,6 +78,72 @@ class SyndicController extends Controller
         return $this->render('syndic/show.html.twig', array(
             'syndic' => $syndic,
             'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a syndic entity.
+     *
+     * @Route("/{id}/immeuble", name="syndic_immeuble")
+     * @Method("GET")
+     * @param Syndic $syndic
+     * @param Lister $lister
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function immeubleAction(Syndic $syndic, Lister $lister)
+    {
+        $immeubles = $lister->getImmeubleFromSyndic($syndic);
+
+
+        return $this->render('syndic/immeuble_syndic.html.twig', array(
+            'syndic' => $syndic,
+            'immeubles' => $immeubles,
+
+        ));
+    }
+
+    /**
+     * Finds and displays a syndic entity.
+     *
+     * @Route("/{id}/lot", name="syndic_lot")
+     * @Method("GET")
+     * @param Syndic $syndic
+     * @param Lister $lister
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function lotAction(Syndic $syndic, Lister $lister)
+    {
+        $lots = $lister->getLotsFromSyndic($syndic);
+
+
+        return $this->render('syndic/lot_syndic.html.twig', array(
+
+            'lots' => $lots,
+            'syndic' => $syndic,
+
+        ));
+    }
+
+    /**
+     * Finds and displays a syndic entity.
+     *
+     * @Route("/{id}/piece", name="syndic_room")
+     * @Method("GET")
+     * @param Syndic $syndic
+     * @param Lister $lister
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function roomAction(Syndic $syndic, Lister $lister)
+    {
+        $rooms = $lister->getRoomsFromSyndic($syndic);
+
+
+
+        return $this->render('syndic/piece_syndic.html.twig', array(
+
+            'rooms' => $rooms,
+            'syndic' => $syndic,
+
         ));
     }
 
@@ -140,6 +208,6 @@ class SyndicController extends Controller
             ->setAction($this->generateUrl('syndic_delete', array('id' => $syndic->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }
