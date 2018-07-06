@@ -27,8 +27,6 @@ class SyndicController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-
-
         $syndics = $em->getRepository('AppBundle:Syndic')->findAll();
 
         return $this->render('syndic/index.html.twig', array(
@@ -98,7 +96,7 @@ class SyndicController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('syndic_edit', array('id' => $syndic->getId()));
+            return $this->redirectToRoute('syndic_index', array('id' => $syndic->getId()));
         }
 
         return $this->render('syndic/edit.html.twig', array(
