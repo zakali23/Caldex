@@ -571,6 +571,13 @@ a.list-group-item.active small {
   font-size: 1.5em;
 }
 
+#SyndicParc{
+
+  background: #93c01f;
+  color: #fff;
+  font-size: 1.5em;
+}
+
 
 .cacher{
 
@@ -603,4 +610,10 @@ a.list-group-item.active small {
 
 .OFF{
   display: none;
+}
+#listFromCopro,#listFromImmeuble,#listFromLot,#scrollUpLot,#scrollUp{
+  display: none;
+}
+#scrollList,#scrollUp,#scrollList,#scrollUpLot,#scrollDownLot{
+  font-size: 2em;
 }

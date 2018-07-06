@@ -140,6 +140,6 @@ class LotController extends Controller
             ->setAction($this->generateUrl('lot_delete', array('id' => $lot->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Syndic
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="gestionnaires")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="gestionnaires",fetch="EAGER")
      *
      */
     private $gestionnaire;
@@ -66,6 +66,11 @@ class Syndic
      * @ORM\Column(name="ville", type="string", length=255)
      */
     private $ville;
+/**
+* Many associationCoPro have Many Prestataire.
+* @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble",mappedBy="syndic", fetch="EAGER")
+*/
+    private $immeuble;
 
     /**
      * Constructor
@@ -239,5 +244,41 @@ class Syndic
     public function getPrestataires()
     {
         return $this->Prestataires;
+    }
+
+    /**
+     * Add immeuble.
+     *
+     * @param \AppBundle\Entity\Immeuble $immeuble
+     *
+     * @return Syndic
+     */
+    public function addImmeuble(\AppBundle\Entity\Immeuble $immeuble)
+    {
+        $this->immeuble[] = $immeuble;
+
+        return $this;
+    }
+
+    /**
+     * Remove immeuble.
+     *
+     * @param \AppBundle\Entity\Immeuble $immeuble
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeImmeuble(\AppBundle\Entity\Immeuble $immeuble)
+    {
+        return $this->immeuble->removeElement($immeuble);
+    }
+
+    /**
+     * Get immeuble.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImmeuble()
+    {
+        return $this->immeuble;
     }
 }
