@@ -2,88 +2,57 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * CoPro
- *
- * @ORM\Table(name="co_pro")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CoProRepository")
+ * Copro
  */
-class CoPro
+class Copro
 {
     /**
-     *
-
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndic", mappedBy="gestionnaire", fetch="EAGER")
-
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $gestionnaires;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\associationCoPro", mappedBy="coproprietes", fetch="EAGER")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $assoCopro;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Immeuble", mappedBy="batiment", fetch="EAGER")
-     */
-    private $batiments;
-
-
-    public function __toString()
-    {
-        // TODO: Implement __toString() method.
-        return $this->name;
-    }
-
-
-    /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="adresse", type="text")
      */
     private $adresse;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="codePostal", type="integer")
      */
     private $codePostal;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="ville", type="string", length=255)
      */
     private $ville;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $syndics;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $assoCopro;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $batiments;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->gestionnaires = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->syndics = new \Doctrine\Common\Collections\ArrayCollection();
         $this->assoCopro = new \Doctrine\Common\Collections\ArrayCollection();
         $this->batiments = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -103,7 +72,7 @@ class CoPro
      *
      * @param string $name
      *
-     * @return CoPro
+     * @return Copro
      */
     public function setName($name)
     {
@@ -127,7 +96,7 @@ class CoPro
      *
      * @param string $adresse
      *
-     * @return CoPro
+     * @return Copro
      */
     public function setAdresse($adresse)
     {
@@ -151,7 +120,7 @@ class CoPro
      *
      * @param int $codePostal
      *
-     * @return CoPro
+     * @return Copro
      */
     public function setCodePostal($codePostal)
     {
@@ -175,7 +144,7 @@ class CoPro
      *
      * @param string $ville
      *
-     * @return CoPro
+     * @return Copro
      */
     public function setVille($ville)
     {
@@ -195,49 +164,49 @@ class CoPro
     }
 
     /**
-     * Add gestionnaire.
+     * Add syndic.
      *
-     * @param \AppBundle\Entity\Syndic $gestionnaire
+     * @param \AppBundle\Entity\Syndic $syndic
      *
-     * @return CoPro
+     * @return Copro
      */
-    public function addGestionnaire(\AppBundle\Entity\Syndic $gestionnaire)
+    public function addSyndic(\AppBundle\Entity\Syndic $syndic)
     {
-        $this->gestionnaires[] = $gestionnaire;
+        $this->syndics[] = $syndic;
 
         return $this;
     }
 
     /**
-     * Remove gestionnaire.
+     * Remove syndic.
      *
-     * @param \AppBundle\Entity\Syndic $gestionnaire
+     * @param \AppBundle\Entity\Syndic $syndic
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeGestionnaire(\AppBundle\Entity\Syndic $gestionnaire)
+    public function removeSyndic(\AppBundle\Entity\Syndic $syndic)
     {
-        return $this->gestionnaires->removeElement($gestionnaire);
+        return $this->syndics->removeElement($syndic);
     }
 
     /**
-     * Get gestionnaires.
+     * Get syndics.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getGestionnaires()
+    public function getSyndics()
     {
-        return $this->gestionnaires;
+        return $this->syndics;
     }
 
     /**
      * Add assoCopro.
      *
-     * @param \AppBundle\Entity\CoPro $assoCopro
+     * @param \AppBundle\Entity\associationCoPro $assoCopro
      *
-     * @return CoPro
+     * @return Copro
      */
-    public function addAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
+    public function addAssoCopro(\AppBundle\Entity\associationCoPro $assoCopro)
     {
         $this->assoCopro[] = $assoCopro;
 
@@ -247,11 +216,11 @@ class CoPro
     /**
      * Remove assoCopro.
      *
-     * @param \AppBundle\Entity\CoPro $assoCopro
+     * @param \AppBundle\Entity\associationCoPro $assoCopro
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeAssoCopro(\AppBundle\Entity\CoPro $assoCopro)
+    public function removeAssoCopro(\AppBundle\Entity\associationCoPro $assoCopro)
     {
         return $this->assoCopro->removeElement($assoCopro);
     }
@@ -271,7 +240,7 @@ class CoPro
      *
      * @param \AppBundle\Entity\Immeuble $batiment
      *
-     * @return CoPro
+     * @return Copro
      */
     public function addBatiment(\AppBundle\Entity\Immeuble $batiment)
     {

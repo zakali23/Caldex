@@ -15,13 +15,13 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Immeuble
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="batiments")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="batiments",fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $batiment;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Lot", mappedBy="appartement")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Lot", mappedBy="appartement", fetch="EAGER")
      */
     private $appartements;
 
@@ -90,7 +90,12 @@ class Immeuble
      */
     private $reference;
 
-
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndic", inversedBy="immeuble", fetch="EAGER")
+     *
+     */
+    private $syndic;
 
     /**
      * Constructor

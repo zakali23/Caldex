@@ -24,6 +24,7 @@ class UserType extends AbstractType
             ->add('adresse')
             ->add('codePostal')
             ->add('ville')
+
             ->add('email', EmailType::class)
             ->add('email2', EmailType::class, array(
                 'required' => false
@@ -99,6 +100,7 @@ class UserType extends AbstractType
                     'Habitant' => 'ROLE_USER',
                 ],
             ]);
+
     }
 
     /**
