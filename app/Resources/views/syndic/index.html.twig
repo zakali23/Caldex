@@ -12,6 +12,7 @@
                 <th scope="col">Adresse</th>
                 <th scope="col">Code postal</th>
                 <th scope="col">Ville</th>
+                <th scope="col">Gestionnaire</th>
                 {% if is_granted('ROLE_ADMIN') %}
                 <th scope="col">Actions</th>
                 {% endif %}
@@ -28,13 +29,18 @@
                 <td>{{ syndic.adresse }}</td>
                 <td>{{ syndic.codePostal }}</td>
                 <td>{{ syndic.ville }}</td>
+                {% if syndic.gestionnaire is not empty %}
+                <td>{{ syndic.gestionnaire }}</td>
+                {% else %}
+                <td>Pas gestionnaire</td>
+                {% endif %}
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('syndic_show', { 'id': syndic.id }) }}">show</a>
+                            <a href="{{ path('syndic_show', { 'id': syndic.id }) }}">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">edit</a>
+                            <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">éditer</a>
                         </li>
                     </ul>
                 </td>

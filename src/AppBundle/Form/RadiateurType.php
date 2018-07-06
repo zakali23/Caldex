@@ -66,8 +66,12 @@ class RadiateurType extends AbstractType
                     ]
                 ))
             ->add('longueur', TextType::class)
-            ->add('regimeDimension', TextType::class)
-            ->add('puissanceDeltaT50', TextType::class);
+            ->add('regimeDimension', TextType::class, array(
+                'attr' => array('readonly' => true)
+            ))
+            ->add('puissanceDeltaT50', TextType::class, array(
+                'attr' => array('readonly' => true)
+            ));
     }/**
      * {@inheritdoc}
      */
