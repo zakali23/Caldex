@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use Doctrine\ORM\Mapping\Entity;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -17,6 +19,10 @@ class RadiateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+           /* ->add('calorimetre', EntityType::class, array(
+                'class' => 'AppBundle:Compteur',
+                'attr' =>array('readonly' => true)
+            ))*/
             ->add('modele', TextType::class)
             ->add('type', ChoiceType::class,
                 array(

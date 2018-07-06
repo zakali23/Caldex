@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-    $('input[type="checkbox"]').click(function(){
+    $('input[type="checkbox"]').click(function () {
         var inputValue = $(this).attr("value");
         $("." + inputValue).toggle();
     });
@@ -95,9 +95,7 @@ $(document).ready(function(){
 
             }
         });
-
-
     });
-
 });
+
 

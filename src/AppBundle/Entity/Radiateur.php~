@@ -13,6 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Radiateur
 {
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Compteur", cascade={"persist"})
+     */
+    private $calorimetre;
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -65,13 +69,6 @@ class Radiateur
      */
     private $regimeDimension;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="temperatureInterne", type="integer")
-     */
-    private $temperatureInterne;
-
 
     /**
      * @var int
@@ -81,7 +78,14 @@ class Radiateur
     private $puissanceDeltaT50;
 
 
-
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->modele;
+    }
 
 
     /**
@@ -202,5 +206,92 @@ class Radiateur
     public function setNom(string $type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * Set type.
+     *
+     * @param string $type
+     *
+     * @return Radiateur
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Set profondeur.
+     *
+     * @param string $profondeur
+     *
+     * @return Radiateur
+     */
+    public function setProfondeur($profondeur)
+    {
+        $this->profondeur = $profondeur;
+
+        return $this;
+    }
+
+    /**
+     * Get profondeur.
+     *
+     * @return string
+     */
+    public function getProfondeur()
+    {
+        return $this->profondeur;
+    }
+
+    /**
+     * Set regimeDimension.
+     *
+     * @param int $regimeDimension
+     *
+     * @return Radiateur
+     */
+    public function setRegimeDimension($regimeDimension)
+    {
+        $this->regimeDimension = $regimeDimension;
+
+        return $this;
+    }
+
+    /**
+     * Get regimeDimension.
+     *
+     * @return int
+     */
+    public function getRegimeDimension()
+    {
+        return $this->regimeDimension;
+    }
+
+
+    /**
+     * Set calorimetre.
+     *
+     * @param \AppBundle\Entity\Compteur|null $calorimetre
+     *
+     * @return Radiateur
+     */
+    public function setCalorimetre(\AppBundle\Entity\Compteur $calorimetre = null)
+    {
+        $this->calorimetre = $calorimetre;
+
+        return $this;
+    }
+
+    /**
+     * Get calorimetre.
+     *
+     * @return \AppBundle\Entity\Compteur|null
+     */
+    public function getCalorimetre()
+    {
+        return $this->calorimetre;
     }
 }
