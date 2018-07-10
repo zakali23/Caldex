@@ -12,6 +12,7 @@ $(document).ready(function(){
                 $(".admin").show();
                 $(".gestion").hide();
                 $(".salarie").hide();
+                $(".technicien").hide();
                 $(".user").hide();
                 $(".statut_habitant").hide();
                 $(".statut_gestionnaire").hide();
@@ -21,6 +22,7 @@ $(document).ready(function(){
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
+                $(".technicien").show();
                 $(".user").show();
                 $(".statut_habitant").hide();
                 $(".statut_gestionnaire").hide();
@@ -34,6 +36,7 @@ $(document).ready(function(){
                 $(".admin").hide();
                 $(".gestion").show();
                 $(".salarie").hide();
+                $(".technicien").hide();
                 $(".user").hide();
                 $(".statut_habitant").hide();
                 $(".statut_gestionnaire").hide();
@@ -43,6 +46,7 @@ $(document).ready(function(){
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
+                $(".technicien").show();
                 $(".user").show();
                 $(".statut_habitant").hide();
                 $(".statut_gestionnaire").hide();
@@ -56,6 +60,7 @@ $(document).ready(function(){
                 $(".admin").hide();
                 $(".gestion").hide();
                 $(".salarie").show();
+                $(".technicien").hide();
                 $(".user").hide();
                 $(".statut_habitant").hide();
                 $(".statut_gestionnaire").show();
@@ -65,6 +70,7 @@ $(document).ready(function(){
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
+                $(".technicien").show();
                 $(".user").show();
                 $(".statut_habitant").hide();
                 $(".statut_gestionnaire").hide();
@@ -79,6 +85,31 @@ $(document).ready(function(){
                 $(".admin").hide();
                 $(".gestion").hide();
                 $(".salarie").hide();
+                $(".technicien").show();
+                $(".user").hide();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").hide();
+
+            } else {
+                $(".admin").show();
+                $(".gestion").show();
+                $(".salarie").show();
+                $(".technicien").show();
+                $(".user").show();
+                $(".statut_habitant").hide();
+                $(".statut_gestionnaire").hide();
+                $(".statut_delegueCoPro").hide();
+
+            }
+        });
+
+        $("#fos_user_registration_form_roles_4").click(function () {
+            if ($(this).is(":checked")) {
+                $(".admin").hide();
+                $(".gestion").hide();
+                $(".salarie").hide();
+                $(".technicien").hide();
                 $(".user").show();
                 $(".statut_habitant").show();
                 $(".statut_gestionnaire").hide();
@@ -88,6 +119,7 @@ $(document).ready(function(){
                 $(".admin").show();
                 $(".gestion").show();
                 $(".salarie").show();
+                $(".technicien").show();
                 $(".user").show();
                 $(".statut_habitant").hide();
                 $(".statut_gestionnaire").hide();

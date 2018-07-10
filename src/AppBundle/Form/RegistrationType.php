@@ -100,6 +100,7 @@ class RegistrationType extends AbstractType
                     'Administrateur' => 'ROLE_ADMIN',
                     "Délégué de copropriété" => 'ROLE_GESTION',
                     'Gestionnaire' => 'ROLE_SALARIE',
+                    'Technicien' => 'ROLE_TECHNICIEN',
                     'Habitant' => 'ROLE_USER',
                 ],
             ]);

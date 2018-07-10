@@ -44,12 +44,15 @@
                                                 <div class="salarie">
                                                     {{  form_widget(form.roles.2) }}
                                                 </div>
+                                                <div class="technicien">
+                                                    {{  form_widget(form.roles.3) }}
+                                                </div>
                                                 {% endif %}
 
                                                 {#-----------------------SALARIE---------------------#}
                                                 {% if is_granted('ROLE_SALARIE') %}
                                                 <div class="user">
-                                                    {{  form_widget(form.roles.3) }}
+                                                    {{  form_widget(form.roles.4) }}
                                                 </div>
                                                 {% endif %}
 
