@@ -100,6 +100,17 @@ $(document).ready(function()
         $("#Gestion-Utilisateurs").css({"display": "none"});
 
     });
+    $("li#AGM").click(function() {
+
+        $("#Utilisateurs").css({"display": "none"});
+        $("#Mes-Consos").css({"display": "none"});
+        $("#GestionConsommations").css({"display": "none"});
+        $("#ConsultParc").css({"display": "none"});
+        $("#Gestion-Materiel").show();
+        $("#Gestion-Parc").css({"display": "none"});
+        $("#Gestion-Utilisateurs").css({"display": "none"});
+
+    });
     /* ------ List Immeubles -------------   */
 
 

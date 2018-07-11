@@ -34,6 +34,9 @@
                                                 <div class="admin">
                                                     {{  form_widget(form.roles.0) }}
                                                 </div>
+                                                <div class="technicien">
+                                                    {{  form_widget(form.roles.3) }}
+                                                </div>
                                                 <div class="gestion">
                                                     {{  form_widget(form.roles.1) }}
                                                 </div >
@@ -44,9 +47,7 @@
                                                 <div class="salarie">
                                                     {{  form_widget(form.roles.2) }}
                                                 </div>
-                                                <div class="technicien">
-                                                    {{  form_widget(form.roles.3) }}
-                                                </div>
+
                                                 {% endif %}
 
                                                 {#-----------------------SALARIE---------------------#}
@@ -80,29 +81,29 @@
     {#-----------------------------------------ADMIN-----------------------------------------#}
 
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <div>
+                                    <div class="ROLE_GESTION ROLE_SALARIE ROLE_USER">
                                         <label for="copro">Copro</label>
                                         {{  form_widget(form.copros) }}
                                         {{ form_errors(form.copros) }}
 
                                     </div>
 
-                                    <div>
+                                    <div class="ROLE_GESTION ROLE_SALARIE ROLE_USER">
                                         <label for="syndic">Syndic</label>
                                         {{ form_widget(form.syndics) }}
                                         {{ form_errors(form.syndics) }}
 
                                     </div>
 
-                                    <div>
+                                    <div class="ROLE_GESTION ROLE_SALARIE ROLE_USER">
                                         <label for="assoCoPro">Association Copros</label>
                                         {{ form_widget(form.associationCoPros) }}
                                         {{ form_errors(form.associationCoPros) }}
                                     </div>
             {#-----------------------------------------SALARIE-----------------------------------------#}
-                                {% elseif is_granted('ROLE_SALARIE') %}
+                                {% elseif is_granted('ROLE_GESTION') %}
 
-                                        <div class="OFF ROLE_GESTION ROLE_SALARIE ">
+                                        <div class="ROLE_GESTION ROLE_SALARIE ROLE_USER ">
                                             <label for="syndic">Syndic</label>
                                             <select id="fos_user_registration_form_syndics" name="fos_user_registration_form[syndics][]" class="form-control" multiple="multiple">
                                                 {% for syndic in user.syndics %}
@@ -113,7 +114,7 @@
                                             {% do form.syndics.setRendered %}
                                         </div>
 
-                                        <div class="OFF ROLE_GESTION ROLE_SALARIE">
+                                        <div class="ROLE_GESTION ROLE_SALARIE ROLE_USER">
                                             <label for="assoCoPro">Association Copros</label>
                                             <select id="fos_user_registration_form_associationCoPros" name="fos_user_registration_form[associationCoPros][]" class="form-control" multiple="multiple">
 
