@@ -69,3 +69,25 @@ function showCrout(){
 
 }
 
+//-------------------------- list copro -----------------------
+showCopro();
+$('#listCopro').keyup(showCopro);
+
+//appartementSelectCompteur
+console.log('ok');
+function showCopro() {
+    var str = $('#listCopro').val();
+    if (str.length === 0) {
+         str = 'all';
+    }
+        $.get( "http://localhost:8000/user/consultation/find/"+str, function( data ) {
+            $("#showcopro").html("");
+            $.each(data, function(key, value){
+                $("#showcopro").append(
+                    "<h2 id='"+ value['id'] +"'>"+ value["name"] +" "+ value["adresse"] +" "+ value["codePostal"]+ " " + value["ville"] +"</h2>");
+            });
+
+        });
+
+
+}

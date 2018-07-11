@@ -3,9 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\CoPro;
+use AppBundle\Repository\UserRepository;
+use JMS\Serializer\SerializerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -24,8 +28,6 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-
         $users = $em->getRepository('AppBundle:User')->findAll();
         return $this->render('user/index.html.twig', array(
             'users' => $users,
@@ -62,6 +64,51 @@ class UserController extends Controller
     /**
      * Finds and displays a user entity.
      *
+     * @Route("/consultation", name="user_consultation")
+     * @Method("GET")
+     */
+    public function consultationAction()
+    {
+
+        $user= $this->getUser();
+
+
+        return $this->render('user/consultation.html.twig', array(
+            'user' => $user,
+
+        ));
+
+
+    }
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/consultation/find/{search}", name="user_search")
+     * @Method("GET")
+     */
+    public function searchCoproAction($search, SerializerInterface $serializer)
+    {
+
+        $idUser= $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+        if($search == 'all'){
+            $copros = $em->getRepository('AppBundle:User')->findAllCoproByAdresse($idUser);
+        }else {
+            $copros = $em->getRepository('AppBundle:User')->findCoproByAdresse($idUser, $search);
+        }
+        $data=$serializer->serialize($copros, 'json');
+        $response=new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+
+
+
+
+    }
+
+    /**
+     * Finds and displays a user entity.
+     *
      * @Route("/{id}", name="user_show")
      * @Method("GET")
      */
@@ -74,6 +121,7 @@ class UserController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
 
     /**
      * Displays a form to edit an existing user entity.

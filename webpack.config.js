@@ -18,6 +18,7 @@ Encore
     .addEntry('ajax', './assets/js/ajaxRequestFromImmeuble.js')
 
 
+
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSassLoader();
