@@ -101,7 +101,8 @@ class RegistrationType extends AbstractType
                     "Délégué de copropriété" => 'ROLE_GESTION',
                     'Gestionnaire' => 'ROLE_SALARIE',
                     'Technicien' => 'ROLE_TECHNICIEN',
-                    'Habitant' => 'ROLE_USER',
+                    'Habitant' => 'ROLE_HABITANT',
+
                 ],
             ]);
     }
