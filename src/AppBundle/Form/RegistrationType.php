@@ -38,7 +38,7 @@ class RegistrationType extends AbstractType
             ->add('copros', EntityType::class, array(
                 'class' => 'AppBundle:CoPro',
                 'choice_label' => 'name',
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => false,
                 'required' => false
 
@@ -67,7 +67,7 @@ class RegistrationType extends AbstractType
             ->add('syndics', EntityType::class, array(
                 'class' => 'AppBundle:Syndic',
                 'choice_label' => 'nom',
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => false,
                 'required' => false
 
@@ -75,14 +75,14 @@ class RegistrationType extends AbstractType
             ->add('associationCoPros', EntityType::class, array(
                 'class' => 'AppBundle:associationCoPro',
                 'choice_label'=> 'name',
-                'multiple' => true,
+                'multiple' => false,
                 'required' => false
 
             ))
             ->add('lots', EntityType::class, array(
                 'class' => 'AppBundle:Lot',
                 'choice_label'=> 'numero',
-                'multiple' => true,
+                'multiple' => false,
                 'required' => false
             ))
             ->add('type_loc_props', EntityType::class, array(
