@@ -77,18 +77,7 @@ $(document).ready(function()
 
     });
 
-    $("li#GPI").click(function() {
 
-        $("#Utilisateurs").css({"display": "none"});
-        $("#Mes-Consos").css({"display": "none"});
-        $("#GestionConsommations").css({"display": "none"});
-        $("#ConsultParc").show();
-        $("#Gestion-Materiel").css({"display": "none"});
-        $("#Gestion-Parc").show();
-        $("#Gestion-Utilisateurs").css({"display": "none"});
-
-
-    });
     $("li#GM").click(function() {
 
         $("#Utilisateurs").css({"display": "none"});

@@ -11,6 +11,8 @@
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
@@ -33,9 +35,7 @@
             </div>
         </div>
         <div class="c-search">
-            <form>
-                <input class="c-search__input u-input" placeholder="Chercher..." type="text"/>
-            </form>
+
         </div>
         <div class="header-icons-group">
             <div class="c-header-icon" title="Espace Personnel"><a href="/admin"><i class="fa fa-address-card "></i></a></div>
@@ -71,9 +71,11 @@
                         </div>
                     </li>
                     <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="GPI">
+                        <a href="{{ path('user_consultation') }}">
                         <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
                             <div class="c-menu-item__title"><span>Gestion du Parc Immobilier</span></div>
                         </div>
+                        </a>
                     </li>
                 </ul>
             {% endif %}
@@ -225,15 +227,7 @@
         {% endif %}
 
         {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="ConsultParc">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a href="{{ path('immeuble_index') }}" class="navbar-brand" role="button"  id="btnListImmeuble">Consultation Immeuble</a>
-                        <a href="{{ path('lot_index') }}" class="navbar-brand" role="button" id="btnListLot">Consultation Lot</a>
-                        <a href="{{ path('piece_index') }}" class="navbar-brand" role="button" id="btnListCopro">Consultation Pièce</a>
-                    </div>
-                </div>
-            </nav>
+
             <nav class="nav justify-content-center grey lighten-4 py-4" id="GestionConsommations">
                 <div class="container-fluid">
                     <div class="navbar-header">

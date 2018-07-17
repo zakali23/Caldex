@@ -65,7 +65,7 @@ function showCrout(){
 
     $("#envoiIdPiece").val(idPiece);
 
-    console.log(idPiece);
+
 
 }
 
@@ -74,7 +74,7 @@ showCopro();
 $('#listCopro').keyup(showCopro);
 
 //appartementSelectCompteur
-console.log('ok');
+
 function showCopro() {
     var str = $('#listCopro').val();
     if (str.length === 0) {
@@ -84,7 +84,14 @@ function showCopro() {
             $("#showcopro").html("");
             $.each(data, function(key, value){
                 $("#showcopro").append(
-                    "<h2 id='"+ value['id'] +"'>"+ value["name"] +" "+ value["adresse"] +" "+ value["codePostal"]+ " " + value["ville"] +"</h2>");
+                    "<form action=\"consultation/immeubles\" method='post'>"+
+                    "<input type='hidden' name='id' value='"+ value['id'] +"'>"+
+                    "<div class=\"panel panel-default\">" + "<div class=\"panel-body text-center\">"+
+                    "<button id='"+ value['id'] +"' type='submit'>"+ value['name'] +"</button>" + "</div>"+"<div class=\"list-group-horizontal\">"+
+                    "<p class=\"list-group-item\">" + value['adresse'] + " <i class=\"fas fa-map-marker-alt  fa-lg\">"+"</i>"+"</p>"+
+                    "<p class=\"list-group-item\">" + value['codePostal'] + " <i class=\"fas fa-map-signs fa-lg\">"+"</i>"+"</p>"+
+                    "<p class=\"list-group-item\">" + value['ville'] + " <i class=\"fas fa-map-pin fa-lg\">"+"</i>"+"</p>"+"</div>"+"</div>");
+
             });
 
         });
