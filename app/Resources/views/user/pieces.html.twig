@@ -1,4 +1,4 @@
-{% extends "admin/base_admin.html.twig"%}
+{% extends 'admin/base_admin.html.twig' %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('build/user.css') }}">
@@ -8,15 +8,18 @@
 
 {% block body %}
 
+
     <form class="form-inline md-form ">
         <i class="fa fa-search" aria-hidden="true"></i>
-        <input class="form-control" type="text" placeholder="Chercher Par nom" id="listCopro" aria-label="Search">
+        <input class="form-control" type="text" placeholder="Chercher Par nom" id="listPieces" aria-label="Search">
     </form>
     <div class="container-fluid" >
-        <div id="showcopro"></div>
+        <div id="rooms"></div>
 
     </div>
 
-    <script src="{{ asset('build/ajax.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{{ asset('build/ajax_pieces.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>    <script src="{{ asset('build/ajax_immeuble.js')}}"></script>
+
 {% endblock %}
+
