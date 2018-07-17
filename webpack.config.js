@@ -16,6 +16,7 @@ Encore
     .addEntry('register', './assets/js/register.js')
     .addEntry('user_edit', './assets/js/user_edit.js')
     .addEntry('ajax', './assets/js/ajaxRequestFromImmeuble.js')
+    .addEntry('error', './assets/scss/error.scss')
 
 
     .cleanupOutputBeforeBuild()
