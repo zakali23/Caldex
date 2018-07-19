@@ -9,7 +9,7 @@
         <!--Table head-->
         <thead>
             <tr>
-                <th width=130px">Id Radiateur</th>
+                <th width=130px">Reference Calorimètre</th>
                 <th scope="col">Modèle</th>
                 <th width="130px" scope="col">Type</th>
                 <th scope="col">Profondeur</th>
@@ -23,9 +23,10 @@
             </tr>
         </thead>
 
+
         <!--Table body-->
         {% for radiateur in radiateurs %}
-            <tbody>
+        <tbody>
             <tr>
                 <td>{{ radiateur.calorimetre }}</td>
                 <td>{{ radiateur.modele }}</td>
@@ -40,6 +41,8 @@
             </tr>
             </tbody>
         {% endfor %}
+
+
 
         {{ form_start(form) }}
         <tbody id="addFormLot">
