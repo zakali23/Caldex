@@ -12,11 +12,24 @@ class LotRepository extends \Doctrine\ORM\EntityRepository
 {
 
     public function findLotsById($id){
-        $fields = array('l.id', 'l.numero', 'l.etage', 'l.reference');
+        $fields = array('l.id', 'l.numero', 'l.etage','l.surface', 'l.reference','l.photo');
         return $this->createQueryBuilder('l')
             ->select($fields)
             ->andWhere('l.appartement = :id')
             ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findLotsByAdresseAndId($adresse,$id){
+        $fields = array('l.id', 'l.numero', 'l.surface', 'l.etage','l.photo');
+        return $this->createQueryBuilder('l')
+            ->select($fields)
+            ->where('l.appartement=:id')
+            ->setParameter('id',$id)
+            ->andWhere('l.numero LIKE :adresse')
+            ->setParameter('adresse', '%'.$adresse.'%')
             ->getQuery()
             ->getResult()
             ;

@@ -77,19 +77,19 @@ $(document).ready(function()
 
     });
 
-    $("li#GPI").click(function() {
+
+    $("li#GM").click(function() {
 
         $("#Utilisateurs").css({"display": "none"});
         $("#Mes-Consos").css({"display": "none"});
         $("#GestionConsommations").css({"display": "none"});
-        $("#ConsultParc").show();
-        $("#Gestion-Materiel").css({"display": "none"});
-        $("#Gestion-Parc").show();
+        $("#ConsultParc").css({"display": "none"});
+        $("#Gestion-Materiel").show();
+        $("#Gestion-Parc").css({"display": "none"});
         $("#Gestion-Utilisateurs").css({"display": "none"});
 
-
     });
-    $("li#GM").click(function() {
+    $("li#AGM").click(function() {
 
         $("#Utilisateurs").css({"display": "none"});
         $("#Mes-Consos").css({"display": "none"});

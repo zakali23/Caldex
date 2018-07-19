@@ -3,9 +3,19 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\CoPro;
+use AppBundle\Entity\Immeuble;
+use AppBundle\Entity\Lot;
+use AppBundle\Repository\LotRepository;
+use AppBundle\Repository\ImmeubleRepository;
+use AppBundle\Repository\PieceRepository;
+use AppBundle\Repository\UserRepository;
+use JMS\Serializer\SerializerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -24,8 +34,6 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-
         $users = $em->getRepository('AppBundle:User')->findAll();
         return $this->render('user/index.html.twig', array(
             'users' => $users,
@@ -62,6 +70,209 @@ class UserController extends Controller
     /**
      * Finds and displays a user entity.
      *
+     * @Route("/consultation", name="user_consultation")
+     * @Method("GET")
+     */
+    public function consultationAction()
+    {
+
+        $user= $this->getUser();
+
+
+        return $this->render('user/consultation.html.twig', array(
+            'user' => $user,
+
+        ));
+
+
+    }
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/consultation/find/{search}", name="user_search")
+     * @Method("GET")
+     */
+    public function searchCoproAction($search, SerializerInterface $serializer)
+    {
+
+        $idUser= $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+        if($search == 'all'){
+            $copros = $em->getRepository('AppBundle:User')->findAllCoproByAdresse($idUser);
+        }else {
+            $copros = $em->getRepository('AppBundle:User')->findCoproByAdresse($idUser, $search);
+        }
+        $data=$serializer->serialize($copros, 'json');
+        $response=new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+
+
+
+
+    }
+
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/consultation/finding/{adresse}", name="user_searchIm")
+     * @Method("GET")
+     */
+    public function searchImmeubleAction($adresse, SerializerInterface $serializer,Session $session)
+    {
+
+        $idCopro = $session->get('idCopro');
+
+        $em = $this->getDoctrine()->getManager();
+        if($adresse == 'all'){
+            $immeubles = $em->getRepository('AppBundle:Immeuble')->findImmeublesById($idCopro);
+        }else {
+            $immeubles = $em->getRepository('AppBundle:Immeuble')->findImmeublesByAdresseAndId($adresse, $idCopro);
+        }
+        $data=$serializer->serialize($immeubles, 'json');
+        $response=new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+
+
+
+
+    }
+
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/consultation/immeubles", name="user_consultation_immeuble")
+     * @Method("Post")
+     */
+    public function consultationImmeubleAction(Request $request)
+    {
+
+       /* $idCopro='';
+        if(isset($_POST['id']))
+        {
+            $idCopro= $_POST['id'];
+            $_SESSION['idCopro'] = $idCopro;
+        }*/
+       $session = new Session();
+
+        $session->set('idCopro',$_POST['id'] );
+        $idCopro = $session->get('idCopro');
+
+
+        return $this->render('user/immeubles.html.twig', array(
+            'coPro' => $idCopro,
+
+        ));
+
+
+    }
+
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/consultation/lots", name="user_consultation_lots")
+     * @Method("Post")
+     */
+    public function consultationLotsAction(Request $request)
+    {
+
+
+        $session = new Session();
+
+        $session->set('idImmeuble',$_POST['idImmeuble'] );
+        $idImmeuble = $session->get('idImmeuble');
+
+
+        return $this->render('user/lots.html.twig', array(
+            'idImmeuble' => $idImmeuble,
+
+        ));
+
+
+    }
+
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/consultation/findlot/{adresse}", name="user_search_lots")
+     * @Method("GET")
+     */
+    public function searchLotsAction($adresse, SerializerInterface $serializer,Session $session)
+    {
+
+        $idImmeuble = $session->get('idImmeuble');
+
+        $em = $this->getDoctrine()->getManager();
+        if($adresse == 'all'){
+            $lots = $em->getRepository('AppBundle:Lot')->findLotsById($idImmeuble);
+        }else {
+            $lots = $em->getRepository('AppBundle:Lot')->findLotsByAdresseAndId($adresse,$idImmeuble);
+        }
+        $data=$serializer->serialize($lots, 'json');
+        $response=new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+
+
+
+
+    }
+
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/consultation/pieces", name="user_consultation_pieces")
+     * @Method("Post")
+     */
+    public function consultationPiecesAction(Request $request)
+    {
+
+        $session = new Session();
+
+        $session->set('idLot',$_POST['idLot'] );
+        $idLot = $session->get('idLot');
+
+
+        return $this->render('user/pieces.html.twig', array(
+            'idLot' => $idLot,
+
+        ));
+
+
+    }
+
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/consultation/findrooms/{adresse}", name="user_search_pieces")
+     * @Method("GET")
+     */
+    public function searchPieceAction($adresse, SerializerInterface $serializer,Session $session)
+    {
+
+        $idImmeuble = $session->get('idLot');
+
+        $em = $this->getDoctrine()->getManager();
+        if($adresse == 'all'){
+            $pieces = $em->getRepository('AppBundle:Piece')->findPiecesById($idImmeuble);
+        }else {
+            $pieces = $em->getRepository('AppBundle:Piece')->findLotsByAdresseAndId($adresse,$idImmeuble);
+        }
+        $data=$serializer->serialize($pieces, 'json');
+        $response=new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+
+
+
+
+    }
+
+
+    /**
+     * Finds and displays a user entity.
+     *
      * @Route("/{id}", name="user_show")
      * @Method("GET")
      */
@@ -74,6 +285,7 @@ class UserController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
 
     /**
      * Displays a form to edit an existing user entity.
