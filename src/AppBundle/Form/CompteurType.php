@@ -20,14 +20,7 @@ class CompteurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('categorieCompteur')
-            ->add('marque', TextType::class)
-            ->add('reference', TextType::class)
-            ->add('serialNumber', IntegerType::class)
-            ->add('dateAchat', DateTimeType::class)
-            ->add('photo', TextType::class)
             ->add('isInstalled')
-            ->add('compteur', PieceType::class, ['required'=>false ])
             ->add('dateInstallation', DateTimeType::class)
 
         ;

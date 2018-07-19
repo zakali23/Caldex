@@ -122,6 +122,8 @@ class RadiateurController extends Controller
         return $this->redirectToRoute('radiateur_index');
     }
 
+
+
     /**
      * Creates a form to delete a radiateur entity.
      *

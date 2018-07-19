@@ -16,7 +16,5 @@ class SyndicRepository extends \Doctrine\ORM\EntityRepository
         return $this->getEntityManager()
             ->createQuery("SELECT i FROM AppBundle:Immeuble i WHERE i.syndic = $id")
             ->getResult();
-
-
     }
 }
