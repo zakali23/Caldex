@@ -1,194 +1,22 @@
+{% extends "admin/base_admin.html.twig"%}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/user.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/head_admin.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+{% endblock %}
 
-    <div id="listFromImmeuble">
-        <div class="container">
-            {% for copro in user.copros %}
+{% block body %}
 
-            <div class="row" style="display: flex;" id="cardForUser">
-                <div id="profil" class="col-sm-12 card">
-                    <div class="card-header">
-                        <h3><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Votre Corpo</h3>
-                    </div>
-                    <ul>
-
-                        <li><span>Nom: </span>{{ copro.name }}</li>
-                        <li><span>Adresse:</span>  {{ copro.adresse }} {{ copro.codePostal }} {{ copro.ville }}</li>
-                        <p class="text-center " id="scrollList"><a role="button" class="green-text"><i class="fas fa-angle-down"></i></a></p>
-                        <p class="text-center" id="scrollUp"><a role="button" class="green-text"><i class="fas fa-angle-up"></i></a></p>
-
-
-                    </ul>
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-        <div class="row" style="display: flex;" id="cardForImmeuble">
-            {% for batiment in copro.batiments %}
-
-            <div id="profil" class="col-md-4 card">
-                <div class="card-header">
-                            <h3><i class="far fa-building"></i> Votre Immeuble</h3>
-                </div>
-                            <ul>
-                                <li>Reference : {{ batiment.reference }}</li>
-                                <li>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</li>
-
-                            </ul>
-            </div>
-
-
-
-
-
-            {% endfor %}
-        </div>
-        <hr style=" border:none;
-  height: 20px;
- 	width: 90%;
-	height: 50px;
-	margin-top: 0;
-	border-bottom: 2px solid green;
-	box-shadow: 0 20px 20px -20px #333;
-  margin: -50px auto 10px; ">
-
-        {% endfor %}
-    </div>
-    <div id="listFromLot">
-
-        <div class="container">
-            {% for copro in user.copros %}
-
-            <div class="row" style="display: flex;" id="cardForUser">
-                <div id="profil" class="col-sm-12 card">
-                    <div class="card-header">
-                        <h3><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Votre Corpo</h3>
-                    </div>
-                    <ul>
-
-                        <li><span>Nom:</span> {{ copro.name }}</li>
-                        <li><span>Adresse:</span>  {{ copro.adresse }} {{ copro.codePostal }} {{ copro.ville }}</li>
-
-                    </ul>
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-            {% for batiment in copro.batiments %}
-        <div class="row" style="display: flex;" id="cardForUser">
-                <div id="profil" class="col-sm-12 card">
-                    <div class="card-header">
-                        <h3><i class="far fa-building"></i> Votre Immeuble</h3>
-                    </div>
-                    <ul>
-                        <li>Reference : {{ batiment.reference }}</li>
-                        <li>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</li>
-                        <p class="text-center " ><a role="button" class="green-text" id="scrollDownLot"><i class="fas fa-angle-down"></i></a></p>
-                        <p class="text-center animated " id="scrollUpLot"><a role="button" class="green-text"><i class="fas fa-angle-up"></i></a></p>
-
-                    </ul>
-                </div>
-        </div>
-
-        {% for lot in batiment.appartements %}
-        <div class="row" style="display: none;" id="cardForLot">
-
-            <div id="profil" class="col-md-4 card">
-                <div class="card-header">
-                    <h3><i class="fas fa-door-open"></i> Votre Lot</h3>
-                </div>
-                <ul>
-                    <li><span>Numero : {{ lot.numero }}</span></li>
-                    <li><span>Surface : {{ lot.surface }} </span> </li>
-                    <li><span>Etage : {{ lot.etage }} </span> </li>
-                </ul>
-            </div>
-        </div>
-            {% endfor %}
-
-                <hr style=" border:none;
-  height: 20px;
- 	width: 90%;
-	height: 50px;
-	margin-top: 0;
-	border-bottom: 2px solid green;
-	box-shadow: 0 20px 20px -20px #333;
-  margin: -50px auto 10px; ">
-            {% endfor %}
-
-
-        {% endfor %}
-    </div>
-    <div id="listFromCopro">
-
-        <div class="container">
-            {% for copro in user.copros %}
-
-                {% for batiment in copro.batiments %}
-                <div class="row" style="display: flex;" ">
-                <div id="profil" class="col-sm-12 card">
-                    <div class="card-header">
-                        <h3>Votre Immeuble</h3>
-                    </div>
-                    <ul>
-
-                        <li><span>Reference : {{ batiment.reference }}</span></li>
-                        <li><span>Adresse : {{ batiment.adresse }} {{ batiment.codePostal }} {{ batiment.ville }}</span> </li>
-                    </ul>
-                </div>
-            </div>
-
-
-            {% for lot in batiment.appartements %}
-                <div class="row" style="display: flex;" >
-                    <div id="profil" class="col-sm-12 card">
-                        <div class="card-header">
-                            <h3>Votre Lot</h3>
-                        </div>
-                        <ul>
-                            <li><span>Numero : {{ lot.numero }}</span></li>
-                            <li><span>Surface : {{ lot.surface }} </span> </li>
-                            <li><span>Etage : {{ lot.etage }} </span> </li>
-                        </ul>
-                    </div>
-                </div>
-            <div class="row" style="display: flex;">
-                {% for room in lot.rooms %}
-                <div id="profil" class="col-md-4 card">
-                    <div class="card-header">
-                        <h3>Votre Piece</h3>
-                    </div>
-                    <ul>
-                        <li><span>Nom : {{ room.nom }}</span></li>
-                        <li><span>Surface : {{room.surface }} </span> </li>
-                    </ul>
-                </div>
-            </div>
-
-    <hr style=" border:none;
-  height: 20px;
- 	width: 90%;
-	height: 50px;
-	margin-top: 0;
-	border-bottom: 2px solid green;
-	box-shadow: 0 20px 20px -20px #333;
-  margin: -50px auto 10px; ">
-                    {% endfor %}
-
-
-        {% endfor %}
-
-    {% endfor %}
-        {% endfor %}
+    <form class="form-inline md-form ">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input class="form-control" type="text" placeholder="Chercher Par nom" id="listCopro" aria-label="Search">
+    </form>
+    <div class="container-fluid" >
+        <div id="showcopro"></div>
 
     </div>
+
+    <script src="{{ asset('build/ajax.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+{% endblock %}

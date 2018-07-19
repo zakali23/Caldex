@@ -8,6 +8,8 @@
 
 {% block body %}
 
+
+
     <div class="container">
         <p class="connect"> Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
         <div class="row" style="display: flex;" id="cardForUser">
@@ -24,11 +26,11 @@
                     <li><span>Email:</span> {{ app.user.email }}</li>
                 </ul>
 
-                <button><a href="/profile/edit"> Modifier mon profil</a></button>
+                <a href="/profile/edit"><button> Modifier mon profil</button></a>
             </div>
             <div class="col-6 card">
 
-                {% if not is_granted('ROLE_ADMIN') %}
+                {% if not is_granted(['ROLE_ADMIN', 'ROLE_TECHNICIEN']) %}
                     <div class="card-header">
                         <h3>Ma copropriété</h3>
                     </div>
@@ -44,7 +46,7 @@
                     </ul>
                 {% endif %}
 
-                {% if is_granted('ROLE_ADMIN') %}
+                {% if is_granted(['ROLE_ADMIN', 'ROLE_TECHNICIEN']) %}
                     <div class="card-header">
                         <h3>Notifications</h3>
                     </div>
@@ -60,7 +62,7 @@
 
     </div>
 
-    {% include 'user/consultation.html.twig' %}
+
 
 
 {% endblock %}

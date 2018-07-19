@@ -2,11 +2,15 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use function Sodium\add;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class CompteurType extends AbstractType
 {
@@ -17,15 +21,14 @@ class CompteurType extends AbstractType
     {
         $builder
             ->add('categorieCompteur')
-            ->add('marque')
-            ->add('reference')
-            ->add('serialNumber')
-            ->add('photo')
-            ->add('dateInstallation')
-            ->add('dateAchat')
-            ->add('compteur')
-            ->add('radiateur')
-            ->add('versionCompteur')
+            ->add('marque', TextType::class)
+            ->add('reference', TextType::class)
+            ->add('serialNumber', IntegerType::class)
+            ->add('dateAchat', DateTimeType::class)
+            ->add('photo', TextType::class)
+            ->add('isInstalled')
+            ->add('compteur', PieceType::class, ['required'=>false ])
+            ->add('dateInstallation', DateTimeType::class)
 
         ;
     }/**

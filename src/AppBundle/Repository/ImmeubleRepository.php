@@ -10,4 +10,40 @@ namespace AppBundle\Repository;
  */
 class ImmeubleRepository extends \Doctrine\ORM\EntityRepository
 {
+   public function findImmeublesByAdresse($adresse){
+       $fields = array('i.id', 'i.adresse', 'i.codePostal', 'i.ville');
+        return $this->createQueryBuilder('i')
+            ->select($fields)
+            ->andWhere('i.adresse LIKE :adresse')
+            ->orWhere('i.codePostal LIKE :adresse')
+            ->orWhere('i.ville LIKE :adresse')
+            ->setParameter('adresse', '%'.$adresse.'%')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findImmeublesByAdresseAndId($adresse,$id){
+        $fields = array('i.id', 'i.adresse', 'i.codePostal', 'i.ville','i.plan','i.reference');
+        return $this->createQueryBuilder('i')
+            ->select($fields)
+            ->where('i.batiment = :id')
+            ->setParameter('id',$id)
+            ->andWhere('i.codePostal LIKE :adresse')
+            ->setParameter('adresse', '%'.$adresse.'%')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findImmeublesById($id){
+        $fields = array('i.id', 'i.adresse', 'i.codePostal', 'i.ville','i.plan','i.reference');
+        return $this->createQueryBuilder('i')
+            ->select($fields)
+            ->andWhere('i.batiment = :id')
+            ->setParameter('id',$id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

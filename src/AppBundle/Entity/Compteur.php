@@ -44,11 +44,6 @@ class Compteur
      */
     private $releves;
 
-    /**
-     * @ORM\JoinColumn(name="radiateur_id", nullable=true)
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Radiateur", cascade={"persist"})
-     */
-    private $radiateur;
 
     /**
      * @var int
@@ -69,7 +64,7 @@ class Compteur
     /**
      * @var string
      *
-     * @ORM\Column(name="reference", type="string", length=255, unique=true, nullable=false)
+     * @ORM\Column(name="reference", type="string", length=255, unique=false, nullable=false)
      */
     private $reference;
 
@@ -88,9 +83,14 @@ class Compteur
     protected $photo;
 
     /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default":false})
+     */
+    protected $isInstalled;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateInstallation", type="datetime")
+     * @ORM\Column(name="dateInstallation", type="datetime", nullable=true)
      */
     private $dateInstallation;
 
@@ -100,6 +100,16 @@ class Compteur
      * @ORM\Column(name="dateAchat", type="datetime")
      */
     private $dateAchat;
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->reference;
+    }
 
 
     /**
@@ -208,29 +218,6 @@ class Compteur
         return $this->dateAchat;
     }
 
-    /**
-     * Set compteur.
-     *
-     * @param \AppBundle\Entity\Piece $compteur
-     *
-     * @return Compteur
-     */
-    public function setCompteur(\AppBundle\Entity\Piece $compteur)
-    {
-        $this->compteur = $compteur;
-
-        return $this;
-    }
-
-    /**
-     * Get compteur.
-     *
-     * @return \AppBundle\Entity\Piece
-     */
-    public function getCompteur()
-    {
-        return $this->compteur;
-    }
 
     /**
      * Set categorieCompteur.
@@ -409,5 +396,54 @@ class Compteur
     public function getReference()
     {
         return $this->reference;
+    }
+
+    /**
+     * Set isInstalled.
+     *
+     * @param bool $isInstalled
+     *
+     * @return Compteur
+     */
+    public function setIsInstalled($isInstalled)
+    {
+        $this->isInstalled = $isInstalled;
+
+        return $this;
+    }
+
+    /**
+     * Get isInstalled.
+     *
+     * @return bool
+     */
+    public function getIsInstalled()
+    {
+        return $this->isInstalled;
+    }
+
+
+    /**
+     * Set compteur.
+     *
+     * @param string $compteur
+     *
+     * @return Compteur
+     */
+    public function setCompteur( $compteur = null)
+    {
+        $this->compteur = $compteur;
+
+        return $this;
+    }
+
+    /**F
+     * Get compteur.
+     *
+     * @return \AppBundle\Entity\Piece|null
+     */
+    public function getCompteur()
+    {
+        return $this->compteur;
     }
 }

@@ -1,3 +1,4 @@
+@import "main";
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -5,6 +6,11 @@ body {
   background-color: #f0f3f5;
   margin-top:40px;
 }
+a{
+  color: black !important;
+  text-decoration: none;
+}
+
 /*==============================*/
 /*====== Recently connected  heading =====*/
 /*==============================*/
@@ -610,4 +616,27 @@ a.list-group-item.active small {
 }
 #scrollList,#scrollUp,#scrollList,#scrollUpLot,#scrollDownLot{
   font-size: 2em;
+}
+.list-group-horizontal {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  &>.list-group-item {
+    border: 1px solid grey;
+    display: table-cell;
+    float: none;
+    text-align: center;
+    width: 1%;
+    border-radius: 0;
+    &:first-child {
+      border-bottom-left-radius: 3px;
+    }
+    &:last-child {
+      border-bottom-right-radius: 3px;
+    }
+  }
+}
+#listCopro,#listImmeuble,#listLots,#listPieces {
+  width: 80%;
 }

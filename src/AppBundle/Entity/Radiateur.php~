@@ -13,6 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Radiateur
 {
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Compteur", cascade={"persist"})
+     */
+    private $calorimetre;
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -65,13 +69,6 @@ class Radiateur
      */
     private $regimeDimension;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="temperatureInterne", type="integer")
-     */
-    private $temperatureInterne;
-
 
     /**
      * @var int
@@ -81,7 +78,14 @@ class Radiateur
     private $puissanceDeltaT50;
 
 
-
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->modele;
+    }
 
 
     /**
@@ -266,27 +270,28 @@ class Radiateur
         return $this->regimeDimension;
     }
 
+
     /**
-     * Set temperatureInterne.
+     * Set calorimetre.
      *
-     * @param int $temperatureInterne
+     * @param \AppBundle\Entity\Compteur|null $calorimetre
      *
      * @return Radiateur
      */
-    public function setTemperatureInterne($temperatureInterne)
+    public function setCalorimetre(\AppBundle\Entity\Compteur $calorimetre = null)
     {
-        $this->temperatureInterne = $temperatureInterne;
+        $this->calorimetre = $calorimetre;
 
         return $this;
     }
 
     /**
-     * Get temperatureInterne.
+     * Get calorimetre.
      *
-     * @return int
+     * @return \AppBundle\Entity\Compteur|null
      */
-    public function getTemperatureInterne()
+    public function getCalorimetre()
     {
-        return $this->temperatureInterne;
+        return $this->calorimetre;
     }
 }

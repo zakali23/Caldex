@@ -18,15 +18,15 @@
         </thead>
         <tbody>
 
-        {% for associationCoPro in user.associationCoPros %}
+    {% if is_granted('ROLE_ADMIN')%}
+        {% for associationCoPro in associationCoPros %}
             <tr>
                 <td><a href="{{ path('associationcopro_show', { 'id': associationCoPro.id }) }}">{{ associationCoPro.id }}</a></td>
                 <td>{{ associationCoPro.name }}</td>
                 <td>{{ associationCoPro.adresse }}</td>
                 <td>{{ associationCoPro.codePostal }}</td>
-                <td>{{ associationCoPro.codePostal }}</td>
+                <td>{{ associationCoPro.ville }}</td>
                 <td>
-                    {% if is_granted('ROLE_ADMIN') %}
                     <ul>
                         <li>
                             <a href="{{ path('associationcopro_show', { 'id': associationCoPro.id }) }}">show</a>
@@ -35,10 +35,22 @@
                             <a href="{{ path('associationcopro_edit', { 'id': associationCoPro.id }) }}">edit</a>
                         </li>
                     </ul>
-                    {% endif %}
                 </td>
             </tr>
         {% endfor %}
+    {% elseif is_granted('ROLE_GESTION') %}
+        {% for associationCoPro in user.associationCoPros %}
+            <tr>
+                <td><a href="{{ path('associationcopro_show', { 'id': associationCoPro.id }) }}">{{ associationCoPro.id }}</a></td>
+                <td>{{ associationCoPro.name }}</td>
+                <td>{{ associationCoPro.adresse }}</td>
+                <td>{{ associationCoPro.codePostal }}</td>
+                <td>{{ associationCoPro.codePostal }}</td>
+
+
+            </tr>
+        {% endfor %}
+    {% endif %}
         </tbody>
     </table>
 

@@ -11,7 +11,7 @@
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
     <style class="cp-pen-styles">@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
@@ -33,9 +33,7 @@
             </div>
         </div>
         <div class="c-search">
-            <form>
-                <input class="c-search__input u-input" placeholder="Chercher..." type="text"/>
-            </form>
+
         </div>
         <div class="header-icons-group">
             <div class="c-header-icon" title="Espace Personnel"><a href="/admin"><i class="fa fa-address-card "></i></a></div>
@@ -71,9 +69,11 @@
                         </div>
                     </li>
                     <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="GPI">
+                        <a href="{{ path('user_consultation') }}">
                         <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
                             <div class="c-menu-item__title"><span>Gestion du Parc Immobilier</span></div>
                         </div>
+                        </a>
                     </li>
                 </ul>
             {% endif %}
@@ -81,6 +81,21 @@
             {#----------------------------------------- USER -----------------------------------------#}
 
             {% if is_granted('ROLE_USER') %}
+
+            {% endif %}
+
+                {#-----------------------------------------TECHNICIEN-----------------------------------------#}
+            {% if is_granted('ROLE_TECHNICIEN') %}
+                <ul class="u-list">
+
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Matériel" class="GM">
+
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
+                        </div>
+                    </li>
+                </ul>
+            {% elseif is_granted('ROLE_USER') %}
                 <ul class="u-list">
 
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Consommations" id="MC">
@@ -97,7 +112,7 @@
             {% if is_granted('ROLE_ADMIN') %}
                 <ul class="u-list">
 
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="GM">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="AGM">
 
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
@@ -164,42 +179,8 @@
                     </div>
                 </div>
             </nav>
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Materiel">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <ul class="nav nav-pills">
 
-                            <li role="presentation" class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Fournisseurs<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="/fournisseurcompteur/new">Créer un nouveau fournisseur</a>
-                                        <a href="/fournisseurcompteur">Consultation des fournisseurs</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li role="presentation" class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Type de Compteur<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="/compteur/new">Créer un nouveau type de compteur</a>
-                                            <a href="/compteur">Consultation des types de compteurs</a>
-                                        </li>
-                                    </ul>
-                            </li>
-                            <li role="presentation" class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Déclarer un compteur<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">Déclarer une installation de compteur</a>
-                                            <a href="#">Consultation des compteurs installés</a>
-                                        </li>
-                                    </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+
 
         {% elseif  is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
 
@@ -224,16 +205,47 @@
 
         {% endif %}
 
-        {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="ConsultParc">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" role="button"  id="btnListImmeuble">Consultation Immeuble</a>
-                        <a class="navbar-brand" role="button" id="btnListLot">Consultation Lot</a>
-                        <a class="navbar-brand" role="button" id="btnListCopro">Consultation Pièce</a>
-                    </div>
+        {% if  is_granted('ROLE_TECHNICIEN') %}
+        <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Materiel">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <ul class="nav nav-pills">
+
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Fournisseurs<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/fournisseurcompteur/new">Créer un nouveau fournisseur</a>
+                                    <a href="/fournisseurcompteur">Consultation des fournisseurs</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Type de Compteur<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/compteur/new">Créer un nouveau type de compteur</a>
+                                    <a href="/compteur">Consultation des types de compteurs</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Déclarer un compteur<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/compteur/installation">Déclarer une installation de compteur</a>
+                                    <a href="#">Consultation des compteurs installés</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
+        {% endif %}
+
+        {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
+
             <nav class="nav justify-content-center grey lighten-4 py-4" id="GestionConsommations">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -282,5 +294,8 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/js/mdb.min.js"></script>
 <script src="{{ asset('build/header_admin.js')}}"></script>
+
+
+
 </body>
 </html>

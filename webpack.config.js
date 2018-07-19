@@ -15,6 +15,13 @@ Encore
     .addEntry('register1', './assets/scss/register1.scss')
     .addEntry('register', './assets/js/register.js')
     .addEntry('user_edit', './assets/js/user_edit.js')
+    .addEntry('ajax_immeuble', './assets/js/ajaxCopro.js')
+    .addEntry('ajax_lots', './assets/js/ajaxLots.js')
+    .addEntry('ajax_pieces', './assets/js/ajaxPieces.js')
+    .addEntry('ajax', './assets/js/ajaxRequestFromImmeuble.js')
+    .addEntry('error', './assets/scss/error.scss')
+
+
 
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
