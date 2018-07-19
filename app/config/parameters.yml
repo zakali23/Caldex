@@ -3,10 +3,10 @@ parameters:
     database_host: localhost
     database_port: null
     database_name: caldex
-    database_user: root
-    database_password: Wild3r
+    database_user: zak
+    database_password: 123456
     mailer_transport: gmail
     mailer_host: smtp.gmail.com
     mailer_user: caldex67@gmail.com
-    mailer_password: 'Caldex67*'
+    mailer_password: 'caldex67*'
     secret: a6ed4ab756947d3a1ea501c38e7d47d4caae009a
