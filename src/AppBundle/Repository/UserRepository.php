@@ -10,4 +10,21 @@ namespace AppBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function userSyndicOnly($user)
+    {
+        $fields = array('u.id', 'u.firstname', 'u.lastname', 'u.adresse', 'u.codePostal', 'u.ville',
+                        'u.email', 'u.phone', 'u.date_entree', 'u.roles');
+        return $this->createQueryBuilder('u')
+            ->select($fields)
+            ->from('user', 'u')
+            ->join('user_syndic', 'us', 'on', 'u.id = us.user_id')
+            ->where('u.id = us.syndic_id')
+            ->setParameter('u.id', $user)
+            ->getQuery()
+            ->getResult()
+            ;
+
+    }
+
 }
