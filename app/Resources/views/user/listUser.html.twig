@@ -9,10 +9,12 @@
 
 
     <ul id="people">
-        {% if listsCop is defined %}
-            <h1 class="text-center green-text">Syndicat : {{ nomSyndic }}</h1>
-            {% for list in listsCop %}
-            <li>
+        {% if listsSyndic is defined %}
+            {% if nomSyndic is defined %}
+            <h1 class="text-center green-text">Syndicat: {{ nomSyndic }}</h1>
+            {% endif %}
+            {% for list in listsSyndic %}
+                <li>
                 <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
                 <h2>{{ list.firstname }} {{ list.lastname }}</h2>
                 <span class="info">
@@ -22,8 +24,13 @@
                 </span>
             </li>
             {% endfor %}
+            {% else %}
         {% endif %}
+        
         {% if listsAss is defined %}
+        {% if nomAssociation is defined %}
+            <h1 class="text-center green-text"> Association de Copropriété: {{ nomAssociation }}</h1>
+        {% endif %}
             {% for list in listsAss %}
                 <li>
                     <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
