@@ -3,15 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
-
-use AppBundle\Entity\CoPro;
-use AppBundle\Entity\Immeuble;
-use AppBundle\Entity\Syndic;
-use AppBundle\Entity\Lot;
-use AppBundle\Repository\LotRepository;
-use AppBundle\Repository\ImmeubleRepository;
-use AppBundle\Repository\PieceRepository;
-use AppBundle\Repository\UserRepository;
+use AppBundle\Service\Pdf;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -418,6 +410,8 @@ class UserController extends Controller
             ->getForm()
         ;
     }
+
+
 
 
 }
