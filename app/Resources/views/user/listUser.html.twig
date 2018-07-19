@@ -10,7 +10,7 @@
 
     <ul id="people">
         {% if listsSyndic is defined %}
-            {% if nomSyndic is defined %}
+            {% if nomSyndic is not empty %}
             <h1 class="text-center green-text">Syndicat: {{ nomSyndic }}</h1>
             {% endif %}
             {% for list in listsSyndic %}
@@ -18,7 +18,7 @@
                 <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
                 <h2>{{ list.firstname }} {{ list.lastname }}</h2>
                 <span class="info">
-                    <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</br>
+                    <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</em><br>
                     <a href="tel:{{ list.phone }}"><i class="fa fa-phone" aria-hidden="true"></i> {{ list.phone }}</a>
                     <em><i class="fa fa-envelope-open" aria-hidden="true"></i> {{ list.email }}</em>
                 </span>
@@ -28,7 +28,7 @@
         {% endif %}
         
         {% if listsAss is defined %}
-        {% if nomAssociation is defined %}
+        {% if nomAssociation is not empty %}
             <h1 class="text-center green-text"> Association de Copropriété: {{ nomAssociation }}</h1>
         {% endif %}
             {% for list in listsAss %}
@@ -36,7 +36,7 @@
                     <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
                     <h2>{{ list.firstname }} {{ list.lastname }}</h2>
                     <span class="info">
-                    <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</br>
+                        <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</em><br>
                         <a href="tel:{{ list.phone }}"><i class="fa fa-phone" aria-hidden="true"></i> {{ list.phone }}</a>
                     <em><i class="fa fa-envelope-open" aria-hidden="true"></i> {{ list.email }}</em>
                 </span>
@@ -45,6 +45,8 @@
         {% endif %}
 
     </ul>
+
+    <p>Test pour savoir si je suis bien dans la bonne page, du coup faut pas l'enlever sinon je vais me perdre et ça c'est franchement pas cool !</p>
 
 
 

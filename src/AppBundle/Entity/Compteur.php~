@@ -64,7 +64,7 @@ class Compteur
     /**
      * @var string
      *
-     * @ORM\Column(name="reference", type="string", length=255, unique=true, nullable=false)
+     * @ORM\Column(name="reference", type="string", length=255, unique=false, nullable=false)
      */
     private $reference;
 
@@ -90,7 +90,7 @@ class Compteur
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateInstallation", type="datetime")
+     * @ORM\Column(name="dateInstallation", type="datetime", nullable=true)
      */
     private $dateInstallation;
 
@@ -422,45 +422,22 @@ class Compteur
         return $this->isInstalled;
     }
 
-    /**
-     * Set piece.
-     *
-     * @param \AppBundle\Entity\Piece|null $piece
-     *
-     * @return Compteur
-     */
-    public function setPiece(\AppBundle\Entity\Piece $piece = null)
-    {
-        $this->piece = $piece;
-
-        return $this;
-    }
-
-    /**
-     * Get piece.
-     *
-     * @return \AppBundle\Entity\Piece|null
-     */
-    public function getPiece()
-    {
-        return $this->piece;
-    }
 
     /**
      * Set compteur.
      *
-     * @param \AppBundle\Entity\Piece|null $compteur
+     * @param string $compteur
      *
      * @return Compteur
      */
-    public function setCompteur(\AppBundle\Entity\Piece $compteur = null)
+    public function setCompteur( $compteur = null)
     {
         $this->compteur = $compteur;
 
         return $this;
     }
 
-    /**
+    /**F
      * Get compteur.
      *
      * @return \AppBundle\Entity\Piece|null

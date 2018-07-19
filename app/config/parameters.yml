@@ -1,10 +1,10 @@
 # This file is auto-generated during the composer install
 parameters:
     database_host: localhost
-    database_port: 8889
+    database_port: null
     database_name: caldex
-    database_user: Maxime
-    database_password: Panoplie80
+    database_user: root
+    database_password: Wild3r
     mailer_transport: gmail
     mailer_host: smtp.gmail.com
     mailer_user: caldex67@gmail.com
