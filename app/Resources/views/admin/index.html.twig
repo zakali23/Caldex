@@ -11,35 +11,50 @@
 
     <div class="container">
         <div class="row" style="display: flex;">
-            <div class="col card">
+
                 {% if is_granted ('ROLE_SALARIE') %}
+                <div class="col card">
                     <h2>Inscription Membres</h2>
+                </div>
                 {% endif %}
 
 
                 {% if is_granted ('ROLE_ADMIN') %}
+                <div class="col card">
                     <li><a href="/copro/new">Inscription nouvelle copropriété</a></li>
                     <li><a href="/syndic/new">Inscription nouveau syndicat</a></li>
                     <li><a href="/associationcopro/new">Inscription nouvelle association de copropriété</a></li>
+                </div>
                 {% endif %}
 
                 {% if is_granted ('ROLE_SALARIE') %}
+                 <div class="col card">
                     <li><a href="/register">Enregister un nouveau membre</a></li>
-                {% endif %}
-            </div>
+                 </div>
+                 {% endif %}
 
 
-            <div class="col card">
+
+
+
                 {% if is_granted ('ROLE_SALARIE') %}
+                <div class="col card">
                     <h2>Consultation Membres</h2>
+                </div>
                 {% endif %}
+
                 {% if is_granted ('ROLE_ADMIN') %}
+                <div class="col card">
                     <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
                     <li><a href="{{ path('syndic_index') }}">Liste des syndicats</a></li>
                     <li><a href="{{ path('associationcopro_index') }}">Liste des association de copropriétés</a></li>
+                </div>
                 {% endif %}
                 {% if is_granted ('ROLE_SALARIE') %}
+                <div class="col card">
                     <li><a href="{{ path('user_index') }}">Consultation des Membres</a></li>
+                </div>
+
                 {% endif %}
 
             </div>
@@ -59,14 +74,13 @@
     {% if is_granted ('ROLE_SALARIE') %}
         <div class="col card">
         <h2>Consultation Immo</h2>
-            <li><a href="{{ path('immeuble_index') }}">Liste des Immeubles</a></li>
-            <li><a href="{{ path('lot_index') }}">Liste des lots</a></li>
-            <li><a href="{{ path('piece_index') }}">Liste des pièces</a></li>
+            <li><a href="/user/consultation">Consultation Immobilière</a></li>
+
         </div>
     {% endif %}
     </div>
 
-    {% if is_granted ('ROLE_ADMIN') %}
+    {% if is_granted (['ROLE_ADMIN', 'ROLE_TECHNICIEN']) %}
     <div class="row" style="display: flex;">
             <div class="col card">
                 <h2>Déclarer un Compteur</h2>

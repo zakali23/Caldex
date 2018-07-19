@@ -65,7 +65,36 @@ function showCrout(){
 
     $("#envoiIdPiece").val(idPiece);
 
-    console.log(idPiece);
+
 
 }
 
+//-------------------------- list copro -----------------------
+showCopro();
+$('#listCopro').keyup(showCopro);
+
+//appartementSelectCompteur
+
+function showCopro() {
+    var str = $('#listCopro').val();
+    if (str.length === 0) {
+         str = 'all';
+    }
+        $.get( "http://localhost:8000/user/consultation/find/"+str, function( data ) {
+            $("#showcopro").html("");
+            $.each(data, function(key, value){
+                $("#showcopro").append(
+                    "<form action=\"consultation/immeubles\" method='post'>"+
+                    "<input type='hidden' name='id' value='"+ value['id'] +"'>"+
+                    "<div class=\"panel panel-default\">" + "<div class=\"panel-body text-center\">"+
+                    "<button id='"+ value['id'] +"' type='submit'>"+ value['name'] +"</button>" + "</div>"+"<div class=\"list-group-horizontal\">"+
+                    "<p class=\"list-group-item\">" + value['adresse'] + " <i class=\"fas fa-map-marker-alt  fa-lg\">"+"</i>"+"</p>"+
+                    "<p class=\"list-group-item\">" + value['codePostal'] + " <i class=\"fas fa-map-signs fa-lg\">"+"</i>"+"</p>"+
+                    "<p class=\"list-group-item\">" + value['ville'] + " <i class=\"fas fa-map-pin fa-lg\">"+"</i>"+"</p>"+"</div>"+"</div>");
+
+            });
+
+        });
+
+
+}
