@@ -3,15 +3,16 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+
 use AppBundle\Entity\CoPro;
 use AppBundle\Entity\Immeuble;
+use AppBundle\Entity\Syndic;
 use AppBundle\Entity\Lot;
 use AppBundle\Repository\LotRepository;
 use AppBundle\Repository\ImmeubleRepository;
 use AppBundle\Repository\PieceRepository;
 use AppBundle\Repository\UserRepository;
 use JMS\Serializer\SerializerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,7 +37,7 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('AppBundle:User')->findAll();
         return $this->render('user/index.html.twig', array(
-            'users' => $users,
+            'users' => $users
         ));
     }
 
@@ -46,6 +47,8 @@ class UserController extends Controller
      *
      * @Route("/new", name="user_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -86,11 +89,15 @@ class UserController extends Controller
 
 
     }
+
     /**
      * Finds and displays a user entity.
      *
      * @Route("/consultation/find/{search}", name="user_search")
      * @Method("GET")
+     * @param $search
+     * @param SerializerInterface $serializer
+     * @return Response
      */
     public function searchCoproAction($search, SerializerInterface $serializer)
     {
@@ -117,6 +124,10 @@ class UserController extends Controller
      *
      * @Route("/consultation/finding/{adresse}", name="user_searchIm")
      * @Method("GET")
+     * @param $adresse
+     * @param SerializerInterface $serializer
+     * @param Session $session
+     * @return Response
      */
     public function searchImmeubleAction($adresse, SerializerInterface $serializer,Session $session)
     {
@@ -145,15 +156,10 @@ class UserController extends Controller
      * @Route("/consultation/immeubles", name="user_consultation_immeuble")
      * @Method("Post")
      */
-    public function consultationImmeubleAction(Request $request)
+    public function consultationImmeubleAction()
     {
 
-       /* $idCopro='';
-        if(isset($_POST['id']))
-        {
-            $idCopro= $_POST['id'];
-            $_SESSION['idCopro'] = $idCopro;
-        }*/
+
        $session = new Session();
 
         $session->set('idCopro',$_POST['id'] );
@@ -174,7 +180,7 @@ class UserController extends Controller
      * @Route("/consultation/lots", name="user_consultation_lots")
      * @Method("Post")
      */
-    public function consultationLotsAction(Request $request)
+    public function consultationLotsAction()
     {
 
 
@@ -193,10 +199,57 @@ class UserController extends Controller
     }
 
     /**
+     * Finds and displays a user list entity.
+     *
+     * @Route("/listing", name="user_listing")
+     * @Method("get")
+     */
+    public function listingAction()
+    {
+        $user = $this->getUser();
+        $nomSyndic='';
+        $idSyndic='';
+        foreach ($user->getSyndics() as $syndic)
+        {
+           $idSyndic= $syndic->getId();
+            $nomSyndic=$syndic->getNom();
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $listsCop = $em->getRepository('AppBundle:User')->listUsersFromSyndic($idSyndic);
+
+        $associationCopro = $this->getUser()->getassociationCoPros();
+
+        $idAssociation='';
+        foreach ( $associationCopro as $asso)
+        {
+            $idAssociation= $asso->getId();
+        }
+        $em = $this->getDoctrine()->getManager();
+
+        $listsAss = $em->getRepository('AppBundle:User')->listUsersFromAssociation($idAssociation);
+
+        return $this->render('user/listUser.html.twig', array(
+
+        'listsCop'=>$listsCop,
+        'listsAss'=>$listsAss,
+        'nomSyndic'=>$nomSyndic
+        ));
+
+
+    }
+
+
+    /**
      * Finds and displays a user entity.
      *
      * @Route("/consultation/findlot/{adresse}", name="user_search_lots")
      * @Method("GET")
+     * @param $adresse
+     * @param SerializerInterface $serializer
+     * @param Session $session
+     * @return Response
      */
     public function searchLotsAction($adresse, SerializerInterface $serializer,Session $session)
     {
@@ -225,7 +278,7 @@ class UserController extends Controller
      * @Route("/consultation/pieces", name="user_consultation_pieces")
      * @Method("Post")
      */
-    public function consultationPiecesAction(Request $request)
+    public function consultationPiecesAction()
     {
 
         $session = new Session();
@@ -247,6 +300,10 @@ class UserController extends Controller
      *
      * @Route("/consultation/findrooms/{adresse}", name="user_search_pieces")
      * @Method("GET")
+     * @param $adresse
+     * @param SerializerInterface $serializer
+     * @param Session $session
+     * @return Response
      */
     public function searchPieceAction($adresse, SerializerInterface $serializer,Session $session)
     {
@@ -275,6 +332,8 @@ class UserController extends Controller
      *
      * @Route("/{id}", name="user_show")
      * @Method("GET")
+     * @param User $user
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(User $user)
     {
@@ -287,11 +346,15 @@ class UserController extends Controller
     }
 
 
+
     /**
      * Displays a form to edit an existing user entity.
      *
      * @Route("/{id}/edit", name="user_edit")
      * @Method({"GET", "POST", "DELETE"})
+     * @param Request $request
+     * @param User $user
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, User $user)
     {
@@ -317,6 +380,9 @@ class UserController extends Controller
      *
      * @Route("/{id}", name="user_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param User $user
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, User $user)
     {
@@ -337,7 +403,7 @@ class UserController extends Controller
      *
      * @param User $user The user entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(User $user)
     {
