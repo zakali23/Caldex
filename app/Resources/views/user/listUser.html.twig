@@ -1,0 +1,49 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Liste d'utilisateur</h1>
+    </div>
+</div>
+
+
+    <ul id="people">
+        {% if listsCop is defined %}
+            <h1 class="text-center green-text">Syndicat : {{ nomSyndic }}</h1>
+            {% for list in listsCop %}
+            <li>
+                <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
+                <h2>{{ list.firstname }} {{ list.lastname }}</h2>
+                <span class="info">
+                    <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</br>
+                    <a href="tel:{{ list.phone }}"><i class="fa fa-phone" aria-hidden="true"></i> {{ list.phone }}</a>
+                    <em><i class="fa fa-envelope-open" aria-hidden="true"></i> {{ list.email }}</em>
+                </span>
+            </li>
+            {% endfor %}
+        {% endif %}
+        {% if listsAss is defined %}
+            {% for list in listsAss %}
+                <li>
+                    <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
+                    <h2>{{ list.firstname }} {{ list.lastname }}</h2>
+                    <span class="info">
+                    <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</br>
+                        <a href="tel:{{ list.phone }}"><i class="fa fa-phone" aria-hidden="true"></i> {{ list.phone }}</a>
+                    <em><i class="fa fa-envelope-open" aria-hidden="true"></i> {{ list.email }}</em>
+                </span>
+                </li>
+            {% endfor %}
+        {% endif %}
+
+    </ul>
+
+
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
