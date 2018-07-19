@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use function Sodium\add;
@@ -22,7 +23,8 @@ class CompteurType extends AbstractType
         $builder
             ->add('isInstalled')
             ->add('dateInstallation', DateTimeType::class)
-
+            ->add('save', SubmitType::class, array(
+                'attr' => array('class' => 'save')))
         ;
     }/**
      * {@inheritdoc}

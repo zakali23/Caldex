@@ -10,4 +10,5 @@ namespace AppBundle\Repository;
  */
 class TypeCompteurRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

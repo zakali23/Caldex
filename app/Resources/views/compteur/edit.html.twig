@@ -24,10 +24,13 @@
         {{ form_end(edit_form) }}
     </div>
 
-<section>
-        {% include 'radiateur/new.html.twig' %}
+    {{ dump(compteur) }}
 
-    </section>
+    {% if compteur.categorieCompteur.id == '1' %}
+        <section>
+            {% include 'radiateur/new.html.twig' %}
+        </section>
+    {% endif %}
 
     <div id="profil" class="col-12 card">
         <div class="card-header">

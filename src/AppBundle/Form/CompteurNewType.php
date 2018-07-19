@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -25,7 +26,7 @@ class CompteurNewType extends AbstractType
             ->add('reference', TextType::class)
             ->add('serialNumber', IntegerType::class)
             ->add('dateAchat', DateTimeType::class)
-            ->add('photo', TextType::class)
+            ->add('imageFile', FileType::class)
             ->add('isInstalled')
         ;
 

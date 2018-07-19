@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\AppBundle;
 use AppBundle\Entity\Compteur;
 use AppBundle\Entity\Immeuble;
+use AppBundle\Entity\TypeCompteur;
 use AppBundle\Repository\ImmeubleRepository;
 use AppBundle\Entity\Radiateur;
 use AppBundle\Repository\RadiateurRepository;
@@ -135,6 +136,7 @@ class CompteurController extends Controller
             $em->flush();
 
         }
+
 
         $em = $this->getDoctrine()->getManager();
         $immeubles = $em->getRepository('AppBundle:Immeuble')->findAll();
