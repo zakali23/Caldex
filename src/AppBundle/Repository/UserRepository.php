@@ -35,14 +35,37 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+
+    public function listUsersFromSyndic($idSyndic){
+        $fields = array('u.firstname', 'u.lastname','u.phone','u.email','u.adresse','u.codePostal','u.ville','u.roles', 's.nom');
+        return $this->createQueryBuilder('u')
+            ->select($fields)
+            ->join('u.syndics', 's')
+            ->where('s.id = :idSyndic')
+            ->setParameter('idSyndic', $idSyndic)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function listUsersFromAssociation($idAssociation){
+        $fields = array('u.firstname', 'u.lastname','u.phone','u.email','u.adresse','u.codePostal','u.ville','u.roles', 'a.name');
+        return $this->createQueryBuilder('u')
+            ->select($fields)
+            ->join('u.associationCoPros', 'a')
+            ->where('a.id = :idAssociation')
+            ->setParameter('idAssociation', $idAssociation)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
 /*
- SELECT co_pro.*, user.id
-FROM co_pro
-INNER JOIN user_co_pro
-ON co_pro.id = user_co_pro.co_pro_id
-INNER JOIN user
-ON user_co_pro.user_id = user.id
-WHERE user_co_pro.user_id = 3
-and co_pro.name like '%c%'
+ SELECT concat(user.lastname, ' ' , user.firstname) nom, user.roles, syndic.nom
+FROM user
+  LEFT OUTER JOIN user_syndic
+    ON user.id = user_syndic.user_id
+  LEFT OUTER JOIN syndic
+    ON user_syndic.syndic_id = syndic.id
+where user_syndic.syndic_id = 1
  */
