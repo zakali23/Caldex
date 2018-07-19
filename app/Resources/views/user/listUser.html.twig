@@ -10,9 +10,9 @@
 
     <ul id="people">
         {% if listsSyndic is defined %}
-            {% if nomSyndic is defined %}
-            <h1 class="text-center green-text">Syndicat: {{ nomSyndic }}</h1>
-            {% endif %}
+                {% if nomSyndic != "" %}
+                <h1 class="text-center green-text">Syndicat: {{ nomSyndic }}</h1>
+                {% endif %}
             {% for list in listsSyndic %}
                 <li>
                 <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
@@ -28,9 +28,12 @@
         {% endif %}
         
         {% if listsAss is defined %}
-        {% if nomAssociation is defined %}
-            <h1 class="text-center green-text"> Association de Copropriété: {{ nomAssociation }}</h1>
-        {% endif %}
+            {% if nomAssociation != "" %}
+                {{ dump(nomAssociation) }}
+                <h1 class="text-center green-text"> Association de Copropriété: {{ nomAssociation }}</h1>
+
+            {% endif %}
+
             {% for list in listsAss %}
                 <li>
                     <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
