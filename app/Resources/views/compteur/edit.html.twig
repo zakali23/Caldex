@@ -19,7 +19,15 @@
             <li><span>Photo :</span> <img src="/images/compteur/{{ compteur.photo }}" width="100" height="auto"></li>
 
         </ul>
+        {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        {{ form_end(edit_form) }}
     </div>
+
+<section>
+        {% include 'radiateur/new.html.twig' %}
+
+    </section>
 
     <div id="profil" class="col-12 card">
         <div class="card-header">
@@ -42,10 +50,7 @@
         </select>
     </div>
 
-    <section>
-        {% include 'radiateur/new.html.twig' %}
 
-    </section>
 
     <form method="post" action="{{ path('compteurSubmit') }}">
         <input id="envoiIdPiece" name="idPiece" value="idPiece" type="hidden">

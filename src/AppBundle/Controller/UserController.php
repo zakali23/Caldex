@@ -3,6 +3,15 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+
+use AppBundle\Entity\CoPro;
+use AppBundle\Entity\Immeuble;
+use AppBundle\Entity\Syndic;
+use AppBundle\Entity\Lot;
+use AppBundle\Repository\LotRepository;
+use AppBundle\Repository\ImmeubleRepository;
+use AppBundle\Repository\PieceRepository;
+use AppBundle\Repository\UserRepository;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -150,12 +159,7 @@ class UserController extends Controller
     public function consultationImmeubleAction()
     {
 
-       /* $idCopro='';
-        if(isset($_POST['id']))
-        {
-            $idCopro= $_POST['id'];
-            $_SESSION['idCopro'] = $idCopro;
-        }*/
+
        $session = new Session();
 
         $session->set('idCopro',$_POST['id'] );
@@ -193,6 +197,54 @@ class UserController extends Controller
 
 
     }
+
+    /**
+     * Finds and displays a user list entity.
+     *
+     * @Route("/listing", name="user_listing")
+     * @Method("get")
+     */
+    public function listingAction()
+    {
+        $user = $this->getUser();
+        $nomSyndic='';
+        $idSyndic='';
+        foreach ($user->getSyndics() as $syndic)
+        {
+           $idSyndic= $syndic->getId();
+            $nomSyndic=$syndic->getNom();
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $listsSyndic = $em->getRepository('AppBundle:User')->listUsersFromSyndic($idSyndic);
+
+        $associationCopro = $this->getUser()->getassociationCoPros();
+
+        $idAssociation='';
+        $nomAssociation = '';
+        foreach ( $associationCopro as $asso)
+        {
+            $idAssociation= $asso->getId();
+            $nomAssociation = $asso->getName();
+        }
+        $em = $this->getDoctrine()->getManager();
+
+        $listsAss = $em->getRepository('AppBundle:User')->listUsersFromAssociation($idAssociation);
+        dump($listsAss);
+
+        return $this->render('user/listUser.html.twig', array(
+
+        'listsSyndic'=>$listsSyndic,
+        'listsAss'=>$listsAss,
+        'nomSyndic'=>$nomSyndic,
+        'nomAssociation'=> $nomAssociation
+
+        ));
+
+
+    }
+
 
     /**
      * Finds and displays a user entity.
@@ -297,6 +349,7 @@ class UserController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
 
 
     /**

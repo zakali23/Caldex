@@ -10,4 +10,10 @@ namespace AppBundle\Repository;
  */
 class RadiateurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findRadiateurBycalorimetre($compteur)
+    {
+        return $this->getEntityManager()
+            ->createQuery("SELECT r FROM AppBundle:Radiateur r WHERE r.calorimetre = $compteur")
+            ->getResult();
+    }
 }

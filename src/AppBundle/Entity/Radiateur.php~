@@ -67,15 +67,13 @@ class Radiateur
      *
      * @ORM\Column(name="regimeDimension", type="integer")
      */
-    private $regimeDimension;
-
-
-    /**
+    private $regimeDimension;/**
      * @var int
      *
      * @ORM\Column(name="puissance_delta_t50", type="integer")
      */
     private $puissanceDeltaT50;
+
 
 
     /**

@@ -339,4 +339,28 @@ class Immeuble
     {
         $this->planFile = $planFile;
     }
+
+    /**
+     * Set syndic.
+     *
+     * @param \AppBundle\Entity\Syndic|null $syndic
+     *
+     * @return Immeuble
+     */
+    public function setSyndic(\AppBundle\Entity\Syndic $syndic = null)
+    {
+        $this->syndic = $syndic;
+
+        return $this;
+    }
+
+    /**
+     * Get syndic.
+     *
+     * @return \AppBundle\Entity\Syndic|null
+     */
+    public function getSyndic()
+    {
+        return $this->syndic;
+    }
 }

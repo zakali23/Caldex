@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Syndic
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="gestionnaires")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CoPro", inversedBy="gestionnaires",fetch="EAGER")
      *
      */
     private $gestionnaire;
