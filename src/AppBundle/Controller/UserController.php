@@ -217,24 +217,29 @@ class UserController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $listsCop = $em->getRepository('AppBundle:User')->listUsersFromSyndic($idSyndic);
+        $listsSyndic = $em->getRepository('AppBundle:User')->listUsersFromSyndic($idSyndic);
 
         $associationCopro = $this->getUser()->getassociationCoPros();
 
         $idAssociation='';
+        $nomAssociation = '';
         foreach ( $associationCopro as $asso)
         {
             $idAssociation= $asso->getId();
+            $nomAssociation = $asso->getName();
         }
         $em = $this->getDoctrine()->getManager();
 
         $listsAss = $em->getRepository('AppBundle:User')->listUsersFromAssociation($idAssociation);
+        dump($listsAss);
 
         return $this->render('user/listUser.html.twig', array(
 
-        'listsCop'=>$listsCop,
+        'listsSyndic'=>$listsSyndic,
         'listsAss'=>$listsAss,
-        'nomSyndic'=>$nomSyndic
+        'nomSyndic'=>$nomSyndic,
+        'nomAssociation'=> $nomAssociation
+
         ));
 
 
