@@ -29,10 +29,7 @@
         
         {% if listsAss is defined %}
             {% if nomAssociation != "" %}
-<<<<<<< HEAD
 
-=======
->>>>>>> c8fa86f5c788ddafaeb1ac1a7e220ebe021c3a6c
                 <h1 class="text-center green-text"> Association de Copropriété: {{ nomAssociation }}</h1>
 
             {% endif %}
@@ -45,7 +42,8 @@
                     <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</br>
                         <a href="tel:{{ list.phone }}"><i class="fa fa-phone" aria-hidden="true"></i> {{ list.phone }}</a>
                     <em><i class="fa fa-envelope-open" aria-hidden="true"></i> {{ list.email }}</em>
-                </span>
+                    </em>
+                    </span>
                 </li>
             {% endfor %}
         {% endif %}
