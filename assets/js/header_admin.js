@@ -52,13 +52,13 @@ $(document).ready(function()
 {
     $("li#MC").click(function() {
 
-        $("#Utilisateurs").css({"display": "none"});
+        $("#Utilisateurs").hide();
         $("#Mes-Consos").show();
         $("#GestionConsommations").show();
-        $("#ConsultParc").css({"display": "none"});
-        $("#Gestion-Materiel").css({"display": "none"});
-        $("#Gestion-Parc").css({"display": "none"});
-        $(".Gestion-Utilisateurs").css({"display": "none"});
+        $("#ConsultParc").hide();
+        $("#Gestion-Materiel").hide();
+        $("#Gestion-Parc").hide();
+        $(".Gestion-Utilisateurs").hide();
 
 
     });
@@ -67,65 +67,79 @@ $(document).ready(function()
     $("li#GPU").click(function() {
 
         $("#Utilisateurs").show();
-        $("#Mes-Consos").css({"display": "none"});
-        $("#GestionConsommations").css({"display": "none"});
-        $("#ConsultParc").css({"display": "none"});
-        $("#Gestion-Materiel").css({"display": "none"});
-        $("#Gestion-Parc").css({"display": "none"});
+        $("#Mes-Consos").hide();
+        $("#GestionConsommations").hide();
+        $("#ConsultParc").hide();
+        $("#Gestion-Materiel").hide();
+        $("#Gestion-Parc").hide();
         $(".Gestion-Utilisateurs").show();
 
 
     });
 
 
-    $("li#GM").click(function() {
+    $("li#TGM").click(function() {
 
-        $("#Utilisateurs").css({"display": "none"});
-        $("#Mes-Consos").css({"display": "none"});
-        $("#GestionConsommations").css({"display": "none"});
-        $("#ConsultParc").css({"display": "none"});
+        $("#Utilisateurs").hide();
+        $("#Mes-Consos").hide();
+        $("#GestionConsommations").hide();
+        $("#ConsultParc").hide();
         $("#Gestion-Materiel").show();
-        $("#Gestion-Parc").css({"display": "none"});
-        $(".Gestion-Utilisateurs").css({"display": "none"});
+        $("#Gestion-Parc").hide();
+        $(".Gestion-Utilisateurs").hide();
 
     });
     $("li#AGM").click(function() {
 
-        $("#Utilisateurs").css({"display": "none"});
-        $("#Mes-Consos").css({"display": "none"});
-        $("#GestionConsommations").css({"display": "none"});
-        $("#ConsultParc").css({"display": "none"});
+        $("#Utilisateurs").hide();
+        $("#Mes-Consos").hide();
+        $("#GestionConsommations").hide();
+        $("#ConsultParc").hide();
         $("#Gestion-Materiel").show();
-        $("#Gestion-Parc").css({"display": "none"});
-        $(".Gestion-Utilisateurs").css({"display": "none"});
+        $("#Gestion-Parc").hide();
+        $(".Gestion-Utilisateurs").hide();
 
     });
+
+    $("li#AGPI").click(function() {
+
+        $("#Utilisateurs").hide();
+        $("#Mes-Consos").hide();
+        $("#GestionConsommations").hide();
+        $("#ConsultParc").hide();
+        $("#Gestion-Materiel").hide();
+        $("#Gestion-Parc").show();
+        $(".Gestion-Utilisateurs").hide();
+
+    });
+
+
     /* ------ List Immeubles -------------   */
 
 
     $("#btnListImmeuble").click(function() {
 
-        $("#cardForUser").css({"display": "none"});
-        $("#listFromCopro").css({"display": "none"});
-        $("#listFromLot").css({"display": "none"});
+        $("#cardForUser").hide();
+        $("#listFromCopro").hide();
+        $("#listFromLot").hide();
         $("#listFromImmeuble").show();
-        $("#cardForImmeuble").css({"display": "none"});
+        $("#cardForImmeuble").hide();
 
 
     });
     $("#scrollList").click(function() {
 
         $("#cardForImmeuble").css({"display": "flex"});
-        $("#scrollList").css({"display": "none"});
+        $("#scrollList").hide();
         $("#scrollUp").show();
 
     });
 
     $("#scrollUp").click(function() {
 
-        $("#cardForImmeuble").css({"display": "none"});
+        $("#cardForImmeuble").hide();
         $("#scrollList").show();
-        $("#scrollUp").css({"display": "none"});
+        $("#scrollUp").hide();
 
 
     });
@@ -133,27 +147,27 @@ $(document).ready(function()
     /* ------ List Lots -------------   */
     $("#btnListLot").click(function() {
 
-        $("#cardForUser").css({"display": "none"});
-        $("#listFromCopro").css({"display": "none"});
+        $("#cardForUser").hide();
+        $("#listFromCopro").hide();
         $("#listFromLot").show();
-        $("#listFromImmeuble").css({"display": "none"});
-        $("#cardForLot").css({"display": "none"});
+        $("#listFromImmeuble").hide();
+        $("#cardForLot").hide();
 
 
     });
     $("#scrollDownLot").click(function() {
 
         $("#cardForLot").css({"display": "flex"});
-        $("#scrollDownLot").css({"display": "none"});
+        $("#scrollDownLot").hide();
         $("#scrollUpLot").show();
 
 
     });
     $("#scrollUpLot").click(function() {
 
-        $("#cardForLot").css({"display": "none"});
+        $("#cardForLot").hide();
         $("#scrollDownLot").show();
-        $("#scrollUpLot").css({"display": "none"});
+        $("#scrollUpLot").hide();
 
 
     });
@@ -163,10 +177,10 @@ $(document).ready(function()
 
     $("#btnListCopro").click(function() {
 
-        $("#cardForUser").css({"display": "none"});
+        $("#cardForUser").hide();
         $("#listFromCopro").show();
-        $("#listFromLot").css({"display": "none"});
-        $("#listFromImmeuble").css({"display": "none"});
+        $("#listFromLot").hide();
+        $("#listFromImmeuble").hide();
 
 
     });
