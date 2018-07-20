@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -21,7 +22,7 @@ class CompteurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isInstalled')
+            ->add('isInstalled',CheckboxType::class,array('label'=>'Installer'))
             ->add('dateInstallation', DateTimeType::class)
             ->add('save', SubmitType::class, array(
                 'attr' => array('class' => 'save')))
