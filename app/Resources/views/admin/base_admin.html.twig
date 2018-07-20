@@ -187,6 +187,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a  href="{{ path('user_index') }}">Consultation des Utilisateurs</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -204,6 +207,26 @@
 
 
         {% elseif  is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
+
+
+                <nav class="nav justify-content-center grey lighten-4 py-4" id="GestionConsommations">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="">Consommation Co-Propriété</a>
+                            <a class="navbar-brand" href="">Consommation Immeuble</a>
+                            <a class="navbar-brand" href="">Consommation Lot</a>
+                            <a class="navbar-brand" href="">Consommation Pièce</a>
+                        </div>
+                    </div>
+                </nav>
+                <nav class="nav justify-content-center grey lighten-4 py-4" id="Utilisateurs">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="/register">Création d'un Utilisateur</a>
+                            <a class="navbar-brand" href="{{ path('user_listing') }}">Consultation des Utilisateurs</a>
+                        </div>
+                    </div>
+                </nav>
 
 
         {% endif %}
@@ -247,28 +270,7 @@
         </nav>
         {% endif %}
 
-        {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
 
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="GestionConsommations">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="">Consommation Co-Propriété</a>
-                        <a class="navbar-brand" href="">Consommation Immeuble</a>
-                        <a class="navbar-brand" href="">Consommation Lot</a>
-                        <a class="navbar-brand" href="">Consommation Pièce</a>
-                    </div>
-                </div>
-            </nav>
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="Utilisateurs">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/register">Création d'un Utilisateur</a>
-                        <a class="navbar-brand" href="{{ path('user_listing') }}">Consultation des Utilisateurs</a>
-                    </div>
-                </div>
-            </nav>
-
-        {% endif %}
 
 
         {% if is_granted(['ROLE_SALARIE', 'ROLE_GESTION', 'ROLE_ADMIN']) %}
