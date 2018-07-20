@@ -207,6 +207,7 @@ class UserController extends Controller
     public function listingAction()
     {
         $user = $this->getUser();
+
         $nomSyndic='';
         $idSyndic='';
         foreach ($user->getSyndics() as $syndic)
@@ -231,7 +232,7 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $listsAss = $em->getRepository('AppBundle:User')->listUsersFromAssociation($idAssociation);
-        dump($listsAss);
+
 
         return $this->render('user/listUser.html.twig', array(
 
