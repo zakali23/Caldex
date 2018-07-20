@@ -40,7 +40,8 @@ class RegistrationType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => false,
                 'expanded' => false,
-                'required' => false
+                'required' => false,
+                'mapped' => false,
 
             ))
             ->add('dateEntree',  DateType::class, array(
@@ -69,28 +70,32 @@ class RegistrationType extends AbstractType
                 'choice_label' => 'nom',
                 'multiple' => false,
                 'expanded' => false,
-                'required' => false
+                'required' => false,
+                'mapped' => false,
 
             ))
             ->add('associationCoPros', EntityType::class, array(
                 'class' => 'AppBundle:associationCoPro',
                 'choice_label'=> 'name',
                 'multiple' => false,
-                'required' => false
+                'required' => false,
+                'mapped' => false,
 
             ))
             ->add('lots', EntityType::class, array(
                 'class' => 'AppBundle:Lot',
                 'choice_label'=> 'numero',
                 'multiple' => false,
-                'required' => false
+                'required' => false,
+                'mapped' => false,
             ))
             ->add('type_loc_props', EntityType::class, array(
                 'class' => 'AppBundle:Role',
                 'choice_label'=> 'nom',
                 'multiple' => true,
                 'expanded' => true,
-                'required' => false
+                'required' => false,
+                'mapped' => false,
             ))
 
             ->add('roles', ChoiceType::class, [
@@ -101,8 +106,10 @@ class RegistrationType extends AbstractType
                     "Délégué de copropriété" => 'ROLE_GESTION',
                     'Gestionnaire' => 'ROLE_SALARIE',
                     'Technicien' => 'ROLE_TECHNICIEN',
-                    'Habitant' => 'ROLE_USER',
+                    'Habitant' => 'ROLE_HABITANT',
+
                 ],
+                'mapped' => false,
             ]);
     }
 

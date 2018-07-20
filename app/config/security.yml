@@ -4,7 +4,7 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
-        ROLE_TECHNICIEN: ROLE_USER
+        ROLE_TECHNICIEN: ROLE_HABITANT
         ROLE_SALARIE: ROLE_TECHNICIEN
         ROLE_GESTION: ROLE_SALARIE
         ROLE_ADMIN: ROLE_GESTION
