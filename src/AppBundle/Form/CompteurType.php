@@ -22,8 +22,16 @@ class CompteurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
             ->add('isInstalled',CheckboxType::class,array('label'=>'Installer'))
-            ->add('dateInstallation', DateTimeType::class)
+            ->add('dateInstallation', DateTimeType::class, array(
+                'format' => 'dd-MM-yyyy',
+                'widget' => 'choice',
+                'data' => new \DateTime(),
+                'years' => range(date('Y')-1, date('Y')+10),
+                'months' => range(date('m'), 12),
+                'days' => range(date('d'), 31),
+            ))
             ->add('save', SubmitType::class, array(
                 'attr' => array('class' => 'save')))
         ;
