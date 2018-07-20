@@ -38,10 +38,10 @@ class RegistrationType extends AbstractType
             ->add('copros', EntityType::class, array(
                 'class' => 'AppBundle:CoPro',
                 'choice_label' => 'name',
-                'multiple' => false,
+                'multiple' => true,
                 'expanded' => false,
                 'required' => false,
-                'mapped' => false,
+
 
             ))
             ->add('dateEntree',  DateType::class, array(
@@ -68,26 +68,26 @@ class RegistrationType extends AbstractType
             ->add('syndics', EntityType::class, array(
                 'class' => 'AppBundle:Syndic',
                 'choice_label' => 'nom',
-                'multiple' => false,
+                'multiple' => true,
                 'expanded' => false,
                 'required' => false,
-                'mapped' => false,
+
 
             ))
             ->add('associationCoPros', EntityType::class, array(
                 'class' => 'AppBundle:associationCoPro',
                 'choice_label'=> 'name',
-                'multiple' => false,
+                'multiple' => true,
                 'required' => false,
-                'mapped' => false,
+                'mapped' => true,
 
             ))
             ->add('lots', EntityType::class, array(
                 'class' => 'AppBundle:Lot',
                 'choice_label'=> 'numero',
-                'multiple' => false,
+                'multiple' => true,
                 'required' => false,
-                'mapped' => false,
+                'mapped' => true,
             ))
             ->add('type_loc_props', EntityType::class, array(
                 'class' => 'AppBundle:Role',
@@ -95,7 +95,7 @@ class RegistrationType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'required' => false,
-                'mapped' => false,
+
             ))
 
             ->add('roles', ChoiceType::class, [
@@ -109,7 +109,6 @@ class RegistrationType extends AbstractType
                     'Habitant' => 'ROLE_HABITANT',
 
                 ],
-                'mapped' => false,
             ]);
     }
 
