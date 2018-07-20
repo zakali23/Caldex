@@ -1,12 +1,16 @@
 {% extends 'admin/base_admin.html.twig' %}
 
 {% block body %}
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Trouvez Votre Appartement</h1><br>
+            <form >
+                <input class="form-control" type="search" placeholder="Chercher Par nom" id="listLots" aria-label="Search">
+            </form>
 
+        </div>
+    </div>
 
-<form class="form-inline md-form ">
-    <i class="fa fa-search" aria-hidden="true"></i>
-    <input class="form-control" type="text" placeholder="Chercher Par N° de lot" id="listLots" aria-label="Search">
-</form>
 <div class="container-fluid" >
     <div id="Lots"></div>
 

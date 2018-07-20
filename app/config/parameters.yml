@@ -3,8 +3,8 @@ parameters:
     database_host: localhost
     database_port:
     database_name: caldex
-    database_user: root
-    database_password: jecode4wcs
+    database_user: zak
+    database_password: 123456
     mailer_transport: gmail
     mailer_host: smtp.gmail.com
     mailer_user: caldex67@gmail.com
