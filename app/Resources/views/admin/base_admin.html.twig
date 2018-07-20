@@ -132,9 +132,9 @@
 <main class="l-main">
     <div class="container">
 
-        {% if is_granted('ROLE_ADMIN ') %}
+        {% if is_granted('ROLE_ADMIN') %}
 
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Utilisateurs">
+            <nav class="nav justify-content-center grey lighten-4 py-4 Gestion-Utilisateurs">
 
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -184,7 +184,7 @@
 
         {% elseif  is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
 
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Utilisateurs">
+            <nav class="nav justify-content-center grey lighten-4 py-4 Gestion-Utilisateurs">
 
                 <div class="container-fluid">
                     <div class="navbar-header">

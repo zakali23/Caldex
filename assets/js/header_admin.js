@@ -58,7 +58,7 @@ $(document).ready(function()
         $("#ConsultParc").css({"display": "none"});
         $("#Gestion-Materiel").css({"display": "none"});
         $("#Gestion-Parc").css({"display": "none"});
-        $("#Gestion-Utilisateurs").css({"display": "none"});
+        $(".Gestion-Utilisateurs").css({"display": "none"});
 
 
     });
@@ -72,7 +72,7 @@ $(document).ready(function()
         $("#ConsultParc").css({"display": "none"});
         $("#Gestion-Materiel").css({"display": "none"});
         $("#Gestion-Parc").css({"display": "none"});
-        $("#Gestion-Utilisateurs").show();
+        $(".Gestion-Utilisateurs").show();
 
 
     });
@@ -86,7 +86,7 @@ $(document).ready(function()
         $("#ConsultParc").css({"display": "none"});
         $("#Gestion-Materiel").show();
         $("#Gestion-Parc").css({"display": "none"});
-        $("#Gestion-Utilisateurs").css({"display": "none"});
+        $(".Gestion-Utilisateurs").css({"display": "none"});
 
     });
     $("li#AGM").click(function() {
@@ -97,7 +97,7 @@ $(document).ready(function()
         $("#ConsultParc").css({"display": "none"});
         $("#Gestion-Materiel").show();
         $("#Gestion-Parc").css({"display": "none"});
-        $("#Gestion-Utilisateurs").css({"display": "none"});
+        $(".Gestion-Utilisateurs").css({"display": "none"});
 
     });
     /* ------ List Immeubles -------------   */
