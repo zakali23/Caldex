@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\AppBundle;
 use AppBundle\Entity\Compteur;
 use AppBundle\Entity\Immeuble;
+use AppBundle\Entity\TypeCompteur;
 use AppBundle\Repository\ImmeubleRepository;
 use AppBundle\Entity\Radiateur;
 use AppBundle\Repository\RadiateurRepository;
@@ -54,7 +55,7 @@ class CompteurController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $compteurs = $em->getRepository('AppBundle:Compteur')->findAll();
+        $compteurs = $em->getRepository('AppBundle:Compteur')->findByNoInstalled();
 
         return $this->render('compteur/installation.html.twig', array(
             'compteurs' => $compteurs,
@@ -136,10 +137,11 @@ class CompteurController extends Controller
 
         }
 
+
         $em = $this->getDoctrine()->getManager();
         $immeubles = $em->getRepository('AppBundle:Immeuble')->findAll();
         $em = $this->getDoctrine()->getManager();
-        $radiateurs = $em->getRepository('AppBundle:Radiateur')->findAll();
+        $radiateurs = $em->getRepository('AppBundle:Radiateur')->findRadiateurBycalorimetre($compteur->getId());
 
         return $this->render('compteur/edit.html.twig', array(
             'compteur' => $compteur,

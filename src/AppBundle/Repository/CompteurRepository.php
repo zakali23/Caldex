@@ -10,4 +10,10 @@ namespace AppBundle\Repository;
  */
 class CompteurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByNoInstalled()
+    {
+        return $this->getEntityManager()
+            ->createQuery("SELECT c FROM AppBundle:Compteur c WHERE c.isInstalled = '0'")
+            ->getResult();
+    }
 }

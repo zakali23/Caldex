@@ -54,6 +54,7 @@
                 <div class="col card">
                     <li><a href="{{ path('user_index') }}">Consultation des Membres</a></li>
                 </div>
+
                 {% endif %}
 
             </div>
@@ -73,9 +74,8 @@
     {% if is_granted ('ROLE_SALARIE') %}
         <div class="col card">
         <h2>Consultation Immo</h2>
-            <li><a href="{{ path('immeuble_index') }}">Liste des Immeubles</a></li>
-            <li><a href="{{ path('lot_index') }}">Liste des lots</a></li>
-            <li><a href="{{ path('piece_index') }}">Liste des pièces</a></li>
+            <li><a href="/user/consultation">Consultation Immobilière</a></li>
+
         </div>
     {% endif %}
     </div>
