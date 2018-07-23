@@ -28,9 +28,7 @@ class CompteurType extends AbstractType
                 'format' => 'dd-MM-yyyy',
                 'widget' => 'choice',
                 'data' => new \DateTime(),
-                'years' => range(date('Y')-1, date('Y')+10),
-                'months' => range(date('m'), 12),
-                'days' => range(date('d'), 31),
+                'years' => range(date('Y')-1, date('Y')+10)
             ))
             ->add('save', SubmitType::class, array(
                 'attr' => array('class' => 'save')))
