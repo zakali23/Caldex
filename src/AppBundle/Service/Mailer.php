@@ -24,6 +24,7 @@ class Mailer
     public function sendEmail($nomInfo,$prenomInfo,$telephoneInfo,$emailInfo,$adresseInfo,$messageInfo)
     {
 
+        try {
             $body = $this->templating->render('emails/send.html.twig', [
                 'nomInfo' => $nomInfo,
                 'prenomInfo' => $prenomInfo,
@@ -33,6 +34,10 @@ class Mailer
                 'messageInfo' => $messageInfo
 
             ]);
+        } catch (\Twig_Error_Loader $e) {
+        } catch (\Twig_Error_Runtime $e) {
+        } catch (\Twig_Error_Syntax $e) {
+        }
 
         $message = (new \Swift_Message('infoContact'))
             ->setFrom($emailInfo)
