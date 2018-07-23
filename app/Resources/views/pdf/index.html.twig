@@ -2,6 +2,8 @@
 
 {% block body %}
 
+    <!-- Logo de l'entreprise -->
+
     <p style="color: white;">.</p>
     <hr style="margin-left: 0" width="300" size="1" color="#da328a">
     <table style="font-family:Open Sans, Verdana,sans-serif">
@@ -56,5 +58,22 @@
         </tr>
     </table>
 <hr style="margin-left: 0" width="300" size="1" color="#0086b1">
+
+
+    <!-- Informations personnelles du client -->
+
+            <div class="offset-8">
+                <ul>
+                    <li><span>Prénom :</span> {{ app.user.firstname }}</li>
+                    <li><span>Nom :</span> {{ app.user.lastname }}</li>
+                    <li><span>Adresse :</span> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
+                    <li><span>Téléphone :</span> {{ app.user.phone }}</li>
+                    <li><span>Email:</span> {{ app.user.email }}</li>
+                </ul>
+            </div>
+
+
+    <!-- Contenu de la facture -->
+
 
 {% endblock %}

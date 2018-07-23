@@ -411,7 +411,27 @@ class UserController extends Controller
         ;
     }
 
+    /**
+     * @Route("/consultation/consultation/lots/pdf", name="pdf")
+     * @Method({"GET", "POST"})
+     * @param Pdf $pdf
+     * @return string
+     */
+    public function pdfAction(Pdf $pdf)
+    {
+        return $pdf->pdfAction();
+    }
 
+    /**
+     * @Route("/consultation/consultation/lots/dl", name="dl")
+     * @Method({"GET", "POST"})
+     * @param Pdf $pdf
+     * @return string
+     */
+    public function dlAction(Pdf $pdf)
+    {
+        return $pdf->showAction();
+    }
 
 
 }

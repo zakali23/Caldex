@@ -9,7 +9,6 @@
         <!--Table head-->
         <thead>
             <tr>
-                <th width=130px">Reference Calorimètre</th>
                 <th scope="col">Modèle</th>
                 <th width="130px" scope="col">Type</th>
                 <th scope="col">Profondeur</th>
@@ -28,7 +27,6 @@
         {% for radiateur in radiateurs %}
         <tbody>
             <tr>
-                <td>{{ radiateur.calorimetre }}</td>
                 <td>{{ radiateur.modele }}</td>
                 <td>{{ radiateur.type }}</td>
                 <td>{{ radiateur.profondeur }}</td>
@@ -47,7 +45,7 @@
         {{ form_start(form) }}
         <tbody id="addFormLot">
         <tr>
-            <td>{{ compteur.id }}</td>
+            
             <td>{{ form_widget(form.modele, { 'attr': {'class': 'custom-select','placeholder': "modele"} }) }}</td>
             <td>{{ form_widget(form.type, { 'attr': {'class': 'custom-select','placeholder': "type"} }) }}</td>
             <td>{{ form_widget(form.profondeur, { 'attr': {'class': 'custom-select','placeholder': "profondeur"} }) }}</td>
