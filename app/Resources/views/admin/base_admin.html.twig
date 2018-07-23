@@ -56,46 +56,80 @@
 
 
 
-
-
-            {#-----------------------------------------GESTION / SALARIE-----------------------------------------#}
+        {#--------------------------------------GESTION / SALARIE-----------------------------------------#}
 
             {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
+
                 <ul class="u-list">
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion des utilisateurs" id="GPU">
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion des utilisateurs </span></div>
-
                         </div>
                     </li>
-                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="GPI">
-                        <a href="{{ path('user_consultation') }}">
-                        <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
+                </ul>
+            {% endif %}
+            {#----------------------------------------- USER -----------------------------------------#}
+
+            {% if is_granted('ROLE_HABITANT') %}
+
+            {% endif %}
+
+
+            {#-----------------------------------------ADMIN-----------------------------------------#}
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <ul class="u-list">
+
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="AGPI">
+
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion du Parc Immobilier</span></div>
                         </div>
+                    </li>
+                </ul>
+
+
+
+            {#-----------------------------------------GESTION / SALARIE-----------------------------------------#}
+
+            {% elseif is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
+                <ul class="u-list">
+                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Gestion du Parc Immobilier" id="GPI">
+                        <a href="{{ path('user_consultation') }}">
+                            <div class="c-menu__item__inner"><i class="fa fa-file-text-o"></i>
+                                <div class="c-menu-item__title"><span>Gestion du Parc Immobilier</span></div>
+                            </div>
                         </a>
                     </li>
                 </ul>
             {% endif %}
 
-            {#----------------------------------------- USER -----------------------------------------#}
-
-            {% if is_granted('ROLE_USER') %}
-
-            {% endif %}
-
-                {#-----------------------------------------TECHNICIEN-----------------------------------------#}
-            {% if is_granted('ROLE_TECHNICIEN') %}
+            {#-----------------------------------------ADMIN-----------------------------------------#}
+            {% if is_granted('ROLE_ADMIN') %}
                 <ul class="u-list">
 
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Matériel" class="GM">
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="AGM">
 
                         <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
                             <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
                         </div>
                     </li>
                 </ul>
-            {% elseif is_granted('ROLE_USER') %}
+                {#----------------------------------------GESTION / SALARIE-----------------------------------------#}
+            {% elseif is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
+
+                {#-----------------------------------------TECHNICIEN-----------------------------------------#}
+            {% elseif is_granted('ROLE_TECHNICIEN') %}
+                <ul class="u-list">
+
+                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion Matériel" id="TGM">
+
+                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
+                            <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
+                        </div>
+                    </li>
+                </ul>
+            {% elseif is_granted('ROLE_HABITANT') %}
                 <ul class="u-list">
 
                     <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Consommations" id="MC">
@@ -107,19 +141,6 @@
                 </ul>
             {% endif %}
 
-            {#-----------------------------------------ADMIN-----------------------------------------#}
-
-            {% if is_granted('ROLE_ADMIN') %}
-                <ul class="u-list">
-
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gestion du Matériel" id="AGM">
-
-                        <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                            <div class="c-menu-item__title"><span>Gestion du Matériel</span></div>
-                        </div>
-                    </li>
-                </ul>
-            {% endif %}
 
 
         </nav>
@@ -132,9 +153,9 @@
 <main class="l-main">
     <div class="container">
 
-        {% if is_granted('ROLE_ADMIN ') %}
+        {% if is_granted('ROLE_ADMIN') %}
 
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Utilisateurs">
+            <nav class="nav justify-content-center grey lighten-4 py-4 Gestion-Utilisateurs">
 
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -166,6 +187,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a  href="{{ path('user_index') }}">Consultation des Utilisateurs</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -184,24 +208,26 @@
 
         {% elseif  is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
 
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="Gestion-Utilisateurs">
 
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <ul class="nav nav-pills">
-                            <li >
-                                <a href="{{ path('copro_index') }} ">Consultation co-Propriétés</a>
-                            </li>
-                            <li >
-                                <a  href="{{ path('associationcopro_index') }}"> Asso de Co-Propriétés</a>
-                            </li>
-                            <li >
-                                <a  href="{{ path('syndic_index') }} ">Syndicats</a>
-                            </li>
-                        </ul>
+                <nav class="nav justify-content-center grey lighten-4 py-4" id="GestionConsommations">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="">Consommation Co-Propriété</a>
+                            <a class="navbar-brand" href="">Consommation Immeuble</a>
+                            <a class="navbar-brand" href="">Consommation Lot</a>
+                            <a class="navbar-brand" href="">Consommation Pièce</a>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+                <nav class="nav justify-content-center grey lighten-4 py-4" id="Utilisateurs">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="/register">Création d'un Utilisateur</a>
+                            <a class="navbar-brand" href="{{ path('user_listing') }}">Consultation des Utilisateurs</a>
+                        </div>
+                    </div>
+                </nav>
+
 
         {% endif %}
 
@@ -244,33 +270,12 @@
         </nav>
         {% endif %}
 
-        {% if is_granted(['ROLE_GESTION', 'ROLE_SALARIE']) %}
 
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="GestionConsommations">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="">Consommation Co-Propriété</a>
-                        <a class="navbar-brand" href="">Consommation Immeuble</a>
-                        <a class="navbar-brand" href="">Consommation Lot</a>
-                        <a class="navbar-brand" href="">Consommation Pièce</a>
-                    </div>
-                </div>
-            </nav>
-            <nav class="nav justify-content-center grey lighten-4 py-4" id="Utilisateurs">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/register">Création d'un Utilisateur</a>
-                        <a class="navbar-brand" href="{{ path('user_listing') }}">Consultation des Utilisateurs</a>
-                    </div>
-                </div>
-            </nav>
-
-        {% endif %}
 
 
         {% if is_granted(['ROLE_SALARIE', 'ROLE_GESTION', 'ROLE_ADMIN']) %}
 
-        {% elseif is_granted('ROLE_USER') %}
+        {% elseif is_granted('ROLE_HABITANT') %}
             <nav class="nav justify-content-center grey lighten-4 py-4" id="Mes-Consos">
                 <div class="container-fluid">
                     <div class="navbar-header">

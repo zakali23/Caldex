@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -73,7 +74,13 @@ class contactType extends AbstractType
             ->add('nomResidence',TextType::class,array())
 
             ->add('adresseResidence')
-            ->add('dateAG')
+            ->add('dateAG', DateType::class, array(
+                'format' => 'dd-MM-yyyy',
+                'widget' => 'choice',
+                'data' => new \DateTime(),
+                'years' => range(date('Y')-10, date('Y')+10),
+
+            ))
             ->add('nblogement',TextType::class,array())
             ->add('immeuble', ChoiceType::class, array(
                 'choices'  => [

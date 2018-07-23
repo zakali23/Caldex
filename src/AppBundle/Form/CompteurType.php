@@ -2,7 +2,9 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use function Sodium\add;
@@ -20,9 +22,16 @@ class CompteurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isInstalled')
-            ->add('dateInstallation', DateTimeType::class)
 
+            ->add('isInstalled',CheckboxType::class,array('label'=>'Installer'))
+            ->add('dateInstallation', DateTimeType::class, array(
+                'format' => 'dd-MM-yyyy',
+                'widget' => 'choice',
+                'data' => new \DateTime(),
+                'years' => range(date('Y')-1, date('Y')+10)
+            ))
+            ->add('save', SubmitType::class, array(
+                'attr' => array('class' => 'save')))
         ;
     }/**
      * {@inheritdoc}

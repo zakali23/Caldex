@@ -38,9 +38,10 @@ class RegistrationType extends AbstractType
             ->add('copros', EntityType::class, array(
                 'class' => 'AppBundle:CoPro',
                 'choice_label' => 'name',
-                'multiple' => false,
+                'multiple' => true,
                 'expanded' => false,
-                'required' => false
+                'required' => false,
+
 
             ))
             ->add('dateEntree',  DateType::class, array(
@@ -48,8 +49,7 @@ class RegistrationType extends AbstractType
                 'widget' => 'choice',
                 'data' => new \DateTime(),
                 'years' => range(date('Y')-58, date('Y')+10),
-                'months' => range(date('m'), 12),
-                'days' => range(date('d'), 31),
+
 
 
 
@@ -59,38 +59,41 @@ class RegistrationType extends AbstractType
                 'widget' => 'choice',
                 'data' => new \DateTime(),
                 'years' => range(date('Y')-1, date('Y')+10),
-                'months' => range(date('m'), 12),
-                'days' => range(date('d'), 31),
+
 
             ))
 
             ->add('syndics', EntityType::class, array(
                 'class' => 'AppBundle:Syndic',
                 'choice_label' => 'nom',
-                'multiple' => false,
+                'multiple' => true,
                 'expanded' => false,
-                'required' => false
+                'required' => false,
+
 
             ))
             ->add('associationCoPros', EntityType::class, array(
                 'class' => 'AppBundle:associationCoPro',
                 'choice_label'=> 'name',
-                'multiple' => false,
-                'required' => false
+                'multiple' => true,
+                'required' => false,
+                'mapped' => true,
 
             ))
             ->add('lots', EntityType::class, array(
                 'class' => 'AppBundle:Lot',
                 'choice_label'=> 'numero',
-                'multiple' => false,
-                'required' => false
+                'multiple' => true,
+                'required' => false,
+                'mapped' => true,
             ))
             ->add('type_loc_props', EntityType::class, array(
                 'class' => 'AppBundle:Role',
                 'choice_label'=> 'nom',
                 'multiple' => true,
                 'expanded' => true,
-                'required' => false
+                'required' => false,
+
             ))
 
             ->add('roles', ChoiceType::class, [
@@ -101,7 +104,8 @@ class RegistrationType extends AbstractType
                     "Délégué de copropriété" => 'ROLE_GESTION',
                     'Gestionnaire' => 'ROLE_SALARIE',
                     'Technicien' => 'ROLE_TECHNICIEN',
-                    'Habitant' => 'ROLE_USER',
+                    'Habitant' => 'ROLE_HABITANT',
+
                 ],
             ]);
     }

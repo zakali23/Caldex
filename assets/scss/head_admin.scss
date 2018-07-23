@@ -564,7 +564,13 @@ a.list-group-item.active small {
   color:#fff;
 }
 
-#Mes-Consos, #Utilisateurs, #GestionConsommations, #ConsultParc, #Gestion-Materiel, #Gestion-Parc, #Gestion-Utilisateurs{
+#Mes-Consos, #Utilisateurs, #GestionConsommations, #ConsultParc, #Gestion-Materiel, #Gestion-Parc{
+  display: none;
+  background: #93c01f;
+  color: #fff;
+  font-size: 1.5em;
+}
+.Gestion-Utilisateurs{
   display: none;
   background: #93c01f;
   color: #fff;
