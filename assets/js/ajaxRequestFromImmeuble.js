@@ -87,10 +87,11 @@ function showCopro() {
                     "<form action=\"consultation/immeubles\" method='post'>"+
                     "<input type='hidden' name='id' value='"+ value['id'] +"'>"+
                     "<div class=\"panel panel-default\">" + "<div class=\"panel-body text-center\">"+
+                    "<h2 class='text-center'>Copropriété : </h2>"+
                     "<button id='"+ value['id'] +"' type='submit'>"+ value['name'] +"</button>" + "</div>"+"<div class=\"list-group-horizontal\">"+
-                    "<p class=\"list-group-item\">" + value['adresse'] + " <i class=\"fas fa-map-marker-alt  fa-lg\">"+"</i>"+"</p>"+
-                    "<p class=\"list-group-item\">" + value['codePostal'] + " <i class=\"fas fa-map-signs fa-lg\">"+"</i>"+"</p>"+
-                    "<p class=\"list-group-item\">" + value['ville'] + " <i class=\"fas fa-map-pin fa-lg\">"+"</i>"+"</p>"+"</div>"+"</div>");
+                    "<p class=\"list-group-item\">Adresse :<br>" + value['adresse'] + " <br><i class=\"fas fa-street-view  fa-lg\">"+"</i>"+"</p>"+
+                    "<p class=\"list-group-item\">Code Postal :<br>" + value['codePostal'] + "<br> <i class=\"fas fa-map-signs fa-lg\">"+"</i>"+"</p>"+
+                    "<p class=\"list-group-item\">Ville :<br>" + value['ville'] + " <br><i class=\"fas fa-map-marker-alt fa-lg\">"+"</i>"+"</p>"+"</div>"+"</div>");
 
             });
 
