@@ -49,8 +49,7 @@ class RegistrationType extends AbstractType
                 'widget' => 'choice',
                 'data' => new \DateTime(),
                 'years' => range(date('Y')-58, date('Y')+10),
-                'months' => range(date('m'), 12),
-                'days' => range(date('d'), 31),
+
 
 
 
@@ -60,8 +59,7 @@ class RegistrationType extends AbstractType
                 'widget' => 'choice',
                 'data' => new \DateTime(),
                 'years' => range(date('Y')-1, date('Y')+10),
-                'months' => range(date('m'), 12),
-                'days' => range(date('d'), 31),
+
 
             ))
 
