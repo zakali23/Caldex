@@ -3,6 +3,9 @@ $color-claire: rgba(159, 202, 27, 0.6);
 
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
+body{
+  background: #6f757d;
+}
 
 footer, footer>a, footer>h6, footer>hr{
   background-color: #4b4b4b;
@@ -106,7 +109,7 @@ h1, h2, h3,h4,h5,h6{
   background-color: #e7e093;
 }
 .contact-section .contact {
-  background-color:$color-foncer !important;
+  background-color:#4b4b4b !important;
 }
 select.form-control:not([size]):not([multiple]) {
   height: calc(2.25rem + 8px) !important;
@@ -131,9 +134,16 @@ select.form-control:not([size]):not([multiple]) {
   margin-bottom: 18%;
   margin-top: 10%;
 }
+.btn-outline-success {
+
+  border: 2px solid #101110 !important;
+  background-color: transparent !important;
+  color: #0c0c0c !important;
+
+}
 
 footer {
-  margin-top: 150px;
+
   p, .linkFooter {
     color: white;
     .linkFooter {
@@ -149,9 +159,13 @@ h6.text-uppercase.font-weight-bold{
 
 
 .jumbotron{
-  background-color:  rgb(147, 192, 31) !important;
+  background-color: rgba(255, 255, 255, 0.87) !important;
+  margin-bottom: 0px !important;
+  box-shadow: none;
 }
-
+#contactInfo {
+  background: #ececec !important;
+}
 
 .container .jumbotron, .container-fluid .jumbotron {
 
@@ -168,7 +182,7 @@ h6.text-uppercase.font-weight-bold{
   background: #93c01f !important;
 }
 #test {
-  color: $color-foncer;
+  color: black;
 }
 #people {
   position: relative;
