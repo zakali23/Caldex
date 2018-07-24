@@ -24,14 +24,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('associationcopro_index') }}">Back to the list</a>
+            <a href="{{ path('associationcopro_index') }}">Liste des associations de copropriétés</a>
         </li>
         <li>
-            <a href="{{ path('associationcopro_edit', { 'id': associationCoPro.id }) }}">Edit</a>
+            <a href="{{ path('associationcopro_edit', { 'id': associationCoPro.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer" class="supp">
             {{ form_end(delete_form) }}
         </li>
     </ul>

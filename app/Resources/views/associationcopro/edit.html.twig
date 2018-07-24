@@ -5,14 +5,14 @@
 
     {{ form_start(edit_form) }}
     {{ form_widget(edit_form) }}
-    <button type="submit" value="Edit" class="btn btn-warning">Modifier</button>
+    <button type="submit" value="Edit" class="btn btn-warning modif">Modifier</button>
     {{ form_end(edit_form) }}
 
 
     {{ form_start(delete_form) }}
-    <button type="submit" value="Delete" class="btn btn-danger">Supprimer</button>
+    <br><button type="submit" value="Delete" class="btn btn-danger supp">Supprimer</button>
     {{ form_end(delete_form) }}
 
-    <a href="{{ path('associationcopro_index') }}">Back to the list</a>
+    <br><a href="{{ path('associationcopro_index') }}">Liste des associations de copropriétés</a>
 
 {% endblock %}
