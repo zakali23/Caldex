@@ -2,16 +2,14 @@
 
 
 {% block body %}
-    <h1>Fournisseurcompteur creation</h1>
+    <h1>Ajouter un fournisseur</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Créer" class="new"/>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('fournisseurcompteur_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+        <a href="{{ path('fournisseurcompteur_index') }}">Liste des fournisseurs</a>
+
 {% endblock %}

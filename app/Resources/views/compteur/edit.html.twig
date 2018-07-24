@@ -58,7 +58,7 @@
     <form method="post" action="{{ path('compteurSubmit') }}">
         <input id="envoiIdPiece" name="idPiece" value="idPiece" type="hidden">
         <input id="envoiId" name="idCompteur" value="{{ compteur.id }}" type="hidden">
-        <input value="Envoyer" type="submit">
+        <input value="Envoyer" type="submit" class="new">
     </form>
 
 {% endblock %}

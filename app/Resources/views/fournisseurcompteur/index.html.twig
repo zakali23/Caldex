@@ -1,14 +1,14 @@
 {% extends "admin/base_admin.html.twig"%}
 {% block body %}
-    <h1>Fournisseurcompteurs list</h1>
+    <h1>Liste des fournisseurs</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Adresse</th>
-                <th>Codepostal</th>
+                <th>Code postal</th>
                 <th>Ville</th>
                 <th>Actions</th>
             </tr>
@@ -24,10 +24,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('fournisseurcompteur_show', { 'id': fournisseurCompteur.id }) }}">show</a>
+                            <a href="{{ path('fournisseurcompteur_show', { 'id': fournisseurCompteur.id }) }}">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('fournisseurcompteur_edit', { 'id': fournisseurCompteur.id }) }}">edit</a>
+                            <a href="{{ path('fournisseurcompteur_edit', { 'id': fournisseurCompteur.id }) }}">modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -38,7 +38,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('fournisseurcompteur_new') }}">Create a new fournisseurCompteur</a>
+            <a href="{{ path('fournisseurcompteur_new') }}">Créer un nouveau fournisseur</a>
         </li>
     </ul>
 {% endblock %}

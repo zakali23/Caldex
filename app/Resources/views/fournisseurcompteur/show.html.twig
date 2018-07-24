@@ -1,14 +1,11 @@
 {% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
-    <h1>Fournisseurcompteur</h1>
+    <h1>Fournisseur</h1>
 
-    <table>
+    <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ fournisseurCompteur.id }}</td>
-            </tr>
+
             <tr>
                 <th>Nom</th>
                 <td>{{ fournisseurCompteur.nom }}</td>
@@ -30,14 +27,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('fournisseurcompteur_index') }}">Back to the list</a>
+            <a href="{{ path('fournisseurcompteur_index') }}">Liste des fournisseurs</a>
         </li>
         <li>
-            <a href="{{ path('fournisseurcompteur_edit', { 'id': fournisseurCompteur.id }) }}">Edit</a>
+            <a href="{{ path('fournisseurcompteur_edit', { 'id': fournisseurCompteur.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer" class="supp">
             {{ form_end(delete_form) }}
         </li>
     </ul>
