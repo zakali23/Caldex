@@ -30,6 +30,7 @@ class Pdf
         } catch (\Twig_Error_Syntax $e) {
         }
 
+
         $filename = 'myFirstSnappyPDF';
 
         return new Response(
