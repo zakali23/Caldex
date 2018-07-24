@@ -3,6 +3,7 @@
 
 namespace AppBundle\Controller;
 
+
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\FOSUserEvents;

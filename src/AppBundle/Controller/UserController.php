@@ -3,15 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
-
-use AppBundle\Entity\CoPro;
-use AppBundle\Entity\Immeuble;
-use AppBundle\Entity\Syndic;
-use AppBundle\Entity\Lot;
-use AppBundle\Repository\LotRepository;
-use AppBundle\Repository\ImmeubleRepository;
-use AppBundle\Repository\PieceRepository;
-use AppBundle\Repository\UserRepository;
+use AppBundle\Service\Pdf;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -419,6 +411,28 @@ class UserController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * @Route("/consultation/consultation/lots/pdf", name="pdf")
+     * @Method({"GET", "POST"})
+     * @param Pdf $pdf
+     * @return string
+     */
+    public function pdfAction(Pdf $pdf)
+    {
+        return $pdf->pdfAction();
+    }
+
+    /**
+     * @Route("/consultation/consultation/lots/dl", name="dl")
+     * @Method({"GET", "POST"})
+     * @param Pdf $pdf
+     * @return string
+     */
+    public function dlAction(Pdf $pdf)
+    {
+        return $pdf->showAction();
     }
 
 
