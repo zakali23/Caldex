@@ -23,7 +23,14 @@ class Pdf
         $this->snappy->setOption("encoding", "UTF-8");
         $this->snappy->setOption('no-outline', true);
 
-        $html = $this->templating->render('pdf/index.html.twig');
+        try {
+            $html = $this->templating->render('pdf/index.html.twig');
+        } catch (\Twig_Error_Loader $e) {
+        } catch (\Twig_Error_Runtime $e) {
+        } catch (\Twig_Error_Syntax $e) {
+        }
+
+
         $filename = 'myFirstSnappyPDF';
 
         return new Response(
@@ -39,7 +46,7 @@ class Pdf
 
     public function showAction()
     {
-        $html = $this->templating->render('pdf/index.html.twig');
+            $html = $this->templating->render('pdf/index.html.twig');
 
 
         return new Response(

@@ -63,7 +63,7 @@
     <!-- Informations personnelles du client -->
 
             <div class="offset-8">
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><span>Prénom :</span> {{ app.user.firstname }}</li>
                     <li><span>Nom :</span> {{ app.user.lastname }}</li>
                     <li><span>Adresse :</span> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
@@ -74,6 +74,7 @@
 
 
     <!-- Contenu de la facture -->
+
 
 
 {% endblock %}

@@ -23,17 +23,14 @@ class Mailer
 
     public function sendEmail($nomInfo,$prenomInfo,$telephoneInfo,$emailInfo,$adresseInfo,$messageInfo)
     {
-
-            $body = $this->templating->render('emails/send.html.twig', [
-                'nomInfo' => $nomInfo,
-                'prenomInfo' => $prenomInfo,
-                'telephoneInfo' => $telephoneInfo,
-                'emailInfo' => $emailInfo,
-                'adresseInfo' => $adresseInfo,
-                'messageInfo' => $messageInfo
-
-            ]);
-
+        $body = $this->templating->render('emails/send.html.twig', [
+            'nomInfo' => $nomInfo,
+            'prenomInfo' => $prenomInfo,
+            'telephoneInfo' => $telephoneInfo,
+            'emailInfo' => $emailInfo,
+            'adresseInfo' => $adresseInfo,
+            'messageInfo' => $messageInfo
+        ]);
         $message = (new \Swift_Message('infoContact'))
             ->setFrom($emailInfo)
             ->setTo('caldex67@gmail.com')

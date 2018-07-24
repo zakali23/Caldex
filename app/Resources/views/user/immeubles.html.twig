@@ -7,11 +7,16 @@
 {% endblock %}
 
 {% block body %}
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Trouvez Votre Immeuble</h1><br>
+            <form >
+                <input class="form-control" type="search" placeholder="Chercher Par Code Postal" id="listImmeuble" aria-label="Search">
+            </form>
 
-    <form class="form-inline md-form ">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input class="form-control" type="text" placeholder="Chercher Par Code Postal" id="listImmeuble" aria-label="Search">
-    </form>
+        </div>
+    </div>
+
     <div class="container-fluid" >
         <div id="immeuble"></div>
 
