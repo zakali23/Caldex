@@ -4,21 +4,46 @@
 
 {% endblock %}
 {% block body %}
+<div class="container">
     <h1>Installation d'un compteur</h1>
-    <div id="profil" class="col-12 card">
+    <div id="profil" class="card">
         <div class="card-header">
             <h3>Mon Matériel</h3>
         </div>
-        <ul>
-            <li><span>ID :</span>{{ compteur.id }}</li>
-            <li id="typeCompteur"><span>Type :</span> {{ compteur.categorieCompteur }}</li>
-            <li><span>Marque :</span> {{ compteur.marque }}</li>
-            <li><span>Référence :</span>{{ compteur.reference }}</li>
-            <li><span>Numéro de Série :</span> {{ compteur.serialNumber }}</li>
-            <li><span>Date d'Achat:</span> {{ compteur.dateAchat|date("d/m/Y") }}</li>
-            <li><span>Photo :</span> <img src="/images/compteur/{{ compteur.photo }}" width="100" height="auto"></li>
 
-        </ul>
+        <table class="table">
+            <tbody>
+
+            <tr>
+                <th>ID</th>
+                <td>{{ compteur.id }}</td>
+            </tr>
+            <tr>
+                <th id="typeCompteur">Type </th>
+                <td>{{ compteur.categorieCompteur }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ compteur.marque }}</td>
+            </tr>
+            <tr>
+                <th>Référence</th>
+                <td>{{ compteur.reference }}</td>
+            </tr>
+            <tr>
+                <th>Numéro de Série</th>
+                <td>{{ compteur.serialNumber }}</td>
+            </tr>
+            <tr>
+                <th>Date d'achat</th>
+                <td>{{ compteur.dateAchat|date("d/m/Y") }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="/images/compteur/{{ compteur.photo }}" width="100" height="auto"></td>
+            </tr>
+            </tbody>
+        </table>
         {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
         {{ form_end(edit_form) }}
@@ -60,7 +85,7 @@
         <input id="envoiId" name="idCompteur" value="{{ compteur.id }}" type="hidden">
         <input value="Envoyer" type="submit" class="new">
     </form>
-
+</div>
 {% endblock %}
 {% block javascript %}
     <script src="{{ asset('build/user_edit.js')}}"></script>
