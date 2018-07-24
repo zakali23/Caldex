@@ -4,7 +4,7 @@ parameters:
     database_port: null
     database_name: caldex
     database_user: root
-    database_password: Wild3r
+    database_password: jecode4wcs
     mailer_transport: gmail
     mailer_host: smtp.gmail.com
     mailer_user: caldex67@gmail.com
