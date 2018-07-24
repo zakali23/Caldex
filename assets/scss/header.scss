@@ -1,11 +1,11 @@
 .navbar.navbar-expand-lg.navbar-dark {
 
-  background: #e7e093;
+  background: #ececec;
 
 }
 .nav-link.waves-effect.waves-light {
 
-  color: #006633 !important;
+  color: #001309 !important;
   font-weight:300;
   font-size: 18px;
 
@@ -17,7 +17,9 @@
 }
 .navbar.navbar-dark .breadcrumb .nav-item.active > .nav-link, .navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link {
   background-color: transparent;
-  border-bottom: 1px solid #93c01f;
+  border: 2px solid #006633;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .color-primary{
   color: #93c01f !important;
