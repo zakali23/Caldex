@@ -2,7 +2,8 @@ $color-foncer: #006633;
 $color-claire: #93c01f;
 
 footer, footer>a, footer>h6, footer>hr{
-  background-color: #e7e093;
+  background-color: #ececec;
+
 }
 
 .gris-color {
@@ -130,9 +131,9 @@ select.form-control:not([size]):not([multiple]) {
 footer {
   margin-top: 150px;
   p, h6, .linkFooter {
-    color: $color-foncer;
+    color: rgba(41, 41, 41, 0.9);
     .linkFooter {
-      color: $color-foncer;
+      color: black;
       text-decoration: none;
     }
 
