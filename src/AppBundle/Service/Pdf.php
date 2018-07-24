@@ -46,12 +46,7 @@ class Pdf
 
     public function showAction()
     {
-        try {
             $html = $this->templating->render('pdf/index.html.twig');
-        } catch (\Twig_Error_Loader $e) {
-        } catch (\Twig_Error_Runtime $e) {
-        } catch (\Twig_Error_Syntax $e) {
-        }
 
 
         return new Response(
