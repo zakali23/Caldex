@@ -36,6 +36,7 @@ a:hover {
 
 .card.card-primary {
   border-top: 2px solid $color-claire;
+  background-color: #f1f1f1 !important;
 }
 
 .card .card-header,
@@ -48,6 +49,7 @@ a:hover {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
 
 .form-group label {
   font-weight: 500;
