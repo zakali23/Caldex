@@ -12,7 +12,7 @@ class LotRepository extends \Doctrine\ORM\EntityRepository
 {
 
     public function findLotsById($id){
-        $fields = array('l.id', 'l.numero', 'l.etage','l.surface', 'l.reference','l.photo');
+        $fields = array('l.id', 'l.numero', 'l.etage','l.surface','l.tantieme', 'l.reference','l.photo');
         return $this->createQueryBuilder('l')
             ->select($fields)
             ->andWhere('l.appartement = :id')
@@ -23,7 +23,7 @@ class LotRepository extends \Doctrine\ORM\EntityRepository
     }
 
     public function findLotsByAdresseAndId($adresse,$id){
-        $fields = array('l.id', 'l.numero', 'l.surface', 'l.etage','l.photo');
+        $fields = array('l.id', 'l.numero', 'l.surface', 'l.etage','l.photo','l.tantieme');
         return $this->createQueryBuilder('l')
             ->select($fields)
             ->where('l.appartement=:id')
