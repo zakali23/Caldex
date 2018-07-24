@@ -30,14 +30,14 @@
                     <li><a href="/syndic/new">Inscription nouveau syndicat</a></li>
                     <li><a href="/associationcopro/new">Inscription nouvelle association de copropriété</a></li>
                 </div>
-                    <div class="card">
-                        <h2>Listes</h2>
-                        <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
-                        <li><a href="{{ path('syndic_index') }}">Liste des syndicats</a></li>
-                        <li><a href="{{ path('associationcopro_index') }}">Liste des association de copropriétés</a></li>
-                        <li><a href="{{ path('user_index') }}">Liste des Membres</a></li>
+                <div class="card">
+                    <h2>Listes</h2>
+                    <li><a href="{{ path('copro_index') }}">Liste des copropriétés</a></li>
+                    <li><a href="{{ path('syndic_index') }}">Liste des syndicats</a></li>
+                    <li><a href="{{ path('associationcopro_index') }}">Liste des association de copropriétés</a></li>
+                    <li><a href="{{ path('user_index') }}">Liste des Membres</a></li>
 
-                    </div>
+                </div>
                 {% elseif is_granted (['ROLE_GESTION','ROLE_SALARIE']) %}
                     <div class="card">
                         <h2>Consultation Membres</h2>
@@ -49,7 +49,7 @@
 
 
             </div>
-         </div>
+
 
 
 
@@ -62,7 +62,7 @@
             <li><a href="{{ path('piece_new') }}">Création d'une pièce</a></li>
         </div>
     {% elseif is_granted (['ROLE_GESTION','ROLE_SALARIE']) %}
-        <div class="card">
+        <div class="card ">
             <h2>Consultation Immo</h2>
             <li><a href="{{ path('user_consultation') }}">Consultation Immobilière</a></li>
 
@@ -85,7 +85,9 @@
                 <li><a href="{{ path('fournisseurcompteur_index') }}">Liste des modèles de compteurs</a></li>
                 <li><a href="{{ path('fournisseurcompteur_index') }}">Liste des compteurs installés</a></li>
             </div>
+    </div>
 {% elseif is_granted(['ROLE_GESTION','ROLE_SALARIE']) %}
+
         {% elseif is_granted('ROLE_TECHNICIEN') %}
             <div class="row" style="display: flex;">
             <div class="card">
@@ -100,25 +102,29 @@
                 <li><a href="{{ path('fournisseurcompteur_index') }}">Liste des modèles de compteurs</a></li>
                 <li><a href="{{ path('fournisseurcompteur_index') }}">Liste des compteurs installés</a></li>
             </div>
-        {% endif %}
-        <div class="row" style="display: flex;">
-            <div class="card">
-                <h2>Consommations</h2>
-                {% if is_granted ('ROLE_GESTION') %}
-                    <li>Consomations de la Co-Propriété</li>
-                {% endif %}
-                {% if is_granted ('ROLE_SALARIE') %}
-                    <li>Consomations de l'Immeuble</li>
-                {% endif %}
-                {% if is_granted ('ROLE_USER') %}
-                    <li>Consomations Lot/Appartement</li>
-                    <li>Consomations par pièce</li>
-                {% endif %}
-
             </div>
+        {% endif %}
+
+
+    <div class="row" style="display: flex;">
+        <div class="card">
+            <h2>Consommations</h2>
+            {% if is_granted ('ROLE_GESTION') %}
+                <li>Consomations de la Co-Propriété</li>
+            {% endif %}
+            {% if is_granted ('ROLE_SALARIE') %}
+                <li>Consomations de l'Immeuble</li>
+            {% endif %}
+            {% if is_granted ('ROLE_USER') %}
+                <li>Consomations Lot/Appartement</li>
+                <li>Consomations par pièce</li>
+            {% endif %}
+
         </div>
+    </div>
+
 
     </div>
 
-</div>
+    </div>
 {% endblock %}
