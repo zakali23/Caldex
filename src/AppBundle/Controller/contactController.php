@@ -171,6 +171,8 @@ class contactController extends Controller
         return $this->redirectToRoute('contact_index');
     }
 
+
+
     /**
      * Creates a form to delete a contact entity.
      *

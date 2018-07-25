@@ -11,7 +11,6 @@
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
     <style class="cp-pen-styles">@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
@@ -26,7 +25,8 @@
         <div class="c-header-icon js-hamburger">
             <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
         </div>
-        <div class="c-header-icon has-dropdown"><span class="c-badge c-badge--header-icon animated shake">12</span><i class="fa fas fa-envelope"></i>
+        <div class="c-header-icon has-dropdown"><a href="{{ path('infocontact_notif') }}"><span id="numberNotif" class=" c-badge c-badge--header-icon animated shake">
+                </span><i class="fa fas fa-envelope"></i></a>
             <div class="c-dropdown c-dropdown--notifications">
                 <div class="c-dropdown__header"></div>
                 <div class="c-dropdown__content"></div>
@@ -299,7 +299,16 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/js/mdb.min.js"></script>
 <script src="{{ asset('build/header_admin.js')}}"></script>
+<script>
 
+    $(document).ready(function()
+    {
+        $.get( "http://localhost:8000/infocontact/notification/number", function(data ) {
+            console.log(data);
+            $('#numberNotif').html(data)
+        });
+    });
+</script>
 
 
 </body>
