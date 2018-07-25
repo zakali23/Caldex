@@ -1,4 +1,5 @@
-{% extends "admin/base_admin.html.twig"%}
+{% extends 'base.html.twig' %}
+
 {% block body %}
     <h1>Infocontacts list</h1>
 
@@ -12,6 +13,7 @@
                 <th>Telephoneinfo</th>
                 <th>Adresseinfo</th>
                 <th>Messageinfo</th>
+                <th>Notification</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,6 +27,7 @@
                 <td>{{ infoContact.telephoneInfo }}</td>
                 <td>{{ infoContact.adresseInfo }}</td>
                 <td>{{ infoContact.messageInfo }}</td>
+                <td>{% if infoContact.notification %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>

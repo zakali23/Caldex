@@ -17,8 +17,6 @@ class User extends BaseUser
 {
 
     /**
-     * @var string
-     *
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\CoPro", cascade={"persist"}, fetch="EAGER")
      */
     private $copros;
@@ -57,6 +55,8 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+
 
     /**
      * @var string
@@ -394,20 +394,6 @@ class User extends BaseUser
     public function getDateSortie()
     {
         return $this->dateSortie;
-    }
-
-    /**
-     * Set copro.
-     *
-     * @param string $copros
-     *
-     * @return User
-     */
-    public function setCopros($copros)
-    {
-        $this->copros = $copros;
-
-        return $this;
     }
 
     /**

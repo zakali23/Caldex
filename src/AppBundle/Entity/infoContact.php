@@ -63,6 +63,14 @@ class infoContact
      */
     private $messageInfo;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="notification",type="boolean", nullable=true, options={"default":false})
+     */
+    private $notification;
+
+
 
     /**
      * Get id.
@@ -216,5 +224,29 @@ class infoContact
     public function getMessageInfo()
     {
         return $this->messageInfo;
+    }
+
+    /**
+     * Set notification.
+     *
+     * @param string $notification
+     *
+     * @return infoContact
+     */
+    public function setNotification($notification)
+    {
+        $this->notification = $notification;
+
+        return $this;
+    }
+
+    /**
+     * Get notification.
+     *
+     * @return string
+     */
+    public function getNotification()
+    {
+        return $this->notification;
     }
 }

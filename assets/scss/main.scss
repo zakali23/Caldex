@@ -2,6 +2,7 @@ $color-foncer: #006633;
 $color-claire: rgba(159, 202, 27, 0.6);
 
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Lekton|Marcellus+SC|Ubuntu:300');
 
 body{
   background: #6f757d;
@@ -20,7 +21,10 @@ h1, h2, h3,h4,h5,h6{
   color: black;
   font-family: 'Titillium Web', sans-serif;
 }
-
+p{
+  color: black;
+  font-family: 'Ubuntu', sans-serif ;
+}
 #myBtn {
 
   position: fixed;

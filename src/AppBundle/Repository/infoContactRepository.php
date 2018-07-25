@@ -10,4 +10,32 @@ namespace AppBundle\Repository;
  */
 class infoContactRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findEmailNotRead(){
+        $fields = array('i.id','i.nomInfo', 'i.prenomInfo', 'i.emailInfo', 'i.telephoneInfo','i.adresseInfo','i.messageInfo');
+        return $this->createQueryBuilder('i')
+            ->select($fields)
+            ->andWhere('i.notification = :val')
+            ->setParameter('val',0)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findNumberNotif(){
+        $fields = array('i.nomInfo');
+        return $this->createQueryBuilder('i')
+            ->select ($this->count($fields))
+            ->where('i.notification = :val')
+            ->setParameter('val',0)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function updateNotification($id){
+        return $this->getEntityManager()
+            ->createQuery("UPDATE AppBundle:infoContact i SET i.notification='1'  where i.id=$id")
+            ->getResult();
+    }
 }
+
