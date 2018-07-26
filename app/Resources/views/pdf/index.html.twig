@@ -2,79 +2,120 @@
 
 {% block body %}
 
-    <!-- Logo de l'entreprise -->
+<div class="container-fluid">
 
-    <p style="color: white;">.</p>
-    <hr style="margin-left: 0" width="300" size="1" color="#da328a">
-    <table style="font-family:Open Sans, Verdana,sans-serif">
-        <tr>
-            <tr>
-                <td><img moz-do-not-send="false" height="50" src="/home/wilder/Bureau/caldex/web/images/logo.png">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table>
+                                            <!-- Logo de l'entreprise -->
+
+    <div class="row">
+        <div class="col-6">
+            <p style="color: white;">.</p>
+            <hr style="margin-left: 0" width="400" size="1" color="#da328a">
+                <div style="font-family:Open Sans, Verdana,sans-serif; font-size: 20px; line-height: 20px">
+                    <img moz-do-not-send="false" height="50" src="/home/wilder/Bureau/caldex/web/images/logo.png">
+                    <br>
+                    <br>
+                    <p style="font-family:Open Sans, Verdana,sans-serif">
+                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/122999adresse.png" style="width:13px;height:13px;margin-right:5px">
+                        Caldex - 52 av du repos - Mulhouse
+                    </p>
+
+                    <p style="font-family:Open Sans, Verdana,sans-serif">
+                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/261601phone.png" style="width:13px;height:13px;margin-right:5px">                     03 88 81 99 99 <br>
+                    </p>
+
+                    <p style="font-family:Open Sans, Verdana,sans-serif;color:black;text-decoration:none">
+                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/863867mail.png" style="width:13px;height:13px;margin-right:5px">
+                        caldex67@gmail.com<br>
+                    </p>
+
+                    <a  href="http://ubicentrex.fr" style="color:#da328a;text-decoration:none">
+                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/417739site.png" style="width:13px;height:13px;margin-right:5px">
+                        caldex.fr
+                    </a>
+                </div>
+            <hr style="margin-left: 0" width="400" size="1" color="#0086b1">
+        </div>
+
+
+
+                    <!-- Informations personnelles du client -->
+
+                    <ul style="list-style-type: none; margin-top: 90px; margin-left: 360px">
+                        <li>Information client :</li>
                         <br>
-                        <tr>
-                            <td>
-                                <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/122999adresse.png" style="width:13px;height:13px;margin-right:5px"><br>
-                            </td>
-                            <td style=" font-family:Open Sans, Verdana,sans-serif">
-                                Caldex - 52 AV DU REPOS - MULHOUSE<br>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                            <tr>
-                                <td>
-                                    <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/261601phone.png" style="width:13px;height:13px;margin-right:5px"><br>
-                                </td>
-                                <td style="font-family:Open Sans, Verdana,sans-serif">
-                                    03 88 81 99 99 <br>
-                                </td>
-                            </tr>
-                    </table>
-                    <table>
-                                <tr>
-                                    <td>
-                                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/863867mail.png" style="width:13px;height:13px;margin-right:5px"><br>
-                                    </td>
-                                    <td style="font-family:Open Sans, Verdana,sans-serif;color:black;text-decoration:none">
-                                        caldex67@gmail.com<br>
-                                    </td>
-                                </tr>
-                    </table>
-                    <table>
-                                <tr>
-                                    <td>
-                                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/417739site.png" style="width:13px;height:13px;margin-right:5px"><br>
-                                    </td>
-                                    <td>
-                                        <a  href="http://ubicentrex.fr" style="color:#da328a;text-decoration:none">caldex.fr</a><br>
-                                    </td>
-                                </tr>
-                    </table>
-        </tr>
-    </table>
-<hr style="margin-left: 0" width="300" size="1" color="#0086b1">
+                        <li><span>Prénom :</span> {{ app.user.firstname }}</li>
+                        <li><span>Nom :</span> {{ app.user.lastname }}</li>
+                        <li><span>Adresse :</span> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
+                        <li><span>Téléphone :</span>
+                            {% set phoneNumber = app.user.phone|split ('', 2) %}
+                            {% set formattedString = phoneNumber|join('.') %}
+                            {{ formattedString }}
+                        </li>
+                        <li><span>Email:</span> {{ app.user.email }}</li>
+                    </ul>
 
 
-    <!-- Informations personnelles du client -->
+    </div>
+        <!-- Contenu de la facture -->
 
-            <div class="offset-8">
-                <ul style="list-style-type: none;">
-                    <li><span>Prénom :</span> {{ app.user.firstname }}</li>
-                    <li><span>Nom :</span> {{ app.user.lastname }}</li>
-                    <li><span>Adresse :</span> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
-                    <li><span>Téléphone :</span> {{ app.user.phone }}</li>
-                    <li><span>Email:</span> {{ app.user.email }}</li>
-                </ul>
+        <aside class="row">
+
+            <div style="margin-top: 200px" class="col-12">
+                <h1 class="text-center">Consommation :</h1>
+
+                <h5 class="text-center">Veuillez trouvez ci-dessous votre consommation personnelle </h5>
+
             </div>
 
+        </aside>
 
-    <!-- Contenu de la facture -->
+        <section style="margin-top: 200px" class="row">
+
+            <div class="col-12">
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Calorimètre (n° de série)</th>
+                        <th>date d'installation</th>
+                        <th>Mois de consommation</th>
+                        <th>Total consommation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345678</td>
+                            <td>10/04/2018</td>
+                            <td>Juillet</td>
+                            <td>24,3</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
 
 
+</div>
+
+
+
+{% endblock %}
+
+{% block stylesheets %}
+
+    <style>
+
+        td, th{
+            font-size: 30px !important;
+        }
+
+        li{
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+    </style>
 
 {% endblock %}
