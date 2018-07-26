@@ -5,7 +5,7 @@
 
 <div class="container">
 
-    <h1 style="text-align: center">Information  {{ user.typeLocProps.current }}</h1>
+    <h1 style="text-align: center">Informations  {{ user.typeLocProps.current }}</h1>
     <div class="row" style="display: flex;">
 
 
@@ -49,10 +49,10 @@
 
         <ul>
             <li>
-                <a href="{{ path('user_index') }}">Back to the list</a>
+                <a href="{{ path('user_index') }}">Liste des utilisateurs</a>
             </li>
             <li>
-                <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
+                <a href="{{ path('user_edit', { 'id': user.id }) }}">Modifier</a>
             </li>
         </ul>
 

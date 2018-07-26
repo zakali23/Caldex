@@ -25,14 +25,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('lot_new') }}">Back to the list</a>
+            <a href="{{ path('lot_new') }}">Liste des lots</a>
         </li>
         <li>
-            <a href="{{ path('lot_edit', { 'id': lot.id }) }}">Edit</a>
+            <a href="{{ path('lot_edit', { 'id': lot.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer" class="supp">
             {{ form_end(delete_form) }}
         </li>
     </ul>

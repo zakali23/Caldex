@@ -2,7 +2,7 @@
 {% block body %}
     <h1>Compteur</h1>
 
-    <table>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Type de Compteur </th>
@@ -22,29 +22,29 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ compteur.photo }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/compteur/{{ compteur.photo }}" width="100" height="auto"></a></td>
             </tr>
             <tr>
                 <th>Dateinstallation</th>
-                <td>{% if compteur.dateInstallation %}{{ compteur.dateInstallation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if compteur.dateInstallation %}{{ compteur.dateInstallation|date('d-m-Y') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Dateachat</th>
-                <td>{% if compteur.dateAchat %}{{ compteur.dateAchat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if compteur.dateAchat %}{{ compteur.dateAchat|date('d-m-Y') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('compteur_index') }}">Back to the list</a>
+            <a href="{{ path('compteur_index') }}">Liste des compteurs</a>
         </li>
         <li>
-            <a href="{{ path('compteur_edit', { 'id': compteur.id }) }}">Edit</a>
+            <a href="{{ path('compteur_edit', { 'id': compteur.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer" class="supp">
             {{ form_end(delete_form) }}
         </li>
     </ul>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 $color-foncer: #006633;
 $color-claire: #93c01f;
 
@@ -30,12 +31,14 @@ h4 {
   margin-bottom: 30px;
 }
 #vous{
-  font-size: 3em;
-  color: $color-claire;
-  font-weight: 600;
-  margin-bottom: 30px;
   text-align: center;
+  padding: 3vh;
+  font-family: 'Abril Fatface', cursive;
 
+}
+
+div.container-fluid.vous{
+  margin-bottom: 10vh;
 }
 .light{
   color:white;
@@ -47,7 +50,9 @@ h4 {
   background-image: url("/images/abstract-21851_1920.jpg");
 }
 .bg{
-  background-color: #edffe6;
+  background-color: #ececec;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.39);
+  border-top: 1px solid rgba(0, 0, 0, 0.39);
 }
 .vous{
   margin-bottom: -150px;

@@ -2,7 +2,7 @@
 
 
 {% block body %}
-    <h1>Compteur creation</h1>
+    <h1>Créer un compteur</h1>
 {{ form_start(form) }}
         <label>Type de Compteur</label>
         {{ form_widget(form.categorieCompteur) }}
@@ -25,15 +25,11 @@
 
     {{ form_rest(form, {'required':false}) }}
 
-    <input type="submit" value="Create" />
+    <input type="submit" value="Create" class="new"/>
 
     {{ form_end(form) }}
 
 
+            <a href="{{ path('compteur_index') }}">Liste des compteurs</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('compteur_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}

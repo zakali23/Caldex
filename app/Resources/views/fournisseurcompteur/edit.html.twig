@@ -1,21 +1,20 @@
 {% extends "admin/base_admin.html.twig"%}
 
 {% block body %}
-    <h1>Fournisseurcompteur edit</h1>
+    <h1>Modifier le fournisseur</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input type="submit" value="Modifier" class="modif" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('fournisseurcompteur_index') }}">Back to the list</a>
-        </li>
-        <li>
+
+
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+    <br><input type="submit" value="Delete" class="supp">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+    <a href="{{ path('fournisseurcompteur_index') }}">Liste des fournisseurs</a>
+
 {% endblock %}
