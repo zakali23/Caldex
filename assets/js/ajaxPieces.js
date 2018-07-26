@@ -31,7 +31,8 @@ function showRooms() {
                 "<button type='button' class='close' data-dismiss='modal' aria-label='Close'<span aria-hidden='true'>&times;</span></button>"+
                 "<h4 class='modal-title text-center' id='myModalLabel'>Photo</h4>"+
                 "</div>"+
-                "<div class='modal-body'><img class=\"img-responsive\" alt=\"\" src='/images/lot/"+value['photo']+"' />"+
+                "<div class='modal-body'><img class='img-responsive' style='width: 100%;\n" +
+                "object-fit: cover;' src='/images/lot/"+value['photo']+"' />"+
                 "</div>"+
                 "<div class='modal-footer'>"+
                 "<button type='button' class='btn btn-default' data-dismiss='modal'>Fermer</button>"+
