@@ -22,14 +22,11 @@ class Pdf
     {
         $this->snappy->setOption("encoding", "UTF-8");
         $this->snappy->setOption('no-outline', true);
+        $this->snappy->setOption('disable-javascript', true);
 
-        try {
+
+
             $html = $this->templating->render('pdf/index.html.twig');
-        } catch (\Twig_Error_Loader $e) {
-        } catch (\Twig_Error_Runtime $e) {
-        } catch (\Twig_Error_Syntax $e) {
-        }
-
 
         $filename = 'myFirstSnappyPDF';
 
@@ -38,7 +35,8 @@ class Pdf
             200,
             array(
                 'Content-Type'          => 'application/pdf',
-                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"',
+
             )
         );
 
@@ -47,6 +45,7 @@ class Pdf
     public function showAction()
     {
             $html = $this->templating->render('pdf/index.html.twig');
+            $test ="ceci est un test";
 
 
         return new Response(
@@ -54,7 +53,8 @@ class Pdf
             200,
             array(
                 'Content-Type'          => 'application/pdf',
-                'Content-Disposition'   => 'attachment; filename="Facture_'.date('m/Y').'.pdf"'
+                'Content-Disposition'   => 'attachment; filename="Facture_'.date('m/Y').'.pdf"',
+                'test' => $test
             )
         );
 
